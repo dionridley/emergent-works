@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:tine945.wixsite.com)",
+      "Bash(where:*)",
+      "Bash(pdftotext:*)",
+      "WebFetch(domain:webcache.googleusercontent.com)",
+      "WebFetch(domain:web.archive.org)",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "mcp__plugin_playwright_playwright__browser_resize",
+      "mcp__plugin_playwright_playwright__browser_take_screenshot",
+      "mcp__plugin_playwright_playwright__browser_run_code",
+      "mcp__plugin_playwright_playwright__browser_evaluate",
+      "mcp__plugin_playwright_playwright__browser_close"
+    ]
+  }
+}
