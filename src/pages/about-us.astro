@@ -1,0 +1,157 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Section from "../components/Section.astro";
+import Button from "../components/Button.astro";
+---
+
+<BaseLayout title="About Us - Emergent Works">
+
+  {/* Section 1: Our Mission */}
+  <Section variant="background" class="!py-16 lg:!py-24">
+    <h1 class="text-h2 lg:text-[44px] font-bold text-text mb-8">Our Mission</h1>
+    <p class="text-body lg:text-body-lg text-text leading-relaxed mb-12 max-w-4xl">
+      At Emergent Works, we break cycles of incarceration and poverty by equipping BIPOC individuals impacted by the criminal justice system with the tools to thrive in today's digital world. Through education, employment, economic mobility, and creativity, we empower our participants to build financial independence, grow personally, and lead within their communities.
+    </p>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <div class="overflow-hidden rounded-2xl">
+        <img
+          src="/images/about-mission-group.jpg"
+          alt="Emergent Works community members celebrating together"
+          class="w-full h-64 lg:h-96 object-cover"
+          loading="lazy"
+        />
+      </div>
+      <div class="space-y-6">
+        <p class="text-body-sm lg:text-body text-text leading-relaxed">
+          Emergent Works provides free technical and creative education, Social Emotional Learning development, and workforce pathways that support system-impacted youth and adults in building brighter futures. Using music, digital literacy, mentorship, and civic engagement, we help our community develop real social and practical skills, emotional resilience, and community connection &mdash; guided by alumni and mentors who've walked the same path.
+        </p>
+        <Button href="#what-we-do" icon={true}>Learn More</Button>
+      </div>
+    </div>
+  </Section>
+
+  {/* Section 2: What We Do */}
+  <Section id="what-we-do" variant="background" class="!py-16 lg:!py-24">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-h2 lg:text-[44px] font-bold text-text mb-6">What We Do</h2>
+      <p class="text-body-sm lg:text-body text-text leading-relaxed mb-8">
+        Emergent Works provides free technical and creative education, Social Emotional Learning development, and workforce pathways that support system-impacted youth and adults in building brighter futures. Using music, digital literacy, mentorship, and civic engagement, we help our community develop real social and practical skills, emotional resilience, and community connection &mdash; guided by alumni and mentors who've walked the same path.
+      </p>
+    </div>
+
+    {/* Decorative circular images */}
+    <div class="flex items-center justify-center gap-6 lg:gap-10 mb-10">
+      <img
+        src="/images/about-whatwedo-circle1.png"
+        alt=""
+        class="w-32 h-32 lg:w-44 lg:h-44 rounded-full object-cover hidden md:block"
+        aria-hidden="true"
+        loading="lazy"
+      />
+      <img
+        src="/images/about-whatwedo-circle2.png"
+        alt=""
+        class="w-28 h-28 lg:w-36 lg:h-36 rounded-full object-cover hidden md:block"
+        aria-hidden="true"
+        loading="lazy"
+      />
+      <img
+        src="/images/about-whatwedo-circle3.png"
+        alt=""
+        class="w-20 h-20 lg:w-28 lg:h-28 rounded-full object-cover hidden md:block"
+        aria-hidden="true"
+        loading="lazy"
+      />
+    </div>
+
+    <div class="text-center">
+      <Button href="/programs">Explore Programs</Button>
+    </div>
+  </Section>
+
+  {/* Section 3: Why We Do It — Asymmetric Split */}
+  <section class="grid grid-cols-1 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
+    {/* Left dark green panel */}
+    <div class="bg-primary px-8 py-16 lg:px-12 lg:py-24 flex flex-col justify-center relative overflow-hidden">
+      <h2 class="text-h1 lg:text-[72px] font-bold text-white leading-tight mb-8 relative z-10">
+        Why We<br />Do It
+      </h2>
+      {/* Decorative heart illustrations */}
+      <div class="relative z-10 flex gap-4">
+        <img
+          src="/images/about-whywedoit-left.png"
+          alt=""
+          class="w-24 h-24 lg:w-32 lg:h-32 object-contain"
+          aria-hidden="true"
+          loading="lazy"
+        />
+      </div>
+      <img
+        src="/images/about-whywedoit-bottom.png"
+        alt=""
+        class="absolute bottom-4 right-4 w-20 h-20 lg:w-28 lg:h-28 object-contain opacity-70"
+        aria-hidden="true"
+        loading="lazy"
+      />
+    </div>
+
+    {/* Right cream panel */}
+    <div class="bg-background px-8 py-16 lg:px-12 lg:py-24 flex flex-col justify-center space-y-6">
+      <p class="text-body-sm lg:text-body text-text leading-relaxed">
+        Justice-impacted Black and Brown youth and adults face systemic barriers that limit access to education, economic mobility, and meaningful career pathways. A single interaction with the criminal legal system can derail a lifetime of opportunity, while employers in tech and other growing fields continue to overlook resilient, capable talent.
+      </p>
+      <p class="text-body-sm lg:text-body text-text leading-relaxed">
+        At Emergent Works, we address these inequities by centering the voices and potential of system-impacted individuals. Our work tackles the root causes &mdash; structural racism, limited access to digital skills and mentorship, and hiring practices that prioritize credentials over capability. We create pathways where participants can rebuild confidence, grow economically, and lead in their communities. Through this, we aim to shape a more equitable future where those most impacted by injustice can thrive and drive change.
+      </p>
+      <div>
+        <Button href="/impact">See Our Impact</Button>
+      </div>
+    </div>
+  </section>
+
+  {/* Section 4: Our Story & Who We Are */}
+  <Section variant="background" class="!py-16 lg:!py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <div class="space-y-5">
+        <h2 class="text-h1 lg:text-[72px] font-bold text-text leading-tight">
+          Our Story &amp;<br />Who We Are
+        </h2>
+        <p class="text-body-sm lg:text-body text-text leading-relaxed">
+          Founded in 2020, Emergent Works was born from a bold question: what if technology could be a path to freedom? Originally launched as Code Cooperative, we began as a mentorship circle for justice-impacted individuals learning to code.
+        </p>
+        <p class="text-body-sm lg:text-body text-text leading-relaxed">
+          Today, under the leadership of Army Armstead &mdash; a graduate of our first cohort who rose from mentee to mentor to Co-Founder and Executive Director &mdash; EW has grown into a movement that blends technology, creativity, and community to open doors for those most excluded from opportunity.
+        </p>
+        <p class="text-body-sm lg:text-body text-text leading-relaxed">
+          Our team is built from the communities we serve: 100% of staff are program alumni, 80% are system-impacted, 80% are BIPOC, and 40% are female-identifying. We prioritize representation and equity across our programs, leadership, and board, ensuring the voices of youth and system-impacted individuals shape our work every step of the way.
+        </p>
+        <div class="pt-2">
+          <Button href="/our-team">Meet Our Team</Button>
+        </div>
+      </div>
+      <div class="overflow-hidden rounded-2xl">
+        <img
+          src="/images/about-ourstory-portrait.jpg"
+          alt="Emergent Works program graduation celebration"
+          class="w-full h-80 lg:h-[600px] object-cover"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </Section>
+
+  {/* Section 5: Donate CTA */}
+  <Section variant="green" class="!py-16 lg:!py-24">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-h1 lg:text-[55px] font-bold text-white leading-tight mb-6">
+        Support Our Community To Rewrite The Future
+      </h2>
+      <p class="text-body lg:text-body-lg text-white/90 mb-8">
+        Every gift makes a difference. Join us and be part of the change.
+      </p>
+      <Button href="/donate" variant="gold">Donate Today</Button>
+    </div>
+  </Section>
+
+</BaseLayout>

@@ -1,0 +1,38 @@
+---
+interface Props {
+  backgroundImage: string;
+  backgroundAlt: string;
+  overlay?: boolean;
+  height?: string;
+  class?: string;
+}
+
+const {
+  backgroundImage,
+  backgroundAlt,
+  overlay = true,
+  height = "min-h-[500px] lg:min-h-[650px]",
+  class: className = "",
+} = Astro.props;
+---
+
+<section
+  class:list={[
+    "relative flex items-end justify-center",
+    height,
+    className,
+  ]}
+>
+  <img
+    src={backgroundImage}
+    alt={backgroundAlt}
+    class="absolute inset-0 w-full h-full object-cover"
+    loading="eager"
+  />
+  {overlay && (
+    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-black/10" aria-hidden="true" />
+  )}
+  <div class="relative z-10 max-w-7xl mx-auto w-full px-section-x pb-12 lg:pb-20">
+    <slot />
+  </div>
+</section>

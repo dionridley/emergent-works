@@ -1,0 +1,14 @@
+---
+interface Props {
+  value: string;
+  label: string;
+  class?: string;
+}
+
+const { value, label, class: className = "" } = Astro.props;
+---
+
+<div class:list={["text-center", className]}>
+  <div class="text-display lg:text-[5rem] font-bold leading-none mb-2">{value}</div>
+  <p class="text-body-sm lg:text-body">{label}</p>
+</div>

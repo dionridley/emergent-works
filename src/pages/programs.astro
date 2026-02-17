@@ -1,0 +1,151 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Section from "../components/Section.astro";
+import Button from "../components/Button.astro";
+import ProgramCard from "../components/ProgramCard.astro";
+---
+
+<BaseLayout title="Programs - Emergent Works">
+
+  {/* Section 1: Hero */}
+  <Section variant="green" class="!py-16 lg:!py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <div>
+        <h1 class="text-h1 lg:text-[72px] font-bold text-white leading-tight mb-6">Our Programs</h1>
+        <p class="text-body lg:text-body-lg text-white/90 leading-relaxed">
+          Emergent Works empowers system-impacted youth and adults through free digital education, creative programs, mentorship, and alumni-led workforce pathways.
+        </p>
+      </div>
+      <div class="overflow-hidden rounded-2xl">
+        <img
+          src="/images/programs-hero.jpg"
+          alt="Emergent Works community member at a program event"
+          class="w-full h-64 lg:h-96 object-cover"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </Section>
+
+  {/* Section 2: How Our Programs Work */}
+  <Section variant="green" class="!py-16 lg:!py-24">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-h2 lg:text-[44px] font-bold text-white mb-8">How Our Programs Work</h2>
+      <p class="text-body-sm lg:text-body text-white/90 leading-relaxed mb-6">
+        Our programs support system-impacted youth and adults in building the digital skills, confidence, and community needed to thrive in today's world. Led by instructors and mentors who reflect our participants' lived experiences, our programs blend creative expression, technical training, and social-emotional learning.
+      </p>
+      <p class="text-body-sm lg:text-body text-white/90 leading-relaxed mb-8">
+        We offer programming in person at our location as well as across New York City and virtual upon request, creating safe, inclusive, and culturally responsive spaces where participants can explore their interests, develop new skills, and prepare for meaningful careers. Every program is designed to restore dignity, build agency, and open doors to long-term opportunity.
+      </p>
+      <Button href="#direct-programs" icon={true}>Learn More</Button>
+    </div>
+  </Section>
+
+  {/* Direct Programs */}
+  <div id="direct-programs">
+    {/* Section 3: T.RAP (Direct) */}
+    <Section variant="background" class="!py-8 lg:!py-12">
+      <ProgramCard
+        title="T.RAP"
+        description="This free creative workforce program blends music production, songwriting, recording, civic engagement, and digital literacy with social-emotional learning and career readiness. Participants earn milestone-based stipends as they build practical skills, create original music, strengthen their confidence, and explore pathways to future education and employment."
+        image="/images/programs-trap-studio.jpg"
+        imageAlt="Young people in a recording and creative studio setting"
+        imagePosition="left"
+        details={[
+          { label: "Eligibility", value: "NYC youth ages 16-24 who identify as Black, Brown and system-impacted" },
+          { label: "Duration", value: "July 2025 - June 2026" },
+          { label: "Apply By", value: "Ongoing" },
+        ]}
+        ctaText="Apply"
+        ctaHref="#"
+      />
+    </Section>
+
+    {/* Section 4: Technical Mentorship */}
+    <Section variant="background" class="!py-8 lg:!py-12">
+      <ProgramCard
+        title="Technical Mentorship"
+        description="This free 12-week virtual and individual mentorship program connects participants with industry professionals who provide one-on-one support in digital literacy, coding, UI/UX, and tech career exploration. Participants meet with their mentor once a week to build real skills, complete portfolio-ready projects, and gain the confidence in the digital landscape."
+        image="/images/programs-mentorship-library.jpg"
+        imageAlt="Participants working at computers in a library setting"
+        imagePosition="right"
+        details={[
+          { label: "Eligibility", value: "System-impacted individuals 18+ residing in United States" },
+          { label: "Duration", value: "12 weeks, all year round" },
+          { label: "Apply By", value: "Ongoing" },
+        ]}
+        ctaText="Apply"
+        ctaHref="#"
+      />
+    </Section>
+  </div>
+
+  {/* Section 5: Programs For Partners divider */}
+  <Section id="partner-programs" variant="green" class="!py-16 lg:!py-24">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-h2 lg:text-[44px] font-bold text-white mb-8">Programs For Partners</h2>
+      <p class="text-body-sm lg:text-body text-white/90 leading-relaxed mb-8">
+        Non-profit organizations can book our T.RAP and TECK programs to serve their own communities. T.RAP focuses on social-emotional learning, therapeutic writing, and music production, while TECK builds digital literacy skills like Google Suite, AI, Canva, and basic website building. Empower your participants with hands-on learning, mentorship, and real-world opportunities.
+      </p>
+      <Button href="#partner-cards" icon={true}>Learn More</Button>
+    </div>
+  </Section>
+
+  {/* Partner Program Cards */}
+  <div id="partner-cards">
+    {/* Section 6: TECK (Partner) */}
+    <Section variant="background" class="!py-8 lg:!py-12">
+      <ProgramCard
+        title="TECK"
+        description="Our TECK program offers flexible digital literacy training exclusively for partner organizations. Cohorts run 4, 8, or 12 weeks and provide participants with hands-on experience in Google Suite, AI tools, Canva, and basic website building. TECK helps organizations equip their communities with essential technical skills, confidence, and workforce readiness, all guided by Emergent Works' proven curriculum and instructors."
+        image="/images/programs-teck-library.jpg"
+        imageAlt="Participants learning digital skills in a computer lab"
+        imagePosition="left"
+        details={[
+          { label: "Eligibility", value: "Cohorts designed for system-impacted communities from partner organizations" },
+          { label: "Duration", value: "4, 8, or 12 weeks" },
+          { label: "Book By", value: "Ongoing" },
+        ]}
+        ctaText="Book"
+        ctaHref="/partner-with-us"
+      />
+    </Section>
+
+    {/* Section 7: T.RAP (Partner) */}
+    <Section variant="background" class="!py-8 lg:!py-12">
+      <ProgramCard
+        title="T.RAP"
+        description="Our T.RAP program offers immersive social-emotional learning and creative skills training exclusively for partner organizations. Cohorts run 8-12+ weeks, guiding participants through therapeutic writing, music production, and leadership development. T.RAP helps organizations empower their communities with emotional resilience and creative expression, all led by Emergent Works' experienced instructors and alumni mentors."
+        image="/images/programs-mentorship-library.jpg"
+        imageAlt="Program participants in a collaborative learning environment"
+        imagePosition="right"
+        details={[
+          { label: "Eligibility", value: "System-impacted youth ages 16-24" },
+          { label: "Duration", value: "8-12 weeks+" },
+          { label: "Book By", value: "Ongoing" },
+        ]}
+        ctaText="Book"
+        ctaHref="/partner-with-us"
+      />
+    </Section>
+  </div>
+
+  {/* Section 8: Testimonial / CTA */}
+  <Section variant="green" class="!py-16 lg:!py-24">
+    <div class="max-w-3xl mx-auto text-center">
+      <img
+        src="/images/programs-laptop-illustration.png"
+        alt=""
+        class="w-32 h-24 lg:w-48 lg:h-36 object-contain mx-auto mb-8"
+        aria-hidden="true"
+        loading="lazy"
+      />
+      <blockquote class="text-body lg:text-body-lg text-white leading-relaxed mb-8">
+        &ldquo;Overall, the Program at Emergent Works has been a life-changing experience, equipping me with the skills, knowledge, and support needed to advance my career and personal growth.&rdquo;
+      </blockquote>
+      <cite class="not-italic font-bold text-body text-white block mb-8">&mdash; Blueberry</cite>
+      <Button href="/impact" variant="accent">Explore Impact</Button>
+    </div>
+  </Section>
+
+</BaseLayout>

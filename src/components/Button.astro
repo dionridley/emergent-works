@@ -1,0 +1,40 @@
+---
+interface Props {
+  href?: string;
+  variant?: "primary" | "accent" | "gold";
+  class?: string;
+  icon?: "arrow-down" | "none";
+  type?: "button" | "submit";
+}
+
+const {
+  href,
+  variant = "primary",
+  class: className = "",
+  icon = "none",
+  type = "button",
+} = Astro.props;
+
+const variantClasses: Record<string, string> = {
+  primary: "bg-primary text-white hover:bg-primary/90 border-2 border-primary",
+  accent: "bg-transparent text-accent border-2 border-accent hover:bg-accent/10",
+  gold: "bg-accent text-dark-green hover:bg-accent/90 border-2 border-accent",
+};
+
+const baseClasses = "inline-flex items-center gap-2 px-8 py-3 rounded-full font-medium text-body-xs transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
+
+const Tag = href ? "a" : "button";
+---
+
+<Tag
+  href={href}
+  type={!href ? type : undefined}
+  class:list={[baseClasses, variantClasses[variant], className]}
+>
+  <slot />
+  {icon === "arrow-down" && (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 5v14M19 12l-7 7-7-7" />
+    </svg>
+  )}
+</Tag>

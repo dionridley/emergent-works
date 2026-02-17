@@ -1,0 +1,3357 @@
+{
+  "version": "2.8",
+  "children": [
+    {
+      "type": "frame",
+      "id": "bi8Au",
+      "x": 0,
+      "y": 0,
+      "name": "Homepage",
+      "clip": true,
+      "width": 1440,
+      "fill": "#FFF8ED",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "KLLk8",
+          "name": "Hero Section",
+          "clip": true,
+          "width": "fill_container",
+          "height": 650,
+          "fill": "#20493C",
+          "layout": "none",
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "A4t4a",
+              "x": 0,
+              "y": 0,
+              "name": "Hero Overlay",
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 0,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#00000050",
+                    "position": 0
+                  },
+                  {
+                    "color": "#00000010",
+                    "position": 1
+                  }
+                ]
+              },
+              "width": "fill_container(1440)",
+              "height": "fill_container(650)"
+            },
+            {
+              "type": "frame",
+              "id": "I7LNf",
+              "x": 0,
+              "y": 0,
+              "name": "Hero Text",
+              "width": "fill_container(1440)",
+              "height": "fill_container(650)",
+              "layout": "vertical",
+              "gap": 8,
+              "padding": [
+                0,
+                80,
+                80,
+                80
+              ],
+              "justifyContent": "end",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "HzfmQ",
+                  "name": "Hero Title",
+                  "fill": "#FFFFFF",
+                  "content": "Rewriting Futures.",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 83,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "MWbs1",
+                  "name": "Hero Subtitle",
+                  "fill": "#FFFFFF",
+                  "content": "One Skill At The Time.",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 83,
+                  "fontWeight": "700"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "4th5f",
+          "name": "Mission + Our Approach",
+          "width": "fill_container",
+          "fill": "#FFF8ED",
+          "layout": "vertical",
+          "gap": 60,
+          "padding": 80,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "WvOpj",
+              "name": "Mission Statement",
+              "fill": "#242424",
+              "textGrowth": "fixed-width",
+              "width": 1000,
+              "content": "Emergent Works empowers system-impacted Black and Brown youth and adults to reclaim their futures through technology, creativity, and community.",
+              "lineHeight": 1.2,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 40,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "L8TRA",
+              "name": "Illustrations Row",
+              "width": "fill_container",
+              "gap": 40,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "O08jM",
+                  "name": "Laptop Illustration",
+                  "width": 120,
+                  "height": 100,
+                  "fill": "#FFCB70",
+                  "cornerRadius": 12
+                },
+                {
+                  "type": "frame",
+                  "id": "zjGmA",
+                  "name": "Discover More Button",
+                  "fill": "#20493C",
+                  "cornerRadius": 100,
+                  "padding": [
+                    14,
+                    32
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "PUkUy",
+                      "name": "discoverText",
+                      "fill": "#FFFFFF",
+                      "content": "Discover More",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "kIa5K",
+                  "name": "Phone Illustration",
+                  "width": 80,
+                  "height": 120,
+                  "fill": "#FFCB70",
+                  "cornerRadius": 12
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "dWtHb",
+              "name": "Our Approach Heading",
+              "fill": "#242424",
+              "content": "Our Approach",
+              "fontFamily": "Inter",
+              "fontSize": 72,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "ZSmvz",
+              "name": "Programs Grid",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 32,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "wkmRq",
+                  "name": "Grid Row 1",
+                  "width": "fill_container",
+                  "gap": 40,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "OWOKe",
+                      "name": "Digital Literacy",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 8,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Tv0y6",
+                          "name": "cell1Title",
+                          "fill": "#242424",
+                          "content": "Digital Literacy Training",
+                          "fontFamily": "Inter",
+                          "fontSize": 28,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "xcELB",
+                          "name": "cell1Desc",
+                          "opacity": 0.7,
+                          "fill": "#242424",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Equipping our community with practical experience with industry accepted digital tools to complete professional tasks efficiently and effectively.",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Inter",
+                          "fontSize": 19
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "esW2H",
+                      "name": "Social Emotional Learning",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 8,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "dLdqX",
+                          "name": "cell2Title",
+                          "fill": "#242424",
+                          "content": "Social Emotional Learning",
+                          "fontFamily": "Inter",
+                          "fontSize": 28,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "8RBzl",
+                          "name": "cell2Desc",
+                          "opacity": 0.7,
+                          "fill": "#242424",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Amplifying voices & rewriting futures through music production, audio engineering, studio recordings and mental health sessions.",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Inter",
+                          "fontSize": 19
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "rectangle",
+                  "id": "frQIg",
+                  "name": "Divider",
+                  "fill": "#24242420",
+                  "width": "fill_container",
+                  "height": 1
+                },
+                {
+                  "type": "frame",
+                  "id": "8oSb7",
+                  "name": "Grid Row 2",
+                  "width": "fill_container",
+                  "gap": 40,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "or7HK",
+                      "name": "Career Development",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 8,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "P7cpB",
+                          "name": "cell3Title",
+                          "fill": "#242424",
+                          "content": "Career Development",
+                          "fontFamily": "Inter",
+                          "fontSize": 28,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "QKmj4",
+                          "name": "cell3Desc",
+                          "opacity": 0.7,
+                          "fill": "#242424",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Providing foundational technical and social skills to navigate today's workplace as well as opportunities to apply learnings and gain experience.",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Inter",
+                          "fontSize": 19
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n4o88",
+                      "name": "Community Engagement",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 8,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "eDtU3",
+                          "name": "cell4Title",
+                          "fill": "#242424",
+                          "content": "Community Engagement",
+                          "fontFamily": "Inter",
+                          "fontSize": 28,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "QyKmG",
+                          "name": "cell4Desc",
+                          "opacity": 0.7,
+                          "fill": "#242424",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Equipping participants to collaborate and explore community issues whilst leading change through civic engagement and research.",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Inter",
+                          "fontSize": 19
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "N7YKw",
+              "name": "Programs Button",
+              "fill": "#20493C",
+              "cornerRadius": 100,
+              "padding": [
+                14,
+                32
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Wq1Ma",
+                  "name": "progsBtnText",
+                  "fill": "#FFFFFF",
+                  "content": "Programs",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "aulgB",
+          "name": "Full-Width Photo",
+          "clip": true,
+          "width": "fill_container",
+          "height": 500,
+          "fill": "#20493C",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "rR3r5",
+              "x": 0,
+              "y": 0,
+              "name": "Photo Container",
+              "metadata": {
+                "type": "unsplash",
+                "username": "bandlab_music",
+                "link": "https://unsplash.com/@bandlab_music",
+                "author": "BandLab"
+              },
+              "width": "fill_container(1392)",
+              "height": "fill_container(452)",
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "https://images.unsplash.com/photo-1661925501942-b0c9a9eab08e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzEyODY3OTZ8&ixlib=rb-4.1.0&q=80&w=1080",
+                "mode": "fill"
+              },
+              "cornerRadius": 8
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "yyiTp",
+          "name": "Community Voices",
+          "width": "fill_container",
+          "fill": "#FFF8ED",
+          "layout": "vertical",
+          "gap": 48,
+          "padding": 80,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "q1eDS",
+              "name": "voicesHeading",
+              "fill": "#242424",
+              "content": "Community Voices",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 72,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "ySpYK",
+              "name": "Microphone Illustration",
+              "width": 80,
+              "height": 120,
+              "fill": "#FFCB70",
+              "cornerRadius": 8
+            },
+            {
+              "type": "frame",
+              "id": "kvDEZ",
+              "name": "Testimonials Grid",
+              "width": "fill_container",
+              "gap": 40,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "oy4jr",
+                  "name": "Dontay",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "22wOS",
+                      "name": "Dontay Photo",
+                      "fill": "#B1D3BB",
+                      "width": 200,
+                      "height": 200
+                    },
+                    {
+                      "type": "text",
+                      "id": "4UP7X",
+                      "name": "col1Quote",
+                      "opacity": 0.8,
+                      "fill": "#242424",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "&quot;This program reminded me that no matter what obstacles come my way, giving up can't be an option. There were moments where I doubted myself or felt like things were too hard, but being a part of this program showed me that persistence pays off.&quot;",
+                      "lineHeight": 1.6,
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 17
+                    },
+                    {
+                      "type": "text",
+                      "id": "IXjKh",
+                      "name": "col1Name",
+                      "fill": "#242424",
+                      "content": "Dontay",
+                      "fontFamily": "Inter",
+                      "fontSize": 17,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "eiocC",
+                  "name": "Zeek",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "12nmH",
+                      "name": "Zeek Photo",
+                      "fill": "#F9C5B4",
+                      "width": 200,
+                      "height": 200
+                    },
+                    {
+                      "type": "text",
+                      "id": "aU3LF",
+                      "name": "col2Quote",
+                      "opacity": 0.8,
+                      "fill": "#242424",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "&quot;This program has truly impacted my life by giving me the confidence to grow, the skills to move forward, and the support of a community that encouraged me every step of the way.&quot;",
+                      "lineHeight": 1.6,
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 17
+                    },
+                    {
+                      "type": "text",
+                      "id": "SzD7l",
+                      "name": "col2Name",
+                      "fill": "#242424",
+                      "content": "Zeek",
+                      "fontFamily": "Inter",
+                      "fontSize": 17,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "MOAQM",
+                  "name": "Sheisty",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "iZl4s",
+                      "name": "Sheisty Photo",
+                      "fill": "#FFCB70",
+                      "width": 200,
+                      "height": 200
+                    },
+                    {
+                      "type": "text",
+                      "id": "sj2Q6",
+                      "name": "col3Quote",
+                      "opacity": 0.8,
+                      "fill": "#242424",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "&quot;When I came into EW, I was honestly lost. I had just turned 19, and I didn't know where I was really going. But I learned so much here. I learned how to control my emotions, how to communicate, how to present myself, how to really approach life differently.&quot;",
+                      "lineHeight": 1.6,
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 17
+                    },
+                    {
+                      "type": "text",
+                      "id": "lRiJm",
+                      "name": "col3Name",
+                      "fill": "#242424",
+                      "content": "Sheisty",
+                      "fontFamily": "Inter",
+                      "fontSize": 17,
+                      "fontWeight": "700"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "iQMIp",
+          "name": "Nashid Testimonial",
+          "width": "fill_container",
+          "fill": "#20493C",
+          "gap": 60,
+          "padding": 80,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "TF4DO",
+              "name": "Nashid Photo Wrap",
+              "width": 320,
+              "height": 320,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "ellipse",
+                  "id": "ZPTSh",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Gold Ring",
+                  "width": 320,
+                  "height": 320,
+                  "stroke": {
+                    "align": "outside",
+                    "thickness": 6,
+                    "fill": "#FFCB70"
+                  }
+                },
+                {
+                  "type": "ellipse",
+                  "id": "V2Nk4",
+                  "x": 10,
+                  "y": 10,
+                  "name": "Nashid Photo",
+                  "fill": "#445E4D",
+                  "width": 300,
+                  "height": 300
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "KPI8C",
+              "name": "Nashid Content",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "2VLfo",
+                  "name": "nashidQuote",
+                  "fill": "#FFFFFF",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "&quot;Emergent Works gave me the tools to successfully navigate the digital landscape of remote work, where success depends on communication, self-advocacy, and professional presence as much as the technical skills. The safe spaces that the team created to work through my own insecurities and anxieties, are things that can't be quantified.&quot;",
+                  "lineHeight": 1.5,
+                  "fontFamily": "Inter",
+                  "fontSize": 24
+                },
+                {
+                  "type": "text",
+                  "id": "HUDFJ",
+                  "name": "nashidQuote2",
+                  "fill": "#FFFFFF",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "&quot;Thank you Army & Emergent Works for truly caring about real solutions, just not the problems.&quot;",
+                  "lineHeight": 1.5,
+                  "fontFamily": "Inter",
+                  "fontSize": 24
+                },
+                {
+                  "type": "frame",
+                  "id": "T4gLl",
+                  "name": "Explore Impact Button",
+                  "cornerRadius": 100,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 2,
+                    "fill": "#FFCB70"
+                  },
+                  "padding": [
+                    14,
+                    32
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "dHTkR",
+                      "name": "nashidBtnText",
+                      "fill": "#FFCB70",
+                      "content": "Explore Our Impact",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "qLtPY",
+                  "name": "nashidName",
+                  "fill": "#FFFFFF",
+                  "content": "Nashid",
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": "700"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Osw9S",
+          "name": "Build With Us",
+          "width": "fill_container",
+          "fill": "#FFF8ED",
+          "gap": 60,
+          "padding": 80,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "15lHa",
+              "name": "BWU Content",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "BdvEe",
+                  "name": "bwuHeading",
+                  "fill": "#242424",
+                  "content": "Build With Us",
+                  "fontFamily": "Inter",
+                  "fontSize": 72,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "XRLQI",
+                  "name": "bwuSubtext",
+                  "opacity": 0.8,
+                  "fill": "#242424",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Be part of the movement. Your support as a donor, volunteer, or partner helps create new pathways and rewrite the future.",
+                  "lineHeight": 1.4,
+                  "fontFamily": "Inter",
+                  "fontSize": 25,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "gm92H",
+                  "name": "CTA Buttons",
+                  "gap": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "hKO5K",
+                      "name": "Donate Button",
+                      "fill": "#20493C",
+                      "cornerRadius": 100,
+                      "padding": [
+                        14,
+                        32
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "ZmSox",
+                          "name": "donateTxt",
+                          "fill": "#FFFFFF",
+                          "content": "Donate",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "xmbTI",
+                      "name": "Volunteer Button",
+                      "fill": "#20493C",
+                      "cornerRadius": 100,
+                      "padding": [
+                        14,
+                        32
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Adp0B",
+                          "name": "volTxt",
+                          "fill": "#FFFFFF",
+                          "content": "Volunteer",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "hK0Ax",
+                      "name": "Partner Button",
+                      "fill": "#20493C",
+                      "cornerRadius": 100,
+                      "padding": [
+                        14,
+                        32
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "NjW9n",
+                          "name": "partnerTxt",
+                          "fill": "#FFFFFF",
+                          "content": "Partner",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "mzJgt",
+              "name": "Photo Collage",
+              "width": 500,
+              "height": 500,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "jcuIg",
+                  "x": 20,
+                  "y": 30,
+                  "name": "Polaroid 1",
+                  "rotation": -5,
+                  "width": 250,
+                  "height": 300,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 4,
+                  "stroke": {
+                    "align": "outside",
+                    "thickness": 3,
+                    "fill": "#FFCB70"
+                  },
+                  "padding": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "KgUZa",
+                      "name": "photo1Inner",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "#B1D3BB",
+                      "cornerRadius": 2
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "62sgI",
+                  "x": 200,
+                  "y": 10,
+                  "name": "Polaroid 2",
+                  "rotation": 4,
+                  "width": 220,
+                  "height": 270,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 4,
+                  "stroke": {
+                    "align": "outside",
+                    "thickness": 3,
+                    "fill": "#FFCB70"
+                  },
+                  "padding": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "lNonH",
+                      "name": "photo2Inner",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "#445E4D",
+                      "cornerRadius": 2
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Zf3Or",
+                  "x": 140,
+                  "y": 220,
+                  "name": "Polaroid 3",
+                  "rotation": -3.0000000000000004,
+                  "width": 200,
+                  "height": 250,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 4,
+                  "stroke": {
+                    "align": "outside",
+                    "thickness": 3,
+                    "fill": "#FFCB70"
+                  },
+                  "padding": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "TUt1D",
+                      "name": "photo3Inner",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "#F9C5B4",
+                      "cornerRadius": 2
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "SQSD0",
+      "x": 1640,
+      "y": 0,
+      "name": "About Us",
+      "width": 1440,
+      "height": 4200,
+      "fill": "#FFF8ED",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "ZFDWg",
+          "name": "Mission Section",
+          "width": "fill_container",
+          "fill": "#FFF8ED",
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            64,
+            96
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "IePuq",
+              "name": "missionTitle",
+              "content": "Our Mission",
+              "fontFamily": "Inter",
+              "fontSize": 44,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "7FjFM",
+              "name": "missionText",
+              "content": "At Emergent Works, we break cycles of incarceration and poverty by equipping BIPOC individuals impacted by the criminal justice system with the tools to thrive in today's digital world. Through education, employment, economic mobility, and creativity, we empower our participants to build financial independence, grow personally, and lead within their communities.",
+              "lineHeight": 1.6,
+              "fontFamily": "Inter",
+              "fontSize": 19,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "RU7BR",
+              "name": "Mission Row",
+              "width": "fill_container",
+              "gap": 48,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "UJBBr",
+                  "name": "Mission Photo",
+                  "metadata": {
+                    "type": "unsplash",
+                    "username": "junaidrahxm",
+                    "link": "https://unsplash.com/@junaidrahxm",
+                    "author": "Junaid Rahim"
+                  },
+                  "width": 580,
+                  "height": 400,
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "https://images.unsplash.com/photo-1725352118061-3da248f1826d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzEyODcwODB8&ixlib=rb-4.1.0&q=80&w=1080",
+                    "mode": "fill"
+                  },
+                  "cornerRadius": 16
+                },
+                {
+                  "type": "frame",
+                  "id": "5CLqs",
+                  "name": "Mission Right",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 24,
+                  "padding": [
+                    24,
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "SzgrK",
+                      "name": "missionBody",
+                      "content": "Emergent Works provides free technical and creative education, Social Emotional Learning development, and workforce pathways that support system-impacted youth and adults in building brighter futures. Using music, digital literacy, mentorship, and civic engagement, we help our community develop real social and practical skills, emotional resilience, and community connection - guided by alumni and mentors who've walked the same path.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 17,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "gC7hp",
+                      "name": "Learn More Button",
+                      "width": 180,
+                      "height": 48,
+                      "fill": "#20493C",
+                      "cornerRadius": 50,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "xsMhp",
+                          "name": "learnMoreTxt",
+                          "content": "Learn More",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "5gDn5",
+          "name": "What We Do Section",
+          "width": "fill_container",
+          "fill": "#FFF8ED",
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            64,
+            96
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "JVlz8",
+              "name": "whatHeading",
+              "content": "What We Do",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 44,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "vV7xo",
+              "name": "whatBody",
+              "content": "Emergent Works provides free technical and creative education, Social Emotional Learning development, and workforce pathways that support system-impacted youth and adults in building brighter futures. Using music, digital literacy, mentorship, and civic engagement, we help our community develop real social and practical skills, emotional resilience, and community connection - guided by alumni and mentors who've walked the same path.",
+              "lineHeight": 1.6,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 17,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "SRUtn",
+              "name": "Decorative Circles",
+              "width": "fill_container",
+              "height": 200,
+              "gap": 32,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "8959n",
+                  "name": "Circle 1",
+                  "metadata": {
+                    "type": "unsplash",
+                    "username": "uxindo",
+                    "link": "https://unsplash.com/@uxindo",
+                    "author": "UX Indonesia"
+                  },
+                  "width": 180,
+                  "height": 180,
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "https://images.unsplash.com/photo-1635468073086-7edff555234a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzEyODcwOTJ8&ixlib=rb-4.1.0&q=80&w=1080",
+                    "mode": "fill"
+                  },
+                  "cornerRadius": 90
+                },
+                {
+                  "type": "frame",
+                  "id": "Ue8u5",
+                  "name": "Circle 2",
+                  "metadata": {
+                    "type": "unsplash",
+                    "username": "jmckinven",
+                    "link": "https://unsplash.com/@jmckinven",
+                    "author": "James McKinven"
+                  },
+                  "width": 150,
+                  "height": 150,
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "https://images.unsplash.com/photo-1636294155433-29863ca33aa6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzEyODcwOTN8&ixlib=rb-4.1.0&q=80&w=1080",
+                    "mode": "fill"
+                  },
+                  "cornerRadius": 75
+                },
+                {
+                  "type": "frame",
+                  "id": "sFwC5",
+                  "name": "Circle 3",
+                  "metadata": {
+                    "type": "unsplash",
+                    "username": "visualbywahyu",
+                    "link": "https://unsplash.com/@visualbywahyu",
+                    "author": "Visual Karsa"
+                  },
+                  "width": 120,
+                  "height": 120,
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "https://images.unsplash.com/photo-1627560313481-5bc2a595e2ac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzEyODcwOTN8&ixlib=rb-4.1.0&q=80&w=1080",
+                    "mode": "fill"
+                  },
+                  "cornerRadius": 60
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "LpoEt",
+              "name": "Explore Programs Button",
+              "width": 220,
+              "height": 48,
+              "fill": "#20493C",
+              "cornerRadius": 50,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "K3QCM",
+                  "name": "exploreTxt",
+                  "content": "Explore Programs",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Blw5r",
+          "name": "Why We Do It Section",
+          "width": "fill_container",
+          "height": 600,
+          "children": [
+            {
+              "type": "frame",
+              "id": "sU5HC",
+              "name": "Why Left Panel",
+              "width": 500,
+              "height": "fill_container",
+              "fill": "#20493C",
+              "layout": "vertical",
+              "gap": 32,
+              "padding": [
+                64,
+                48
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "AdsUO",
+                  "name": "whyHeading",
+                  "content": "Why We\nDo It",
+                  "lineHeight": 1.1,
+                  "fontFamily": "Inter",
+                  "fontSize": 72,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "Zu9EQ",
+                  "name": "Heart Large",
+                  "opacity": 0.7,
+                  "width": 120,
+                  "height": 120,
+                  "fill": "#FFCB70",
+                  "cornerRadius": 60
+                },
+                {
+                  "type": "frame",
+                  "id": "iIXmt",
+                  "name": "Heart Small",
+                  "opacity": 0.5,
+                  "width": 80,
+                  "height": 80,
+                  "fill": "#FFCB70",
+                  "cornerRadius": 40
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "FmPpv",
+              "name": "Why Right Panel",
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": "#FFF8ED",
+              "layout": "vertical",
+              "gap": 24,
+              "padding": [
+                64,
+                48
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "AqvJV",
+                  "name": "whyBody1",
+                  "content": "Justice-impacted Black and Brown youth and adults face systemic barriers that limit access to education, economic mobility, and meaningful career pathways. A single interaction with the criminal legal system can derail a lifetime of opportunity, while employers in tech and other growing fields continue to overlook resilient, capable talent.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "VmGyu",
+                  "name": "whyBody2",
+                  "content": "At Emergent Works, we address these inequities by centering the voices and potential of system-impacted individuals. Our work tackles the root causes — structural racism, limited access to digital skills and mentorship, and hiring practices that prioritize credentials over capability. We create pathways where participants can rebuild confidence, grow economically, and lead in their communities.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "SsAZI",
+                  "name": "See Our Impact Button",
+                  "width": 200,
+                  "height": 48,
+                  "fill": "#20493C",
+                  "cornerRadius": 50,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "JSNxn",
+                      "name": "impactTxt",
+                      "content": "See Our Impact",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "jdlG9",
+          "name": "Our Story Section",
+          "width": "fill_container",
+          "fill": "#FFF8ED",
+          "gap": 48,
+          "padding": [
+            64,
+            96
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "43Zhx",
+              "name": "Story Text",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 20,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Tq8NO",
+                  "name": "storyHeading",
+                  "content": "Our Story &\nWho We Are",
+                  "lineHeight": 1.1,
+                  "fontFamily": "Inter",
+                  "fontSize": 72,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "qB21i",
+                  "name": "storyP1",
+                  "content": "Founded in 2020, Emergent Works was born from a bold question: what if technology could be a path to freedom? Originally launched as Code Cooperative, we began as a mentorship circle for justice-impacted individuals learning to code.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "BPF5V",
+                  "name": "storyP2",
+                  "content": "Today, under the leadership of Army Armstead — a graduate of our first cohort who rose from mentee to mentor to Co-Founder and Executive Director — EW has grown into a movement that blends technology, creativity, and community to open doors for those most excluded from opportunity.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "Pyp8j",
+                  "name": "storyP3",
+                  "content": "Our team is built from the communities we serve: 100% of staff are program alumni, 80% are system-impacted, 80% are BIPOC, and 40% are female-identifying. We prioritize representation and equity across our programs, leadership, and board.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "otQad",
+                  "name": "Meet Our Team Button",
+                  "width": 200,
+                  "height": 48,
+                  "fill": "#20493C",
+                  "cornerRadius": 50,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "2R9sT",
+                      "name": "teamTxt",
+                      "content": "Meet Our Team",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "dl89r",
+              "name": "Story Portrait",
+              "metadata": {
+                "type": "unsplash",
+                "username": "abrosimova_marina_foto",
+                "link": "https://unsplash.com/@abrosimova_marina_foto",
+                "author": "Marina Abrosimova"
+              },
+              "width": 480,
+              "height": 650,
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "https://images.unsplash.com/photo-1634476104013-6c180b191ce9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzEyODcxMjN8&ixlib=rb-4.1.0&q=80&w=1080",
+                "mode": "fill"
+              },
+              "cornerRadius": 16
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "1C09x",
+          "name": "Donate CTA Section",
+          "width": "fill_container",
+          "fill": "#20493C",
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            80,
+            96
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "mM0XS",
+              "name": "ctaHeading",
+              "content": "Support Our Community\nTo Rewrite The Future",
+              "lineHeight": 1.15,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 55,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "P2KUI",
+              "name": "ctaSubtext",
+              "opacity": 0.9,
+              "content": "Every gift makes a difference. Join us and be part of the change.",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 19,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "mTcl1",
+              "name": "Donate Today Button",
+              "width": 200,
+              "height": 48,
+              "fill": "#FFCB70",
+              "cornerRadius": 50,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "MfWyz",
+                  "name": "donateTxt",
+                  "content": "Donate Today",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "700"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "4cSMR",
+      "x": 3280,
+      "y": 0,
+      "name": "Programs",
+      "width": 1440,
+      "height": 5500,
+      "fill": "#FFF8ED",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "NGPUF",
+          "name": "Programs Hero",
+          "width": "fill_container",
+          "fill": "#20493C",
+          "gap": 48,
+          "padding": [
+            80,
+            96
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "Jm3Va",
+              "name": "Hero Left",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "XmWTK",
+                  "name": "heroH1",
+                  "content": "Our Programs",
+                  "lineHeight": 1.1,
+                  "fontFamily": "Inter",
+                  "fontSize": 72,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "Yaddq",
+                  "name": "heroSub",
+                  "opacity": 0.9,
+                  "content": "Emergent Works empowers system-impacted youth and adults through free digital education, creative programs, mentorship, and alumni-led workforce pathways.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 19,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "sGMhr",
+              "name": "Hero Photo",
+              "metadata": {
+                "type": "unsplash",
+                "username": "bselideologo",
+                "link": "https://unsplash.com/@bselideologo",
+                "author": "Josué Guzmán"
+              },
+              "width": 550,
+              "height": 400,
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "https://images.unsplash.com/photo-1653361953232-cd154e54beff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzEyODcyNzN8&ixlib=rb-4.1.0&q=80&w=1080",
+                "mode": "fill"
+              },
+              "cornerRadius": 16
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "gyMyt",
+          "name": "How Programs Work",
+          "width": "fill_container",
+          "fill": "#20493C",
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            64,
+            96
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "PyvvE",
+              "name": "howH2",
+              "content": "How Our Programs Work",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 44,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "PXwZ4",
+              "name": "howP1",
+              "opacity": 0.9,
+              "content": "Our programs support system-impacted youth and adults in building the digital skills, confidence, and community needed to thrive in today's world. Led by instructors and mentors who reflect our participants' lived experiences, our programs blend creative expression, technical training, and social-emotional learning.",
+              "lineHeight": 1.6,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 17,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "EoIMh",
+              "name": "howP2",
+              "opacity": 0.9,
+              "content": "We offer programming in person at our location as well as across New York City and virtual upon request, creating safe, inclusive, and culturally responsive spaces where participants can explore their interests, develop new skills, and prepare for meaningful careers.",
+              "lineHeight": 1.6,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 17,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "hnQge",
+              "name": "Learn More Button",
+              "width": 180,
+              "height": 48,
+              "fill": "#20493C",
+              "cornerRadius": 50,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "AL3Gk",
+                  "name": "howBtnTxt",
+                  "content": "Learn More",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "xhjxY",
+          "name": "T.RAP Direct Card",
+          "width": "fill_container",
+          "fill": "#FFF8ED",
+          "gap": 48,
+          "padding": [
+            48,
+            96
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "nigrh",
+              "name": "T.RAP Photo",
+              "metadata": {
+                "type": "unsplash",
+                "username": "theguccer2100",
+                "link": "https://unsplash.com/@theguccer2100",
+                "author": "Spencer Plouzek"
+              },
+              "width": 500,
+              "height": 450,
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "https://images.unsplash.com/photo-1768264312567-09ae1b638346?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzEyODcyOTF8&ixlib=rb-4.1.0&q=80&w=1080",
+                "mode": "fill"
+              },
+              "cornerRadius": 16
+            },
+            {
+              "type": "frame",
+              "id": "x5qTH",
+              "name": "T.RAP Text",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "te16U",
+                  "name": "trapH3",
+                  "content": "T.RAP",
+                  "fontFamily": "Inter",
+                  "fontSize": 37,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "kvFLq",
+                  "name": "trapDesc",
+                  "content": "This free creative workforce program blends music production, songwriting, recording, civic engagement, and digital literacy with social-emotional learning and career readiness.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "PJQYG",
+                  "name": "Apply Button",
+                  "width": 120,
+                  "height": 44,
+                  "fill": "#20493C",
+                  "cornerRadius": 50,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "BStqV",
+                      "name": "trapBtnTxt",
+                      "content": "Apply",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "g7UIx",
+          "name": "Technical Mentorship Card",
+          "width": "fill_container",
+          "fill": "#FFF8ED",
+          "gap": 48,
+          "padding": [
+            48,
+            96
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "UxO2A",
+              "name": "Mentorship Text",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "CA9zv",
+                  "name": "mentorH3",
+                  "content": "Technical Mentorship",
+                  "fontFamily": "Inter",
+                  "fontSize": 37,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "VgBtT",
+                  "name": "mentorDesc",
+                  "content": "This free 12-week virtual and individual mentorship program connects participants with industry professionals who provide one-on-one support in digital literacy, coding, UI/UX, and tech career exploration.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "zkGNx",
+                  "name": "Apply Button",
+                  "width": 120,
+                  "height": 44,
+                  "fill": "#20493C",
+                  "cornerRadius": 50,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "2Z8kO",
+                      "name": "mentorBtnTxt",
+                      "content": "Apply",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "jJr10",
+              "name": "Mentorship Photo",
+              "metadata": {
+                "type": "unsplash",
+                "username": "elizabeth_woolner",
+                "link": "https://unsplash.com/@elizabeth_woolner",
+                "author": "Elizabeth Woolner"
+              },
+              "width": 500,
+              "height": 450,
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "https://images.unsplash.com/photo-1634947101456-d40e5122b048?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzEyODczMDF8&ixlib=rb-4.1.0&q=80&w=1080",
+                "mode": "fill"
+              },
+              "cornerRadius": 16
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "z5Fsv",
+          "name": "Programs For Partners",
+          "width": "fill_container",
+          "fill": "#20493C",
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            64,
+            96
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "DlcQB",
+              "name": "partnerH2",
+              "content": "Programs For Partners",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 44,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "r1TcK",
+              "name": "partnerBody",
+              "opacity": 0.9,
+              "content": "Non-profit organizations can book our T.RAP and TECK programs to serve their own communities. T.RAP focuses on social-emotional learning, therapeutic writing, and music production, while TECK builds digital literacy skills like Google Suite, AI, Canva, and basic website building.",
+              "lineHeight": 1.6,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 17,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "mvzUO",
+              "name": "Learn More Button",
+              "width": 180,
+              "height": 48,
+              "fill": "#20493C",
+              "cornerRadius": 50,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "EQLnW",
+                  "name": "partnerBtnTxt",
+                  "content": "Learn More",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "IpbhW",
+          "name": "TECK Partner Card",
+          "width": "fill_container",
+          "fill": "#FFF8ED",
+          "gap": 48,
+          "padding": [
+            48,
+            96
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "g7qVZ",
+              "name": "TECK Photo",
+              "metadata": {
+                "type": "unsplash",
+                "username": "ravidhiman",
+                "link": "https://unsplash.com/@ravidhiman",
+                "author": "Ravindra Dhiman"
+              },
+              "width": 500,
+              "height": 430,
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "https://images.unsplash.com/photo-1634464660153-468d44306ac4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzEyODczMTZ8&ixlib=rb-4.1.0&q=80&w=1080",
+                "mode": "fill"
+              },
+              "cornerRadius": 16
+            },
+            {
+              "type": "frame",
+              "id": "8Hoo2",
+              "name": "TECK Text",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Og2ry",
+                  "name": "teckH3",
+                  "content": "TECK",
+                  "fontFamily": "Inter",
+                  "fontSize": 37,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "TyaeM",
+                  "name": "teckDesc",
+                  "content": "Our TECK program offers flexible digital literacy training exclusively for partner organizations. Cohorts run 4, 8, or 12 weeks and provide participants with hands-on experience in Google Suite, AI tools, Canva, and basic website building.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "gnjOf",
+                  "name": "Book Button",
+                  "width": 120,
+                  "height": 44,
+                  "fill": "#20493C",
+                  "cornerRadius": 50,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "mlWBf",
+                      "name": "teckBtnTxt",
+                      "content": "Book",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "EQOQm",
+          "name": "T.RAP Partner Card",
+          "width": "fill_container",
+          "fill": "#FFF8ED",
+          "gap": 48,
+          "padding": [
+            48,
+            96
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "kP6Fa",
+              "name": "T.RAP Partner Text",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "BbBIU",
+                  "name": "trapPartnerH3",
+                  "content": "T.RAP",
+                  "fontFamily": "Inter",
+                  "fontSize": 37,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "LNNwQ",
+                  "name": "trapPartnerDesc",
+                  "content": "Our T.RAP program offers immersive social-emotional learning and creative skills training exclusively for partner organizations. Cohorts run 8-12+ weeks, guiding participants through therapeutic writing, music production, and leadership development.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "36oHH",
+                  "name": "Book Button",
+                  "width": 120,
+                  "height": 44,
+                  "fill": "#20493C",
+                  "cornerRadius": 50,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "pfeKH",
+                      "name": "trapPartnerBtnTxt",
+                      "content": "Book",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "APwav",
+              "name": "T.RAP Partner Photo",
+              "metadata": {
+                "type": "unsplash",
+                "username": "longphan",
+                "link": "https://unsplash.com/@longphan",
+                "author": "Long Phan"
+              },
+              "width": 500,
+              "height": 430,
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "https://images.unsplash.com/photo-1605615760755-08e5fcf77618?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzEyODczMjN8&ixlib=rb-4.1.0&q=80&w=1080",
+                "mode": "fill"
+              },
+              "cornerRadius": 16
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "g8Nhk",
+          "name": "Testimonial CTA",
+          "width": "fill_container",
+          "fill": "#20493C",
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            80,
+            96
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "rJGQr",
+              "name": "quoteText",
+              "content": "&quot;Overall, the Program at Emergent Works has been a life-changing experience, equipping me with the skills, knowledge, and support needed to advance my career and personal growth.&quot; - Blueberry",
+              "lineHeight": 1.5,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 22,
+              "fontWeight": "500"
+            },
+            {
+              "type": "frame",
+              "id": "45gof",
+              "name": "Explore Impact Button",
+              "width": 200,
+              "height": 48,
+              "fill": "#20493C",
+              "cornerRadius": 50,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "FAxAt",
+                  "name": "ctaBtnTxt",
+                  "content": "Explore Impact",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "9n61W",
+      "x": 4920,
+      "y": 0,
+      "name": "Impact",
+      "width": 1440,
+      "height": 6500,
+      "fill": "#FFF8ED",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "2sZ5c",
+          "name": "Impact Hero",
+          "width": "fill_container",
+          "fill": "#20493C",
+          "gap": 48,
+          "padding": [
+            80,
+            96
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "AyYkO",
+              "name": "Hero Text",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "u62YT",
+                  "name": "heroTitle",
+                  "content": "OUR IMPACT",
+                  "lineHeight": 1.1,
+                  "fontFamily": "Inter",
+                  "fontSize": 72,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "H9bVL",
+                  "name": "heroDesc",
+                  "opacity": 0.9,
+                  "content": "Emergent Works supports at least 50 system-impacted individuals annually through creative workforce development, digital skills training, and creative career pathways.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "H8TTF",
+                  "name": "heroBtn",
+                  "width": 170,
+                  "height": 48,
+                  "fill": "#20493C",
+                  "cornerRadius": 50,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "tez1H",
+                      "name": "heroBtnTxt",
+                      "content": "Learn More",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "uKKOg",
+              "name": "Hero Photo",
+              "metadata": {
+                "type": "unsplash",
+                "username": "kerenfedida",
+                "link": "https://unsplash.com/@kerenfedida",
+                "author": "Keren Fedida"
+              },
+              "width": 480,
+              "height": 400,
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "https://images.unsplash.com/photo-1607823477495-682ec53827b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzEyODc0MzZ8&ixlib=rb-4.1.0&q=80&w=1080",
+                "mode": "fill"
+              },
+              "cornerRadius": 16
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "SolNd",
+          "name": "Stats Row",
+          "width": "fill_container",
+          "fill": "#FFF8ED",
+          "gap": 48,
+          "padding": [
+            48,
+            96
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "XeOwI",
+              "name": "stat1",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "eqcSD",
+                  "name": "stat1Num",
+                  "content": "261",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 48,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "1ZARl",
+                  "name": "stat1Label",
+                  "content": "System-impacted individuals have graduated from EW",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Y0esO",
+              "name": "stat2",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "wYLcM",
+                  "name": "stat2Num",
+                  "content": "73%",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 48,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "i8By6",
+                  "name": "stat2Label",
+                  "content": "Of graduates are employed after our programs",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "lGiUp",
+              "name": "stat3",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "sw4ko",
+                  "name": "stat3Num",
+                  "content": "$2+",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 48,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "ymTks",
+                  "name": "stat3Label",
+                  "content": "Above NYC min wage is graduates min hourly rate",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "HIl4D",
+          "name": "How Programs Impact",
+          "width": "fill_container",
+          "fill": "#20493C",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            48,
+            96
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "lGlOh",
+              "name": "howH2",
+              "content": "How Our Programs Impact",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 44,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "vfHRR",
+              "name": "howBody",
+              "opacity": 0.9,
+              "content": "Emergent Works supports system-impacted individuals by building digital literacy, social-emotional, workplace and life skills that lead to economic stability, confidence, and stronger community connection.",
+              "lineHeight": 1.6,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 17,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "UOpng",
+          "name": "Digital Literacy",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "gap": 48,
+          "padding": [
+            48,
+            96
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "LNfYe",
+              "name": "dlImg",
+              "metadata": {
+                "type": "unsplash",
+                "username": "dslrfn",
+                "link": "https://unsplash.com/@dslrfn",
+                "author": "Dashiell Arifin"
+              },
+              "width": 480,
+              "height": 360,
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "https://images.unsplash.com/photo-1723694930600-f1785ab9b16f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzEyODc0NTV8&ixlib=rb-4.1.0&q=80&w=1080",
+                "mode": "fill"
+              },
+              "cornerRadius": 16
+            },
+            {
+              "type": "frame",
+              "id": "NvpgM",
+              "name": "dlText",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Ms7cH",
+                  "name": "dlH3",
+                  "content": "1. Digital Literacy Training",
+                  "fontFamily": "Inter",
+                  "fontSize": 37,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "GX8Lt",
+                  "name": "dlBody",
+                  "content": "Emergent Works programs equip system-impacted individuals with hands-on experience using industry-accepted digital tools to complete professional tasks efficiently and confidently.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "mdqjZ",
+          "name": "Lakresha Testimonial",
+          "width": "fill_container",
+          "fill": "#20493C",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            48,
+            96
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "Ej7tc",
+              "name": "lakreshaTitle",
+              "content": "Stepping Out Of My Comfort Zone",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 37,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "G5ZE7",
+              "name": "lakreshaQuote",
+              "opacity": 0.9,
+              "content": "&quot;This program motivated me to step out of my comfort zone in so many ways, and I gained useful knowledge and skill in Digital literacy that I did not have before.&quot;",
+              "lineHeight": 1.6,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 19,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "rUWUl",
+              "name": "lakreshaName",
+              "content": "— Lakresha",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 16,
+              "fontWeight": "600"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "jrHKQ",
+          "name": "Social-Emotional Learning",
+          "width": "fill_container",
+          "fill": "#FFF8ED",
+          "gap": 48,
+          "padding": [
+            48,
+            96
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "4xOz6",
+              "name": "selText",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "FLA7x",
+                  "name": "selH3",
+                  "content": "2. Social-Emotional Learning",
+                  "fontFamily": "Inter",
+                  "fontSize": 37,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "dmSNA",
+                  "name": "selBody",
+                  "content": "Emergent Works programs amplify participant voices through music production, audio engineering, studio recording, and guided mental health sessions.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ZHOKA",
+              "name": "selImg",
+              "metadata": {
+                "type": "unsplash",
+                "username": "bee_balogun",
+                "link": "https://unsplash.com/@bee_balogun",
+                "author": "Bee Balogun"
+              },
+              "width": 480,
+              "height": 360,
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "https://images.unsplash.com/photo-1551712744-1963ba88d303?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzEyODc0NjV8&ixlib=rb-4.1.0&q=80&w=1080",
+                "mode": "fill"
+              },
+              "cornerRadius": 16
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "aFqd4",
+          "name": "Julius Testimonial",
+          "width": "fill_container",
+          "fill": "#20493C",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            48,
+            96
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "jld40",
+              "name": "juliusTitle",
+              "content": "Break Down Any Barriers",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 37,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "EPTTe",
+              "name": "juliusQuote",
+              "opacity": 0.9,
+              "content": "&quot;Before joining Emergent Works I was pretty stagnant with my music career. But when I joined the program I saw how I can use my creative side to open the doors to places I have never been to.&quot;",
+              "lineHeight": 1.6,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 19,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "KfmJc",
+              "name": "juliusName",
+              "content": "— Julius",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 16,
+              "fontWeight": "600"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "PRPyD",
+          "name": "Support CTA",
+          "width": "fill_container",
+          "fill": "#FFF8ED",
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            64,
+            96
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "iTTN9",
+              "name": "supportH2",
+              "content": "Support Our Impact",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 44,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "K5HX0",
+              "name": "supportBody",
+              "content": "Your contribution helps us continue to provide free programs that change lives. Every dollar supports mentorship, digital skills training, and creative opportunities for system-impacted communities.",
+              "lineHeight": 1.6,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 17,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "WHXf0",
+              "name": "supportBtn",
+              "width": 160,
+              "height": 48,
+              "fill": "#FFCB70",
+              "cornerRadius": 50,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "k3ZG7",
+                  "name": "supportBtnTxt",
+                  "content": "Donate",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "700"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "4che1",
+          "name": "Zeek Testimonial",
+          "width": "fill_container",
+          "fill": "#20493C",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            48,
+            96
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "lVPzb",
+              "name": "zeekTitle",
+              "content": "The Skills To Move Forward",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 37,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "zsNzW",
+              "name": "zeekQuote",
+              "opacity": 0.9,
+              "content": "&quot;This program has truly impacted my life by giving me the confidence to grow, the skills to move forward, and the support of a community that encouraged me every step of the way.&quot;",
+              "lineHeight": 1.6,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 19,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "ECM86",
+              "name": "zeekName",
+              "content": "— Zeek",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 16,
+              "fontWeight": "600"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "17Pos",
+          "name": "Career Development",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "gap": 48,
+          "padding": [
+            48,
+            96
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "yA5hL",
+              "name": "careerImg",
+              "metadata": {
+                "type": "unsplash",
+                "username": "tinasihgusti",
+                "link": "https://unsplash.com/@tinasihgusti",
+                "author": "Herlambang Tinasih Gusti"
+              },
+              "width": 480,
+              "height": 360,
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "https://images.unsplash.com/photo-1709377598544-0c28bbe437bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzEyODc0ODd8&ixlib=rb-4.1.0&q=80&w=1080",
+                "mode": "fill"
+              },
+              "cornerRadius": 16
+            },
+            {
+              "type": "frame",
+              "id": "3M7kv",
+              "name": "careerText",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "069Pu",
+                  "name": "careerH3",
+                  "content": "3. Career Development",
+                  "fontFamily": "Inter",
+                  "fontSize": 37,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "n79hb",
+                  "name": "careerBody",
+                  "content": "Emergent Works programs prepare participants to navigate today's workplace by building foundational technical and social skills alongside real-world experience.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "QZ4m7",
+          "name": "Community Engagement",
+          "width": "fill_container",
+          "fill": "#FFF8ED",
+          "gap": 48,
+          "padding": [
+            48,
+            96
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "oOAlM",
+              "name": "communityText",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "FKrqI",
+                  "name": "communityH3",
+                  "content": "4. Community Engagement",
+                  "fontFamily": "Inter",
+                  "fontSize": 37,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "Of0RC",
+                  "name": "communityBody",
+                  "content": "Emergent Works programs equip participants to collaborate, examine community issues, and lead change through civic engagement and research.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "sZnNE",
+              "name": "communityImg",
+              "metadata": {
+                "type": "unsplash",
+                "username": "jonathantash",
+                "link": "https://unsplash.com/@jonathantash",
+                "author": "Jonathan Philip"
+              },
+              "width": 480,
+              "height": 360,
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "https://images.unsplash.com/photo-1692488216095-3689a6056d01?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzEyODc0OTZ8&ixlib=rb-4.1.0&q=80&w=1080",
+                "mode": "fill"
+              },
+              "cornerRadius": 16
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "gbkUV",
+          "name": "Stats Row 2",
+          "width": "fill_container",
+          "fill": "#20493C",
+          "gap": 48,
+          "padding": [
+            48,
+            96
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "lPg25",
+              "name": "stat2a",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ubuaj",
+                  "name": "stat2aNum",
+                  "content": "98%+",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 48,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "JsqUs",
+                  "name": "stat2aLabel",
+                  "opacity": 0.9,
+                  "content": "Of graduates have never re-offended after the program",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "eqfxs",
+              "name": "stat2b",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "oxw4I",
+                  "name": "stat2bNum",
+                  "content": "8",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 48,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "7uF6N",
+                  "name": "stat2bLabel",
+                  "opacity": 0.9,
+                  "content": "Graduates have been contracted with EW",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "NLdZV",
+              "name": "stat2c",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "wMWs7",
+                  "name": "stat2cNum",
+                  "content": "Projects",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 48,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "fOEJQ",
+                  "name": "stat2cLabel",
+                  "opacity": 0.9,
+                  "content": "Check out our graduates projects they have built",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "thoss",
+      "x": 6560,
+      "y": 0,
+      "name": "Our Team",
+      "width": 1440,
+      "height": 3000,
+      "fill": "#FFF8ED",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "2YfoD",
+          "name": "Team Hero",
+          "width": "fill_container",
+          "fill": "#FFF8ED",
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            80,
+            96,
+            48,
+            96
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "YjRZH",
+              "name": "teamH1",
+              "content": "Our Team",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 72,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "RIwJZ",
+              "name": "teamDesc",
+              "content": "Emergent Works is committed to building a team that reflects the communities we serve. Our staff and mentors bring lived experience, professional expertise, and deep community ties.",
+              "lineHeight": 1.6,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 17,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Gezgf",
+          "name": "Staff Grid",
+          "width": "fill_container",
+          "fill": "#FFF8ED",
+          "gap": 32,
+          "padding": [
+            32,
+            96
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "Uhkxa",
+              "name": "staff1",
+              "width": 200,
+              "height": 280,
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "LLkVY",
+                  "name": "staff1Img",
+                  "width": 180,
+                  "height": 180,
+                  "fill": "#B1D3BB",
+                  "cornerRadius": 90
+                },
+                {
+                  "type": "text",
+                  "id": "F8ggr",
+                  "name": "staff1Name",
+                  "content": "Army Armstead",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "ZpzKo",
+                  "name": "staff1Title",
+                  "opacity": 0.7,
+                  "content": "Founder & Executive Director",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "Dsvbd",
+      "x": 8100,
+      "y": 0,
+      "name": "Donate",
+      "width": 1440,
+      "height": 1000,
+      "fill": "#FFF8ED",
+      "children": [
+        {
+          "type": "frame",
+          "id": "ixbA7",
+          "name": "Photo Column",
+          "width": 640,
+          "height": "fill_container",
+          "fill": "#20493C",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "o9kf9",
+              "name": "Concert Photo",
+              "metadata": {
+                "type": "unsplash",
+                "username": "okayjet",
+                "link": "https://unsplash.com/@okayjet",
+                "author": "Ereng hu"
+              },
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "https://images.unsplash.com/photo-1758800624926-27f83956747b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzEyODc4Njl8&ixlib=rb-4.1.0&q=80&w=1080",
+                "mode": "fill"
+              }
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "1UwmN",
+          "name": "Form Column",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#FFF8ED",
+          "layout": "vertical",
+          "gap": 24,
+          "padding": 64,
+          "children": [
+            {
+              "type": "text",
+              "id": "2FCVl",
+              "name": "heading",
+              "fill": "#242424",
+              "content": "Make a difference",
+              "fontFamily": "Inter",
+              "fontSize": 55,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "1PCaC",
+              "name": "desc",
+              "opacity": 0.75,
+              "fill": "#242424",
+              "content": "Change starts with people like you. Your donation helps make a real impact, one action at a time. Together, we can do more.",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "1RIfU",
+              "name": "freqLabel",
+              "fill": "#242424",
+              "content": "Frequency",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "VlRia",
+              "name": "Frequency Selector",
+              "width": "fill_container",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "lxYqh",
+                  "name": "freq1",
+                  "width": 140,
+                  "height": 44,
+                  "fill": "#20493C",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "padding": 12,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "a9NyL",
+                      "name": "freq1t",
+                      "fill": "#FFFFFF",
+                      "content": "One time",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "wzc0O",
+                  "name": "freq2",
+                  "width": 120,
+                  "height": 44,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "padding": 12,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "0Iv7m",
+                      "name": "freq2t",
+                      "fill": "#242424",
+                      "content": "Monthly",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "PKSCM",
+                  "name": "freq3",
+                  "width": 120,
+                  "height": 44,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "padding": 12,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "F8JWi",
+                      "name": "freq3t",
+                      "fill": "#242424",
+                      "content": "Yearly",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "DcVRF",
+              "name": "amtLabel",
+              "fill": "#242424",
+              "content": "Amount",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "2Cbuh",
+              "name": "Amount Selector",
+              "width": "fill_container",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Tn7Cu",
+                  "name": "amt1",
+                  "width": 100,
+                  "height": 44,
+                  "fill": "#20493C",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "padding": 12,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ZyjIa",
+                      "name": "amt1t",
+                      "fill": "#FFFFFF",
+                      "content": "$50",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "QDlAo",
+                  "name": "amt2",
+                  "width": 100,
+                  "height": 44,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "padding": 12,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "zvwoL",
+                      "name": "amt2t",
+                      "fill": "#242424",
+                      "content": "$100",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "WyOvO",
+                  "name": "amt3",
+                  "width": 100,
+                  "height": 44,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "padding": 12,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ar5Sp",
+                      "name": "amt3t",
+                      "fill": "#242424",
+                      "content": "$200",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "dqPR9",
+                  "name": "amt4",
+                  "width": 100,
+                  "height": 44,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "padding": 12,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "rah9R",
+                      "name": "amt4t",
+                      "fill": "#242424",
+                      "content": "$1,000",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "MF2GC",
+              "name": "impactNote",
+              "opacity": 0.5,
+              "fill": "#242424",
+              "content": "$50 provides one mentoring session. $200 covers a full workshop. $1,000 sponsors a student for an entire cohort.",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "xTvAe",
+              "name": "Donate Button",
+              "width": "fill_container",
+              "height": 52,
+              "fill": "#20493C",
+              "cornerRadius": 8,
+              "layout": "vertical",
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "IJ0gB",
+                  "name": "donateTxt",
+                  "fill": "#FFFFFF",
+                  "content": "Donate $50",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "uHu1m",
+              "name": "trustSig",
+              "opacity": 0.45,
+              "fill": "#242424",
+              "content": "Emergent Works is a 501(c)(3) nonprofit. EIN: 85-1197743. All donations are tax-deductible.",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "pdD6U",
+              "name": "Share Buttons",
+              "width": "fill_container",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "ooCnc",
+                  "name": "shareFb",
+                  "width": 90,
+                  "height": 36,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 20,
+                  "layout": "vertical",
+                  "padding": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "o51sl",
+                      "name": "shareFbt",
+                      "fill": "#242424",
+                      "content": "Facebook",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "VSo6k",
+                  "name": "shareX",
+                  "width": 60,
+                  "height": 36,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 20,
+                  "layout": "vertical",
+                  "padding": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "87pAS",
+                      "name": "shareXt",
+                      "fill": "#242424",
+                      "content": "X",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "91jV5",
+                  "name": "shareWa",
+                  "width": 90,
+                  "height": 36,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 20,
+                  "layout": "vertical",
+                  "padding": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "bSJzN",
+                      "name": "shareWat",
+                      "fill": "#242424",
+                      "content": "WhatsApp",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "LEPVg",
+                  "name": "shareCopy",
+                  "width": 90,
+                  "height": 36,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 20,
+                  "layout": "vertical",
+                  "padding": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "lBruu",
+                      "name": "shareCopyt",
+                      "fill": "#242424",
+                      "content": "Copy link",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

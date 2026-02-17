@@ -1,0 +1,112 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Section from "../components/Section.astro";
+import TeamMemberCard from "../components/TeamMemberCard.astro";
+
+const staff = [
+  { name: "Army Armstead", title: "Founder & Executive Director", image: "/images/team/placeholder-1.jpg" },
+  { name: "Tine Reinert", title: "Program Director", image: "/images/team/placeholder-2.jpg" },
+  { name: "LaQuan DuBose", title: "Program Manager", image: "/images/team/placeholder-3.jpg" },
+  { name: "Nasiar Denobrega", title: "Program Associate", image: "/images/team/placeholder-4.jpg" },
+  { name: "Angie Agosta", title: "Program Intern", image: "/images/team/placeholder-1.jpg" },
+];
+
+const boardOfDirectors = [
+  { name: "Rosalind Zavros", title: "Board Chair", image: "/images/team/placeholder-2.jpg" },
+  { name: "Dion Ridley", title: "Board Member", image: "/images/team/placeholder-3.jpg" },
+  { name: "Ashley Chen", title: "Board Member", image: "/images/team/placeholder-4.jpg" },
+  { name: "Jerone Hsu", title: "Board Member", image: "/images/team/placeholder-1.jpg" },
+  { name: "Monti Hill", title: "Board Member", image: "/images/team/placeholder-2.jpg" },
+];
+
+const advisoryBoard = [
+  { name: "Nikki Nikkhoui", title: "Board Member", image: "/images/team/placeholder-3.jpg" },
+  { name: "Jonathan Hinds", title: "Board Member", image: "/images/team/placeholder-4.jpg" },
+  { name: "Meagan Cook", title: "Board Member", image: "/images/team/placeholder-1.jpg" },
+];
+---
+
+<BaseLayout title="Our Team - Emergent Works">
+
+  {/* Hero Section */}
+  <Section variant="background" class="!py-16 lg:!py-24">
+    <div class="max-w-3xl mx-auto text-center">
+      <h1 class="text-h1 lg:text-[72px] font-bold text-text leading-tight mb-6">Our Team</h1>
+      <p class="text-body-sm lg:text-body text-text/80 leading-relaxed">
+        Emergent Works is committed to building a team that reflects the communities we serve. Our staff and mentors bring lived experience, professional expertise, and deep community ties, allowing us to deliver programming that is relevant, affirming, and impactful. We center participant voice, cultural context, and real-world experience to create a supportive, skill-building environment where individuals can grow, lead, and thrive.
+      </p>
+    </div>
+  </Section>
+
+  {/* Staff Section */}
+  <Section variant="background" class="!py-8 lg:!py-12">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-10 mb-8">
+      {staff.slice(0, 3).map((member) => (
+        <TeamMemberCard
+          name={member.name}
+          title={member.title}
+          image={member.image}
+        />
+      ))}
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10 justify-center max-w-lg lg:max-w-none mx-auto">
+      <div class="hidden lg:block" />
+      {staff.slice(3).map((member) => (
+        <TeamMemberCard
+          name={member.name}
+          title={member.title}
+          image={member.image}
+        />
+      ))}
+      <div class="hidden lg:block" />
+    </div>
+  </Section>
+
+  {/* Our Boards Section */}
+  <Section variant="background" class="!py-16 lg:!py-24">
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <h2 class="text-h1 lg:text-[72px] font-bold text-text leading-tight mb-6">Our Boards</h2>
+      <p class="text-body-sm lg:text-body text-text/80 leading-relaxed">
+        Emergent Works is guided by a dedicated Board of Directors and supported by an Advisory Board (formerly the Young Professionals Board). Together, these leaders bring expertise across technology, non-profit and government, and community advocacy. Our boards provide strategic guidance, thought partnership, and accountability, helping ensure our programs remain responsive, relevant, and community-centered.
+      </p>
+    </div>
+
+    {/* Board of Directors */}
+    <h3 class="text-h3 lg:text-h2 font-bold text-text text-center mb-10">Board of Directors</h3>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-10 mb-8">
+      {boardOfDirectors.slice(0, 4).map((member) => (
+        <TeamMemberCard
+          name={member.name}
+          title={member.title}
+          image={member.image}
+        />
+      ))}
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10 justify-center max-w-lg lg:max-w-none mx-auto mb-16">
+      <div class="hidden lg:block" />
+      <div class="hidden lg:block" />
+      {boardOfDirectors.slice(4).map((member) => (
+        <TeamMemberCard
+          name={member.name}
+          title={member.title}
+          image={member.image}
+        />
+      ))}
+      <div class="hidden lg:block" />
+      <div class="hidden lg:block" />
+    </div>
+
+    {/* Advisory Board */}
+    <h3 class="text-h3 lg:text-h2 font-bold text-text text-center mb-10">Advisory Board</h3>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-8 lg:gap-10 max-w-2xl mx-auto">
+      {advisoryBoard.map((member) => (
+        <TeamMemberCard
+          name={member.name}
+          title={member.title}
+          image={member.image}
+        />
+      ))}
+    </div>
+  </Section>
+
+</BaseLayout>

@@ -1,0 +1,41 @@
+---
+interface Props {
+  imagePosition?: "left" | "right";
+  variant?: "cream" | "green" | "white" | "background";
+  class?: string;
+  gap?: string;
+}
+
+const {
+  imagePosition = "left",
+  variant = "background",
+  class: className = "",
+  gap = "gap-8 lg:gap-16",
+} = Astro.props;
+
+const variantClasses: Record<string, string> = {
+  cream: "bg-cream text-text",
+  green: "bg-primary text-white",
+  white: "bg-white text-text",
+  background: "bg-background text-text",
+};
+---
+
+<section
+  class:list={[
+    "py-section-y px-section-x lg:px-section-x-lg",
+    variantClasses[variant],
+    className,
+  ]}
+>
+  <div
+    class:list={[
+      "max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center",
+      gap,
+      imagePosition === "right" && "lg:[&>*:first-child]:order-2",
+    ]}
+  >
+    <slot name="image" />
+    <slot name="content" />
+  </div>
+</section>

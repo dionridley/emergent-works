@@ -1,0 +1,57 @@
+---
+interface Props {
+  quote: string;
+  name: string;
+  image?: string;
+  imageAlt?: string;
+  variant?: "card" | "featured";
+}
+
+const {
+  quote,
+  name,
+  image,
+  imageAlt = `Photo of ${name}`,
+  variant = "card",
+} = Astro.props;
+---
+
+{variant === "card" ? (
+  <div class="flex flex-col items-center text-center">
+    {image && (
+      <img
+        src={image}
+        alt={imageAlt}
+        width="200"
+        height="200"
+        class="w-40 h-40 lg:w-48 lg:h-48 rounded-full object-cover mb-6"
+        loading="lazy"
+      />
+    )}
+    <blockquote class="text-body-sm lg:text-body leading-relaxed mb-4">
+      &ldquo;{quote}&rdquo;
+    </blockquote>
+    <cite class="not-italic font-bold text-body-sm">{name}</cite>
+  </div>
+) : (
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+    {image && (
+      <div class="flex justify-center">
+        <img
+          src={image}
+          alt={imageAlt}
+          width="350"
+          height="350"
+          class="w-64 h-64 lg:w-80 lg:h-80 rounded-full object-cover ring-4 ring-accent"
+          loading="lazy"
+        />
+      </div>
+    )}
+    <div>
+      <blockquote class="text-body lg:text-body-lg leading-relaxed mb-6">
+        &ldquo;{quote}&rdquo;
+      </blockquote>
+      <cite class="not-italic font-bold text-body">{name}</cite>
+    </div>
+  </div>
+)}
