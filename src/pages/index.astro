@@ -1,17 +1,228 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HeroSection from "../components/HeroSection.astro";
+import Section from "../components/Section.astro";
+import Button from "../components/Button.astro";
+import TestimonialBlock from "../components/TestimonialBlock.astro";
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "NonprofitOrganization",
+  name: "Emergent Works",
+  url: "https://emergentworks.org",
+  logo: "https://emergentworks.org/images/header-logo.png",
+  description: "Emergent Works empowers system-impacted Black and Brown youth and adults to reclaim their futures through technology, creativity, and community.",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "424 W 54th St.",
+    addressLocality: "New York",
+    addressRegion: "NY",
+    postalCode: "10019",
+    addressCountry: "US",
+  },
+  email: "info@emergentworks.org",
+  sameAs: [
+    "https://www.instagram.com/emergentworks_",
+    "https://www.facebook.com/emergentworks",
+    "https://www.linkedin.com/company/emergentworks",
+    "https://www.youtube.com/@emergentworks",
+  ],
+  taxID: "85-1197743",
+  nonprofitStatus: "501(c)(3)",
+  founder: {
+    "@type": "Person",
+    name: "Army Armstead",
+  },
+};
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Emergent Works - Rewriting Futures">
+
+  {/* Section 1: Hero */}
+  <HeroSection
+    backgroundImage="/images/hero-community.jpg"
+    backgroundAlt="Emergent Works community members in a program session"
+  >
+    <h1 class="text-display lg:text-[83px] font-bold text-white text-center leading-tight">
+      Rewriting Futures.<br />One Skill At The Time.
+    </h1>
+  </HeroSection>
+
+  {/* Section 2+3: Mission + Our Approach */}
+  <Section variant="background" class="!py-16 lg:!py-24">
+    <div class="max-w-4xl mx-auto text-center mb-16">
+      <p class="text-h3 lg:text-[40px] font-bold leading-snug text-text">
+        Emergent Works empowers system-impacted Black and Brown youth and adults to reclaim their futures through technology, creativity, and community.
+      </p>
+    </div>
+
+    <div class="flex items-center justify-center gap-8 mb-16">
+      {/* Laptop illustration placeholder */}
+      <img
+        src="/images/approach-decorative.png"
+        alt=""
+        class="w-24 h-24 lg:w-32 lg:h-32 object-contain hidden md:block"
+        aria-hidden="true"
+        loading="lazy"
+      />
+      <Button href="/about-us">Discover More</Button>
+      {/* Phone illustration placeholder */}
+      <img
+        src="/images/community-circle.png"
+        alt=""
+        class="w-20 h-20 lg:w-28 lg:h-28 rounded-full object-cover hidden md:block"
+        aria-hidden="true"
+        loading="lazy"
+      />
+    </div>
+
+    <h2 class="text-h1 lg:text-[72px] font-bold text-text mb-12">Our Approach</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 mb-8">
+      <div>
+        <h3 class="text-h4 lg:text-[28px] font-bold text-text mb-2">Digital Literacy Training</h3>
+        <p class="text-body-sm lg:text-body text-text/70 leading-relaxed">
+          Equipping our community with practical experience with industry accepted digital tools to complete professional tasks efficiently and effectively.
+        </p>
+      </div>
+      <div>
+        <h3 class="text-h4 lg:text-[28px] font-bold text-text mb-2">Social Emotional Learning</h3>
+        <p class="text-body-sm lg:text-body text-text/70 leading-relaxed">
+          Amplifying voices &amp; rewriting futures through music production, audio engineering, studio recordings and mental health sessions.
+        </p>
+      </div>
+    </div>
+
+    <hr class="border-text/10 mb-8" />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 mb-12">
+      <div>
+        <h3 class="text-h4 lg:text-[28px] font-bold text-text mb-2">Career Development</h3>
+        <p class="text-body-sm lg:text-body text-text/70 leading-relaxed">
+          Providing foundational technical and social skills to navigate today's workplace as well as opportunities to apply learnings and gain experience.
+        </p>
+      </div>
+      <div>
+        <h3 class="text-h4 lg:text-[28px] font-bold text-text mb-2">Community Engagement</h3>
+        <p class="text-body-sm lg:text-body text-text/70 leading-relaxed">
+          Equipping participants to collaborate and explore community issues whilst leading change through civic engagement and research.
+        </p>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <Button href="/programs">Programs</Button>
+    </div>
+  </Section>
+
+  {/* Section 4: Full-Width Photo */}
+  <section class="bg-primary p-4 lg:p-6">
+    <img
+      src="/images/community-fullwidth.jpg"
+      alt="Emergent Works community members in a creative studio space"
+      class="w-full h-64 lg:h-[500px] object-cover rounded-lg"
+      loading="lazy"
+    />
+  </section>
+
+  {/* Section 5: Community Voices */}
+  <Section variant="background" class="!py-16 lg:!py-24">
+    <h2 class="text-h1 lg:text-[72px] font-bold text-text text-center mb-16">Community Voices</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+      <TestimonialBlock
+        image="/images/testimonial-dontay.png"
+        imageAlt="Portrait of Dontay"
+        quote="This program reminded me that no matter what obstacles come my way, giving up can't be an option. There were moments where I doubted myself or felt like things were too hard, but being a part of this program showed me that persistence pays off. I learned that progress doesn't always happen overnight."
+        name="Dontay"
+      />
+      <TestimonialBlock
+        image="/images/testimonial-zeek.png"
+        imageAlt="Portrait of Zeek"
+        quote="This program has truly impacted my life by giving me the confidence to grow, the skills to move forward, and the support of a community that encouraged me every step of the way."
+        name="Zeek"
+      />
+      <TestimonialBlock
+        image="/images/testimonial-sheisty.png"
+        imageAlt="Portrait of Sheisty"
+        quote="When I came into EW, I was honestly lost. I had just turned 19, and I didn't know where I was really going. But I learned so much here, from Biggz, from Nas, from Tine, even from arguing with my peers. I learned how to control my emotions, how to communicate, how to present myself, how to really approach life differently."
+        name="Sheisty"
+      />
+    </div>
+  </Section>
+
+  {/* Section 6: Nashid Featured Testimonial */}
+  <Section variant="green" class="!py-16 lg:!py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+      <div class="flex justify-center">
+        <img
+          src="/images/testimonial-nashid.png"
+          alt="Portrait of Nashid"
+          width="350"
+          height="350"
+          class="w-56 h-56 lg:w-72 lg:h-72 rounded-full object-cover ring-4 ring-accent ring-offset-4 ring-offset-primary"
+          loading="lazy"
+        />
+      </div>
+      <div>
+        <blockquote class="text-body lg:text-body-lg text-white leading-relaxed mb-6">
+          &ldquo;Emergent Works gave me the tools to successfully navigate the digital landscape of remote work, where success depends on communication, self-advocacy, and professional presence as much as the technical skills. The safe spaces that the team created to work through my own insecurities and anxieties, are things that can't be quantified.&rdquo;
+        </blockquote>
+        <blockquote class="text-body lg:text-body-lg text-white leading-relaxed mb-8">
+          &ldquo;Thank you Army &amp; Emergent Works for truly caring about real solutions, just not the problems.&rdquo;
+        </blockquote>
+        <div class="flex items-center gap-6 flex-wrap">
+          <Button href="/impact" variant="accent">Explore Our Impact</Button>
+          <cite class="not-italic font-bold text-body text-white">Nashid</cite>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  {/* Section 7: Build With Us CTA */}
+  <Section variant="background" class="!py-16 lg:!py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div>
+        <h2 class="text-h1 lg:text-[72px] font-bold text-text mb-6">Build With Us</h2>
+        <p class="text-h4 font-bold text-text/80 leading-snug mb-8">
+          Be part of the movement. Your support as a donor, volunteer, or partner helps create new pathways and rewrite the future.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <Button href="/donate">Donate</Button>
+          <Button href="/about-us">Volunteer</Button>
+          <Button href="/partner-with-us">Partner</Button>
+        </div>
+      </div>
+
+      {/* Polaroid-style photo collage */}
+      <div class="relative h-80 lg:h-[450px] hidden md:block">
+        <div class="absolute top-4 left-4 w-48 lg:w-56 rotate-[-5deg] bg-white p-3 rounded shadow-lg border-2 border-accent/50">
+          <img
+            src="/images/buildwithus-portrait.png"
+            alt="Emergent Works community member"
+            class="w-full h-52 lg:h-64 object-cover rounded-sm"
+            loading="lazy"
+          />
+        </div>
+        <div class="absolute top-0 right-8 w-44 lg:w-52 rotate-[4deg] bg-white p-3 rounded shadow-lg border-2 border-accent/50">
+          <img
+            src="/images/buildwithus-group.jpg"
+            alt="Emergent Works group photo"
+            class="w-full h-44 lg:h-56 object-cover rounded-sm"
+            loading="lazy"
+          />
+        </div>
+        <div class="absolute bottom-4 left-1/4 w-40 lg:w-48 rotate-[-3deg] bg-white p-3 rounded shadow-lg border-2 border-accent/50">
+          <img
+            src="/images/community-circle.png"
+            alt="Emergent Works community"
+            class="w-full h-40 lg:h-48 object-cover rounded-sm"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+</BaseLayout>

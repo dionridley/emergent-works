@@ -1,0 +1,57 @@
+---
+import MobileNav from "./MobileNav.tsx";
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = Astro.url.pathname } = Astro.props;
+
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about-us" },
+  { label: "Programs", href: "/programs" },
+  { label: "Impact", href: "/impact" },
+  { label: "Our Team", href: "/our-team" },
+  { label: "Partner With Us", href: "/partner-with-us" },
+  { label: "Donate", href: "/donate" },
+];
+
+function isActive(href: string): boolean {
+  if (href === "/") return currentPath === "/" || currentPath === "";
+  return currentPath.startsWith(href);
+}
+---
+
+<header class="sticky top-0 z-50 bg-cream border-b border-primary/10">
+  <nav class="max-w-7xl mx-auto px-section-x flex items-center justify-between h-16 lg:h-20" aria-label="Main navigation">
+    <a href="/" class="text-body-sm font-medium text-primary hover:text-primary/80 transition-colors whitespace-nowrap">
+      Emergent Works
+    </a>
+
+    {/* Desktop navigation */}
+    <ul class="hidden lg:flex items-center gap-1 xl:gap-2">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class:list={[
+              "px-3 py-2 text-body-xs rounded-md transition-colors whitespace-nowrap",
+              isActive(link.href)
+                ? "text-primary font-semibold bg-primary/5"
+                : "text-text/70 hover:text-primary hover:bg-primary/5",
+            ]}
+            aria-current={isActive(link.href) ? "page" : undefined}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    {/* Mobile navigation */}
+    <div class="lg:hidden">
+      <MobileNav client:load navLinks={navLinks} currentPath={currentPath} />
+    </div>
+  </nav>
+</header>

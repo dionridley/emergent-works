@@ -1,0 +1,128 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DonationForm from "../components/DonationForm.tsx";
+
+const pageUrl = "https://emergentworks.org/donate";
+const shareText = "Support Emergent Works — empowering system-impacted communities through technology, creativity, and mentorship.";
+---
+
+<BaseLayout
+  title="Donate - Emergent Works"
+  description="Make a difference. Your donation helps Emergent Works provide free digital skills training, mentorship, and creative programs for system-impacted communities."
+>
+
+  {/* Two-column Donation Section */}
+  <section class="min-h-[calc(100vh-80px)]">
+    <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-80px)]">
+
+      {/* Left Column: Photo */}
+      <div class="hidden lg:block relative overflow-hidden">
+        <img
+          src="/images/community-fullwidth.jpg"
+          alt="Young person performing at a T.RAP Community Concert event"
+          class="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
+        />
+      </div>
+
+      {/* Right Column: Donation Form */}
+      <div class="bg-background flex flex-col justify-center px-8 py-16 lg:px-16 lg:py-24">
+        <div class="max-w-lg mx-auto w-full">
+          <h1 class="text-h1 lg:text-[55px] font-bold text-text leading-tight mb-4">
+            Make a difference
+          </h1>
+          <p class="text-body-sm lg:text-body text-text/75 leading-relaxed mb-10">
+            Change starts with people like you. Your donation helps make a real impact, one action at a time. Together, we can do more.
+          </p>
+
+          {/* Interactive Donation Form (React Island) */}
+          <DonationForm client:only="react" />
+
+          {/* Social Share Buttons */}
+          <div class="mt-8 pt-6 border-t border-text/10">
+            <p class="text-xs text-text/50 mb-3">Share this page</p>
+            <div class="flex flex-wrap gap-3">
+              <a
+                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-4 py-2 rounded-full text-xs text-text/70 border border-text/15 hover:border-primary/30 hover:text-primary transition-colors"
+                aria-label="Share on Facebook"
+              >
+                Facebook
+              </a>
+              <a
+                href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(shareText)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-4 py-2 rounded-full text-xs text-text/70 border border-text/15 hover:border-primary/30 hover:text-primary transition-colors"
+                aria-label="Share on X"
+              >
+                X
+              </a>
+              <a
+                href={`https://api.whatsapp.com/send/?text=${encodeURIComponent(shareText + " " + pageUrl)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-4 py-2 rounded-full text-xs text-text/70 border border-text/15 hover:border-primary/30 hover:text-primary transition-colors"
+                aria-label="Share on WhatsApp"
+              >
+                WhatsApp
+              </a>
+              <button
+                type="button"
+                class="px-4 py-2 rounded-full text-xs text-text/70 border border-text/15 hover:border-primary/30 hover:text-primary transition-colors copy-link-btn"
+                data-url={pageUrl}
+                aria-label="Copy page link"
+              >
+                Copy link
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Mobile: Show photo below form */}
+    <div class="lg:hidden overflow-hidden">
+      <img
+        src="/images/community-fullwidth.jpg"
+        alt="Young person performing at a T.RAP Community Concert event"
+        class="w-full h-64 object-cover"
+        loading="lazy"
+      />
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script>
+  document.querySelectorAll(".copy-link-btn").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const url = (btn as HTMLElement).dataset.url;
+      if (url) {
+        try {
+          await navigator.clipboard.writeText(url);
+          const original = btn.textContent;
+          btn.textContent = "Copied!";
+          setTimeout(() => {
+            btn.textContent = original;
+          }, 2000);
+        } catch {
+          // Fallback for older browsers
+          const input = document.createElement("input");
+          input.value = url;
+          document.body.appendChild(input);
+          input.select();
+          document.execCommand("copy");
+          document.body.removeChild(input);
+          const original = btn.textContent;
+          btn.textContent = "Copied!";
+          setTimeout(() => {
+            btn.textContent = original;
+          }, 2000);
+        }
+      }
+    });
+  });
+</script>

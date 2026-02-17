@@ -137,6 +137,9 @@ npm run dev
 ```
 Dev server runs at `localhost:4321`.
 
+**IMPORTANT - Dev/Preview Server Rule:**
+Do NOT start the dev server (`npm run dev`) or preview server (`npm run preview`) from Claude Code. Background server processes hold ports (4321, 4322, etc.) and are difficult to clean up reliably, leading to port conflicts. The developer will start the server themselves. If you need to test against a running server (e.g., with Playwright), ask the developer to start it first, or confirm it is already running before using it.
+
 ## Development Principles
 
 1. **Incremental Progress**: Build features incrementally with working code at each step

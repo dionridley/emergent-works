@@ -1,0 +1,29 @@
+---
+interface Props {
+  variant?: "cream" | "green" | "white" | "background";
+  class?: string;
+  id?: string;
+}
+
+const { variant = "background", class: className = "", id } = Astro.props;
+
+const variantClasses: Record<string, string> = {
+  cream: "bg-cream text-text",
+  green: "bg-primary text-white",
+  white: "bg-white text-text",
+  background: "bg-background text-text",
+};
+---
+
+<section
+  id={id}
+  class:list={[
+    "py-section-y px-section-x lg:px-section-x-lg",
+    variantClasses[variant],
+    className,
+  ]}
+>
+  <div class="max-w-7xl mx-auto">
+    <slot />
+  </div>
+</section>

@@ -1,0 +1,60 @@
+---
+import Button from "./Button.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  imagePosition?: "left" | "right";
+  details?: { label: string; value: string }[];
+  ctaText?: string;
+  ctaHref?: string;
+}
+
+const {
+  title,
+  description,
+  image,
+  imageAlt,
+  imagePosition = "left",
+  details = [],
+  ctaText,
+  ctaHref,
+} = Astro.props;
+---
+
+<div
+  class:list={[
+    "grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center py-section-y",
+    imagePosition === "right" && "lg:[&>*:first-child]:order-2",
+  ]}
+>
+  <div class="overflow-hidden rounded-2xl">
+    <img
+      src={image}
+      alt={imageAlt}
+      class="w-full h-64 lg:h-96 object-cover"
+      loading="lazy"
+    />
+  </div>
+  <div class="space-y-4">
+    <h3 class="text-h3 font-bold text-primary">{title}</h3>
+    <p class="text-body leading-relaxed">{description}</p>
+    {details.length > 0 && (
+      <dl class="space-y-2 text-body-sm">
+        {details.map((detail) => (
+          <div class="flex gap-2">
+            <dt class="font-semibold text-primary">{detail.label}:</dt>
+            <dd>{detail.value}</dd>
+          </div>
+        ))}
+      </dl>
+    )}
+    {ctaText && ctaHref && (
+      <div class="pt-2">
+        <Button href={ctaHref}>{ctaText}</Button>
+      </div>
+    )}
+  </div>
+</div>

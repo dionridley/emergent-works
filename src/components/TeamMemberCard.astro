@@ -1,0 +1,25 @@
+---
+interface Props {
+  name: string;
+  title: string;
+  image: string;
+  imageAlt?: string;
+}
+
+const { name, title, image, imageAlt = `Photo of ${name}` } = Astro.props;
+---
+
+<div class="flex flex-col items-center text-center group">
+  <div class="w-40 h-40 lg:w-48 lg:h-48 rounded-full overflow-hidden mb-4 bg-sage/30">
+    <img
+      src={image}
+      alt={imageAlt}
+      width="192"
+      height="192"
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+      loading="lazy"
+    />
+  </div>
+  <h3 class="text-body font-bold text-primary">{name}</h3>
+  <p class="text-body-xs text-text/70">{title}</p>
+</div>
