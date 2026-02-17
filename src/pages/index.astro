@@ -4,6 +4,7 @@ import HeroSection from "../components/HeroSection.astro";
 import Section from "../components/Section.astro";
 import Button from "../components/Button.astro";
 import TestimonialBlock from "../components/TestimonialBlock.astro";
+import ContentSection from "../components/ContentSection.astro";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -40,7 +41,7 @@ const jsonLd = {
 
   {/* Section 1: Hero */}
   <HeroSection
-    backgroundImage="/images/hero-community.jpg"
+    backgroundImage="/images/hero/community.jpg"
     backgroundAlt="Emergent Works community members in a program session"
   >
     <h1 class="text-display lg:text-[83px] font-bold text-white text-center leading-tight">
@@ -59,7 +60,7 @@ const jsonLd = {
     <div class="flex items-center justify-center gap-8 mb-16">
       {/* Laptop illustration placeholder */}
       <img
-        src="/images/approach-decorative.png"
+        src="/images/approach/decorative.png"
         alt=""
         class="w-24 h-24 lg:w-32 lg:h-32 object-contain hidden md:block"
         aria-hidden="true"
@@ -68,7 +69,7 @@ const jsonLd = {
       <Button href="/about-us">Discover More</Button>
       {/* Phone illustration placeholder */}
       <img
-        src="/images/community-circle.png"
+        src="/images/community/circle.png"
         alt=""
         class="w-20 h-20 lg:w-28 lg:h-28 rounded-full object-cover hidden md:block"
         aria-hidden="true"
@@ -118,7 +119,7 @@ const jsonLd = {
   {/* Section 4: Full-Width Photo */}
   <section class="bg-primary p-4 lg:p-6">
     <img
-      src="/images/community-fullwidth.jpg"
+      src="/images/community/fullwidth.jpg"
       alt="Emergent Works community members in a creative studio space"
       class="w-full h-64 lg:h-[500px] object-cover rounded-lg"
       loading="lazy"
@@ -131,19 +132,19 @@ const jsonLd = {
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
       <TestimonialBlock
-        image="/images/testimonial-dontay.png"
+        image="/images/testimonial/dontay.png"
         imageAlt="Portrait of Dontay"
         quote="This program reminded me that no matter what obstacles come my way, giving up can't be an option. There were moments where I doubted myself or felt like things were too hard, but being a part of this program showed me that persistence pays off. I learned that progress doesn't always happen overnight."
         name="Dontay"
       />
       <TestimonialBlock
-        image="/images/testimonial-zeek.png"
+        image="/images/testimonial/zeek.png"
         imageAlt="Portrait of Zeek"
         quote="This program has truly impacted my life by giving me the confidence to grow, the skills to move forward, and the support of a community that encouraged me every step of the way."
         name="Zeek"
       />
       <TestimonialBlock
-        image="/images/testimonial-sheisty.png"
+        image="/images/testimonial/sheisty.png"
         imageAlt="Portrait of Sheisty"
         quote="When I came into EW, I was honestly lost. I had just turned 19, and I didn't know where I was really going. But I learned so much here, from Biggz, from Nas, from Tine, even from arguing with my peers. I learned how to control my emotions, how to communicate, how to present myself, how to really approach life differently."
         name="Sheisty"
@@ -153,30 +154,23 @@ const jsonLd = {
 
   {/* Section 6: Nashid Featured Testimonial */}
   <Section variant="green" class="!py-16 lg:!py-24">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-      <div class="flex justify-center">
-        <img
-          src="/images/testimonial-nashid.png"
-          alt="Portrait of Nashid"
-          width="350"
-          height="350"
-          class="w-56 h-56 lg:w-72 lg:h-72 rounded-full object-cover ring-4 ring-accent ring-offset-4 ring-offset-primary"
-          loading="lazy"
-        />
+    <ContentSection
+      imageSrc="/images/testimonial/nashid.png"
+      imageAlt="Portrait of Nashid"
+      imageClass="w-56 h-56 lg:w-72 lg:h-72 rounded-full object-cover ring-4 ring-accent ring-offset-4 ring-offset-primary"
+      containerClass="flex justify-center"
+    >
+      <blockquote class="text-body lg:text-body-lg text-white leading-relaxed mb-6">
+        &ldquo;Emergent Works gave me the tools to successfully navigate the digital landscape of remote work, where success depends on communication, self-advocacy, and professional presence as much as the technical skills. The safe spaces that the team created to work through my own insecurities and anxieties, are things that can't be quantified.&rdquo;
+      </blockquote>
+      <blockquote class="text-body lg:text-body-lg text-white leading-relaxed mb-8">
+        &ldquo;Thank you Army &amp; Emergent Works for truly caring about real solutions, just not the problems.&rdquo;
+      </blockquote>
+      <div class="flex items-center gap-6 flex-wrap">
+        <Button href="/impact" variant="accent">Explore Our Impact</Button>
+        <cite class="not-italic font-bold text-body text-white">Nashid</cite>
       </div>
-      <div>
-        <blockquote class="text-body lg:text-body-lg text-white leading-relaxed mb-6">
-          &ldquo;Emergent Works gave me the tools to successfully navigate the digital landscape of remote work, where success depends on communication, self-advocacy, and professional presence as much as the technical skills. The safe spaces that the team created to work through my own insecurities and anxieties, are things that can't be quantified.&rdquo;
-        </blockquote>
-        <blockquote class="text-body lg:text-body-lg text-white leading-relaxed mb-8">
-          &ldquo;Thank you Army &amp; Emergent Works for truly caring about real solutions, just not the problems.&rdquo;
-        </blockquote>
-        <div class="flex items-center gap-6 flex-wrap">
-          <Button href="/impact" variant="accent">Explore Our Impact</Button>
-          <cite class="not-italic font-bold text-body text-white">Nashid</cite>
-        </div>
-      </div>
-    </div>
+    </ContentSection>
   </Section>
 
   {/* Section 7: Build With Us CTA */}
@@ -198,7 +192,7 @@ const jsonLd = {
       <div class="relative h-80 lg:h-[450px] hidden md:block">
         <div class="absolute top-4 left-4 w-48 lg:w-56 rotate-[-5deg] bg-white p-3 rounded shadow-lg border-2 border-accent/50">
           <img
-            src="/images/buildwithus-portrait.png"
+            src="/images/buildwithus/portrait.png"
             alt="Emergent Works community member"
             class="w-full h-52 lg:h-64 object-cover rounded-sm"
             loading="lazy"
@@ -206,7 +200,7 @@ const jsonLd = {
         </div>
         <div class="absolute top-0 right-8 w-44 lg:w-52 rotate-[4deg] bg-white p-3 rounded shadow-lg border-2 border-accent/50">
           <img
-            src="/images/buildwithus-group.jpg"
+            src="/images/buildwithus/group.jpg"
             alt="Emergent Works group photo"
             class="w-full h-44 lg:h-56 object-cover rounded-sm"
             loading="lazy"
@@ -214,7 +208,7 @@ const jsonLd = {
         </div>
         <div class="absolute bottom-4 left-1/4 w-40 lg:w-48 rotate-[-3deg] bg-white p-3 rounded shadow-lg border-2 border-accent/50">
           <img
-            src="/images/community-circle.png"
+            src="/images/community/circle.png"
             alt="Emergent Works community"
             class="w-full h-40 lg:h-48 object-cover rounded-sm"
             loading="lazy"
