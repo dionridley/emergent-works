@@ -1,0 +1,39 @@
+---
+interface Props {
+  imagePosition?: "left" | "right";
+  imageSrc: string;
+  imageAlt: string;
+  imageClass?: string;
+  containerClass?: string;
+  class?: string;
+}
+
+const {
+  imagePosition = "left",
+  imageSrc,
+  imageAlt,
+  imageClass = "w-full h-64 lg:h-80 object-cover",
+  containerClass = "overflow-hidden rounded-2xl",
+  class: className = "",
+} = Astro.props;
+---
+
+<div
+  class:list={[
+    "grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center",
+    imagePosition === "right" && "lg:[&>*:first-child]:order-2",
+    className,
+  ]}
+>
+  <div class={containerClass}>
+    <img
+      src={imageSrc}
+      alt={imageAlt}
+      class={imageClass}
+      loading="lazy"
+    />
+  </div>
+  <div>
+    <slot />
+  </div>
+</div>

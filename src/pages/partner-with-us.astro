@@ -2,6 +2,9 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Section from "../components/Section.astro";
 import Button from "../components/Button.astro";
+import ContentSection from "../components/ContentSection.astro";
+import CenteredBlock from "../components/CenteredBlock.astro";
+import PageHero from "../components/PageHero.astro";
 
 const partnerLogos = [
   { src: "/images/partners/logo-camelback-ventures.png", alt: "Camelback Ventures" },
@@ -24,30 +27,22 @@ const partnerLogos = [
 
   {/* Section 1: Hero */}
   <Section variant="background" class="!py-16 lg:!py-24">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-      <div>
-        <h1 class="text-h1 lg:text-[70px] font-bold text-text leading-tight mb-6">Partner With Us</h1>
-        <p class="text-body-sm lg:text-body text-text leading-relaxed mb-8">
-          Emergent Works partners with organizations, agencies, and institutions to deliver culturally responsive, skill-building programs for system-impacted and underrepresented communities. We work alongside our partners to design programming that meets real needs, strengthens outcomes, and creates lasting impact.
-        </p>
-        <Button href="#ways-to-work" icon={true}>Learn More</Button>
-      </div>
-      <div class="overflow-hidden rounded-2xl">
-        <img
-          src="/images/partner-hero.jpg"
-          alt="Emergent Works program participants in a workshop"
-          class="w-full h-64 lg:h-80 object-cover"
-          loading="lazy"
-        />
-      </div>
-    </div>
+    <PageHero
+      title="Partner With Us"
+      description="Emergent Works partners with organizations, agencies, and institutions to deliver culturally responsive, skill-building programs for system-impacted and underrepresented communities. We work alongside our partners to design programming that meets real needs, strengthens outcomes, and creates lasting impact."
+      imageSrc="/images/partner/hero.jpg"
+      imageAlt="Emergent Works program participants in a workshop"
+      textVariant="dark"
+    >
+      <Button slot="cta" href="#ways-to-work" icon={true}>Learn More</Button>
+    </PageHero>
   </Section>
 
   {/* Section 2: Ways To Work Together */}
   <Section id="ways-to-work" variant="green" class="!py-16 lg:!py-24">
     <div class="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-8 lg:gap-16 items-start">
       <img
-        src="/images/partner-ways-illustration.png"
+        src="/images/partner/ways-illustration.png"
         alt=""
         class="w-32 h-32 lg:w-48 lg:h-48 object-contain hidden lg:block"
         aria-hidden="true"
@@ -91,13 +86,13 @@ const partnerLogos = [
 
   {/* Section 3: Partners We Work With */}
   <Section variant="background" class="!py-16 lg:!py-24">
-    <div class="max-w-3xl mx-auto text-center mb-12">
+    <CenteredBlock class="mb-12">
       <h2 class="text-h1 lg:text-[70px] font-bold text-text leading-tight mb-6">Partners We Work With</h2>
       <p class="text-body-sm lg:text-body text-text/80 leading-relaxed mb-8">
         We are deeply grateful for our many partners and funders who make this work possible. No two partnerships are the same. We collaborate with nonprofits, funders, institutions, companies and community organizations to share resources and design programs aligned with shared goals, audiences, timelines, and capacity.
       </p>
       <Button href="/about-us">Connect With Us</Button>
-    </div>
+    </CenteredBlock>
 
     {/* Partner Logo Grid */}
     <div class="flex flex-wrap items-center justify-center gap-8 lg:gap-12 max-w-4xl mx-auto">
@@ -114,22 +109,17 @@ const partnerLogos = [
 
   {/* Section 4: CCA Partner Spotlight */}
   <Section variant="green" class="!py-16 lg:!py-24">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-      <div class="flex justify-center">
-        <img
-          src="/images/partner-cca-spotlight.png"
-          alt="Center for Community Alternatives partnership"
-          class="w-64 h-64 lg:w-80 lg:h-80 object-contain"
-          loading="lazy"
-        />
-      </div>
-      <div>
-        <h3 class="text-h3 lg:text-[44px] font-bold text-white mb-6">Center For Community Alternatives</h3>
-        <blockquote class="text-body lg:text-body-lg text-white/90 leading-relaxed">
-          &ldquo;Having Emergent Works as a part of our NextGen Network, our CCA reentry initiative, has been an immense reward. We truly value this partnership and the positive change it brings to our community. Your collaboration and commitment inspire us to keep building a brighter future for those we serve.&rdquo;
-        </blockquote>
-      </div>
-    </div>
+    <ContentSection
+      imageSrc="/images/partner/cca-spotlight.png"
+      imageAlt="Center for Community Alternatives partnership"
+      imageClass="w-64 h-64 lg:w-80 lg:h-80 object-contain"
+      containerClass="flex justify-center"
+    >
+      <h3 class="text-h3 lg:text-[44px] font-bold text-white mb-6">Center For Community Alternatives</h3>
+      <blockquote class="text-body lg:text-body-lg text-white/90 leading-relaxed">
+        &ldquo;Having Emergent Works as a part of our NextGen Network, our CCA reentry initiative, has been an immense reward. We truly value this partnership and the positive change it brings to our community. Your collaboration and commitment inspire us to keep building a brighter future for those we serve.&rdquo;
+      </blockquote>
+    </ContentSection>
   </Section>
 
 </BaseLayout>

@@ -1,0 +1,23 @@
+---
+interface Props {
+  heading: string;
+  quote: string;
+  name: string;
+  class?: string;
+}
+
+const {
+  heading,
+  quote,
+  name,
+  class: className = "",
+} = Astro.props;
+---
+
+<div class:list={["max-w-3xl mx-auto text-center", className]}>
+  <h3 class="text-h3 lg:text-[44px] font-bold text-white mb-6">{heading}</h3>
+  <blockquote class="text-body lg:text-body-lg text-white/90 leading-relaxed mb-4">
+    &ldquo;{quote}&rdquo;
+  </blockquote>
+  <cite class="not-italic font-semibold text-body-sm text-white">&mdash; {name}</cite>
+</div>

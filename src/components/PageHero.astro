@@ -1,0 +1,42 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  textVariant?: "light" | "dark";
+  class?: string;
+}
+
+const {
+  title,
+  description,
+  imageSrc,
+  imageAlt = "",
+  textVariant = "light",
+  class: className = "",
+} = Astro.props;
+
+const headingColor = textVariant === "light" ? "text-white" : "text-text";
+const bodyColor = textVariant === "light" ? "text-white/90" : "text-text";
+---
+
+<div class:list={["grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center", className]}>
+  <div>
+    <h1 class:list={["text-h1 lg:text-[72px] font-bold leading-tight mb-6", headingColor]}>{title}</h1>
+    <p class:list={["text-body lg:text-body-lg leading-relaxed", bodyColor, Astro.slots.has("cta") && "mb-8"]}>
+      {description}
+    </p>
+    <slot name="cta" />
+  </div>
+  {imageSrc && (
+    <div class="overflow-hidden rounded-2xl">
+      <img
+        src={imageSrc}
+        alt={imageAlt}
+        class="w-full h-64 lg:h-96 object-cover"
+        loading="lazy"
+      />
+    </div>
+  )}
+</div>

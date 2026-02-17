@@ -3,29 +3,24 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Section from "../components/Section.astro";
 import Button from "../components/Button.astro";
 import StatCard from "../components/StatCard.astro";
+import ContentSection from "../components/ContentSection.astro";
+import CenteredBlock from "../components/CenteredBlock.astro";
+import QuoteSection from "../components/QuoteSection.astro";
+import PageHero from "../components/PageHero.astro";
 ---
 
 <BaseLayout title="Our Impact - Emergent Works">
 
   {/* Section 1: Hero */}
   <Section variant="green" class="!py-16 lg:!py-24">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-      <div>
-        <h1 class="text-h1 lg:text-[72px] font-bold text-white leading-tight mb-6">OUR IMPACT</h1>
-        <p class="text-body lg:text-body-lg text-white/90 leading-relaxed mb-8">
-          Emergent Works supports at least 50 system-impacted individuals annually through creative workforce development, digital skills training, and creative career pathways. Our programs are designed to create lasting impact across economic mobility, personal growth, leadership development, and community connection.
-        </p>
-        <Button href="#stats" icon={true}>Learn More</Button>
-      </div>
-      <div class="overflow-hidden rounded-2xl">
-        <img
-          src="/images/impact-hero.jpg"
-          alt="Emergent Works participant in a learning environment"
-          class="w-full h-64 lg:h-96 object-cover"
-          loading="lazy"
-        />
-      </div>
-    </div>
+    <PageHero
+      title="OUR IMPACT"
+      description="Emergent Works supports at least 50 system-impacted individuals annually through creative workforce development, digital skills training, and creative career pathways. Our programs are designed to create lasting impact across economic mobility, personal growth, leadership development, and community connection."
+      imageSrc="/images/impact/hero.jpg"
+      imageAlt="Emergent Works participant in a learning environment"
+    >
+      <Button slot="cta" href="#stats" icon={true}>Learn More</Button>
+    </PageHero>
   </Section>
 
   {/* Section 2: Key Statistics */}
@@ -41,136 +36,105 @@ import StatCard from "../components/StatCard.astro";
 
   {/* Section 3: How Our Programs Impact */}
   <Section variant="green" class="!py-12 lg:!py-16">
-    <div class="max-w-3xl mx-auto text-center">
+    <CenteredBlock>
       <h2 class="text-h2 lg:text-[44px] font-bold text-white mb-6">How Our Programs Impact</h2>
       <p class="text-body-sm lg:text-body text-white/90 leading-relaxed">
         Emergent Works supports system-impacted individuals by building digital literacy, social-emotional, workplace and life skills that lead to economic stability, confidence, and stronger community connection. Our programs are designed to create lasting, measurable impact.
       </p>
-    </div>
+    </CenteredBlock>
   </Section>
 
   {/* Section 4: Digital Literacy Training */}
   <Section variant="white" class="!py-12 lg:!py-16">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-      <div class="overflow-hidden rounded-2xl">
-        <img
-          src="/images/impact-digital-literacy.jpg"
-          alt="Participants working on computers during a digital literacy workshop"
-          class="w-full h-64 lg:h-80 object-cover"
-          loading="lazy"
-        />
-      </div>
-      <div>
-        <h3 class="text-h3 lg:text-[42px] font-bold text-primary mb-4">1. Digital Literacy Training</h3>
-        <p class="text-body-sm lg:text-body text-text leading-relaxed">
-          Emergent Works programs equip system-impacted individuals with hands-on experience using industry-accepted digital tools to complete professional tasks efficiently and confidently. Participants report increased digital confidence, stronger problem-solving skills, and greater readiness for education and employment opportunities.
-        </p>
-      </div>
-    </div>
+    <ContentSection
+      imageSrc="/images/impact/digital-literacy.jpg"
+      imageAlt="Participants working on computers during a digital literacy workshop"
+    >
+      <h3 class="text-h3 lg:text-[42px] font-bold text-primary mb-4">1. Digital Literacy Training</h3>
+      <p class="text-body-sm lg:text-body text-text leading-relaxed">
+        Emergent Works programs equip system-impacted individuals with hands-on experience using industry-accepted digital tools to complete professional tasks efficiently and confidently. Participants report increased digital confidence, stronger problem-solving skills, and greater readiness for education and employment opportunities.
+      </p>
+    </ContentSection>
   </Section>
 
   {/* Section 5: Lakresha Testimonial */}
   <Section variant="green" class="!py-12 lg:!py-16">
-    <div class="max-w-3xl mx-auto text-center">
-      <h3 class="text-h3 lg:text-[44px] font-bold text-white mb-6">Stepping Out Of My Comfort Zone</h3>
-      <blockquote class="text-body lg:text-body-lg text-white/90 leading-relaxed mb-4">
-        &ldquo;This program motivated me to step out of my comfort zone in so many ways, and I gained useful knowledge and skill in Digital literacy that I did not have before.&rdquo;
-      </blockquote>
-      <cite class="not-italic font-semibold text-body-sm text-white">&mdash; Lakresha</cite>
-    </div>
+    <QuoteSection
+      heading="Stepping Out Of My Comfort Zone"
+      quote="This program motivated me to step out of my comfort zone in so many ways, and I gained useful knowledge and skill in Digital literacy that I did not have before."
+      name="Lakresha"
+    />
   </Section>
 
   {/* Section 6: Social-Emotional Learning */}
   <Section variant="background" class="!py-12 lg:!py-16">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-      <div>
-        <h3 class="text-h3 lg:text-[42px] font-bold text-primary mb-4">2. Social-Emotional Learning</h3>
-        <p class="text-body-sm lg:text-body text-text leading-relaxed">
-          Emergent Works programs amplify participant voices through music production, audio engineering, studio recording, and guided mental health sessions. Participants build self-awareness, emotional regulation, confidence, and a stronger sense of identity while expressing their experiences and shaping their futures.
-        </p>
-      </div>
-      <div class="overflow-hidden rounded-2xl">
-        <img
-          src="/images/impact-sel.jpg"
-          alt="Participants in a music production and recording session"
-          class="w-full h-64 lg:h-80 object-cover"
-          loading="lazy"
-        />
-      </div>
-    </div>
+    <ContentSection
+      imagePosition="right"
+      imageSrc="/images/impact/sel.jpg"
+      imageAlt="Participants in a music production and recording session"
+    >
+      <h3 class="text-h3 lg:text-[42px] font-bold text-primary mb-4">2. Social-Emotional Learning</h3>
+      <p class="text-body-sm lg:text-body text-text leading-relaxed">
+        Emergent Works programs amplify participant voices through music production, audio engineering, studio recording, and guided mental health sessions. Participants build self-awareness, emotional regulation, confidence, and a stronger sense of identity while expressing their experiences and shaping their futures.
+      </p>
+    </ContentSection>
   </Section>
 
   {/* Section 7: Julius Testimonial */}
   <Section variant="green" class="!py-12 lg:!py-16">
-    <div class="max-w-3xl mx-auto text-center">
-      <h3 class="text-h3 lg:text-[44px] font-bold text-white mb-6">Break Down Any Barriers</h3>
-      <blockquote class="text-body lg:text-body-lg text-white/90 leading-relaxed mb-4">
-        &ldquo;Before joining Emergent Works I was pretty stagnant with my music career. But when I joined the program I saw how I can use my creative side to open the doors to places I have never been to. The highlight of being in the program was learning how I can apply my artistry in a studio session and it really set foot in me. It created a confidence in me to break down any barriers and just go for it.&rdquo;
-      </blockquote>
-      <cite class="not-italic font-semibold text-body-sm text-white">&mdash; Julius</cite>
-    </div>
+    <QuoteSection
+      heading="Break Down Any Barriers"
+      quote="Before joining Emergent Works I was pretty stagnant with my music career. But when I joined the program I saw how I can use my creative side to open the doors to places I have never been to. The highlight of being in the program was learning how I can apply my artistry in a studio session and it really set foot in me. It created a confidence in me to break down any barriers and just go for it."
+      name="Julius"
+    />
   </Section>
 
   {/* Section 8: Support Our Impact (replaces "Grow Your Vision" placeholder) */}
   <Section variant="background" class="!py-12 lg:!py-16">
-    <div class="max-w-3xl mx-auto text-center">
+    <CenteredBlock>
       <h2 class="text-h2 lg:text-[44px] font-bold text-text mb-6">Support Our Impact</h2>
       <p class="text-body-sm lg:text-body text-text/80 leading-relaxed mb-8">
         Your contribution helps us continue to provide free programs that change lives. Every dollar supports mentorship, digital skills training, and creative opportunities for system-impacted communities.
       </p>
       <Button href="/donate" variant="gold">Donate</Button>
-    </div>
+    </CenteredBlock>
   </Section>
 
   {/* Section 9: Zeek Testimonial */}
   <Section variant="green" class="!py-12 lg:!py-16">
-    <div class="max-w-3xl mx-auto text-center">
-      <h3 class="text-h3 lg:text-[44px] font-bold text-white mb-6">The Skills To Move Forward</h3>
-      <blockquote class="text-body lg:text-body-lg text-white/90 leading-relaxed mb-4">
-        &ldquo;This program has truly impacted my life by giving me the confidence to grow, the skills to move forward, and the support of a community that encouraged me every step of the way.&rdquo;
-      </blockquote>
-      <cite class="not-italic font-semibold text-body-sm text-white">&mdash; Zeek</cite>
-    </div>
+    <QuoteSection
+      heading="The Skills To Move Forward"
+      quote="This program has truly impacted my life by giving me the confidence to grow, the skills to move forward, and the support of a community that encouraged me every step of the way."
+      name="Zeek"
+    />
   </Section>
 
   {/* Section 10: Career Development */}
   <Section variant="white" class="!py-12 lg:!py-16">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-      <div class="overflow-hidden rounded-2xl">
-        <img
-          src="/images/impact-career-development.jpg"
-          alt="Participants in a career development workshop"
-          class="w-full h-64 lg:h-80 object-cover"
-          loading="lazy"
-        />
-      </div>
-      <div>
-        <h3 class="text-h3 lg:text-[42px] font-bold text-primary mb-4">3. Career Development</h3>
-        <p class="text-body-sm lg:text-body text-text leading-relaxed">
-          Emergent Works programs prepare participants to navigate today's workplace by building foundational technical and social skills alongside real-world experience. Through hands-on training, mentorship, and applied learning opportunities, participants strengthen professionalism, communication, confidence, and career readiness, supporting long-term economic stability and growth.
-        </p>
-      </div>
-    </div>
+    <ContentSection
+      imageSrc="/images/impact/career-development.jpg"
+      imageAlt="Participants in a career development workshop"
+    >
+      <h3 class="text-h3 lg:text-[42px] font-bold text-primary mb-4">3. Career Development</h3>
+      <p class="text-body-sm lg:text-body text-text leading-relaxed">
+        Emergent Works programs prepare participants to navigate today's workplace by building foundational technical and social skills alongside real-world experience. Through hands-on training, mentorship, and applied learning opportunities, participants strengthen professionalism, communication, confidence, and career readiness, supporting long-term economic stability and growth.
+      </p>
+    </ContentSection>
   </Section>
 
   {/* Section 11: Community Engagement + Second Stats */}
   <Section variant="background" class="!py-12 lg:!py-16">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16">
-      <div>
-        <h3 class="text-h3 lg:text-[42px] font-bold text-primary mb-4">4. Community Engagement</h3>
-        <p class="text-body-sm lg:text-body text-text leading-relaxed">
-          Emergent Works programs equip participants to collaborate, examine community issues, and lead change through civic engagement and research. Participants build critical thinking, communication, and leadership skills while using their voices and experiences to contribute to solutions that strengthen their communities.
-        </p>
-      </div>
-      <div class="overflow-hidden rounded-2xl">
-        <img
-          src="/images/impact-community-engagement.jpg"
-          alt="Community members engaged in a collaborative activity"
-          class="w-full h-64 lg:h-80 object-cover"
-          loading="lazy"
-        />
-      </div>
-    </div>
+    <ContentSection
+      imagePosition="right"
+      imageSrc="/images/impact/community-engagement.jpg"
+      imageAlt="Community members engaged in a collaborative activity"
+      class="mb-16"
+    >
+      <h3 class="text-h3 lg:text-[42px] font-bold text-primary mb-4">4. Community Engagement</h3>
+      <p class="text-body-sm lg:text-body text-text leading-relaxed">
+        Emergent Works programs equip participants to collaborate, examine community issues, and lead change through civic engagement and research. Participants build critical thinking, communication, and leadership skills while using their voices and experiences to contribute to solutions that strengthen their communities.
+      </p>
+    </ContentSection>
   </Section>
 
   {/* Second Statistics Block */}

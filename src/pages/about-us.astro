@@ -2,6 +2,8 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Section from "../components/Section.astro";
 import Button from "../components/Button.astro";
+import ContentSection from "../components/ContentSection.astro";
+import CenteredBlock from "../components/CenteredBlock.astro";
 ---
 
 <BaseLayout title="About Us - Emergent Works">
@@ -13,51 +15,47 @@ import Button from "../components/Button.astro";
       At Emergent Works, we break cycles of incarceration and poverty by equipping BIPOC individuals impacted by the criminal justice system with the tools to thrive in today's digital world. Through education, employment, economic mobility, and creativity, we empower our participants to build financial independence, grow personally, and lead within their communities.
     </p>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-      <div class="overflow-hidden rounded-2xl">
-        <img
-          src="/images/about-mission-group.jpg"
-          alt="Emergent Works community members celebrating together"
-          class="w-full h-64 lg:h-96 object-cover"
-          loading="lazy"
-        />
-      </div>
+    <ContentSection
+      imageSrc="/images/about/mission-group.jpg"
+      imageAlt="Emergent Works community members celebrating together"
+      imageClass="w-full h-64 lg:h-96 object-cover"
+    >
       <div class="space-y-6">
         <p class="text-body-sm lg:text-body text-text leading-relaxed">
           Emergent Works provides free technical and creative education, Social Emotional Learning development, and workforce pathways that support system-impacted youth and adults in building brighter futures. Using music, digital literacy, mentorship, and civic engagement, we help our community develop real social and practical skills, emotional resilience, and community connection &mdash; guided by alumni and mentors who've walked the same path.
         </p>
         <Button href="#what-we-do" icon={true}>Learn More</Button>
       </div>
-    </div>
+    </ContentSection>
   </Section>
 
   {/* Section 2: What We Do */}
   <Section id="what-we-do" variant="background" class="!py-16 lg:!py-24">
-    <div class="max-w-3xl mx-auto text-center">
+    <CenteredBlock class="mb-0">
       <h2 class="text-h2 lg:text-[44px] font-bold text-text mb-6">What We Do</h2>
       <p class="text-body-sm lg:text-body text-text leading-relaxed mb-8">
         Emergent Works provides free technical and creative education, Social Emotional Learning development, and workforce pathways that support system-impacted youth and adults in building brighter futures. Using music, digital literacy, mentorship, and civic engagement, we help our community develop real social and practical skills, emotional resilience, and community connection &mdash; guided by alumni and mentors who've walked the same path.
       </p>
-    </div>
+    </CenteredBlock>
 
     {/* Decorative circular images */}
     <div class="flex items-center justify-center gap-6 lg:gap-10 mb-10">
       <img
-        src="/images/about-whatwedo-circle1.png"
+        src="/images/about/whatwedo-circle1.png"
         alt=""
         class="w-32 h-32 lg:w-44 lg:h-44 rounded-full object-cover hidden md:block"
         aria-hidden="true"
         loading="lazy"
       />
       <img
-        src="/images/about-whatwedo-circle2.png"
+        src="/images/about/whatwedo-circle2.png"
         alt=""
         class="w-28 h-28 lg:w-36 lg:h-36 rounded-full object-cover hidden md:block"
         aria-hidden="true"
         loading="lazy"
       />
       <img
-        src="/images/about-whatwedo-circle3.png"
+        src="/images/about/whatwedo-circle3.png"
         alt=""
         class="w-20 h-20 lg:w-28 lg:h-28 rounded-full object-cover hidden md:block"
         aria-hidden="true"
@@ -80,7 +78,7 @@ import Button from "../components/Button.astro";
       {/* Decorative heart illustrations */}
       <div class="relative z-10 flex gap-4">
         <img
-          src="/images/about-whywedoit-left.png"
+          src="/images/about/whywedoit-left.png"
           alt=""
           class="w-24 h-24 lg:w-32 lg:h-32 object-contain"
           aria-hidden="true"
@@ -88,7 +86,7 @@ import Button from "../components/Button.astro";
         />
       </div>
       <img
-        src="/images/about-whywedoit-bottom.png"
+        src="/images/about/whywedoit-bottom.png"
         alt=""
         class="absolute bottom-4 right-4 w-20 h-20 lg:w-28 lg:h-28 object-contain opacity-70"
         aria-hidden="true"
@@ -112,7 +110,12 @@ import Button from "../components/Button.astro";
 
   {/* Section 4: Our Story & Who We Are */}
   <Section variant="background" class="!py-16 lg:!py-24">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+    <ContentSection
+      imagePosition="right"
+      imageSrc="/images/about/ourstory-portrait.jpg"
+      imageAlt="Emergent Works program graduation celebration"
+      imageClass="w-full h-80 lg:h-[600px] object-cover"
+    >
       <div class="space-y-5">
         <h2 class="text-h1 lg:text-[72px] font-bold text-text leading-tight">
           Our Story &amp;<br />Who We Are
@@ -130,20 +133,12 @@ import Button from "../components/Button.astro";
           <Button href="/our-team">Meet Our Team</Button>
         </div>
       </div>
-      <div class="overflow-hidden rounded-2xl">
-        <img
-          src="/images/about-ourstory-portrait.jpg"
-          alt="Emergent Works program graduation celebration"
-          class="w-full h-80 lg:h-[600px] object-cover"
-          loading="lazy"
-        />
-      </div>
-    </div>
+    </ContentSection>
   </Section>
 
   {/* Section 5: Donate CTA */}
   <Section variant="green" class="!py-16 lg:!py-24">
-    <div class="max-w-3xl mx-auto text-center">
+    <CenteredBlock>
       <h2 class="text-h1 lg:text-[55px] font-bold text-white leading-tight mb-6">
         Support Our Community To Rewrite The Future
       </h2>
@@ -151,7 +146,7 @@ import Button from "../components/Button.astro";
         Every gift makes a difference. Join us and be part of the change.
       </p>
       <Button href="/donate" variant="gold">Donate Today</Button>
-    </div>
+    </CenteredBlock>
   </Section>
 
 </BaseLayout>

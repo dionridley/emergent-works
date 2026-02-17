@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Section from "../components/Section.astro";
 import TeamMemberCard from "../components/TeamMemberCard.astro";
+import CenteredBlock from "../components/CenteredBlock.astro";
 
 const staff = [
   { name: "Army Armstead", title: "Founder & Executive Director", image: "/images/team/placeholder-1.jpg" },
@@ -30,12 +31,12 @@ const advisoryBoard = [
 
   {/* Hero Section */}
   <Section variant="background" class="!py-16 lg:!py-24">
-    <div class="max-w-3xl mx-auto text-center">
+    <CenteredBlock>
       <h1 class="text-h1 lg:text-[72px] font-bold text-text leading-tight mb-6">Our Team</h1>
       <p class="text-body-sm lg:text-body text-text/80 leading-relaxed">
         Emergent Works is committed to building a team that reflects the communities we serve. Our staff and mentors bring lived experience, professional expertise, and deep community ties, allowing us to deliver programming that is relevant, affirming, and impactful. We center participant voice, cultural context, and real-world experience to create a supportive, skill-building environment where individuals can grow, lead, and thrive.
       </p>
-    </div>
+    </CenteredBlock>
   </Section>
 
   {/* Staff Section */}
@@ -64,12 +65,12 @@ const advisoryBoard = [
 
   {/* Our Boards Section */}
   <Section variant="background" class="!py-16 lg:!py-24">
-    <div class="max-w-3xl mx-auto text-center mb-16">
+    <CenteredBlock class="mb-16">
       <h2 class="text-h1 lg:text-[72px] font-bold text-text leading-tight mb-6">Our Boards</h2>
       <p class="text-body-sm lg:text-body text-text/80 leading-relaxed">
         Emergent Works is guided by a dedicated Board of Directors and supported by an Advisory Board (formerly the Young Professionals Board). Together, these leaders bring expertise across technology, non-profit and government, and community advocacy. Our boards provide strategic guidance, thought partnership, and accountability, helping ensure our programs remain responsive, relevant, and community-centered.
       </p>
-    </div>
+    </CenteredBlock>
 
     {/* Board of Directors */}
     <h3 class="text-h3 lg:text-h2 font-bold text-text text-center mb-10">Board of Directors</h3>
