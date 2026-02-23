@@ -1,0 +1,7 @@
+{
+  "hosting": {
+    "site": "emergentworks-test",
+    "public": "dist",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+  }
+}
