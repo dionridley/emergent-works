@@ -18,7 +18,12 @@
       "mcp__plugin_playwright_playwright__browser_snapshot",
       "WebFetch(domain:staging.blackergcollective.com)",
       "WebFetch(domain:emergentworks.org)",
-      "Skill(project-management:dr-plan)"
+      "Skill(project-management:dr-plan)",
+      "Bash(tail:*)",
+      "Bash(cd:*)",
+      "Bash(curl:*)",
+      "Bash(head:*)",
+      "WebSearch"
     ]
   }
 }

@@ -1,0 +1,273 @@
+---
+/**
+ * Design Gallery Index
+ * Lists all 6 design variations with descriptions, previews, and links.
+ */
+
+const designs = [
+  {
+    name: "Impact First",
+    slug: "impact-first",
+    tagline: "Data-Driven & Tech-Forward",
+    description:
+      "Lead with the numbers. Animated impact statistics, clean grid layouts, and program pathways create a data-driven presentation that appeals to funders, corporate partners, and decision-makers who need proof before they invest.",
+    tone: "Institutional credibility, donor-facing",
+    color: "#20493C",
+  },
+  {
+    name: "Stories",
+    slug: "stories",
+    tagline: "Editorial / Magazine Layout",
+    description:
+      "Tell the human story. Full-bleed photography, asymmetric grids, and cinematic view transitions create an editorial experience where alumni journeys are the narrative spine — the site reads like a feature article about transformation.",
+    tone: "Intimate, human, journalism-inspired",
+    color: "#445E4D",
+  },
+  {
+    name: "Community Mosaic",
+    slug: "community-mosaic",
+    tagline: "Card-Based & Modular",
+    description:
+      "Show the breadth and vibrancy of the community. A dense, visually rich bento/masonry grid where programs, people, stats, and events coexist in a structured mosaic of interactive cards.",
+    tone: "Vibrant, community-as-collective",
+    color: "#24582A",
+  },
+  {
+    name: "Bold Movement",
+    slug: "bold-movement",
+    tagline: "Activist & Typography-Driven",
+    description:
+      "This is a movement, not just a program. Oversized typography, bold color blocks, and horizontal scroll create urgency and energy. The message is impossible to ignore.",
+    tone: "Urgent, empowering, movement-building",
+    color: "#052812",
+  },
+  {
+    name: "Mentorship",
+    slug: "mentorship",
+    tagline: "Warm, Personal & Relationship-Focused",
+    description:
+      "The 1:1 mentorship relationship is what makes EW special. Split-screen layouts pair mentors with mentees, circular portrait frames with gold accents, and warm tones create an inviting, personal feel.",
+    tone: "Welcoming, personal, relationship-centered",
+    color: "#B1D3BB",
+  },
+  {
+    name: "The Journey",
+    slug: "the-journey",
+    tagline: "Scroll-Driven Interactive Documentary",
+    description:
+      "The most experimental design. A continuous scroll-driven experience that takes visitors through the transformation journey — from the problem of mass incarceration to the triumph of alumni success — using chapter-based color transitions and scroll-triggered animations.",
+    tone: "Immersive, cinematic, emotionally powerful",
+    color: "#FFCB70",
+  },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Emergent Works — Design Variations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background: #FFF8ED;
+        color: #242424;
+        min-height: 100vh;
+      }
+
+      .gallery-header {
+        padding: 4rem 2rem 3rem;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .gallery-header h1 {
+        font-family: "Outfit", sans-serif;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 700;
+        color: #20493C;
+        margin-bottom: 1rem;
+      }
+
+      .gallery-header p {
+        font-size: 1.125rem;
+        line-height: 1.7;
+        color: #5f6360;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr));
+        gap: 2rem;
+        padding: 0 2rem 4rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .design-card {
+        background: #FFFFFF;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.04);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .design-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 12px 32px rgba(0, 0, 0, 0.06);
+      }
+
+      .card-preview {
+        height: 220px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card-preview-placeholder {
+        font-family: "Outfit", sans-serif;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: white;
+        text-align: center;
+        padding: 1rem;
+        opacity: 0.9;
+      }
+
+      .card-body {
+        padding: 1.5rem;
+      }
+
+      .card-name {
+        font-family: "Outfit", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #20493C;
+        margin-bottom: 0.25rem;
+      }
+
+      .card-tagline {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #FFCB70;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.75rem;
+      }
+
+      .card-description {
+        font-size: 0.9375rem;
+        line-height: 1.6;
+        color: #5f6360;
+        margin-bottom: 0.75rem;
+      }
+
+      .card-tone {
+        font-size: 0.8125rem;
+        color: #445E4D;
+        font-style: italic;
+        margin-bottom: 1.25rem;
+      }
+
+      .card-links {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+
+      .card-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background 0.2s ease, color 0.2s ease;
+      }
+
+      .card-link--primary {
+        background: #20493C;
+        color: white;
+      }
+
+      .card-link--primary:hover {
+        background: #052812;
+      }
+
+      .card-link--secondary {
+        background: transparent;
+        color: #20493C;
+        border: 1.5px solid #20493C;
+      }
+
+      .card-link--secondary:hover {
+        background: #20493C;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="gallery-header">
+        <h1>Emergent Works Design Variations</h1>
+        <p>
+          Six distinct approaches to presenting Emergent Works as a professional,
+          impactful nonprofit organization. Each design is a complete multi-page
+          website with its own visual identity, layout philosophy, and tone — all
+          built on the same brand palette and real organizational content.
+        </p>
+      </div>
+
+      <div class="gallery-grid">
+        {designs.map((design) => (
+          <article class="design-card">
+            <div class="card-preview" style={`background: ${design.color};`}>
+              <span class="card-preview-placeholder">
+                {design.name}<br />Preview Coming Soon
+              </span>
+            </div>
+            <div class="card-body">
+              <h2 class="card-name">{design.name}</h2>
+              <p class="card-tagline">{design.tagline}</p>
+              <p class="card-description">{design.description}</p>
+              <p class="card-tone">Tone: {design.tone}</p>
+              <div class="card-links">
+                <a
+                  href={`/designs/${design.slug}/`}
+                  class="card-link card-link--primary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Design &rarr;
+                </a>
+                <a
+                  href={`/designs/${design.slug}/summary/`}
+                  class="card-link card-link--secondary"
+                >
+                  Content Summary
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </main>
+  </body>
+</html>

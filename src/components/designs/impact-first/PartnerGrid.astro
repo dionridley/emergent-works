@@ -1,0 +1,74 @@
+---
+/**
+ * Impact First — PartnerGrid
+ * Logo grid for partner organizations.
+ */
+
+import { partners } from "../../../data/partners";
+---
+
+<div class="partner-grid" data-reveal>
+  {partners.map((partner) => (
+    <div class="partner-grid__item" title={partner.name}>
+      <img
+        src={partner.logo}
+        alt={partner.name}
+        loading="lazy"
+      />
+    </div>
+  ))}
+</div>
+
+<style>
+  .partner-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--if-space-4);
+    align-items: center;
+  }
+
+  .partner-grid__item {
+    background: var(--if-white);
+    border-radius: var(--if-radius-sm);
+    border: 1px solid var(--if-border-light);
+    padding: var(--if-space-4) var(--if-space-5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    transition: border-color var(--if-duration) var(--if-ease),
+                box-shadow var(--if-duration) var(--if-ease);
+  }
+
+  .partner-grid__item:hover {
+    border-color: var(--if-sage);
+    box-shadow: var(--if-shadow-sm);
+  }
+
+  .partner-grid__item img {
+    max-height: 40px;
+    max-width: 100%;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.6);
+    transition: filter var(--if-duration) var(--if-ease);
+  }
+
+  .partner-grid__item:hover img {
+    filter: grayscale(0%) opacity(1);
+  }
+
+  @media (max-width: 480px) {
+    .partner-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .partner-grid__item {
+      height: 60px;
+      padding: var(--if-space-3);
+    }
+
+    .partner-grid__item img {
+      max-height: 28px;
+    }
+  }
+</style>

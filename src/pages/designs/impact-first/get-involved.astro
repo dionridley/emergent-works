@@ -1,0 +1,374 @@
+---
+/**
+ * Impact First — Get Involved Page
+ * Four pathways: Donate, Mentor, Partner, Volunteer.
+ * Each shows impact metrics. Includes donation form section.
+ */
+
+import ImpactFirstLayout from "../../../layouts/designs/ImpactFirstLayout.astro";
+import Header from "../../../components/designs/impact-first/Header.astro";
+import Footer from "../../../components/designs/impact-first/Footer.astro";
+import DonationImpact from "../../../components/designs/impact-first/DonationImpact.astro";
+
+import { organization } from "../../../data/organization";
+import { partnershipTypes } from "../../../data/partners";
+import { donationTrust } from "../../../data/donation";
+
+const currentPath = "/designs/impact-first/get-involved/";
+
+const pathways = [
+  {
+    title: "Donate",
+    icon: "♥",
+    description: "Every dollar directly funds programming for system-impacted individuals. Your contribution creates measurable, lasting change.",
+    impact: "73% of graduates find employment after our programs",
+    cta: "Make a Donation",
+    href: "#donate",
+  },
+  {
+    title: "Mentor",
+    icon: "⟡",
+    description: "Share your technical expertise through our 12-week mentorship program. One hour a week can transform a life.",
+    impact: "261 individuals have graduated with mentor support",
+    cta: "Become a Mentor",
+    href: `mailto:${organization.contact.email}?subject=Mentorship%20Inquiry`,
+  },
+  {
+    title: "Partner",
+    icon: "⬡",
+    description: "Bring TECK or T.RAP to your organization. We customize programs for your community's unique needs.",
+    impact: "13 partner organizations and growing",
+    cta: "Explore Partnerships",
+    href: `mailto:${organization.contact.email}?subject=Partnership%20Inquiry`,
+  },
+  {
+    title: "Volunteer",
+    icon: "✦",
+    description: "Support our programs through skills-based volunteering, event coordination, or community outreach.",
+    impact: "100% of our staff started as program alumni or volunteers",
+    cta: "Volunteer With Us",
+    href: `mailto:${organization.contact.email}?subject=Volunteer%20Inquiry`,
+  },
+];
+---
+
+<ImpactFirstLayout title="Get Involved" description="Support Emergent Works through donation, mentorship, partnerships, or volunteering.">
+  <Header currentPath={currentPath} />
+
+  <section class="involved-hero">
+    <div class="if-container">
+      <div class="involved-hero__content" data-reveal>
+        <span class="if-eyebrow">Get Involved</span>
+        <h1>Every Action<br />Creates Impact</h1>
+        <p class="involved-hero__sub">
+          There are many ways to support our mission. Whether you give your time,
+          expertise, or resources — you're directly contributing to breaking cycles
+          of incarceration through technology.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Four Pathways -->
+  <section class="if-section pathways-section">
+    <div class="if-container">
+      <div class="pathways-grid">
+        {pathways.map((pathway, i) => (
+          <div class="pathway-card" data-reveal={`delay-${i + 1}`}>
+            <div class="pathway-card__icon">{pathway.icon}</div>
+            <h3 class="pathway-card__title">{pathway.title}</h3>
+            <p class="pathway-card__desc">{pathway.description}</p>
+            <div class="pathway-card__impact">
+              <span class="pathway-card__impact-label">Impact</span>
+              <span class="pathway-card__impact-value">{pathway.impact}</span>
+            </div>
+            <a href={pathway.href} class="if-btn if-btn--primary if-btn--sm" style="width: 100%; justify-content: center;">
+              {pathway.cta} <span class="if-btn-arrow">&rarr;</span>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Donation Section -->
+  <DonationImpact />
+
+  <!-- Partnership Types -->
+  <section class="if-section partnership-section">
+    <div class="if-container">
+      <div class="partnership-header" data-reveal>
+        <span class="if-eyebrow">Partnership Models</span>
+        <h2>Ways to Partner</h2>
+        <p class="partnership-sub">
+          We offer flexible partnership models designed to meet your organization
+          wherever it is in its community impact journey.
+        </p>
+      </div>
+      <div class="partnership-grid">
+        {partnershipTypes.map((type, i) => (
+          <div class="partnership-card if-card" data-reveal={`delay-${i + 1}`}>
+            <h3>{type.title}</h3>
+            <p>{type.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="if-section if-section--green contact-section">
+    <div class="if-container">
+      <div class="contact-grid" data-reveal>
+        <div>
+          <span class="if-eyebrow">Contact Us</span>
+          <h2 style="color: var(--if-white); margin-bottom: var(--if-space-4);">Let's Connect</h2>
+          <p style="color: var(--if-sage); max-width: 400px; line-height: 1.7;">
+            Have questions about our programs, partnerships, or how to get
+            involved? We'd love to hear from you.
+          </p>
+        </div>
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="contact-label">Email</span>
+            <a href={`mailto:${organization.contact.email}`} class="contact-value">
+              {organization.contact.email}
+            </a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Address</span>
+            <span class="contact-value">{organization.contact.address}</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Social</span>
+            <div class="contact-social">
+              <a href={organization.social.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a href={organization.social.facebook} target="_blank" rel="noopener noreferrer">Facebook</a>
+              <a href={organization.social.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href={organization.social.youtube} target="_blank" rel="noopener noreferrer">YouTube</a>
+            </div>
+          </div>
+          <p class="contact-trust">{donationTrust}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</ImpactFirstLayout>
+
+<style>
+  .involved-hero {
+    padding: calc(var(--if-header-height) + var(--if-space-12)) 0 var(--if-space-10);
+    background: var(--if-cream);
+  }
+
+  .involved-hero__content {
+    max-width: 640px;
+  }
+
+  .involved-hero h1 {
+    color: var(--if-green);
+    margin-bottom: var(--if-space-5);
+  }
+
+  .involved-hero__sub {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: var(--if-text-secondary);
+  }
+
+  /* Pathways Grid */
+  .pathways-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--if-space-5);
+  }
+
+  .pathway-card {
+    padding: var(--if-space-6);
+    background: var(--if-white);
+    border-radius: var(--if-radius-lg);
+    border: 1px solid var(--if-border-light);
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--if-duration) var(--if-ease),
+                box-shadow var(--if-duration) var(--if-ease);
+  }
+
+  .pathway-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--if-shadow-lg);
+  }
+
+  .pathway-card__icon {
+    font-size: 1.5rem;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--if-green);
+    border-radius: var(--if-radius-sm);
+    margin-bottom: var(--if-space-5);
+  }
+
+  .pathway-card__title {
+    font-family: var(--if-font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--if-green);
+    margin-bottom: var(--if-space-3);
+  }
+
+  .pathway-card__desc {
+    font-size: 0.875rem;
+    line-height: 1.65;
+    color: var(--if-text-secondary);
+    margin-bottom: var(--if-space-5);
+    flex: 1;
+  }
+
+  .pathway-card__impact {
+    padding: var(--if-space-3) var(--if-space-4);
+    background: var(--if-cream);
+    border-radius: var(--if-radius-sm);
+    margin-bottom: var(--if-space-5);
+  }
+
+  .pathway-card__impact-label {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--if-gold);
+    display: block;
+    margin-bottom: 0.125rem;
+  }
+
+  .pathway-card__impact-value {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--if-text);
+    line-height: 1.4;
+  }
+
+  /* Partnership */
+  .partnership-header {
+    text-align: center;
+    margin-bottom: var(--if-space-8);
+  }
+
+  .partnership-header h2 {
+    color: var(--if-green);
+    margin-bottom: var(--if-space-4);
+  }
+
+  .partnership-header .if-eyebrow {
+    justify-content: center;
+  }
+
+  .partnership-header .if-eyebrow::before {
+    display: none;
+  }
+
+  .partnership-sub {
+    font-size: 1rem;
+    color: var(--if-text-secondary);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .partnership-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--if-space-5);
+  }
+
+  .partnership-card h3 {
+    font-family: var(--if-font-heading);
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--if-green);
+    margin-bottom: var(--if-space-3);
+  }
+
+  .partnership-card p {
+    font-size: 0.875rem;
+    line-height: 1.65;
+    color: var(--if-text-secondary);
+  }
+
+  /* Contact */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--if-space-9);
+    align-items: start;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--if-space-5);
+  }
+
+  .contact-label {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--if-gold);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .contact-value {
+    font-size: 0.9375rem;
+    color: var(--if-white);
+  }
+
+  .contact-social {
+    display: flex;
+    gap: var(--if-space-4);
+  }
+
+  .contact-social a {
+    font-size: 0.875rem;
+    color: var(--if-sage);
+    transition: color var(--if-duration) var(--if-ease);
+  }
+
+  .contact-social a:hover {
+    color: var(--if-gold);
+  }
+
+  .contact-trust {
+    font-size: 0.75rem;
+    color: var(--if-text-light);
+    line-height: 1.5;
+    padding-top: var(--if-space-4);
+    border-top: 1px solid rgba(177, 211, 187, 0.15);
+  }
+
+  @media (max-width: 768px) {
+    .pathways-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .partnership-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .pathways-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

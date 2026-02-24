@@ -87,44 +87,44 @@ No blocking questions identified — all major decisions were resolved during br
 **Estimated Time:** 8 hours
 
 #### Tasks
-- [ ] Create shared data layer by extracting hardcoded content from existing pages:
-  - [ ] `src/data/organization.ts` — name, address, email, tax ID, social links, founding year, staff composition stats
-  - [ ] `src/data/programs.ts` — TECK, T.RAP, Technical Mentorship details (descriptions, durations, eligibility, enrollment info)
-  - [ ] `src/data/team.ts` — staff (5), board (5), advisory (3) with names, titles, placeholder image paths
-  - [ ] `src/data/testimonials.ts` — all 8 testimonials with names, quotes, image paths, program associations
-  - [ ] `src/data/stats.ts` — impact metrics (261 graduates, 73% employed, 98%+ no re-offense, $2+ above minimum wage, 8 contracted)
-  - [ ] `src/data/partners.ts` — 13 partner organizations with names and logo paths
-  - [ ] `src/data/donation.ts` — donation tiers, impact statements, frequency options
-- [ ] Create fabricated content extensions for richer designs:
-  - [ ] Extended team bios (2-3 sentences per person, fabricated but plausible)
-  - [ ] Additional fabricated testimonials (4-6 more) to give designs enough variety
-  - [ ] Fabricated alumni success stories with names, journeys, outcomes (for "Stories" and "Mentorship" designs)
-  - [ ] Fabricated mentor profiles (tech professionals who volunteer) with names, companies, specialties
-  - [ ] Expanded program details (weekly schedules, curriculum outlines, tools covered)
-  - [ ] Fabricated event listings (upcoming workshops, graduation ceremonies, community events)
-  - [ ] Mark ALL fabricated content with a `fabricated: true` flag in the data types
-- [ ] Source and download stock photography to `public/images/designs/stock/`:
-  - [ ] Community/group photos (diverse groups in educational settings) — 8-10 images
-  - [ ] Individual portraits (diverse individuals, professional and candid) — 10-12 images
-  - [ ] Technology/coding scenes (laptops, pair programming, workshops) — 6-8 images
-  - [ ] Music/studio scenes (recording, production, performance) — 4-6 images for T.RAP
-  - [ ] NYC urban/community scenes — 4-6 images
-  - [ ] Abstract/texture images for backgrounds — 4-6 images
-  - [ ] Professional headshots for fabricated team/mentor profiles — 8-10 images
-- [ ] Set up routing skeleton:
-  - [ ] Create `src/pages/designs/index.astro` (placeholder gallery page)
-  - [ ] Create directory structure for all 6 designs under `src/pages/designs/`
-  - [ ] Create `src/components/designs/` directory structure for all 6 designs
-  - [ ] Create `src/layouts/designs/` directory for design-specific layouts
-- [ ] Create shared design utilities:
-  - [ ] `src/components/designs/shared/ContentSummaryTable.astro` — reusable table for content audit pages
-  - [ ] `src/components/designs/shared/FabricatedBadge.astro` — visual indicator for fabricated content (dev only)
+- [x] Create shared data layer by extracting hardcoded content from existing pages:
+  - [x] `src/data/organization.ts` — name, address, email, tax ID, social links, founding year, staff composition stats
+  - [x] `src/data/programs.ts` — TECK, T.RAP, Technical Mentorship details (descriptions, durations, eligibility, enrollment info)
+  - [x] `src/data/team.ts` — staff (5), board (5), advisory (3) with names, titles, placeholder image paths
+  - [x] `src/data/testimonials.ts` — all 8 testimonials with names, quotes, image paths, program associations
+  - [x] `src/data/stats.ts` — impact metrics (261 graduates, 73% employed, 98%+ no re-offense, $2+ above minimum wage, 8 contracted)
+  - [x] `src/data/partners.ts` — 13 partner organizations with names and logo paths
+  - [x] `src/data/donation.ts` — donation tiers, impact statements, frequency options
+- [x] Create fabricated content extensions for richer designs:
+  - [x] Extended team bios (2-3 sentences per person, fabricated but plausible)
+  - [x] Additional fabricated testimonials (4-6 more) to give designs enough variety
+  - [x] Fabricated alumni success stories with names, journeys, outcomes (for "Stories" and "Mentorship" designs)
+  - [x] Fabricated mentor profiles (tech professionals who volunteer) with names, companies, specialties
+  - [x] Expanded program details (weekly schedules, curriculum outlines, tools covered)
+  - [x] Fabricated event listings (upcoming workshops, graduation ceremonies, community events)
+  - [x] Mark ALL fabricated content with a `fabricated: true` flag in the data types
+- [x] Source and download stock photography to `public/images/designs/stock/`:
+  - [x] Community/group photos (diverse groups in educational settings) — 8-10 images
+  - [x] Individual portraits (diverse individuals, professional and candid) — 10-12 images
+  - [x] Technology/coding scenes (laptops, pair programming, workshops) — 6-8 images
+  - [x] Music/studio scenes (recording, production, performance) — 4-6 images for T.RAP
+  - [x] NYC urban/community scenes — 4-6 images
+  - [x] Abstract/texture images for backgrounds — 4-6 images
+  - [x] Professional headshots for fabricated team/mentor profiles — 8-10 images
+- [x] Set up routing skeleton:
+  - [x] Create `src/pages/designs/index.astro` (placeholder gallery page)
+  - [x] Create directory structure for all 6 designs under `src/pages/designs/`
+  - [x] Create `src/components/designs/` directory structure for all 6 designs
+  - [x] Create `src/layouts/designs/` directory for design-specific layouts
+- [x] Create shared design utilities:
+  - [x] `src/components/designs/shared/ContentSummaryTable.astro` — reusable table for content audit pages
+  - [x] `src/components/designs/shared/FabricatedBadge.astro` — visual indicator for fabricated content (dev only)
 
 #### Test Verification
-- [ ] `npm run build` succeeds with new data layer and routing skeleton
-- [ ] All data files export typed data with no TS errors
-- [ ] `/designs` route resolves (even if placeholder)
-- [ ] Existing site pages unaffected — all 7 original routes still work
+- [x] `npm run build` succeeds with new data layer and routing skeleton
+- [x] All data files export typed data with no TS errors
+- [x] `/designs` route resolves (even if placeholder)
+- [x] Existing site pages unaffected — all 7 original routes still work
 
 ---
 
@@ -137,56 +137,56 @@ This is built first as it has the most conventional layout, establishing reusabl
 > **Process:** Use `/frontend-design` skill for all pages and components. Adhere to Outfit (headings) + Plus Jakarta Sans (body) typography. Document any deviations in the content summary page.
 
 #### Layout & Components
-- [ ] Create `src/layouts/designs/ImpactFirstLayout.astro` — clean, professional layout with sticky header, generous whitespace
-- [ ] Create `src/components/designs/impact-first/Header.astro` — minimal nav with EW logo, transparent-to-solid on scroll
-- [ ] Create `src/components/designs/impact-first/Footer.astro` — structured footer with nav columns, contact, social links
-- [ ] Create `src/components/designs/impact-first/AnimatedCounter.tsx` — React component for counting up statistics on scroll (Intersection Observer)
-- [ ] Create `src/components/designs/impact-first/StatComparison.astro` — side-by-side EW vs national average stat display
-- [ ] Create `src/components/designs/impact-first/ProgramPathway.astro` — step-by-step visual program journey with numbered stages
-- [ ] Create `src/components/designs/impact-first/MetricCard.astro` — individual metric with large number, label, and context
-- [ ] Create `src/components/designs/impact-first/PartnerGrid.astro` — logo grid for partner organizations
-- [ ] Create `src/components/designs/impact-first/ImpactHero.astro` — hero section with animated statistics as centerpiece
-- [ ] Create `src/components/designs/impact-first/DonationImpact.astro` — visual breakdown of how donations translate to outcomes
+- [x] Create `src/layouts/designs/ImpactFirstLayout.astro` — clean, professional layout with sticky header, generous whitespace
+- [x] Create `src/components/designs/impact-first/Header.astro` — minimal nav with EW logo, transparent-to-solid on scroll
+- [x] Create `src/components/designs/impact-first/Footer.astro` — structured footer with nav columns, contact, social links
+- [x] Create `src/components/designs/impact-first/AnimatedCounter.tsx` — React component for counting up statistics on scroll (Intersection Observer)
+- [x] Create `src/components/designs/impact-first/StatComparison.astro` — side-by-side EW vs national average stat display
+- [x] Create `src/components/designs/impact-first/ProgramPathway.astro` — step-by-step visual program journey with numbered stages
+- [x] Create `src/components/designs/impact-first/MetricCard.astro` — individual metric with large number, label, and context
+- [x] Create `src/components/designs/impact-first/PartnerGrid.astro` — logo grid for partner organizations
+- [x] Create `src/components/designs/impact-first/ImpactHero.astro` — hero section with animated statistics as centerpiece
+- [x] Create `src/components/designs/impact-first/DonationImpact.astro` — visual breakdown of how donations translate to outcomes
 
 #### Pages
-- [ ] **Home** (`designs/impact-first/index.astro`):
+- [x] **Home** (`designs/impact-first/index.astro`):
   - Hero with animated impact counters (0% recidivism, 73% employed, 261 graduates)
   - "By the Numbers" comparison section (EW alumni vs national averages)
   - Programs overview as pathways with step indicators
   - Featured testimonial with metric context
   - Partner logo grid
   - Donation impact breakdown CTA
-- [ ] **About** (`designs/impact-first/about.astro`):
+- [x] **About** (`designs/impact-first/about.astro`):
   - Organization origin story with Army Armstead's journey
   - Mission/vision with supporting data points
   - Staff composition stats (100% alumni, 80% system-impacted, 80% BIPOC, 40% female-identifying)
   - Timeline of organizational milestones
   - Values/approach pillars with icons
-- [ ] **Programs Overview** (`designs/impact-first/programs/index.astro`):
+- [x] **Programs Overview** (`designs/impact-first/programs/index.astro`):
   - Programs presented as pathways with clear outcomes data
   - Each program card shows: duration, format, eligibility, and measurable outcomes
   - Visual distinction between direct programs and partner programs
-- [ ] **Programs/TECK** (`designs/impact-first/programs/teck.astro`):
+- [x] **Programs/TECK** (`designs/impact-first/programs/teck.astro`):
   - Detailed curriculum breakdown with skill areas
   - Outcomes data specific to TECK graduates
   - Testimonials from TECK participants
   - Enrollment CTA with clear next steps
-- [ ] **Programs/T.RAP** (`designs/impact-first/programs/trap.astro`):
+- [x] **Programs/T.RAP** (`designs/impact-first/programs/trap.astro`):
   - Program structure with milestone-based progression
   - Music production + digital literacy dual focus
   - Youth-specific impact metrics
   - Stipend information and enrollment details
-- [ ] **Team** (`designs/impact-first/team.astro`):
+- [x] **Team** (`designs/impact-first/team.astro`):
   - Staff grid with photos, names, titles, brief bios
   - Board of Directors section
   - Advisory Board section
   - Staff composition infographic
-- [ ] **Get Involved** (`designs/impact-first/get-involved.astro`):
+- [x] **Get Involved** (`designs/impact-first/get-involved.astro`):
   - Four pathways: Donate, Mentor, Partner, Volunteer
   - Each pathway shows impact metrics ("Your $100 provides...")
   - Donation form (reuse existing DonationForm.tsx or build design-specific variant)
   - Contact information and social links
-- [ ] **Content Summary** (`designs/impact-first/summary.astro`):
+- [x] **Content Summary** (`designs/impact-first/summary.astro`):
   - Table of all content used across pages
   - Columns: Content item, Source (Real/Fabricated), Page used on, Notes for replacement
   - List of all stock images used with source URLs
@@ -200,12 +200,12 @@ This is built first as it has the most conventional layout, establishing reusabl
 - Color usage: Primary green for data highlights, gold for CTAs, cream backgrounds
 
 #### Test Verification
-- [ ] All 7 pages + summary page render without errors
-- [ ] Animated counters trigger correctly on scroll
-- [ ] Navigation between all Impact First pages works
-- [ ] Responsive layout works on mobile/tablet/desktop
-- [ ] No styles leak to other designs or main site
-- [ ] `npm run build` succeeds
+- [x] All 7 pages + summary page render without errors
+- [x] Animated counters trigger correctly on scroll
+- [x] Navigation between all Impact First pages works
+- [x] Responsive layout works on mobile/tablet/desktop
+- [x] No styles leak to other designs or main site
+- [x] `npm run build` succeeds
 
 ---
 

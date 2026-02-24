@@ -1,0 +1,196 @@
+---
+/**
+ * Impact First — StatComparison
+ * Side-by-side EW vs national average comparison bars.
+ */
+
+interface ComparisonItem {
+  metric: string;
+  ew: string;
+  national: string;
+  ewValue: number;
+  nationalValue: number;
+  description?: string;
+}
+
+interface Props {
+  comparisons: ComparisonItem[];
+}
+
+const { comparisons } = Astro.props;
+---
+
+<div class="stat-comparison" data-reveal>
+  {comparisons.map((item) => {
+    const maxVal = Math.max(item.ewValue, item.nationalValue) * 1.15;
+    const ewPct = (item.ewValue / maxVal) * 100;
+    const natPct = (item.nationalValue / maxVal) * 100;
+
+    return (
+      <div class="stat-comparison__item">
+        <div class="stat-comparison__header">
+          <h4 class="stat-comparison__metric">{item.metric}</h4>
+        </div>
+        <div class="stat-comparison__bars">
+          <div class="stat-comparison__row">
+            <span class="stat-comparison__label stat-comparison__label--ew">Emergent Works</span>
+            <div class="stat-comparison__track">
+              <div
+                class="stat-comparison__bar stat-comparison__bar--ew"
+                style={`--bar-width: ${ewPct}%`}
+                data-stat-bar
+              >
+                <span class="stat-comparison__value">{item.ew}</span>
+              </div>
+            </div>
+          </div>
+          <div class="stat-comparison__row">
+            <span class="stat-comparison__label stat-comparison__label--nat">National Average</span>
+            <div class="stat-comparison__track">
+              <div
+                class="stat-comparison__bar stat-comparison__bar--nat"
+                style={`--bar-width: ${natPct}%`}
+                data-stat-bar
+              >
+                <span class="stat-comparison__value">{item.national}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        {item.description && (
+          <p class="stat-comparison__description">{item.description}</p>
+        )}
+      </div>
+    );
+  })}
+</div>
+
+<script>
+  const bars = document.querySelectorAll('[data-stat-bar]');
+  const barObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          (entry.target as HTMLElement).style.width =
+            (entry.target as HTMLElement).style.getPropertyValue('--bar-width');
+          barObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+  bars.forEach((bar) => {
+    (bar as HTMLElement).style.width = '0%';
+    barObserver.observe(bar);
+  });
+</script>
+
+<style>
+  .stat-comparison {
+    display: flex;
+    flex-direction: column;
+    gap: var(--if-space-8);
+  }
+
+  .stat-comparison__item {
+    padding-bottom: var(--if-space-6);
+    border-bottom: 1px solid rgba(177, 211, 187, 0.15);
+  }
+
+  .stat-comparison__item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .stat-comparison__metric {
+    font-family: var(--if-font-heading);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--if-white);
+    margin-bottom: var(--if-space-4);
+  }
+
+  .stat-comparison__bars {
+    display: flex;
+    flex-direction: column;
+    gap: var(--if-space-3);
+  }
+
+  .stat-comparison__row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    align-items: center;
+    gap: var(--if-space-4);
+  }
+
+  .stat-comparison__label {
+    font-size: 0.8125rem;
+    font-weight: 500;
+  }
+
+  .stat-comparison__label--ew {
+    color: var(--if-gold);
+  }
+
+  .stat-comparison__label--nat {
+    color: var(--if-text-light);
+  }
+
+  .stat-comparison__track {
+    height: 36px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: var(--if-radius-sm);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .stat-comparison__bar {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: var(--if-space-3);
+    border-radius: var(--if-radius-sm);
+    transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    min-width: fit-content;
+  }
+
+  .stat-comparison__bar--ew {
+    background: linear-gradient(90deg, var(--if-gold), #ffe4a8);
+  }
+
+  .stat-comparison__bar--nat {
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .stat-comparison__value {
+    font-family: var(--if-font-heading);
+    font-size: 0.875rem;
+    font-weight: 700;
+    white-space: nowrap;
+    padding-left: var(--if-space-3);
+  }
+
+  .stat-comparison__bar--ew .stat-comparison__value {
+    color: var(--if-green-dark);
+  }
+
+  .stat-comparison__bar--nat .stat-comparison__value {
+    color: var(--if-text-light);
+  }
+
+  .stat-comparison__description {
+    font-size: 0.8125rem;
+    color: var(--if-sage);
+    line-height: 1.6;
+    margin-top: var(--if-space-3);
+    max-width: 600px;
+  }
+
+  @media (max-width: 580px) {
+    .stat-comparison__row {
+      grid-template-columns: 1fr;
+      gap: var(--if-space-1);
+    }
+  }
+</style>

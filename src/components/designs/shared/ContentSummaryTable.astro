@@ -1,0 +1,290 @@
+---
+/**
+ * Reusable content audit table for design summary pages.
+ * Documents real vs fabricated content for each design variation.
+ */
+
+export interface ContentItem {
+  item: string;
+  source: "Real" | "Fabricated" | "Stock Photo";
+  page: string;
+  notes?: string;
+}
+
+export interface StockImage {
+  filename: string;
+  sourceUrl: string;
+  usedOn: string;
+  description: string;
+}
+
+export interface TypographyDeviation {
+  element: string;
+  expected: string;
+  actual: string;
+  reason: string;
+}
+
+interface Props {
+  designName: string;
+  contentItems: ContentItem[];
+  stockImages?: StockImage[];
+  typographyDeviations?: TypographyDeviation[];
+}
+
+const { designName, contentItems, stockImages = [], typographyDeviations = [] } = Astro.props;
+
+const realCount = contentItems.filter((i) => i.source === "Real").length;
+const fabricatedCount = contentItems.filter((i) => i.source === "Fabricated").length;
+const stockCount = contentItems.filter((i) => i.source === "Stock Photo").length;
+---
+
+<div class="summary-container">
+  <section class="summary-section">
+    <h2>Content Audit — {designName}</h2>
+    <p class="summary-stats">
+      <span class="badge badge--real">{realCount} Real</span>
+      <span class="badge badge--fabricated">{fabricatedCount} Fabricated</span>
+      <span class="badge badge--stock">{stockCount} Stock Photos</span>
+    </p>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Content Item</th>
+            <th>Source</th>
+            <th>Page</th>
+            <th>Notes / Replacement Needed</th>
+          </tr>
+        </thead>
+        <tbody>
+          {contentItems.map((item) => (
+            <tr>
+              <td>{item.item}</td>
+              <td>
+                <span class={`source-badge source-badge--${item.source.toLowerCase().replace(" ", "-")}`}>
+                  {item.source}
+                </span>
+              </td>
+              <td>{item.page}</td>
+              <td>{item.notes || "—"}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  {stockImages.length > 0 && (
+    <section class="summary-section">
+      <h3>Stock Image Sources</h3>
+      <p class="section-note">
+        All stock images are licensed for free commercial use. Sources documented here for easy replacement with real photography.
+      </p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Filename</th>
+              <th>Source URL</th>
+              <th>Used On</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            {stockImages.map((img) => (
+              <tr>
+                <td><code>{img.filename}</code></td>
+                <td>
+                  <a href={img.sourceUrl} target="_blank" rel="noopener noreferrer">
+                    Source
+                  </a>
+                </td>
+                <td>{img.usedOn}</td>
+                <td>{img.description}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  )}
+
+  <section class="summary-section">
+    <h3>Typography Deviation Log</h3>
+    {typographyDeviations.length > 0 ? (
+      <>
+        <p class="section-note">
+          The following typography deviations from the standard Outfit (headings) + Plus Jakarta Sans (body) were made in this design.
+        </p>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Element</th>
+                <th>Expected Font</th>
+                <th>Actual Font</th>
+                <th>Reason</th>
+              </tr>
+            </thead>
+            <tbody>
+              {typographyDeviations.map((dev) => (
+                <tr>
+                  <td>{dev.element}</td>
+                  <td>{dev.expected}</td>
+                  <td>{dev.actual}</td>
+                  <td>{dev.reason}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </>
+    ) : (
+      <p class="no-deviations">
+        No typography deviations. This design uses Outfit for headings and Plus Jakarta Sans for body text throughout.
+      </p>
+    )}
+  </section>
+</div>
+
+<style>
+  .summary-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .summary-section {
+    margin-bottom: 3rem;
+  }
+
+  h2 {
+    font-family: "Outfit", sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #20493C;
+    margin-bottom: 0.75rem;
+  }
+
+  h3 {
+    font-family: "Outfit", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #20493C;
+    margin-bottom: 0.5rem;
+  }
+
+  .summary-stats {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    display: inline-flex;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+  }
+
+  .badge--real {
+    background: #B1D3BB;
+    color: #20493C;
+  }
+
+  .badge--fabricated {
+    background: #FFCB70;
+    color: #242424;
+  }
+
+  .badge--stock {
+    background: #F9C5B4;
+    color: #242424;
+  }
+
+  .section-note {
+    font-size: 0.875rem;
+    color: #5f6360;
+    margin-bottom: 1rem;
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+  }
+
+  th {
+    background: #f9fafb;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #20493C;
+    border-bottom: 2px solid #e5e7eb;
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 0.625rem 1rem;
+    border-bottom: 1px solid #f0f0f0;
+    color: #242424;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  .source-badge {
+    display: inline-flex;
+    padding: 0.125rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .source-badge--real {
+    background: #B1D3BB;
+    color: #20493C;
+  }
+
+  .source-badge--fabricated {
+    background: #FFCB70;
+    color: #242424;
+  }
+
+  .source-badge--stock-photo {
+    background: #F9C5B4;
+    color: #242424;
+  }
+
+  code {
+    font-size: 0.8125rem;
+    background: #f3f4f6;
+    padding: 0.125rem 0.375rem;
+    border-radius: 3px;
+  }
+
+  a {
+    color: #20493C;
+    font-weight: 500;
+  }
+
+  .no-deviations {
+    font-size: 0.875rem;
+    color: #24582A;
+    background: #B1D3BB33;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #B1D3BB;
+  }
+</style>

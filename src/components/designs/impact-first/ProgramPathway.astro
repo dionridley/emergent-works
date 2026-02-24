@@ -1,0 +1,145 @@
+---
+/**
+ * Impact First — ProgramPathway
+ * Step-by-step visual program journey with numbered stages.
+ */
+
+interface PathwayStep {
+  number: number;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  programName: string;
+  steps: PathwayStep[];
+}
+
+const { programName, steps } = Astro.props;
+---
+
+<div class="pathway" data-reveal>
+  <div class="pathway__label">{programName} Pathway</div>
+  <div class="pathway__steps">
+    {steps.map((step, i) => (
+      <div class="pathway__step" data-reveal={`delay-${i + 1}`}>
+        <div class="pathway__number">
+          <span>{String(step.number).padStart(2, "0")}</span>
+        </div>
+        <div class="pathway__connector" />
+        <div class="pathway__content">
+          <h4 class="pathway__title">{step.title}</h4>
+          <p class="pathway__desc">{step.description}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .pathway {
+    padding: var(--if-space-6);
+    background: var(--if-white);
+    border-radius: var(--if-radius-lg);
+    border: 1px solid var(--if-border-light);
+  }
+
+  .pathway__label {
+    font-family: var(--if-font-body);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--if-gold);
+    margin-bottom: var(--if-space-6);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .pathway__label::before {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: var(--if-gold);
+  }
+
+  .pathway__steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .pathway__step {
+    display: grid;
+    grid-template-columns: 48px 20px 1fr;
+    gap: 0 var(--if-space-4);
+    align-items: start;
+    min-height: 80px;
+  }
+
+  .pathway__number {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--if-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .pathway__number span {
+    font-family: var(--if-font-heading);
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--if-gold);
+  }
+
+  .pathway__connector {
+    width: 2px;
+    background: var(--if-border);
+    justify-self: center;
+    height: 100%;
+    min-height: 60px;
+  }
+
+  .pathway__step:last-child .pathway__connector {
+    background: transparent;
+  }
+
+  .pathway__content {
+    padding-top: 0.25rem;
+    padding-bottom: var(--if-space-6);
+  }
+
+  .pathway__step:last-child .pathway__content {
+    padding-bottom: 0;
+  }
+
+  .pathway__title {
+    font-family: var(--if-font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--if-text);
+    margin-bottom: var(--if-space-2);
+  }
+
+  .pathway__desc {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--if-text-secondary);
+  }
+
+  @media (max-width: 480px) {
+    .pathway__step {
+      grid-template-columns: 40px 12px 1fr;
+      gap: 0 var(--if-space-3);
+    }
+
+    .pathway__number {
+      width: 40px;
+      height: 40px;
+    }
+  }
+</style>
