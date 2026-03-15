@@ -1,222 +1,411 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import HeroSection from "../components/HeroSection.astro";
-import Section from "../components/Section.astro";
-import Button from "../components/Button.astro";
-import TestimonialBlock from "../components/TestimonialBlock.astro";
-import ContentSection from "../components/ContentSection.astro";
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { organization } from "../data/organization";
+import { testimonials } from "../data/testimonials";
+import { programs, programApproach } from "../data/programs";
+import { primaryStats } from "../data/stats";
+import { alumniStories } from "../data/fabricated";
+import { partners } from "../data/partners";
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "NonprofitOrganization",
-  name: "Emergent Works",
-  url: "https://emergentworks.org",
-  logo: "https://emergentworks.org/images/header-logo.png",
-  description: "Emergent Works empowers system-impacted Black and Brown youth and adults to reclaim their futures through technology, creativity, and community.",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "424 W 54th St.",
-    addressLocality: "New York",
-    addressRegion: "NY",
-    postalCode: "10019",
-    addressCountry: "US",
-  },
-  email: "info@emergentworks.org",
-  sameAs: [
-    "https://www.instagram.com/emergentworks_",
-    "https://www.facebook.com/emergentworks",
-    "https://www.linkedin.com/company/emergentworks",
-    "https://www.youtube.com/@emergentworks",
-  ],
-  taxID: "85-1197743",
-  nonprofitStatus: "501(c)(3)",
-  founder: {
-    "@type": "Person",
-    name: "Army Armstead",
-  },
-};
+const nashid = testimonials.find((t) => t.name === "Nashid")!;
+const sheisty = testimonials.find((t) => t.name === "Sheisty")!;
+const dontay = testimonials.find((t) => t.name === "Dontay")!;
+const marcus = alumniStories[0];
 ---
 
-<BaseLayout title="Emergent Works - Rewriting Futures">
+<Layout title="Home" description={organization.mission}>
+  <Header currentPath="/" />
 
-  {/* Section 1: Hero */}
-  <HeroSection
-    backgroundImage="/images/hero/community.jpg"
-    backgroundAlt="Emergent Works community members in a program session"
-  >
-    <h1 class="text-display lg:text-[83px] font-bold text-white text-center leading-tight">
-      Rewriting Futures.<br />One Skill At The Time.
-    </h1>
-  </HeroSection>
-
-  {/* Section 2+3: Mission + Our Approach */}
-  <Section variant="background" class="!py-16 lg:!py-24">
-    <div class="max-w-4xl mx-auto text-center mb-16">
-      <p class="text-h3 lg:text-[40px] font-bold leading-snug text-text">
-        Emergent Works empowers system-impacted Black and Brown youth and adults to reclaim their futures through technology, creativity, and community.
-      </p>
+  <!-- HERO: Full-bleed cinematic -->
+  <section class="hero">
+    <div class="hero__image">
+      <img src="/images/hero/community.jpg" alt="Emergent Works community" />
+      <div class="hero__overlay" />
     </div>
-
-    <div class="flex items-center justify-center gap-8 mb-16">
-      {/* Laptop illustration placeholder */}
-      <img
-        src="/images/approach/decorative.png"
-        alt=""
-        class="w-24 h-24 lg:w-32 lg:h-32 object-contain hidden md:block"
-        aria-hidden="true"
-        loading="lazy"
-      />
-      <Button href="/about-us">Discover More</Button>
-      {/* Phone illustration placeholder */}
-      <img
-        src="/images/community/circle.png"
-        alt=""
-        class="w-20 h-20 lg:w-28 lg:h-28 rounded-full object-cover hidden md:block"
-        aria-hidden="true"
-        loading="lazy"
-      />
-    </div>
-
-    <h2 class="text-h1 lg:text-[72px] font-bold text-text mb-12">Our Approach</h2>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 mb-8">
-      <div>
-        <h3 class="text-h4 lg:text-[28px] font-bold text-text mb-2">Digital Literacy Training</h3>
-        <p class="text-body-sm lg:text-body text-text/70 leading-relaxed">
-          Equipping our community with practical experience with industry accepted digital tools to complete professional tasks efficiently and effectively.
-        </p>
-      </div>
-      <div>
-        <h3 class="text-h4 lg:text-[28px] font-bold text-text mb-2">Social Emotional Learning</h3>
-        <p class="text-body-sm lg:text-body text-text/70 leading-relaxed">
-          Amplifying voices &amp; rewriting futures through music production, audio engineering, studio recordings and mental health sessions.
-        </p>
+    <div class="st-container hero__content">
+      <div data-reveal>
+        <span class="st-chapter">A story of transformation</span>
+        <h1>Rewriting<br />Futures</h1>
+        <p class="hero__sub">{organization.mission}</p>
+        <div class="hero__actions">
+          <a href="/about/" class="st-btn st-btn--gold">Read Our Story <span class="st-btn-arrow">&rarr;</span></a>
+          <a href="/programs/" class="st-btn st-btn--outline-white">Explore Programs</a>
+        </div>
       </div>
     </div>
-
-    <hr class="border-text/10 mb-8" />
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 mb-12">
-      <div>
-        <h3 class="text-h4 lg:text-[28px] font-bold text-text mb-2">Career Development</h3>
-        <p class="text-body-sm lg:text-body text-text/70 leading-relaxed">
-          Providing foundational technical and social skills to navigate today's workplace as well as opportunities to apply learnings and gain experience.
-        </p>
-      </div>
-      <div>
-        <h3 class="text-h4 lg:text-[28px] font-bold text-text mb-2">Community Engagement</h3>
-        <p class="text-body-sm lg:text-body text-text/70 leading-relaxed">
-          Equipping participants to collaborate and explore community issues whilst leading change through civic engagement and research.
-        </p>
-      </div>
-    </div>
-
-    <div class="text-center">
-      <Button href="/programs">Programs</Button>
-    </div>
-  </Section>
-
-  {/* Section 4: Full-Width Photo */}
-  <section class="bg-primary p-4 lg:p-6">
-    <img
-      src="/images/community/fullwidth.jpg"
-      alt="Emergent Works community members in a creative studio space"
-      class="w-full h-64 lg:h-[500px] object-cover rounded-lg"
-      loading="lazy"
-    />
   </section>
 
-  {/* Section 5: Community Voices */}
-  <Section variant="background" class="!py-16 lg:!py-24">
-    <h2 class="text-h1 lg:text-[72px] font-bold text-text text-center mb-16">Community Voices</h2>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-      <TestimonialBlock
-        image="/images/testimonial/dontay.png"
-        imageAlt="Portrait of Dontay"
-        quote="This program reminded me that no matter what obstacles come my way, giving up can't be an option. There were moments where I doubted myself or felt like things were too hard, but being a part of this program showed me that persistence pays off. I learned that progress doesn't always happen overnight."
-        name="Dontay"
-      />
-      <TestimonialBlock
-        image="/images/testimonial/zeek.png"
-        imageAlt="Portrait of Zeek"
-        quote="This program has truly impacted my life by giving me the confidence to grow, the skills to move forward, and the support of a community that encouraged me every step of the way."
-        name="Zeek"
-      />
-      <TestimonialBlock
-        image="/images/testimonial/sheisty.png"
-        imageAlt="Portrait of Sheisty"
-        quote="When I came into EW, I was honestly lost. I had just turned 19, and I didn't know where I was really going. But I learned so much here, from Biggz, from Nas, from Tine, even from arguing with my peers. I learned how to control my emotions, how to communicate, how to present myself, how to really approach life differently."
-        name="Sheisty"
-      />
-    </div>
-  </Section>
-
-  {/* Section 6: Nashid Featured Testimonial */}
-  <Section variant="green" class="!py-16 lg:!py-24">
-    <ContentSection
-      imageSrc="/images/testimonial/nashid.png"
-      imageAlt="Portrait of Nashid"
-      imageClass="w-56 h-56 lg:w-72 lg:h-72 rounded-full object-cover ring-4 ring-accent ring-offset-4 ring-offset-primary"
-      containerClass="flex justify-center"
-    >
-      <blockquote class="text-body lg:text-body-lg text-white leading-relaxed mb-6">
-        &ldquo;Emergent Works gave me the tools to successfully navigate the digital landscape of remote work, where success depends on communication, self-advocacy, and professional presence as much as the technical skills. The safe spaces that the team created to work through my own insecurities and anxieties, are things that can't be quantified.&rdquo;
-      </blockquote>
-      <blockquote class="text-body lg:text-body-lg text-white leading-relaxed mb-8">
-        &ldquo;Thank you Army &amp; Emergent Works for truly caring about real solutions, just not the problems.&rdquo;
-      </blockquote>
-      <div class="flex items-center gap-6 flex-wrap">
-        <Button href="/impact" variant="accent">Explore Our Impact</Button>
-        <cite class="not-italic font-bold text-body text-white">Nashid</cite>
-      </div>
-    </ContentSection>
-  </Section>
-
-  {/* Section 7: Build With Us CTA */}
-  <Section variant="background" class="!py-16 lg:!py-24">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-      <div>
-        <h2 class="text-h1 lg:text-[72px] font-bold text-text mb-6">Build With Us</h2>
-        <p class="text-h4 font-bold text-text/80 leading-snug mb-8">
-          Be part of the movement. Your support as a donor, volunteer, or partner helps create new pathways and rewrite the future.
-        </p>
-        <div class="flex flex-wrap gap-4">
-          <Button href="/donate">Donate</Button>
-          <Button href="/about-us">Volunteer</Button>
-          <Button href="/partner-with-us">Partner</Button>
-        </div>
-      </div>
-
-      {/* Polaroid-style photo collage */}
-      <div class="relative h-80 lg:h-[450px] hidden md:block">
-        <div class="absolute top-4 left-4 w-48 lg:w-56 rotate-[-5deg] bg-white p-3 rounded shadow-lg border-2 border-accent/50">
-          <img
-            src="/images/buildwithus/portrait.png"
-            alt="Emergent Works community member"
-            class="w-full h-52 lg:h-64 object-cover rounded-sm"
-            loading="lazy"
-          />
-        </div>
-        <div class="absolute top-0 right-8 w-44 lg:w-52 rotate-[4deg] bg-white p-3 rounded shadow-lg border-2 border-accent/50">
-          <img
-            src="/images/buildwithus/group.jpg"
-            alt="Emergent Works group photo"
-            class="w-full h-44 lg:h-56 object-cover rounded-sm"
-            loading="lazy"
-          />
-        </div>
-        <div class="absolute bottom-4 left-1/4 w-40 lg:w-48 rotate-[-3deg] bg-white p-3 rounded shadow-lg border-2 border-accent/50">
-          <img
-            src="/images/community/circle.png"
-            alt="Emergent Works community"
-            class="w-full h-40 lg:h-48 object-cover rounded-sm"
-            loading="lazy"
-          />
+  <!-- FEATURED STORY -->
+  <section class="st-section">
+    <div class="st-container">
+      <div class="st-grid-60-40 featured" data-reveal>
+        <figure class="st-editorial-image">
+          <img src="/images/designs/stock/portrait-7.jpg" alt={marcus.name} style="aspect-ratio:4/5;object-fit:cover;border-radius:2px;" />
+          <figcaption>{marcus.name}, {marcus.currentRole}</figcaption>
+        </figure>
+        <div class="featured__text">
+          <span class="st-kicker">Featured Story</span>
+          <h2>{marcus.name}</h2>
+          <p class="featured__role st-serif">{marcus.currentRole}</p>
+          <p class="st-dropcap">{marcus.beforeSummary} {marcus.journey}</p>
+          <blockquote class="st-pullquote" style="margin-top:var(--st-space-7);">
+            "{marcus.quote}"
+            <cite>— {marcus.name}, {marcus.program} Graduate</cite>
+          </blockquote>
+          <a href="/programs/" class="st-btn st-btn--primary">
+            Explore Programs <span class="st-btn-arrow">&rarr;</span>
+          </a>
         </div>
       </div>
     </div>
-  </Section>
+  </section>
 
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-</BaseLayout>
+  <!-- IMPACT NUMBERS -->
+  <section class="st-section st-section--green">
+    <div class="st-container">
+      <div class="impact-intro" data-reveal>
+        <span class="st-kicker">The Impact</span>
+        <h2>Numbers That<br />Tell a Story</h2>
+      </div>
+      <div class="impact-grid" data-reveal="delay-1">
+        {primaryStats.map((stat) => (
+          <div class="impact-stat">
+            <div class="impact-stat__value">{stat.value}</div>
+            <div class="impact-stat__label">{stat.label}</div>
+            <p class="impact-stat__desc">{stat.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAM TEASERS as editorial sections -->
+  <section class="st-section">
+    <div class="st-container">
+      <div data-reveal>
+        <span class="st-kicker">Our Programs</span>
+        <h2>Three Pathways.<br />Thousands of Stories.</h2>
+        <div class="st-divider"></div>
+      </div>
+      {programs.filter(p => p.type === "direct").map((program, i) => (
+        <div class:list={["program-feature", { "program-feature--reverse": i % 2 === 1 }]} data-reveal>
+          <figure class="st-editorial-image program-feature__image">
+            <img src={program.image} alt={program.title} style="aspect-ratio:16/10;object-fit:cover;" />
+          </figure>
+          <div class="program-feature__text">
+            <span class="st-chapter">{program.type === "direct" ? "Direct Program" : "Partner Program"}</span>
+            <h3>{program.title}</h3>
+            <p>{program.description.slice(0, 200)}...</p>
+            <a href={`/programs/${program.id === "trap" ? "trap" : "teck"}/`} class="st-btn st-btn--outline" style="margin-top:var(--st-space-5);">
+              Read More <span class="st-btn-arrow">&rarr;</span>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- COMMUNITY VOICES -->
+  <section class="st-section st-section--white">
+    <div class="st-container">
+      <div style="text-align:center;" data-reveal>
+        <span class="st-kicker">Community Voices</span>
+        <h2>In Their Own Words</h2>
+        <div class="st-divider st-divider--center"></div>
+      </div>
+
+      <!-- Featured voice: Nashid -->
+      <div class="voice-feature" data-reveal="delay-1">
+        <figure class="voice-feature__image st-editorial-image">
+          <img src={nashid.image} alt={nashid.name} style="aspect-ratio:3/4;object-fit:cover;" />
+        </figure>
+        <div class="voice-feature__content">
+          <blockquote class="st-pullquote" style="margin:0 0 var(--st-space-5) 0;border-left-color:var(--st-peach);">
+            "{nashid.quote}"
+            <cite>— {nashid.name}</cite>
+          </blockquote>
+          {nashid.extendedQuote && <p class="st-serif" style="font-size:1.125rem;font-style:italic;color:var(--st-green-muted);">{nashid.extendedQuote}</p>}
+        </div>
+      </div>
+
+      <!-- Secondary voices in asymmetric grid -->
+      <div class="voice-grid" data-reveal="delay-2">
+        {[dontay, sheisty].map((t) => (
+          <div class="voice-card">
+            {t.image && <img src={t.image} alt={t.name} class="voice-card__avatar" />}
+            <blockquote class="voice-card__quote st-serif">"{t.quote.slice(0, 180)}..."</blockquote>
+            <cite class="voice-card__cite">— {t.name}</cite>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA: Write the Next Chapter -->
+  <section class="cta-section">
+    <div class="cta-section__bg">
+      <img src="/images/designs/stock/community-group-4.jpg" alt="" />
+      <div class="cta-section__overlay" />
+    </div>
+    <div class="st-container cta-section__content" data-reveal>
+      <span class="st-chapter" style="color:var(--st-gold);">Chapter Next</span>
+      <h2 style="color:var(--st-white);">Write the<br />Next Chapter</h2>
+      <p style="color:var(--st-sage);max-width:480px;margin-bottom:var(--st-space-7);font-size:1.0625rem;">
+        Every transformation starts with a single step. Whether you mentor,
+        donate, partner, or volunteer — you become part of someone's story.
+      </p>
+      <a href="/get-involved/" class="st-btn st-btn--gold">
+        Get Involved <span class="st-btn-arrow">&rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    padding: calc(var(--st-header-height) + var(--st-space-9)) 0 var(--st-space-10);
+  }
+
+  .hero__image {
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(5,40,18,0.92) 0%, rgba(5,40,18,0.4) 50%, rgba(5,40,18,0.15) 100%);
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 {
+    color: var(--st-white);
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    margin-bottom: var(--st-space-5);
+  }
+
+  .hero__sub {
+    font-size: 1.125rem;
+    color: var(--st-sage);
+    max-width: 480px;
+    margin-bottom: var(--st-space-7);
+    line-height: 1.75;
+  }
+
+  .hero__actions {
+    display: flex;
+    gap: var(--st-space-4);
+    flex-wrap: wrap;
+  }
+
+  /* Featured Story */
+  .featured__text {
+    padding-top: var(--st-space-4);
+  }
+
+  .featured__text h2 {
+    color: var(--st-green);
+    margin-bottom: var(--st-space-2);
+  }
+
+  .featured__role {
+    font-size: 1.0625rem;
+    font-style: italic;
+    color: var(--st-green-muted);
+    margin-bottom: var(--st-space-5);
+  }
+
+  .featured__text p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--st-text-secondary);
+  }
+
+  /* Impact */
+  .impact-intro {
+    margin-bottom: var(--st-space-8);
+  }
+
+  .impact-intro h2 {
+    color: var(--st-white);
+  }
+
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--st-space-6);
+  }
+
+  .impact-stat {
+    padding: var(--st-space-6);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(177,211,187,0.1);
+    border-radius: 4px;
+  }
+
+  .impact-stat__value {
+    font-family: var(--st-font-heading);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: var(--st-gold);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: var(--st-space-2);
+  }
+
+  .impact-stat__label {
+    font-family: var(--st-font-heading);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--st-white);
+    margin-bottom: var(--st-space-2);
+  }
+
+  .impact-stat__desc {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--st-sage);
+  }
+
+  /* Program features */
+  .program-feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--st-space-8);
+    align-items: center;
+    margin-bottom: var(--st-space-10);
+  }
+
+  .program-feature--reverse {
+    direction: rtl;
+  }
+
+  .program-feature--reverse > * {
+    direction: ltr;
+  }
+
+  .program-feature__text h3 {
+    color: var(--st-green);
+    margin-bottom: var(--st-space-3);
+  }
+
+  .program-feature__text p {
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    color: var(--st-text-secondary);
+  }
+
+  /* Voices */
+  .voice-feature {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: var(--st-space-8);
+    margin: var(--st-space-8) 0;
+    align-items: center;
+  }
+
+  .voice-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--st-space-6);
+  }
+
+  .voice-card {
+    padding: var(--st-space-6);
+    border: 1px solid var(--st-border);
+    border-radius: 4px;
+  }
+
+  .voice-card__avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: var(--st-space-4);
+    border: 2px solid var(--st-peach);
+  }
+
+  .voice-card__quote {
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--st-text);
+    font-style: italic;
+    margin-bottom: var(--st-space-3);
+  }
+
+  .voice-card__cite {
+    font-family: var(--st-font-body);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--st-green);
+    font-style: normal;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    position: relative;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    padding: var(--st-space-12) 0;
+  }
+
+  .cta-section__bg {
+    position: absolute;
+    inset: 0;
+  }
+
+  .cta-section__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .cta-section__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(5,40,18,0.88);
+  }
+
+  .cta-section__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (max-width: 768px) {
+    .program-feature, .program-feature--reverse {
+      grid-template-columns: 1fr;
+      direction: ltr;
+    }
+
+    .voice-feature {
+      grid-template-columns: 1fr;
+    }
+
+    .voice-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .impact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
