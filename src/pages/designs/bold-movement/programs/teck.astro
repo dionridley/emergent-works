@@ -1,0 +1,83 @@
+---
+import BoldMovementLayout from "../../../../layouts/designs/BoldMovementLayout.astro";
+import Header from "../../../../components/designs/bold-movement/Header.astro";
+import Footer from "../../../../components/designs/bold-movement/Footer.astro";
+import { programs } from "../../../../data/programs";
+import { expandedProgramDetails } from "../../../../data/fabricated";
+
+const teck = programs.find((p) => p.id === "teck")!;
+const teckDetails = expandedProgramDetails.find((d) => d.programId === "teck")!;
+---
+
+<BoldMovementLayout title="TECK">
+  <Header currentPath="/designs/bold-movement/programs/" />
+
+  <section class="bm-block bm-block--green bm-block--hero bm-block--textured">
+    <div class="bm-container" style="padding-top:var(--bm-header-height);" data-reveal>
+      <span class="bm-kicker">Program</span>
+      <h1 class="bm-ultra"><span class="bm-gold">TECK</span></h1>
+      <p style="font-size:var(--bm-text-lg);color:var(--bm-sage);max-width:460px;margin-top:var(--bm-space-5);">
+        Digital literacy training that transforms confusion into confidence.
+      </p>
+    </div>
+  </section>
+
+  <!-- Description -->
+  <section class="bm-block bm-block--cream bm-block--textured">
+    <div class="bm-container">
+      <div class="bm-grid-2" data-reveal>
+        <div>
+          <p class="bm-manifesto" style="color:var(--bm-green);font-size:var(--bm-text-2xl);">{teck.description}</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:var(--bm-space-5);">
+          <div style="border-bottom:3px solid var(--bm-green);padding-bottom:var(--bm-space-4);">
+            <strong style="font-family:var(--bm-font-heading);font-size:var(--bm-text-xs);text-transform:uppercase;letter-spacing:0.1em;color:var(--bm-text-light);display:block;margin-bottom:var(--bm-space-2);">Duration</strong>
+            <span style="font-size:var(--bm-text-xl);font-weight:700;color:var(--bm-green);">{teck.duration}</span>
+          </div>
+          <div style="border-bottom:3px solid var(--bm-gold);padding-bottom:var(--bm-space-4);">
+            <strong style="font-family:var(--bm-font-heading);font-size:var(--bm-text-xs);text-transform:uppercase;letter-spacing:0.1em;color:var(--bm-text-light);display:block;margin-bottom:var(--bm-space-2);">Format</strong>
+            <span style="font-size:var(--bm-text-base);color:var(--bm-text);">Partner-customized cohorts</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curriculum -->
+  <section class="bm-block bm-block--dark bm-block--textured">
+    <div class="bm-container">
+      <div data-reveal>
+        <span class="bm-kicker">Curriculum</span>
+        <h2 class="bm-display" style="margin-bottom:var(--bm-space-8);">Basics to<br /><span class="bm-gold">Mastery</span></h2>
+      </div>
+      <div data-stagger>
+        {teckDetails.curriculumOutline?.map((mod, i) => (
+          <div style="display:flex;gap:var(--bm-space-6);align-items:baseline;padding:var(--bm-space-5) 0;border-bottom:1px solid rgba(177,211,187,0.12);" data-stagger-child>
+            <span style="font-family:var(--bm-font-heading);font-size:var(--bm-text-4xl);font-weight:900;color:var(--bm-gold);flex-shrink:0;width:80px;text-align:right;">{String(i + 1).padStart(2, '0')}</span>
+            <p style="color:var(--bm-sage);font-size:var(--bm-text-base);line-height:1.7;">{mod}</p>
+          </div>
+        ))}
+      </div>
+      <div style="margin-top:var(--bm-space-7);" data-reveal>
+        <h3 style="font-size:var(--bm-text-xl);color:var(--bm-gold);margin-bottom:var(--bm-space-4);">Tools</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:var(--bm-space-3);">
+          {teckDetails.toolsCovered?.map((t) => (
+            <span style="font-family:var(--bm-font-heading);font-size:var(--bm-text-sm);font-weight:700;text-transform:uppercase;letter-spacing:0.06em;padding:0.4rem 1rem;border:2px solid var(--bm-gold);color:var(--bm-gold);">{t}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bm-block bm-block--gold bm-block--textured" style="text-align:center;">
+    <div class="bm-container" data-reveal>
+      <h2 class="bm-mega" style="margin-bottom:var(--bm-space-6);">
+        Bring TECK<br />to Your<br />Community
+      </h2>
+      <a href="/designs/bold-movement/get-involved/" class="bm-btn bm-btn--primary">Partner With Us <span class="bm-btn-arrow">&rarr;</span></a>
+    </div>
+  </section>
+
+  <Footer />
+</BoldMovementLayout>

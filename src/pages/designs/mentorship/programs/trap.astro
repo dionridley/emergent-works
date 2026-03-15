@@ -1,0 +1,155 @@
+---
+import MentorshipLayout from "../../../../layouts/designs/MentorshipLayout.astro";
+import Header from "../../../../components/designs/mentorship/Header.astro";
+import Footer from "../../../../components/designs/mentorship/Footer.astro";
+import { programs } from "../../../../data/programs";
+import { expandedProgramDetails, alumniStories } from "../../../../data/fabricated";
+import { testimonials } from "../../../../data/testimonials";
+
+const trap = programs.find((p) => p.id === "trap")!;
+const details = expandedProgramDetails.find((d) => d.programId === "trap")!;
+const julius = testimonials.find((t) => t.name === "Julius")!;
+const aisha = alumniStories.find((a) => a.program === "T.RAP")!;
+---
+
+<MentorshipLayout title="T.RAP Program">
+  <Header currentPath="/designs/mentorship/programs/" />
+
+  <section class="mn-section" style="padding-top:calc(var(--mn-header-height) + var(--mn-space-16));">
+    <div class="mn-container" data-reveal>
+      <span class="mn-kicker">Program</span>
+      <h1 style="font-size:var(--mn-text-5xl);font-weight:900;">T.RAP</h1>
+      <p style="font-size:var(--mn-text-md);color:var(--mn-text-secondary);max-width:560px;margin-top:var(--mn-space-5);line-height:1.75;">{trap.description}</p>
+    </div>
+  </section>
+
+  <!-- Key Details -->
+  <section class="mn-section mn-section--white">
+    <div class="mn-container">
+      <div class="mn-split" data-split-reveal>
+        <div class="mn-split__side mn-split__side--mentor">
+          <span class="mn-kicker">Details</span>
+          <h3 style="margin-bottom:var(--mn-space-5);">Program Overview</h3>
+          <div style="display:flex;flex-direction:column;gap:var(--mn-space-4);">
+            <div>
+              <div style="font-size:var(--mn-text-xs);text-transform:uppercase;letter-spacing:0.1em;color:var(--mn-gold);font-weight:700;margin-bottom:var(--mn-space-1);">Duration</div>
+              <div style="color:var(--mn-white);">{trap.duration}</div>
+            </div>
+            <div>
+              <div style="font-size:var(--mn-text-xs);text-transform:uppercase;letter-spacing:0.1em;color:var(--mn-gold);font-weight:700;margin-bottom:var(--mn-space-1);">Eligibility</div>
+              <div style="color:var(--mn-sage);">{trap.eligibility}</div>
+            </div>
+            <div>
+              <div style="font-size:var(--mn-text-xs);text-transform:uppercase;letter-spacing:0.1em;color:var(--mn-gold);font-weight:700;margin-bottom:var(--mn-space-1);">Applications</div>
+              <div style="color:var(--mn-white);">{trap.applyBy}</div>
+            </div>
+          </div>
+        </div>
+        <div class="mn-split__side mn-split__side--peach">
+          <span class="mn-kicker">Skills</span>
+          <h3 style="color:var(--mn-green);margin-bottom:var(--mn-space-5);">What You'll Learn</h3>
+          <div style="display:flex;flex-wrap:wrap;gap:var(--mn-space-2);">
+            {trap.features.map((feat) => (
+              <span style="font-size:var(--mn-text-sm);background:var(--mn-white);color:var(--mn-green);padding:0.4rem 1rem;border-radius:999px;font-weight:600;box-shadow:var(--mn-shadow-sm);">{feat}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Weekly Schedule -->
+  <section class="mn-section mn-section--sage">
+    <div class="mn-container">
+      <div class="mn-section-header" style="text-align:center;" data-reveal>
+        <span class="mn-kicker">Schedule</span>
+        <h2>A Typical Week</h2>
+        <div class="mn-divider mn-divider--center"></div>
+      </div>
+      <div class="mn-grid-2" data-reveal="delay-1">
+        {details.weeklySchedule?.map((day) => {
+          const [label, ...rest] = day.split(": ");
+          return (
+            <div class="mn-card mn-card--cream" style="display:flex;gap:var(--mn-space-3);align-items:flex-start;">
+              <div style="width:40px;height:40px;min-width:40px;border-radius:50%;background:var(--mn-gold);display:flex;align-items:center;justify-content:center;">
+                <span style="font-family:var(--mn-font-heading);font-weight:800;font-size:var(--mn-text-sm);color:var(--mn-green-dark);">{label.slice(0,2)}</span>
+              </div>
+              <div>
+                <div style="font-family:var(--mn-font-heading);font-weight:700;font-size:var(--mn-text-base);color:var(--mn-green);margin-bottom:var(--mn-space-1);">{label}</div>
+                <p style="font-size:var(--mn-text-sm);color:var(--mn-text-secondary);">{rest.join(": ")}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Curriculum Outline -->
+  <section class="mn-section mn-section--white">
+    <div class="mn-container">
+      <div class="mn-section-header" data-reveal>
+        <span class="mn-kicker">Curriculum</span>
+        <h2>The Journey</h2>
+        <div class="mn-divider"></div>
+      </div>
+      <div class="mn-steps" data-reveal="delay-1">
+        {details.curriculumOutline?.map((phase, i) => {
+          const [title, ...descParts] = phase.split(" — ");
+          return (
+            <div class="mn-step">
+              <div class="mn-step__circle">{i + 1}</div>
+              <div class="mn-step__title">{title}</div>
+              <p class="mn-step__desc">{descParts.join(" — ")}</p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Participant Quote -->
+  <section class="mn-section mn-section--peach">
+    <div class="mn-container" data-reveal>
+      <div style="text-align:center;max-width:600px;margin:0 auto;">
+        <blockquote style="font-size:var(--mn-text-xl);font-weight:600;font-family:var(--mn-font-heading);color:var(--mn-green);line-height:1.5;margin-bottom:var(--mn-space-4);">
+          "{julius.quote}"
+        </blockquote>
+        <cite style="font-size:var(--mn-text-sm);font-weight:600;color:var(--mn-green);font-style:normal;">— {julius.name}, T.RAP Participant</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- Alumni Story -->
+  <section class="mn-section mn-section--cream">
+    <div class="mn-container">
+      <div class="mn-section-header" data-reveal>
+        <span class="mn-kicker">Alumni</span>
+        <h2>{aisha.name}'s Story</h2>
+        <div class="mn-divider"></div>
+      </div>
+      <div class="mn-split" data-split-reveal>
+        <div class="mn-split__side mn-split__side--mentor">
+          <span class="mn-kicker" style="background:rgba(255,203,112,0.2);">Before</span>
+          <p style="color:var(--mn-sage);line-height:1.8;">{aisha.beforeSummary}</p>
+        </div>
+        <div class="mn-split__side mn-split__side--gold">
+          <span class="mn-kicker">After</span>
+          <p style="color:var(--mn-text);line-height:1.8;">{aisha.outcome}</p>
+          {aisha.currentRole && <p style="font-family:var(--mn-font-heading);font-weight:700;color:var(--mn-green);margin-top:var(--mn-space-3);">{aisha.currentRole}</p>}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="mn-section mn-section--green" style="text-align:center;">
+    <div class="mn-container" data-reveal>
+      <h2 style="margin-bottom:var(--mn-space-5);">Ready to Find Your Voice?</h2>
+      <p style="color:var(--mn-sage);max-width:420px;margin:0 auto var(--mn-space-6);">T.RAP transforms creative potential into real-world skills and professional opportunity.</p>
+      <a href="/designs/mentorship/get-involved/" class="mn-btn mn-btn--gold">Apply Now <span class="mn-btn-arrow">&rarr;</span></a>
+    </div>
+  </section>
+
+  <Footer />
+</MentorshipLayout>

@@ -1,0 +1,148 @@
+---
+import TheJourneyLayout from "../../../../layouts/designs/TheJourneyLayout.astro";
+import Header from "../../../../components/designs/the-journey/Header.astro";
+import Footer from "../../../../components/designs/the-journey/Footer.astro";
+import { programs } from "../../../../data/programs";
+import { expandedProgramDetails, alumniStories } from "../../../../data/fabricated";
+import { partners } from "../../../../data/partners";
+
+const teck = programs.find((p) => p.id === "teck")!;
+const details = expandedProgramDetails.find((d) => d.programId === "teck")!;
+const deshawn = alumniStories.find((a) => a.program === "TECK")!;
+---
+
+<TheJourneyLayout title="TECK Program">
+  <Header currentPath="/designs/the-journey/programs/" />
+
+  <section class="tj-section tj-section--dark" style="padding-top:calc(var(--tj-header-height) + var(--tj-space-16) + 3px);">
+    <div class="tj-container" data-reveal>
+      <div class="tj-kicker">Partner Program</div>
+      <h1 style="font-size:var(--tj-text-5xl);font-weight:900;color:var(--tj-white);">TECK</h1>
+      <p style="font-size:var(--tj-text-md);color:rgba(255,255,255,0.55);max-width:560px;margin-top:var(--tj-space-5);line-height:1.8;">{teck.description}</p>
+    </div>
+  </section>
+
+  <!-- Program Details -->
+  <section class="tj-section tj-section--cream">
+    <div class="tj-container">
+      <div class="tj-split">
+        <div data-reveal>
+          <div class="tj-kicker">Details</div>
+          <h2 style="font-size:var(--tj-text-3xl);color:var(--tj-green);margin-bottom:var(--tj-space-5);">Program Overview</h2>
+          <div style="display:flex;flex-direction:column;gap:var(--tj-space-4);">
+            <div>
+              <div style="font-size:var(--tj-text-xs);text-transform:uppercase;letter-spacing:0.12em;color:var(--tj-gold);font-weight:700;margin-bottom:var(--tj-space-1);">Duration</div>
+              <div style="font-weight:600;">{teck.duration}</div>
+            </div>
+            <div>
+              <div style="font-size:var(--tj-text-xs);text-transform:uppercase;letter-spacing:0.12em;color:var(--tj-gold);font-weight:700;margin-bottom:var(--tj-space-1);">Eligibility</div>
+              <div style="color:var(--tj-text-secondary);">{teck.eligibility}</div>
+            </div>
+            <div>
+              <div style="font-size:var(--tj-text-xs);text-transform:uppercase;letter-spacing:0.12em;color:var(--tj-gold);font-weight:700;margin-bottom:var(--tj-space-1);">Format</div>
+              <div style="font-weight:600;">Customized for partner organizations</div>
+            </div>
+          </div>
+        </div>
+        <div data-reveal="delay-1">
+          <h3 style="font-size:var(--tj-text-xl);color:var(--tj-green);margin-bottom:var(--tj-space-4);">Tools Covered</h3>
+          <div style="display:flex;flex-wrap:wrap;gap:var(--tj-space-2);">
+            {teck.features.map((feat) => (
+              <span style="font-size:var(--tj-text-sm);background:var(--tj-gold-light);color:var(--tj-green);padding:0.4rem 1rem;border-radius:8px;font-weight:600;">{feat}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Learning Modules as Pathway -->
+  <section class="tj-section tj-section--white">
+    <div class="tj-container">
+      <div class="tj-section-header" data-reveal>
+        <div class="tj-kicker">Curriculum</div>
+        <h2>Learning Modules</h2>
+        <div class="tj-divider"></div>
+      </div>
+      <div class="tj-pathway" data-stagger>
+        {details.curriculumOutline?.map((mod) => {
+          const [title, ...descParts] = mod.split(": ");
+          return (
+            <div class="tj-waypoint" data-stagger-child>
+              <div class="tj-waypoint__title" style="color:var(--tj-green);">{title}</div>
+              <p class="tj-waypoint__desc">{descParts.join(": ")}</p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Graduate Story -->
+  <section class="tj-section tj-section--green">
+    <div class="tj-container" data-reveal>
+      <div class="tj-quote" style="color:var(--tj-white);max-width:600px;margin:0 auto;">
+        "{deshawn.quote}"
+        <cite>— {deshawn.name}, {deshawn.currentRole}</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners -->
+  <section class="tj-section tj-section--cream">
+    <div class="tj-container">
+      <div class="tj-section-header" style="text-align:center;" data-reveal>
+        <div class="tj-kicker" style="justify-content:center;">Trusted By</div>
+        <h2>Our Partners</h2>
+        <div class="tj-divider tj-divider--center"></div>
+      </div>
+      <div class="partner-logos" data-reveal="delay-1">
+        {partners.slice(0, 6).map((partner) => (
+          <div class="partner-logo">
+            <img src={partner.logo} alt={partner.name} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="tj-section tj-section--deep" style="text-align:center;">
+    <div class="tj-container" data-reveal>
+      <h2 style="color:var(--tj-white);margin-bottom:var(--tj-space-4);">Bring TECK to Your Organization</h2>
+      <p style="color:rgba(255,255,255,0.5);max-width:440px;margin:0 auto var(--tj-space-6);">Custom digital literacy cohorts designed around your community's needs.</p>
+      <a href="/designs/the-journey/get-involved/" class="tj-btn tj-btn--gold">Partner With Us <span class="tj-btn-arrow">&rarr;</span></a>
+    </div>
+  </section>
+
+  <Footer />
+</TheJourneyLayout>
+
+<style>
+  .partner-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--tj-space-7);
+  }
+
+  .partner-logo {
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.6;
+    transition: opacity var(--tj-duration);
+  }
+
+  .partner-logo:hover { opacity: 1; }
+
+  .partner-logo img {
+    max-height: 48px;
+    object-fit: contain;
+    filter: grayscale(40%);
+  }
+
+  .partner-logo:hover img { filter: none; }
+</style>

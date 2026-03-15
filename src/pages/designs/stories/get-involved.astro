@@ -1,0 +1,156 @@
+---
+import StoriesLayout from "../../../layouts/designs/StoriesLayout.astro";
+import Header from "../../../components/designs/stories/Header.astro";
+import Footer from "../../../components/designs/stories/Footer.astro";
+import { organization } from "../../../data/organization";
+import { donationTiers, donationTrust } from "../../../data/donation";
+import { partnershipTypes } from "../../../data/partners";
+import { fabricatedTestimonials } from "../../../data/testimonials";
+
+const mentorQuote = fabricatedTestimonials.find((t) => t.name === "Priya")!;
+---
+
+<StoriesLayout title="Get Involved">
+  <Header currentPath="/designs/stories/get-involved/" />
+
+  <section class="gi-hero">
+    <div class="st-container">
+      <div data-reveal>
+        <span class="st-chapter">Your chapter begins here</span>
+        <h1>The Next Story<br />Starts With You</h1>
+        <p class="gi-hero__sub">Every transformation at Emergent Works was made possible by someone who chose to act. Mentors, donors, partners, and volunteers — each one became part of someone's story.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mentor testimonial -->
+  <section class="st-section st-section--white">
+    <div class="st-container">
+      <div class="st-grid-40-60" data-reveal>
+        <figure class="st-editorial-image">
+          <img src="/images/designs/stock/portrait-5.jpg" alt="Mentor" style="aspect-ratio:3/4;object-fit:cover;" />
+          <figcaption>A volunteer mentor sharing expertise</figcaption>
+        </figure>
+        <div>
+          <span class="st-kicker">A Mentor's Story</span>
+          <blockquote class="st-pullquote" style="margin-top:0;">
+            "{mentorQuote.quote}"
+            <cite>— {mentorQuote.name}, Volunteer Mentor</cite>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Donation -->
+  <section class="st-section" id="donate">
+    <div class="st-container">
+      <div style="text-align:center;" data-reveal>
+        <span class="st-kicker">Support</span>
+        <h2>Help Write<br />Someone's Story</h2>
+        <p style="color:var(--st-text-secondary);max-width:480px;margin:var(--st-space-4) auto var(--st-space-8);">Every dollar directly funds programming. Here's how your contribution translates to real impact.</p>
+      </div>
+      <div class="donation-grid" data-reveal="delay-1">
+        {donationTiers.map((tier) => (
+          <div class="donation-card">
+            <div class="donation-card__amount">{tier.label}</div>
+            <div class="donation-card__divider" />
+            <p class="donation-card__impact">{tier.impact}</p>
+          </div>
+        ))}
+      </div>
+      <div style="text-align:center;margin-top:var(--st-space-7);" data-reveal="delay-2">
+        <a href={`mailto:${organization.contact.email}?subject=Donation%20Inquiry`} class="st-btn st-btn--gold">Make a Donation <span class="st-btn-arrow">&rarr;</span></a>
+        <p style="font-size:0.75rem;color:var(--st-text-light);margin-top:var(--st-space-4);max-width:400px;margin-left:auto;margin-right:auto;">{donationTrust}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ways to contribute -->
+  <section class="st-section st-section--green">
+    <div class="st-container">
+      <div data-reveal>
+        <span class="st-kicker">Get Involved</span>
+        <h2 style="color:var(--st-white);">Four Ways to<br />Join the Story</h2>
+        <div class="st-divider" style="background:var(--st-gold);"></div>
+      </div>
+      <div class="ways-grid" data-reveal="delay-1">
+        {[
+          { title: "Mentor", desc: "Share your expertise through our 12-week mentorship program. One hour a week transforms lives." },
+          { title: "Donate", desc: "Fund the programs that break cycles of incarceration. Every dollar creates measurable impact." },
+          { title: "Partner", desc: "Bring TECK or T.RAP to your organization. We customize programs for your community." },
+          { title: "Volunteer", desc: "Support events, outreach, and community building. There's a place for every skill." },
+        ].map((way) => (
+          <div class="way-card">
+            <h3 style="color:var(--st-gold);margin-bottom:var(--st-space-3);">{way.title}</h3>
+            <p style="color:var(--st-sage);font-size:0.9375rem;line-height:1.7;">{way.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="st-section">
+    <div class="st-container">
+      <div class="st-grid-60-40" data-reveal>
+        <div>
+          <span class="st-kicker">Connect</span>
+          <h2>Let's Talk</h2>
+          <p style="color:var(--st-text-secondary);margin-top:var(--st-space-4);line-height:1.8;">
+            Whether you have questions about our programs, want to explore a partnership,
+            or are ready to make a donation — we'd love to hear from you.
+          </p>
+        </div>
+        <div class="contact-block">
+          <div class="contact-item">
+            <span class="contact-label">Email</span>
+            <a href={`mailto:${organization.contact.email}`}>{organization.contact.email}</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Address</span>
+            <span>{organization.contact.address}</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Social</span>
+            <div style="display:flex;gap:var(--st-space-4);">
+              <a href={organization.social.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a href={organization.social.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href={organization.social.youtube} target="_blank" rel="noopener noreferrer">YouTube</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</StoriesLayout>
+
+<style>
+  .gi-hero { padding:calc(var(--st-header-height) + var(--st-space-16)) 0 var(--st-space-10); }
+  .gi-hero h1 { color:var(--st-green); }
+  .gi-hero__sub { font-size:1.125rem; color:var(--st-text-secondary); max-width:520px; margin-top:var(--st-space-5); line-height:1.75; }
+
+  .donation-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:var(--st-space-5); }
+  .donation-card { text-align:center; padding:var(--st-space-6) var(--st-space-4); border:1px solid var(--st-border); border-radius:4px; transition:transform var(--st-duration) var(--st-ease), box-shadow var(--st-duration) var(--st-ease); }
+  .donation-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(32,73,60,0.08); }
+  .donation-card__amount { font-family:var(--st-font-heading); font-size:clamp(1.75rem,3vw,2.5rem); font-weight:800; color:var(--st-green); }
+  .donation-card__divider { width:32px; height:1px; background:var(--st-gold); margin:var(--st-space-4) auto; }
+  .donation-card__impact { font-size:0.8125rem; color:var(--st-text-secondary); line-height:1.6; }
+
+  .ways-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:var(--st-space-5); margin-top:var(--st-space-6); }
+  .way-card { padding:var(--st-space-6); background:rgba(255,255,255,0.04); border:1px solid rgba(177,211,187,0.1); border-radius:4px; }
+
+  .contact-block { display:flex; flex-direction:column; gap:var(--st-space-5); }
+  .contact-label { font-size:0.6875rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--st-gold); display:block; margin-bottom:0.25rem; }
+  .contact-item { font-size:0.9375rem; color:var(--st-text); }
+  .contact-item a { color:var(--st-green); transition:color var(--st-duration); }
+  .contact-item a:hover { color:var(--st-gold); }
+
+  @media (max-width: 768px) {
+    .donation-grid { grid-template-columns:repeat(2, 1fr); }
+    .ways-grid { grid-template-columns:1fr; }
+  }
+  @media (max-width: 480px) { .donation-grid { grid-template-columns:1fr; } }
+</style>

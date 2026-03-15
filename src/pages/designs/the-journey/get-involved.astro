@@ -1,0 +1,132 @@
+---
+import TheJourneyLayout from "../../../layouts/designs/TheJourneyLayout.astro";
+import Header from "../../../components/designs/the-journey/Header.astro";
+import Footer from "../../../components/designs/the-journey/Footer.astro";
+import { organization } from "../../../data/organization";
+import { donationTiers, donationTrust } from "../../../data/donation";
+import { partnershipTypes } from "../../../data/partners";
+import { fabricatedEvents } from "../../../data/fabricated";
+---
+
+<TheJourneyLayout title="Get Involved">
+  <Header currentPath="/designs/the-journey/get-involved/" />
+
+  <section class="tj-section tj-section--dark" style="padding-top:calc(var(--tj-header-height) + var(--tj-space-16) + 3px);">
+    <div class="tj-container" data-reveal>
+      <div class="tj-kicker">Get Involved</div>
+      <h1 style="font-size:var(--tj-text-5xl);font-weight:900;color:var(--tj-white);">Start Your<br />Chapter</h1>
+      <p style="font-size:var(--tj-text-md);color:rgba(255,255,255,0.55);max-width:520px;margin-top:var(--tj-space-5);line-height:1.8;">This story isn't finished. Every mentor, every donation, every partnership writes a new page. Where does yours begin?</p>
+    </div>
+  </section>
+
+  <!-- Three Paths -->
+  <section class="tj-section tj-section--cream">
+    <div class="tj-container">
+      <div class="tj-section-header" style="text-align:center;" data-reveal>
+        <div class="tj-kicker" style="justify-content:center;">Your Path</div>
+        <h2>Three Ways to Begin</h2>
+        <div class="tj-divider tj-divider--center"></div>
+      </div>
+
+      <div class="tj-grid-3" data-stagger>
+        <div class="tj-card tj-card--green" style="text-align:center;padding:var(--tj-space-8) var(--tj-space-5);" data-stagger-child>
+          <div style="font-family:var(--tj-font-heading);font-size:var(--tj-text-3xl);font-weight:900;color:var(--tj-gold);margin-bottom:var(--tj-space-4);">Mentor</div>
+          <p style="color:var(--tj-sage);font-size:var(--tj-text-sm);margin-bottom:var(--tj-space-5);line-height:1.7;">Share your expertise one hour a week. Training and support provided. Join 100+ industry professionals making a difference.</p>
+          <a href={`mailto:${organization.contact.email}?subject=Mentor%20Inquiry`} class="tj-btn tj-btn--gold">Apply as Mentor <span class="tj-btn-arrow">&rarr;</span></a>
+        </div>
+
+        <div class="tj-card" style="text-align:center;padding:var(--tj-space-8) var(--tj-space-5);border:2px solid var(--tj-gold);" data-stagger-child>
+          <div style="font-family:var(--tj-font-heading);font-size:var(--tj-text-3xl);font-weight:900;color:var(--tj-green);margin-bottom:var(--tj-space-4);">Join</div>
+          <p style="color:var(--tj-text-secondary);font-size:var(--tj-text-sm);margin-bottom:var(--tj-space-5);line-height:1.7;">Apply to our programs. Free to participate. Get matched with a mentor, build real skills, and create your portfolio.</p>
+          <a href={`mailto:${organization.contact.email}?subject=Mentee%20Application`} class="tj-btn tj-btn--primary">Apply Now <span class="tj-btn-arrow">&rarr;</span></a>
+        </div>
+
+        <div class="tj-card tj-card--dark" style="text-align:center;padding:var(--tj-space-8) var(--tj-space-5);" data-stagger-child>
+          <div style="font-family:var(--tj-font-heading);font-size:var(--tj-text-3xl);font-weight:900;color:var(--tj-gold);margin-bottom:var(--tj-space-4);">Support</div>
+          <p style="color:rgba(255,255,255,0.6);font-size:var(--tj-text-sm);margin-bottom:var(--tj-space-5);line-height:1.7;">Fund a future. Every dollar directly supports mentorship sessions, materials, and participant stipends.</p>
+          <a href="#donate" class="tj-btn tj-btn--outline-white">Donate <span class="tj-btn-arrow">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Donate -->
+  <section class="tj-section tj-section--gold" id="donate">
+    <div class="tj-container">
+      <div class="tj-section-header" style="text-align:center;" data-reveal>
+        <div class="tj-kicker" style="justify-content:center;color:var(--tj-green);">Support</div>
+        <h2 style="color:var(--tj-green);">Fund a Chapter</h2>
+        <div class="tj-divider tj-divider--center"></div>
+      </div>
+      <div class="tj-grid-4" data-stagger>
+        {donationTiers.map((tier) => (
+          <div class="tj-card" style="text-align:center;" data-stagger-child>
+            <div style="font-family:var(--tj-font-heading);font-size:var(--tj-text-3xl);font-weight:900;color:var(--tj-green);margin-bottom:var(--tj-space-3);">{tier.label}</div>
+            <p style="font-size:var(--tj-text-sm);color:var(--tj-text-secondary);line-height:1.65;">{tier.impact}</p>
+          </div>
+        ))}
+      </div>
+      <div style="text-align:center;margin-top:var(--tj-space-7);" data-reveal="delay-2">
+        <a href="#" class="tj-btn tj-btn--primary">Donate Now <span class="tj-btn-arrow">&rarr;</span></a>
+        <p style="font-size:var(--tj-text-xs);color:var(--tj-text-secondary);margin-top:var(--tj-space-3);max-width:400px;margin-left:auto;margin-right:auto;">{donationTrust}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partnerships -->
+  <section class="tj-section tj-section--white">
+    <div class="tj-container">
+      <div class="tj-section-header" data-reveal>
+        <div class="tj-kicker">Partnerships</div>
+        <h2>Partner With Us</h2>
+        <div class="tj-divider"></div>
+        <p>Multiple ways to collaborate and create lasting impact together.</p>
+      </div>
+      <div class="tj-grid-2" data-stagger>
+        {partnershipTypes.map((type) => (
+          <div class="tj-card tj-card--sage" data-stagger-child>
+            <h3 style="font-size:var(--tj-text-lg);color:var(--tj-green);margin-bottom:var(--tj-space-2);">{type.title}</h3>
+            <p style="font-size:var(--tj-text-sm);color:var(--tj-text-secondary);line-height:1.75;">{type.description}</p>
+          </div>
+        ))}
+      </div>
+      <div style="text-align:center;margin-top:var(--tj-space-7);" data-reveal="delay-2">
+        <a href={`mailto:${organization.contact.email}?subject=Partnership%20Inquiry`} class="tj-btn tj-btn--outline">Inquire About Partnerships <span class="tj-btn-arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events -->
+  <section class="tj-section tj-section--sage">
+    <div class="tj-container">
+      <div class="tj-section-header" style="text-align:center;" data-reveal>
+        <div class="tj-kicker" style="justify-content:center;">Events</div>
+        <h2>Upcoming Events</h2>
+        <div class="tj-divider tj-divider--center"></div>
+      </div>
+      <div class="tj-grid-2" data-stagger>
+        {fabricatedEvents.slice(0, 4).map((event) => (
+          <div class="tj-card" data-stagger-child>
+            <div style="font-family:var(--tj-font-heading);font-size:var(--tj-text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--tj-gold);margin-bottom:var(--tj-space-2);">{event.type}</div>
+            <h3 style="font-size:var(--tj-text-base);color:var(--tj-green);margin-bottom:var(--tj-space-2);">{event.title}</h3>
+            <p style="font-size:var(--tj-text-xs);color:var(--tj-gold);font-weight:600;margin-bottom:var(--tj-space-1);">{event.date} · {event.time}</p>
+            <p style="font-size:var(--tj-text-xs);color:var(--tj-text-light);margin-bottom:var(--tj-space-3);">{event.location}</p>
+            <p style="font-size:var(--tj-text-sm);color:var(--tj-text-secondary);line-height:1.65;">{event.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="tj-section tj-section--deep" style="text-align:center;">
+    <div class="tj-container" data-reveal>
+      <h2 style="color:var(--tj-white);margin-bottom:var(--tj-space-4);">Let's Connect</h2>
+      <p style="color:rgba(255,255,255,0.5);max-width:440px;margin:0 auto var(--tj-space-5);">Have questions? Want to learn more about our programs? We'd love to hear from you.</p>
+      <a href={`mailto:${organization.contact.email}`} class="tj-btn tj-btn--gold">Email Us <span class="tj-btn-arrow">&rarr;</span></a>
+      <p style="font-size:var(--tj-text-sm);color:rgba(255,255,255,0.35);margin-top:var(--tj-space-4);">{organization.contact.address}</p>
+    </div>
+  </section>
+
+  <Footer />
+</TheJourneyLayout>

@@ -1,0 +1,252 @@
+---
+import TheJourneyLayout from "../../../layouts/designs/TheJourneyLayout.astro";
+import Header from "../../../components/designs/the-journey/Header.astro";
+import Footer from "../../../components/designs/the-journey/Footer.astro";
+import { organization } from "../../../data/organization";
+import { primaryStats, secondaryStats } from "../../../data/stats";
+import { testimonials } from "../../../data/testimonials";
+import { alumniStories, mentorProfiles } from "../../../data/fabricated";
+import { programApproach } from "../../../data/programs";
+
+const nashid = testimonials.find((t) => t.name === "Nashid")!;
+const sheisty = testimonials.find((t) => t.name === "Sheisty")!;
+const marcus = alumniStories[0];
+const aisha = alumniStories[1];
+
+function toWords(text: string): string[] {
+  return text.split(/\s+/);
+}
+---
+
+<TheJourneyLayout title="Home" description={organization.mission}>
+  <Header currentPath="/designs/the-journey/" />
+
+  <!-- ============================================
+       CHAPTER 1 — "BEFORE"
+       Dark, stark, the weight of the problem.
+       ============================================ -->
+  <section class="tj-chapter tj-chapter--dark" data-chapter="before" data-chapter-label="Before">
+    <div class="tj-chapter__inner tj-chapter__inner--narrow">
+      <div data-reveal>
+        <div class="tj-chapter-marker">Chapter One</div>
+        <h1 class="tj-chapter-title">Before</h1>
+      </div>
+
+      <div class="ch1-stat-pair" data-reveal="delay-1">
+        <div class="ch1-stat">
+          <div class="tj-stat__number" style="font-size:clamp(4rem,12vw,9rem);color:rgba(255,255,255,0.04);-webkit-text-stroke:2px rgba(255,203,112,0.6);">44%</div>
+          <p style="color:var(--tj-gold);font-weight:600;margin-top:var(--tj-space-3);">National recidivism rate within the first year</p>
+          <p style="color:rgba(255,255,255,0.4);font-size:var(--tj-text-sm);margin-top:var(--tj-space-2);">Bureau of Justice Statistics</p>
+        </div>
+        <div class="ch1-stat">
+          <div class="tj-stat__number" style="font-size:clamp(4rem,12vw,9rem);color:rgba(255,255,255,0.04);-webkit-text-stroke:2px rgba(255,203,112,0.6);">60%</div>
+          <p style="color:var(--tj-gold);font-weight:600;margin-top:var(--tj-space-3);">Formerly incarcerated remain unemployed one year after release</p>
+          <p style="color:rgba(255,255,255,0.4);font-size:var(--tj-text-sm);margin-top:var(--tj-space-2);">Prison Policy Initiative</p>
+        </div>
+      </div>
+
+      <div data-reveal="delay-2" style="margin-top:var(--tj-space-10);">
+        <p style="font-size:var(--tj-text-xl);color:rgba(255,255,255,0.55);line-height:1.7;max-width:540px;" data-word-reveal>
+          {toWords("The system was never designed for people to come back. No skills training. No digital literacy. No connections. Just a door — and the expectation to figure it out alone.").map((word) => (
+            <span class="tj-word">{word} </span>
+          ))}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       CHAPTER 2 — "THE DOOR OPENS"
+       Color warms. Hope enters. Army's story begins.
+       ============================================ -->
+  <section class="tj-chapter tj-chapter--cream" data-chapter="opens" data-chapter-label="The Door Opens">
+    <div class="tj-chapter__inner tj-chapter__inner--narrow">
+      <div data-reveal>
+        <div class="tj-chapter-marker">Chapter Two</div>
+        <h1 class="tj-chapter-title" style="color:var(--tj-green);">The Door<br />Opens</h1>
+      </div>
+
+      <div data-reveal="delay-1" style="margin-top:var(--tj-space-6);">
+        <p style="font-size:var(--tj-text-xl);color:var(--tj-text-secondary);line-height:1.8;max-width:560px;">
+          In 2020, Army Armstead founded Emergent Works with a conviction born from lived experience: the people most affected by mass incarceration deserved more than a second chance — they deserved the tools to build entirely new futures.
+        </p>
+      </div>
+
+      <div data-reveal="delay-2" style="margin-top:var(--tj-space-8);">
+        <blockquote class="tj-quote" style="color:var(--tj-green);">
+          {organization.extendedMission}
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       CHAPTER 3 — "LEARNING"
+       Full warmth. Programs visualized. Active and bright.
+       ============================================ -->
+  <section class="tj-chapter tj-chapter--warm" data-chapter="learning" data-chapter-label="Learning">
+    <div class="tj-chapter__inner">
+      <div data-reveal>
+        <div class="tj-chapter-marker">Chapter Three</div>
+        <h1 class="tj-chapter-title" style="color:var(--tj-green);">Learning</h1>
+      </div>
+
+      <div class="tj-grid-2" style="margin-top:var(--tj-space-8);" data-stagger>
+        {programApproach.map((pillar) => (
+          <div class="tj-card tj-card--cream" data-stagger-child>
+            <div style="font-family:var(--tj-font-heading);font-size:var(--tj-text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--tj-gold);margin-bottom:var(--tj-space-3);">Pillar</div>
+            <h3 style="font-size:var(--tj-text-xl);color:var(--tj-green);margin-bottom:var(--tj-space-3);">{pillar.title}</h3>
+            <p style="font-size:var(--tj-text-sm);color:var(--tj-text-secondary);line-height:1.75;">{pillar.description}</p>
+          </div>
+        ))}
+      </div>
+
+      <div data-reveal="delay-2" style="margin-top:var(--tj-space-9);">
+        <div class="tj-quote" style="color:var(--tj-green);">
+          "{sheisty.quote}"
+          <cite>— {sheisty.name}, Program Participant</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       CHAPTER 4 — "GROWING"
+       Split layouts showing development. Testimonials. Momentum.
+       ============================================ -->
+  <section class="tj-chapter tj-chapter--sage" data-chapter="growing" data-chapter-label="Growing">
+    <div class="tj-chapter__inner">
+      <div data-reveal>
+        <div class="tj-chapter-marker">Chapter Four</div>
+        <h1 class="tj-chapter-title" style="color:var(--tj-green);">Growing</h1>
+      </div>
+
+      <div class="tj-split" style="margin-top:var(--tj-space-8);">
+        <div data-reveal>
+          <h3 style="font-size:var(--tj-text-2xl);color:var(--tj-green);margin-bottom:var(--tj-space-4);">{marcus.name}'s Story</h3>
+          <p style="color:var(--tj-text-secondary);line-height:1.8;margin-bottom:var(--tj-space-4);">{marcus.beforeSummary}</p>
+          <p style="color:var(--tj-text-secondary);line-height:1.8;">{marcus.journey}</p>
+        </div>
+        <div data-reveal="delay-1">
+          <div class="tj-card" style="border-left:3px solid var(--tj-gold);">
+            <div style="font-family:var(--tj-font-heading);font-size:var(--tj-text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--tj-gold);margin-bottom:var(--tj-space-3);">Outcome</div>
+            <p style="font-size:var(--tj-text-md);color:var(--tj-green);font-weight:600;line-height:1.6;margin-bottom:var(--tj-space-3);">{marcus.outcome}</p>
+            <p style="font-family:var(--tj-font-heading);font-weight:700;color:var(--tj-gold);">{marcus.currentRole}</p>
+            <blockquote style="font-style:italic;color:var(--tj-text-secondary);margin-top:var(--tj-space-4);padding-top:var(--tj-space-4);border-top:1px solid var(--tj-sage);line-height:1.7;">
+              "{marcus.quote}"
+            </blockquote>
+          </div>
+        </div>
+      </div>
+
+      <div class="tj-split" style="margin-top:var(--tj-space-9);">
+        <div data-reveal>
+          <div class="tj-card tj-card--gold" style="border-left:3px solid var(--tj-green);">
+            <div style="font-family:var(--tj-font-heading);font-size:var(--tj-text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--tj-green);margin-bottom:var(--tj-space-3);">Creative Journey</div>
+            <p style="font-size:var(--tj-text-md);color:var(--tj-green);font-weight:600;line-height:1.6;margin-bottom:var(--tj-space-3);">{aisha.outcome}</p>
+            <p style="font-family:var(--tj-font-heading);font-weight:700;color:var(--tj-green);">{aisha.currentRole}</p>
+          </div>
+        </div>
+        <div data-reveal="delay-1">
+          <h3 style="font-size:var(--tj-text-2xl);color:var(--tj-green);margin-bottom:var(--tj-space-4);">{aisha.name}'s Story</h3>
+          <p style="color:var(--tj-text-secondary);line-height:1.8;margin-bottom:var(--tj-space-4);">{aisha.beforeSummary}</p>
+          <p style="color:var(--tj-text-secondary);line-height:1.8;">{aisha.journey}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       CHAPTER 5 — "EMERGING"
+       Impact stats animate. Full green dominance. Pride.
+       ============================================ -->
+  <section class="tj-chapter tj-chapter--green" data-chapter="emerging" data-chapter-label="Emerging">
+    <div class="tj-chapter__inner">
+      <div data-reveal>
+        <div class="tj-chapter-marker">Chapter Five</div>
+        <h1 class="tj-chapter-title tj-chapter-title--gold">Emerging</h1>
+      </div>
+
+      <div class="tj-grid-3" style="margin-top:var(--tj-space-9);" data-stagger>
+        {primaryStats.map((stat) => (
+          <div class="tj-stat" data-stagger-child>
+            <div class="tj-stat__number" style="color:var(--tj-gold);">{stat.value}</div>
+            <div class="tj-stat__label" style="color:var(--tj-white);">{stat.label}</div>
+            <p class="tj-stat__desc" style="color:var(--tj-sage);">{stat.description}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="tj-grid-2" style="margin-top:var(--tj-space-8);" data-stagger>
+        {secondaryStats.map((stat) => (
+          <div style="text-align:center;padding:var(--tj-space-5);" data-stagger-child>
+            <div style="font-family:var(--tj-font-heading);font-size:var(--tj-text-4xl);font-weight:900;color:var(--tj-gold);line-height:1;">{stat.value}</div>
+            <div style="font-family:var(--tj-font-heading);font-size:var(--tj-text-base);font-weight:700;color:var(--tj-white);margin-top:var(--tj-space-2);">{stat.label}</div>
+            <p style="font-size:var(--tj-text-sm);color:var(--tj-sage);margin-top:var(--tj-space-2);">{stat.description}</p>
+          </div>
+        ))}
+      </div>
+
+      <div data-reveal="delay-2" style="margin-top:var(--tj-space-9);">
+        <div class="tj-quote" style="color:var(--tj-white);">
+          "{nashid.quote}"
+          <cite>— {nashid.name}, Program Graduate</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       CHAPTER 6 — "YOUR CHAPTER"
+       CTA. The story isn't finished. Three paths.
+       ============================================ -->
+  <section class="tj-chapter tj-chapter--deep" data-chapter="yours" data-chapter-label="Your Chapter">
+    <div class="tj-chapter__inner" style="text-align:center;">
+      <div data-reveal>
+        <div class="tj-chapter-marker" style="justify-content:center;">Chapter Six</div>
+        <h1 class="tj-chapter-title tj-chapter-title--gold" style="margin-bottom:var(--tj-space-4);">Your<br />Chapter</h1>
+        <p style="font-size:var(--tj-text-xl);color:rgba(255,255,255,0.6);max-width:480px;margin:0 auto var(--tj-space-9);line-height:1.7;">This story isn't finished. Every connection writes a new page. Where does yours begin?</p>
+      </div>
+
+      <div class="tj-grid-3" data-stagger>
+        <div class="tj-card tj-card--dark" style="text-align:center;padding:var(--tj-space-8) var(--tj-space-5);" data-stagger-child>
+          <div style="font-family:var(--tj-font-heading);font-size:var(--tj-text-3xl);font-weight:900;color:var(--tj-gold);margin-bottom:var(--tj-space-4);">Mentor</div>
+          <p style="color:rgba(255,255,255,0.6);font-size:var(--tj-text-sm);margin-bottom:var(--tj-space-5);line-height:1.7;">Share your expertise. One hour a week can change someone's trajectory forever.</p>
+          <a href="/designs/the-journey/get-involved/" class="tj-btn tj-btn--gold">Become a Mentor <span class="tj-btn-arrow">&rarr;</span></a>
+        </div>
+        <div class="tj-card tj-card--dark" style="text-align:center;padding:var(--tj-space-8) var(--tj-space-5);" data-stagger-child>
+          <div style="font-family:var(--tj-font-heading);font-size:var(--tj-text-3xl);font-weight:900;color:var(--tj-gold);margin-bottom:var(--tj-space-4);">Join</div>
+          <p style="color:rgba(255,255,255,0.6);font-size:var(--tj-text-sm);margin-bottom:var(--tj-space-5);line-height:1.7;">Apply to our programs. Get matched with a mentor who believes in your potential.</p>
+          <a href="/designs/the-journey/get-involved/" class="tj-btn tj-btn--outline-white">Apply Now <span class="tj-btn-arrow">&rarr;</span></a>
+        </div>
+        <div class="tj-card tj-card--dark" style="text-align:center;padding:var(--tj-space-8) var(--tj-space-5);" data-stagger-child>
+          <div style="font-family:var(--tj-font-heading);font-size:var(--tj-text-3xl);font-weight:900;color:var(--tj-gold);margin-bottom:var(--tj-space-4);">Support</div>
+          <p style="color:rgba(255,255,255,0.6);font-size:var(--tj-text-sm);margin-bottom:var(--tj-space-5);line-height:1.7;">Fund a future. Every dollar directly supports mentorship sessions and programs.</p>
+          <a href="/designs/the-journey/get-involved/" class="tj-btn tj-btn--outline-white">Donate <span class="tj-btn-arrow">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</TheJourneyLayout>
+
+<style>
+  .ch1-stat-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--tj-space-8);
+    margin-top: var(--tj-space-9);
+  }
+
+  .ch1-stat {
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .ch1-stat-pair {
+      grid-template-columns: 1fr;
+      gap: var(--tj-space-6);
+    }
+  }
+</style>

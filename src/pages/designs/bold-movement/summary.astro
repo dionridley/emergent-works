@@ -1,0 +1,61 @@
+---
+import BoldMovementLayout from "../../../layouts/designs/BoldMovementLayout.astro";
+import ContentSummaryTable from "../../../components/designs/shared/ContentSummaryTable.astro";
+import type { ContentItem, StockImage, TypographyDeviation } from "../../../components/designs/shared/ContentSummaryTable.astro";
+
+const contentItems: ContentItem[] = [
+  { item: "Organization name, EIN, address", source: "Real", page: "All pages (footer)", notes: "From existing site" },
+  { item: "Mission statement", source: "Real", page: "Home, About", notes: "From existing site" },
+  { item: "Extended mission statement", source: "Real", page: "About", notes: "From existing site" },
+  { item: "Social media links", source: "Real", page: "All pages (footer), Get Involved", notes: "From existing site" },
+
+  { item: "261 graduates stat", source: "Real", page: "Home (stat block)", notes: "From existing impact page" },
+  { item: "73% employed stat", source: "Real", page: "Home (stat block)", notes: "From existing impact page" },
+  { item: "98%+ no re-offense stat", source: "Real", page: "Home (stat block)", notes: "From existing impact page" },
+
+  { item: "T.RAP program description, eligibility, duration", source: "Real", page: "Programs, T.RAP detail", notes: "From existing programs page" },
+  { item: "Technical Mentorship description", source: "Real", page: "Programs", notes: "From existing programs page" },
+  { item: "TECK description", source: "Real", page: "Programs, TECK detail", notes: "From existing programs page" },
+  { item: "T.RAP curriculum outline (4 phases)", source: "Fabricated", page: "T.RAP detail", notes: "Plausible — needs verification" },
+  { item: "TECK curriculum modules", source: "Fabricated", page: "TECK detail", notes: "Needs verification" },
+
+  { item: "Nashid testimonial", source: "Real", page: "Home (quote)", notes: "From existing site" },
+  { item: "Sheisty testimonial", source: "Real", page: "T.RAP detail", notes: "From existing site" },
+  { item: "Julius testimonial", source: "Real", page: "T.RAP detail", notes: "From existing site" },
+
+  { item: "Staff names and titles (5 people)", source: "Real", page: "Team", notes: "From existing team page" },
+  { item: "Board names and titles (5 people)", source: "Real", page: "Team", notes: "From existing team page" },
+  { item: "Advisory board names and titles (3 people)", source: "Real", page: "Team", notes: "From existing team page" },
+  { item: "All team member bios", source: "Fabricated", page: "Team", notes: "Plausible bios — replace with real" },
+  { item: "Staff composition stats", source: "Real", page: "About", notes: "From existing site" },
+
+  { item: "Donation tiers ($50, $100, $200, $1,000)", source: "Real", page: "Get Involved", notes: "From existing donation page" },
+  { item: "Tax deductibility notice", source: "Real", page: "Get Involved", notes: "From existing donation page" },
+  { item: "Program approach pillars", source: "Real", page: "About", notes: "From existing site" },
+  { item: "Origin story narrative", source: "Fabricated", page: "About", notes: "Based on real founder — verify details" },
+
+  { item: "Team photos (staff)", source: "Real", page: "Team", notes: "Existing placeholder images" },
+];
+
+const stockImages: StockImage[] = [];
+
+const typographyDeviations: TypographyDeviation[] = [];
+---
+
+<BoldMovementLayout title="Content Summary">
+  <div style="padding-top: calc(var(--bm-header-height) + var(--bm-space-8));">
+    <div class="bm-container">
+      <div style="margin-bottom: var(--bm-space-6);">
+        <a href="/designs/bold-movement/" style="font-size: 0.875rem; color: var(--bm-green); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;">
+          &larr; Back to Bold Movement
+        </a>
+      </div>
+    </div>
+    <ContentSummaryTable
+      designName="Bold Movement"
+      contentItems={contentItems}
+      stockImages={stockImages}
+      typographyDeviations={typographyDeviations}
+    />
+  </div>
+</BoldMovementLayout>

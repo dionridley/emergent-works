@@ -1,0 +1,189 @@
+---
+import MentorshipLayout from "../../../layouts/designs/MentorshipLayout.astro";
+import Header from "../../../components/designs/mentorship/Header.astro";
+import Footer from "../../../components/designs/mentorship/Footer.astro";
+import { organization } from "../../../data/organization";
+import { primaryStats } from "../../../data/stats";
+import { testimonials } from "../../../data/testimonials";
+import { mentorProfiles, alumniStories } from "../../../data/fabricated";
+
+const nashid = testimonials.find((t) => t.name === "Nashid")!;
+const mentor = mentorProfiles[0];
+const mentee = alumniStories[0];
+---
+
+<MentorshipLayout title="Home" description={organization.mission}>
+  <Header currentPath="/designs/mentorship/" />
+
+  <!-- Hero — Paired mentor/mentee -->
+  <section class="hero">
+    <div class="mn-container">
+      <div class="hero__content" data-reveal>
+        <span class="mn-kicker">Emergent Works</span>
+        <h1>Connection<br />Changes<br />Everything</h1>
+        <p class="hero__sub">{organization.mission}</p>
+        <div style="display:flex;gap:var(--mn-space-3);flex-wrap:wrap;margin-top:var(--mn-space-6);">
+          <a href="/designs/mentorship/programs/" class="mn-btn mn-btn--primary">Explore Programs <span class="mn-btn-arrow">&rarr;</span></a>
+          <a href="/designs/mentorship/get-involved/" class="mn-btn mn-btn--outline">Get Involved</a>
+        </div>
+      </div>
+      <div class="hero__portraits" data-reveal="delay-1">
+        <div class="hero__portrait-pair">
+          <img src="/images/designs/stock/portrait-1.jpg" alt="Mentor" class="mn-portrait mn-portrait--xl" />
+          <img src="/images/designs/stock/portrait-7.jpg" alt="Mentee" class="mn-portrait mn-portrait--xl mn-portrait--peach-ring" style="margin-left:-20px;margin-top:40px;" />
+        </div>
+        <p style="text-align:center;font-size:var(--mn-text-sm);color:var(--mn-text-light);margin-top:var(--mn-space-4);">A mentor and mentee pair building futures together</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works — Journey steps -->
+  <section class="mn-section mn-section--white">
+    <div class="mn-container">
+      <div class="mn-section-header" style="text-align:center;" data-reveal>
+        <span class="mn-kicker">How It Works</span>
+        <h2>The Mentorship Journey</h2>
+        <div class="mn-divider mn-divider--center"></div>
+      </div>
+      <div class="mn-steps" data-reveal="delay-1">
+        {[
+          { num: "1", title: "Match", desc: "Carefully paired based on skills, interests, and goals" },
+          { num: "2", title: "Learn", desc: "Weekly one-on-one sessions building real-world skills" },
+          { num: "3", title: "Grow", desc: "Projects, milestones, and expanding confidence" },
+          { num: "4", title: "Graduate", desc: "Ready for employment, equipped for the future" },
+        ].map((step) => (
+          <div class="mn-step">
+            <div class="mn-step__circle">{step.num}</div>
+            <div class="mn-step__title">{step.title}</div>
+            <p class="mn-step__desc">{step.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Pair — Split screen -->
+  <section class="mn-section mn-section--cream">
+    <div class="mn-container">
+      <div class="mn-section-header" data-reveal>
+        <span class="mn-kicker">Featured Pair</span>
+        <h2>Two Perspectives,<br />One Story</h2>
+        <div class="mn-divider"></div>
+      </div>
+      <div class="mn-split" data-split-reveal>
+        <div class="mn-split__side mn-split__side--mentor">
+          <span class="mn-kicker" style="background:rgba(255,203,112,0.2);">Mentor</span>
+          <h3 style="margin-bottom:var(--mn-space-3);">{mentor.name}</h3>
+          <p style="font-size:var(--mn-text-sm);color:var(--mn-gold);margin-bottom:var(--mn-space-4);">{mentor.company} — {mentor.specialty}</p>
+          <p style="color:var(--mn-sage);line-height:1.75;">{mentor.bio}</p>
+        </div>
+        <div class="mn-split__side mn-split__side--mentee">
+          <span class="mn-kicker">Mentee</span>
+          <h3 style="color:var(--mn-green);margin-bottom:var(--mn-space-3);">{mentee.name}</h3>
+          <p style="font-size:var(--mn-text-sm);color:var(--mn-gold);margin-bottom:var(--mn-space-4);">{mentee.currentRole}</p>
+          <p style="color:var(--mn-text-secondary);line-height:1.75;">{mentee.journey}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Stats -->
+  <section class="mn-section mn-section--green">
+    <div class="mn-container">
+      <div class="mn-section-header" style="text-align:center;" data-reveal>
+        <span class="mn-kicker">Impact</span>
+        <h2>Relationships<br />That Transform</h2>
+      </div>
+      <div class="mn-grid-3" data-reveal="delay-1">
+        {primaryStats.slice(0, 3).map((stat) => (
+          <div style="text-align:center;padding:var(--mn-space-6);">
+            <div style="font-family:var(--mn-font-heading);font-size:var(--mn-text-5xl);font-weight:900;color:var(--mn-gold);line-height:1;">{stat.value}</div>
+            <div style="font-family:var(--mn-font-heading);font-size:var(--mn-text-sm);font-weight:700;color:var(--mn-white);margin-top:var(--mn-space-2);text-transform:uppercase;letter-spacing:0.06em;">{stat.label}</div>
+            <p style="font-size:var(--mn-text-sm);color:var(--mn-sage);margin-top:var(--mn-space-2);">{stat.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Quote -->
+  <section class="mn-section mn-section--peach">
+    <div class="mn-container" data-reveal>
+      <div style="text-align:center;max-width:640px;margin:0 auto;">
+        {nashid.image && <img src={nashid.image} alt={nashid.name} class="mn-portrait mn-portrait--lg" style="margin:0 auto var(--mn-space-5);" />}
+        <blockquote style="font-size:var(--mn-text-xl);font-weight:600;font-family:var(--mn-font-heading);color:var(--mn-green);line-height:1.5;margin-bottom:var(--mn-space-4);">
+          "{nashid.quote}"
+        </blockquote>
+        <cite style="font-size:var(--mn-text-sm);font-weight:600;color:var(--mn-green);font-style:normal;">— {nashid.name}, Program Graduate</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dual CTA -->
+  <section class="mn-section">
+    <div class="mn-container">
+      <div class="mn-dual-cta" data-split-reveal>
+        <div class="mn-dual-cta__side mn-dual-cta__side--mentor">
+          <h3 style="color:var(--mn-white);font-size:var(--mn-text-3xl);">Become a<br />Mentor</h3>
+          <p style="color:var(--mn-sage);max-width:280px;">Share your expertise. One hour a week can transform someone's entire trajectory.</p>
+          <a href="/designs/mentorship/get-involved/" class="mn-btn mn-btn--gold">Learn More <span class="mn-btn-arrow">&rarr;</span></a>
+        </div>
+        <div class="mn-dual-cta__side mn-dual-cta__side--mentee">
+          <h3 style="color:var(--mn-green);font-size:var(--mn-text-3xl);">Become a<br />Mentee</h3>
+          <p style="color:var(--mn-text-secondary);max-width:280px;">Get matched with a mentor who believes in your potential and can help you grow.</p>
+          <a href="/designs/mentorship/get-involved/" class="mn-btn mn-btn--primary">Apply Now <span class="mn-btn-arrow">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</MentorshipLayout>
+
+<style>
+  .hero {
+    padding: calc(var(--mn-header-height) + var(--mn-space-12)) 0 var(--mn-space-10);
+  }
+
+  .hero .mn-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--mn-space-8);
+    align-items: center;
+  }
+
+  .hero h1 {
+    color: var(--mn-green);
+    font-size: var(--mn-text-5xl);
+    font-weight: 900;
+  }
+
+  .hero__sub {
+    font-size: var(--mn-text-md);
+    color: var(--mn-text-secondary);
+    max-width: 440px;
+    margin-top: var(--mn-space-4);
+    line-height: 1.75;
+  }
+
+  .hero__portrait-pair {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (max-width: 768px) {
+    .hero .mn-container {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .hero__sub {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero__portrait-pair {
+      margin-top: var(--mn-space-6);
+    }
+  }
+</style>

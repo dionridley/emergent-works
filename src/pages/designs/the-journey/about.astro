@@ -1,0 +1,115 @@
+---
+import TheJourneyLayout from "../../../layouts/designs/TheJourneyLayout.astro";
+import Header from "../../../components/designs/the-journey/Header.astro";
+import Footer from "../../../components/designs/the-journey/Footer.astro";
+import { organization } from "../../../data/organization";
+import { programApproach } from "../../../data/programs";
+---
+
+<TheJourneyLayout title="About">
+  <Header currentPath="/designs/the-journey/about/" />
+
+  <section class="tj-section tj-section--dark" style="padding-top:calc(var(--tj-header-height) + var(--tj-space-16) + 3px);">
+    <div class="tj-container" data-reveal>
+      <div class="tj-kicker">About</div>
+      <h1 style="font-size:var(--tj-text-5xl);font-weight:900;color:var(--tj-white);">The Story<br />So Far</h1>
+      <p style="font-size:var(--tj-text-md);color:rgba(255,255,255,0.55);max-width:520px;margin-top:var(--tj-space-5);line-height:1.8;">A 501(c)(3) nonprofit that believes the path out of incarceration runs through human connection, technology, and community.</p>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="tj-section tj-section--cream">
+    <div class="tj-container">
+      <div class="tj-section-header" data-reveal>
+        <div class="tj-kicker">Timeline</div>
+        <h2>The Journey Begins</h2>
+        <div class="tj-divider"></div>
+      </div>
+
+      <div class="tj-pathway" data-stagger>
+        <div class="tj-waypoint" data-stagger-child>
+          <div class="tj-waypoint__title" style="color:var(--tj-green);">2020 — Founded</div>
+          <p class="tj-waypoint__desc">Army Armstead founds Emergent Works with a conviction born from lived experience: the people most affected by mass incarceration deserve the tools to build entirely new futures.</p>
+        </div>
+        <div class="tj-waypoint" data-stagger-child>
+          <div class="tj-waypoint__title" style="color:var(--tj-green);">2021 — First Graduates</div>
+          <p class="tj-waypoint__desc">The first cohort of Technical Mentorship participants completes the program. Employment outcomes exceed expectations, validating the one-on-one mentorship model.</p>
+        </div>
+        <div class="tj-waypoint" data-stagger-child>
+          <div class="tj-waypoint__title" style="color:var(--tj-green);">2022 — T.RAP Launches</div>
+          <p class="tj-waypoint__desc">The T.RAP creative workforce program launches, blending music production with digital literacy and career readiness for NYC youth.</p>
+        </div>
+        <div class="tj-waypoint" data-stagger-child>
+          <div class="tj-waypoint__title" style="color:var(--tj-green);">2023 — TECK Partnerships</div>
+          <p class="tj-waypoint__desc">The TECK digital literacy program begins serving partner organizations, extending EW's reach into new communities across the country.</p>
+        </div>
+        <div class="tj-waypoint" data-stagger-child>
+          <div class="tj-waypoint__title" style="color:var(--tj-green);">Today — 261+ Graduates</div>
+          <p class="tj-waypoint__desc">Over 261 system-impacted individuals have graduated from EW programs. 73% are employed. The recidivism rate among graduates remains below 2%.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="tj-section tj-section--white">
+    <div class="tj-container">
+      <div class="tj-split">
+        <div data-reveal>
+          <div class="tj-kicker">Mission</div>
+          <h2 style="font-size:var(--tj-text-3xl);color:var(--tj-green);margin-bottom:var(--tj-space-4);">What We Believe</h2>
+          <div class="tj-divider"></div>
+          <p style="font-size:var(--tj-text-md);color:var(--tj-text-secondary);line-height:1.8;margin-top:var(--tj-space-4);">{organization.extendedMission}</p>
+        </div>
+        <div data-reveal="delay-1">
+          <div class="tj-card tj-card--green" style="padding:var(--tj-space-8);">
+            <h3 style="font-size:var(--tj-text-xl);margin-bottom:var(--tj-space-5);">Our People</h3>
+            <div style="display:flex;flex-direction:column;gap:var(--tj-space-4);">
+              {[
+                { value: organization.staffStats.alumni, label: "Staff are alumni" },
+                { value: organization.staffStats.systemImpacted, label: "System-impacted" },
+                { value: organization.staffStats.bipoc, label: "BIPOC" },
+                { value: organization.staffStats.femaleIdentifying, label: "Female-identifying" },
+              ].map((stat) => (
+                <div style="display:flex;align-items:baseline;gap:var(--tj-space-3);">
+                  <span style="font-family:var(--tj-font-heading);font-size:var(--tj-text-2xl);font-weight:900;color:var(--tj-gold);min-width:80px;">{stat.value}</span>
+                  <span style="font-size:var(--tj-text-sm);color:var(--tj-sage);">{stat.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Approach -->
+  <section class="tj-section tj-section--sage">
+    <div class="tj-container">
+      <div class="tj-section-header" style="text-align:center;" data-reveal>
+        <div class="tj-kicker" style="justify-content:center;">Approach</div>
+        <h2>Four Pillars</h2>
+        <div class="tj-divider tj-divider--center"></div>
+      </div>
+      <div class="tj-grid-2" data-stagger>
+        {programApproach.map((pillar) => (
+          <div class="tj-card" data-stagger-child>
+            <h3 style="font-size:var(--tj-text-lg);color:var(--tj-green);margin-bottom:var(--tj-space-2);">{pillar.title}</h3>
+            <p style="font-size:var(--tj-text-sm);color:var(--tj-text-secondary);line-height:1.75;">{pillar.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience the Full Story CTA -->
+  <section class="tj-section tj-section--green" style="text-align:center;">
+    <div class="tj-container" data-reveal>
+      <h2 style="font-size:var(--tj-text-3xl);margin-bottom:var(--tj-space-4);">Experience the Full Story</h2>
+      <p style="color:var(--tj-sage);max-width:440px;margin:0 auto var(--tj-space-6);line-height:1.7;">Our home page tells the complete journey — from the problem to the solution to the impact.</p>
+      <a href="/designs/the-journey/" class="tj-btn tj-btn--gold">Begin the Journey <span class="tj-btn-arrow">&rarr;</span></a>
+    </div>
+  </section>
+
+  <Footer />
+</TheJourneyLayout>

@@ -1,0 +1,34 @@
+---
+interface Props { currentPath: string; }
+const { currentPath } = Astro.props;
+
+const navLinks = [
+  { label: "Home", href: "/designs/mentorship/" },
+  { label: "About", href: "/designs/mentorship/about/" },
+  { label: "Programs", href: "/designs/mentorship/programs/" },
+  { label: "Team", href: "/designs/mentorship/team/" },
+  { label: "Get Involved", href: "/designs/mentorship/get-involved/" },
+];
+
+function isActive(href: string): boolean {
+  const clean = href.replace(/\/$/, "");
+  if (clean === "/designs/mentorship") return currentPath.replace(/\/$/, "") === clean;
+  return currentPath.startsWith(clean);
+}
+---
+
+<header class="mn-header">
+  <div class="mn-header__inner">
+    <a href="/designs/mentorship/" class="mn-header__logo">
+      <img src="/images/header-logo.png" alt="Emergent Works" />
+      <span>Emergent Works</span>
+    </a>
+    <nav>
+      <ul class="mn-header__nav">
+        {navLinks.map((link) => (
+          <li><a href={link.href} class:list={[{ "mn-active": isActive(link.href) }]}>{link.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>

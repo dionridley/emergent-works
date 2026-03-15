@@ -23,7 +23,8 @@
       "Bash(cd:*)",
       "Bash(curl:*)",
       "Bash(head:*)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(grep:*)"
     ]
   }
 }
