@@ -1,0 +1,94 @@
+---
+import BoldMovementLayout from "../../../layouts/designs/BoldMovementLayout.astro";
+import Header from "../../../components/designs/bold-movement/Header.astro";
+import Footer from "../../../components/designs/bold-movement/Footer.astro";
+import { organization } from "../../../data/organization";
+import { donationTiers, donationTrust } from "../../../data/donation";
+---
+
+<BoldMovementLayout title="Get Involved">
+  <Header currentPath="/designs/bold-movement/get-involved/" />
+
+  <!-- Hero -->
+  <section class="bm-block bm-block--dark bm-block--hero bm-block--textured">
+    <div class="bm-container" style="padding-top:var(--bm-header-height);" data-reveal>
+      <span class="bm-kicker">Get Involved</span>
+      <h1 class="bm-ultra">
+        This Is<br /><span class="bm-gold">Your</span><br />Moment.
+      </h1>
+    </div>
+  </section>
+
+  <!-- Four bold CTAs -->
+  <section class="bm-block bm-block--cream bm-block--textured">
+    <div class="bm-container">
+      <div class="bm-grid-2" data-stagger>
+        {[
+          { title: "Mentor", desc: "Share your expertise. One hour a week transforms lives.", bg: "var(--bm-green)", color: "var(--bm-white)", accent: "var(--bm-gold)" },
+          { title: "Donate", desc: "Fund the programs that break cycles. Every dollar counts.", bg: "var(--bm-gold)", color: "var(--bm-green-dark)", accent: "var(--bm-green-dark)" },
+          { title: "Partner", desc: "Bring TECK or T.RAP to your organization.", bg: "var(--bm-peach)", color: "var(--bm-green-dark)", accent: "var(--bm-green)" },
+          { title: "Volunteer", desc: "Support events, outreach, community building.", bg: "var(--bm-sage)", color: "var(--bm-green-dark)", accent: "var(--bm-green)" },
+        ].map((cta) => (
+          <div style={`background:${cta.bg};padding:var(--bm-space-8);`} data-stagger-child>
+            <h3 style={`font-size:var(--bm-text-5xl);color:${cta.color};margin-bottom:var(--bm-space-4);`}>{cta.title}</h3>
+            <p style={`font-size:var(--bm-text-md);color:${cta.accent};line-height:1.7;max-width:320px;`}>{cta.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Donation as stat moments -->
+  <section class="bm-block bm-block--green bm-stat-block bm-block--textured">
+    <div class="bm-container" data-reveal>
+      <span class="bm-kicker">Support</span>
+      <h2 class="bm-display" style="margin-bottom:var(--bm-space-8);">Fund the<br /><span class="bm-gold">Movement</span></h2>
+    </div>
+  </section>
+
+  {donationTiers.map((tier, i) => (
+    <section class:list={["bm-block bm-stat-block bm-block--textured bm-block--compact", i % 2 === 0 ? "bm-block--gold" : "bm-block--cream"]}>
+      <div class="bm-container" data-reveal>
+        <span class="bm-stat__number">{tier.label}</span>
+        <p class="bm-stat__context" style="opacity:1;font-weight:500;">{tier.impact}</p>
+      </div>
+    </section>
+  ))}
+
+  <section class="bm-block bm-block--green bm-block--compact bm-block--textured" style="text-align:center;">
+    <div class="bm-container" data-reveal>
+      <a href={`mailto:${organization.contact.email}?subject=Donation%20Inquiry`} class="bm-btn bm-btn--gold">Make a Donation <span class="bm-btn-arrow">&rarr;</span></a>
+      <p style="font-size:var(--bm-text-xs);color:var(--bm-sage);margin-top:var(--bm-space-4);max-width:400px;margin-left:auto;margin-right:auto;opacity:0.7;">{donationTrust}</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="bm-block bm-block--dark bm-block--textured">
+    <div class="bm-container">
+      <div data-reveal>
+        <span class="bm-kicker">Connect</span>
+        <h2 class="bm-display" style="margin-bottom:var(--bm-space-7);">Let's Talk</h2>
+      </div>
+      <div class="bm-grid-3" data-stagger>
+        <div data-stagger-child>
+          <strong style="font-family:var(--bm-font-heading);font-size:var(--bm-text-xs);text-transform:uppercase;letter-spacing:0.1em;color:var(--bm-gold);display:block;margin-bottom:var(--bm-space-2);">Email</strong>
+          <a href={`mailto:${organization.contact.email}`} style="color:var(--bm-white);font-size:var(--bm-text-md);">{organization.contact.email}</a>
+        </div>
+        <div data-stagger-child>
+          <strong style="font-family:var(--bm-font-heading);font-size:var(--bm-text-xs);text-transform:uppercase;letter-spacing:0.1em;color:var(--bm-gold);display:block;margin-bottom:var(--bm-space-2);">Address</strong>
+          <span style="color:var(--bm-sage);font-size:var(--bm-text-base);">{organization.contact.address}</span>
+        </div>
+        <div data-stagger-child>
+          <strong style="font-family:var(--bm-font-heading);font-size:var(--bm-text-xs);text-transform:uppercase;letter-spacing:0.1em;color:var(--bm-gold);display:block;margin-bottom:var(--bm-space-2);">Social</strong>
+          <div style="display:flex;gap:var(--bm-space-4);">
+            <a href={organization.social.instagram} target="_blank" rel="noopener noreferrer" style="color:var(--bm-sage);">IG</a>
+            <a href={organization.social.linkedin} target="_blank" rel="noopener noreferrer" style="color:var(--bm-sage);">LI</a>
+            <a href={organization.social.youtube} target="_blank" rel="noopener noreferrer" style="color:var(--bm-sage);">YT</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BoldMovementLayout>

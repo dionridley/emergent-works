@@ -1,0 +1,117 @@
+---
+import BoldMovementLayout from "../../../layouts/designs/BoldMovementLayout.astro";
+import Header from "../../../components/designs/bold-movement/Header.astro";
+import Footer from "../../../components/designs/bold-movement/Footer.astro";
+import { staff, boardOfDirectors, advisoryBoard } from "../../../data/team";
+---
+
+<BoldMovementLayout title="Team">
+  <Header currentPath="/designs/bold-movement/team/" />
+
+  <section class="bm-block bm-block--cream" style="padding-top:calc(var(--bm-header-height) + var(--bm-space-16));padding-bottom:var(--bm-space-10);">
+    <div class="bm-container" data-reveal>
+      <span class="bm-kicker" style="color:var(--bm-green);">Team</span>
+      <h1 class="bm-ultra" style="color:var(--bm-green);">
+        The<br />People<br /><span class="bm-gold">Behind</span><br />This.
+      </h1>
+    </div>
+  </section>
+
+  <!-- Staff -->
+  <section class="bm-block bm-block--white">
+    <div class="bm-container">
+      <div data-reveal>
+        <span class="bm-kicker" style="color:var(--bm-green);">Staff</span>
+        <h2 class="bm-headline" style="color:var(--bm-green);margin-bottom:var(--bm-space-7);">Our Team</h2>
+      </div>
+      <div data-stagger>
+        {staff.map((member) => (
+          <div class="team-row" data-stagger-child>
+            <img src={member.image} alt={member.name} class="team-row__photo" />
+            <div class="team-row__info">
+              <h3 style="font-size:var(--bm-text-2xl);color:var(--bm-green);text-transform:uppercase;">{member.name}</h3>
+              <span style="font-family:var(--bm-font-heading);font-size:var(--bm-text-sm);font-weight:600;color:var(--bm-gold);text-transform:uppercase;letter-spacing:0.06em;">{member.title}</span>
+              {member.bio && <p style="color:var(--bm-text-secondary);font-size:var(--bm-text-sm);line-height:1.7;margin-top:var(--bm-space-3);max-width:480px;">{member.bio}</p>}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Board -->
+  <section class="bm-block bm-block--green bm-block--textured">
+    <div class="bm-container">
+      <div data-reveal>
+        <span class="bm-kicker">Governance</span>
+        <h2 class="bm-headline" style="margin-bottom:var(--bm-space-7);">Board of Directors</h2>
+      </div>
+      <div class="bm-grid-3" data-stagger>
+        {boardOfDirectors.map((m) => (
+          <div style="border-left:3px solid var(--bm-gold);padding-left:var(--bm-space-4);" data-stagger-child>
+            <h4 style="font-size:var(--bm-text-lg);color:var(--bm-white);text-transform:uppercase;">{m.name}</h4>
+            <span style="font-size:var(--bm-text-sm);color:var(--bm-gold);display:block;margin-top:var(--bm-space-1);">{m.title}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Advisory -->
+  <section class="bm-block bm-block--gold bm-block--textured">
+    <div class="bm-container">
+      <div data-reveal>
+        <span class="bm-kicker">Advisory</span>
+        <h2 class="bm-headline" style="margin-bottom:var(--bm-space-7);">Advisory Board</h2>
+      </div>
+      <div class="bm-grid-3" data-stagger>
+        {advisoryBoard.map((m) => (
+          <div style="border-left:3px solid var(--bm-green-dark);padding-left:var(--bm-space-4);" data-stagger-child>
+            <h4 style="font-size:var(--bm-text-lg);text-transform:uppercase;">{m.name}</h4>
+            <span style="font-size:var(--bm-text-sm);display:block;margin-top:var(--bm-space-1);">{m.title}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bm-block bm-block--dark bm-block--textured" style="text-align:center;">
+    <div class="bm-container" data-reveal>
+      <h2 class="bm-display" style="margin-bottom:var(--bm-space-6);">
+        Join<br /><span class="bm-gold">Us</span>
+      </h2>
+      <a href="/designs/bold-movement/get-involved/" class="bm-btn bm-btn--gold">Get Involved <span class="bm-btn-arrow">&rarr;</span></a>
+    </div>
+  </section>
+
+  <Footer />
+</BoldMovementLayout>
+
+<style>
+  .team-row {
+    display: flex;
+    gap: var(--bm-space-6);
+    align-items: center;
+    padding: var(--bm-space-5) 0;
+    border-bottom: 2px solid var(--bm-border);
+  }
+
+  .team-row:last-child { border-bottom: none; }
+
+  .team-row__photo {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 3px solid var(--bm-gold);
+  }
+
+  @media (max-width: 480px) {
+    .team-row {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>

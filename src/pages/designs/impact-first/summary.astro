@@ -1,0 +1,92 @@
+---
+/**
+ * Impact First — Content Summary
+ * Documents all real vs fabricated content, stock images, and typography deviations.
+ */
+
+import ImpactFirstLayout from "../../../layouts/designs/ImpactFirstLayout.astro";
+import ContentSummaryTable from "../../../components/designs/shared/ContentSummaryTable.astro";
+import type { ContentItem, StockImage, TypographyDeviation } from "../../../components/designs/shared/ContentSummaryTable.astro";
+
+const contentItems: ContentItem[] = [
+  // Organization data
+  { item: "Organization name, EIN, address", source: "Real", page: "All pages (footer)", notes: "From existing site" },
+  { item: "Mission statement", source: "Real", page: "Home, About", notes: "From existing site" },
+  { item: "Extended mission statement", source: "Real", page: "About", notes: "From existing site" },
+  { item: "Social media links", source: "Real", page: "All pages (footer), Get Involved", notes: "From existing site" },
+
+  // Impact stats
+  { item: "261 graduates stat", source: "Real", page: "Home (hero, counters)", notes: "From existing impact page" },
+  { item: "73% employed stat", source: "Real", page: "Home (hero, comparisons)", notes: "From existing impact page" },
+  { item: "98%+ no re-offense stat", source: "Real", page: "Home (hero)", notes: "From existing impact page" },
+  { item: "$2+ above min wage stat", source: "Real", page: "Home", notes: "From existing impact page" },
+  { item: "8 contracted graduates stat", source: "Real", page: "Home", notes: "From existing impact page" },
+  { item: "National average comparisons (44% recidivism, 40% employment)", source: "Fabricated", page: "Home (By the Numbers)", notes: "Approximate national statistics cited for comparison — replace with verified data sources" },
+
+  // Programs
+  { item: "T.RAP program description, eligibility, duration", source: "Real", page: "Programs, T.RAP detail", notes: "From existing programs page" },
+  { item: "Technical Mentorship description", source: "Real", page: "Programs", notes: "From existing programs page" },
+  { item: "TECK description", source: "Real", page: "Programs, TECK detail", notes: "From existing programs page" },
+  { item: "T.RAP weekly schedule", source: "Fabricated", page: "T.RAP detail", notes: "Plausible schedule based on program description — needs verification" },
+  { item: "T.RAP curriculum outline (4 phases)", source: "Fabricated", page: "T.RAP detail", notes: "Plausible progression — needs verification" },
+  { item: "TECK curriculum modules", source: "Fabricated", page: "TECK detail", notes: "Based on tools listed in real description — needs verification" },
+  { item: "Program pathway steps", source: "Fabricated", page: "Programs overview", notes: "Structured journey representation — verify enrollment process" },
+
+  // Testimonials
+  { item: "Nashid testimonial + image", source: "Real", page: "Home (featured)", notes: "From existing site" },
+  { item: "Dontay testimonial + image", source: "Real", page: "Home", notes: "From existing site" },
+  { item: "Zeek testimonial + image", source: "Real", page: "Home", notes: "From existing site" },
+  { item: "Sheisty testimonial", source: "Real", page: "T.RAP detail", notes: "From existing site" },
+  { item: "Julius testimonial", source: "Real", page: "T.RAP detail", notes: "From existing site" },
+  { item: "CCA partner testimonial", source: "Real", page: "TECK detail (implied)", notes: "From existing partner page" },
+
+  // Team
+  { item: "Staff names and titles (5 people)", source: "Real", page: "Team", notes: "From existing team page" },
+  { item: "Board names and titles (5 people)", source: "Real", page: "Team", notes: "From existing team page" },
+  { item: "Advisory board names and titles (3 people)", source: "Real", page: "Team", notes: "From existing team page" },
+  { item: "All team member bios", source: "Fabricated", page: "Team", notes: "Plausible bios — replace with real bios from team members" },
+  { item: "Staff composition stats (100% alumni, 80% system-impacted, etc.)", source: "Real", page: "About, Team", notes: "From existing site" },
+
+  // Partners
+  { item: "Partner organization names and logos (13)", source: "Real", page: "Home, TECK detail", notes: "From existing partner page" },
+  { item: "Partnership type descriptions", source: "Real", page: "Get Involved", notes: "From existing partner page" },
+
+  // Donation
+  { item: "Donation tiers ($50, $100, $200, $1,000)", source: "Real", page: "Get Involved, Home", notes: "From existing donation page" },
+  { item: "Donation impact statements", source: "Real", page: "Get Involved, Home", notes: "From existing donation page" },
+  { item: "Tax deductibility notice", source: "Real", page: "Get Involved", notes: "From existing donation page" },
+
+  // Timeline / History
+  { item: "Organizational timeline (2020-2025)", source: "Fabricated", page: "About", notes: "Based on real founding year — milestone details need verification" },
+  { item: "Origin story narrative", source: "Fabricated", page: "About", notes: "Based on real founder info — narrative details need verification" },
+
+  // Photos
+  { item: "Team placeholder photos (4 images)", source: "Real", page: "Team", notes: "Existing placeholder images" },
+  { item: "Testimonial photos (Dontay, Zeek, Sheisty, Nashid)", source: "Real", page: "Home, T.RAP", notes: "From existing site" },
+  { item: "Program photos (trap-studio, mentorship-library, teck-library)", source: "Real", page: "Programs, T.RAP, TECK", notes: "From existing site" },
+  { item: "About page photos (mission-group, ourstory-portrait)", source: "Real", page: "About", notes: "From existing site" },
+  { item: "Partner logos (13)", source: "Real", page: "Home, TECK", notes: "From existing site" },
+];
+
+const stockImages: StockImage[] = [];
+
+const typographyDeviations: TypographyDeviation[] = [];
+---
+
+<ImpactFirstLayout title="Content Summary">
+  <div style="padding-top: calc(var(--if-header-height) + var(--if-space-8));">
+    <div class="if-container">
+      <div style="margin-bottom: var(--if-space-6);">
+        <a href="/designs/impact-first/" style="font-size: 0.875rem; color: var(--if-green); font-weight: 500;">
+          &larr; Back to Impact First
+        </a>
+      </div>
+    </div>
+    <ContentSummaryTable
+      designName="Impact First"
+      contentItems={contentItems}
+      stockImages={stockImages}
+      typographyDeviations={typographyDeviations}
+    />
+  </div>
+</ImpactFirstLayout>

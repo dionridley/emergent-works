@@ -1,0 +1,118 @@
+---
+import StoriesLayout from "../../../../layouts/designs/StoriesLayout.astro";
+import Header from "../../../../components/designs/stories/Header.astro";
+import Footer from "../../../../components/designs/stories/Footer.astro";
+import { programs } from "../../../../data/programs";
+import { expandedProgramDetails, alumniStories } from "../../../../data/fabricated";
+import { partners } from "../../../../data/partners";
+
+const teck = programs.find((p) => p.id === "teck")!;
+const teckDetails = expandedProgramDetails.find((d) => d.programId === "teck")!;
+const deshawn = alumniStories.find((s) => s.program === "TECK")!;
+---
+
+<StoriesLayout title="TECK Program">
+  <Header currentPath="/designs/stories/programs/" />
+
+  <section class="teck-hero">
+    <div class="teck-hero__bg">
+      <img src={teck.image} alt="TECK workshop" />
+      <div class="teck-hero__overlay" />
+    </div>
+    <div class="st-container teck-hero__content" data-reveal>
+      <span class="st-chapter" style="color:var(--st-gold);">A Day in TECK</span>
+      <h1>TECK</h1>
+      <p class="teck-hero__sub">Digital literacy training that transforms confusion into confidence, one skill at a time.</p>
+    </div>
+  </section>
+
+  <section class="st-section">
+    <div class="st-container st-container--narrow">
+      <div data-reveal>
+        <p class="st-dropcap">{teck.description}</p>
+        <div class="teck-meta">
+          <div><strong>Duration</strong><br />{teck.duration}</div>
+          <div><strong>Format</strong><br />Partner-customized cohorts</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DeShawn's story -->
+  <section class="st-section st-section--white">
+    <div class="st-container">
+      <div class="st-grid-60-40" data-reveal>
+        <div>
+          <span class="st-kicker">Alumni Story</span>
+          <h2>{deshawn.name}'s<br />Transformation</h2>
+          <p style="color:var(--st-text-secondary);margin-top:var(--st-space-4);line-height:1.8;">{deshawn.beforeSummary} {deshawn.journey}</p>
+          <blockquote class="st-pullquote">
+            "{deshawn.quote}"
+            <cite>— {deshawn.name}, {deshawn.currentRole}</cite>
+          </blockquote>
+          <p style="color:var(--st-text-secondary);line-height:1.8;">{deshawn.outcome}</p>
+        </div>
+        <figure class="st-editorial-image">
+          <img src="/images/designs/stock/tech-coding-4.jpg" alt="TECK participant" style="aspect-ratio:3/4;object-fit:cover;" />
+          <figcaption>Building digital confidence, one session at a time</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curriculum as narrative -->
+  <section class="st-section">
+    <div class="st-container st-container--narrow">
+      <div data-reveal>
+        <span class="st-kicker">The Curriculum</span>
+        <h2>From Basics<br />to Mastery</h2>
+        <div class="st-divider"></div>
+      </div>
+      <div class="modules-list" data-reveal="delay-1">
+        {teckDetails.curriculumOutline?.map((mod, i) => (
+          <div class="module-item">
+            <span class="module-num">{String(i + 1).padStart(2, '0')}</span>
+            <p>{mod}</p>
+          </div>
+        ))}
+      </div>
+      <div data-reveal="delay-2" style="margin-top:var(--st-space-7);">
+        <h3 style="color:var(--st-green);margin-bottom:var(--st-space-4);">Tools Covered</h3>
+        <div class="tools-row">
+          {teckDetails.toolsCovered?.map((t) => <span class="tool-badge">{t}</span>)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="st-section st-section--green" style="text-align:center;">
+    <div class="st-container" data-reveal>
+      <h2 style="color:var(--st-white);">Bring TECK to<br />Your Organization</h2>
+      <p style="color:var(--st-sage);max-width:440px;margin:var(--st-space-4) auto var(--st-space-7);">We customize every cohort. Let's design one together.</p>
+      <a href="/designs/stories/get-involved/" class="st-btn st-btn--gold">Partner With Us <span class="st-btn-arrow">&rarr;</span></a>
+    </div>
+  </section>
+
+  <Footer />
+</StoriesLayout>
+
+<style>
+  .teck-hero { position:relative; min-height:480px; display:flex; align-items:flex-end; padding:calc(var(--st-header-height) + var(--st-space-9)) 0 var(--st-space-9); }
+  .teck-hero__bg { position:absolute; inset:0; }
+  .teck-hero__bg img { width:100%; height:100%; object-fit:cover; }
+  .teck-hero__overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(5,40,18,0.92) 0%, rgba(5,40,18,0.3) 100%); }
+  .teck-hero__content { position:relative; z-index:1; }
+  .teck-hero h1 { color:var(--st-white); font-size:clamp(3.5rem,10vw,7rem); margin-bottom:var(--st-space-4); }
+  .teck-hero__sub { font-size:1.125rem; color:var(--st-sage); max-width:460px; line-height:1.7; }
+
+  .teck-meta { display:flex; gap:var(--st-space-7); margin-top:var(--st-space-7); padding-top:var(--st-space-5); border-top:1px solid var(--st-border); font-size:0.875rem; color:var(--st-text-secondary); }
+  .teck-meta strong { color:var(--st-green); display:block; font-size:0.6875rem; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.25rem; }
+
+  .modules-list { display:flex; flex-direction:column; gap:var(--st-space-5); }
+  .module-item { display:flex; gap:var(--st-space-5); align-items:baseline; }
+  .module-num { font-family:var(--st-font-serif); font-size:1.5rem; font-weight:600; color:var(--st-gold); flex-shrink:0; width:40px; }
+  .module-item p { font-size:0.9375rem; line-height:1.7; color:var(--st-text-secondary); }
+
+  .tools-row { display:flex; flex-wrap:wrap; gap:var(--st-space-3); }
+  .tool-badge { font-size:0.8125rem; font-weight:600; padding:0.4rem 0.875rem; border-radius:4px; background:var(--st-green); color:var(--st-gold); }
+</style>

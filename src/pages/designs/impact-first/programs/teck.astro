@@ -1,0 +1,360 @@
+---
+/**
+ * Impact First — TECK Program Detail
+ */
+
+import ImpactFirstLayout from "../../../../layouts/designs/ImpactFirstLayout.astro";
+import Header from "../../../../components/designs/impact-first/Header.astro";
+import Footer from "../../../../components/designs/impact-first/Footer.astro";
+import ProgramPathway from "../../../../components/designs/impact-first/ProgramPathway.astro";
+
+import { programs } from "../../../../data/programs";
+import { testimonials } from "../../../../data/testimonials";
+import { expandedProgramDetails } from "../../../../data/fabricated";
+import { partners } from "../../../../data/partners";
+
+const currentPath = "/designs/impact-first/programs/";
+
+const teck = programs.find((p) => p.id === "teck")!;
+const teckDetails = expandedProgramDetails.find((d) => d.programId === "teck")!;
+
+const teckPathway = [
+  { number: 1, title: "Partner Onboarding", description: "We collaborate with your organization to design a customized cohort — 4, 8, or 12 weeks." },
+  { number: 2, title: "Digital Foundations", description: "Google Workspace mastery — Docs, Sheets, Slides, Drive — building confidence with essential tools." },
+  { number: 3, title: "Creative & AI Tools", description: "Visual communication with Canva, AI tools for productivity, and basic website building." },
+  { number: 4, title: "Professional Presence", description: "LinkedIn profiles, digital communication skills, and professional portfolio development." },
+  { number: 5, title: "Graduation & Support", description: "Participants graduate with certifiable skills and continued access to the EW community." },
+];
+---
+
+<ImpactFirstLayout title="TECK Program" description={teck.description}>
+  <Header currentPath={currentPath} />
+
+  <section class="teck-hero">
+    <div class="teck-hero__image">
+      <img src={teck.image} alt="TECK workshop" />
+      <div class="teck-hero__overlay" />
+    </div>
+    <div class="if-container">
+      <div class="teck-hero__content" data-reveal>
+        <span class="if-eyebrow">Partner Program</span>
+        <h1>TECK</h1>
+        <p class="teck-hero__tagline">
+          Flexible digital literacy training exclusively for partner organizations,
+          equipping communities with essential technical skills.
+        </p>
+        <div class="teck-hero__meta">
+          <div class="teck-hero__meta-item">
+            <span class="teck-hero__meta-label">Duration</span>
+            <span class="teck-hero__meta-value">{teck.duration}</span>
+          </div>
+          <div class="teck-hero__meta-item">
+            <span class="teck-hero__meta-label">Format</span>
+            <span class="teck-hero__meta-value">Partner-customized cohorts</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="if-section">
+    <div class="if-container">
+      <div class="teck-overview" data-reveal>
+        <div>
+          <span class="if-eyebrow">Program Overview</span>
+          <h2>Digital Skills<br />for Real Impact</h2>
+          <p class="teck-overview__desc">{teck.description}</p>
+          <div class="teck-features">
+            {teck.features.map((f) => (
+              <span class="teck-feature-tag">{f}</span>
+            ))}
+          </div>
+        </div>
+        <div class="teck-modules">
+          <h3>Curriculum Modules</h3>
+          <ul class="teck-module-list">
+            {teckDetails.curriculumOutline?.map((module) => (
+              <li>{module}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="if-section if-section--white">
+    <div class="if-container">
+      <div class="teck-pathway-section" data-reveal>
+        <div>
+          <span class="if-eyebrow">How It Works</span>
+          <h2>The TECK Journey</h2>
+          <p class="teck-pathway-desc">
+            Every TECK cohort follows a proven pathway from digital basics
+            to professional readiness, customized to your organization's needs.
+          </p>
+        </div>
+        <ProgramPathway programName="TECK" steps={teckPathway} />
+      </div>
+    </div>
+  </section>
+
+  <section class="if-section">
+    <div class="if-container">
+      <div data-reveal>
+        <span class="if-eyebrow">Tools Covered</span>
+        <h2>What Participants Learn</h2>
+        <div class="teck-tools-grid">
+          {teckDetails.toolsCovered?.map((tool) => (
+            <div class="teck-tool-card if-card">
+              <h4>{tool}</h4>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="if-section if-section--green">
+    <div class="if-container">
+      <div data-reveal>
+        <span class="if-eyebrow">Partner Organizations</span>
+        <h2 style="color: var(--if-white); margin-bottom: var(--if-space-4);">Trusted by Leading Organizations</h2>
+        <p style="color: var(--if-sage); max-width: 480px; margin-bottom: var(--if-space-7); line-height: 1.7;">
+          We work with foundations, nonprofits, and community organizations to bring
+          digital literacy training to the communities that need it most.
+        </p>
+      </div>
+      <div class="teck-partners" data-reveal="delay-1">
+        {partners.slice(0, 6).map((partner) => (
+          <div class="teck-partner-logo">
+            <img src={partner.logo} alt={partner.name} loading="lazy" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="if-section" style="text-align: center;">
+    <div class="if-container" data-reveal>
+      <h2 style="color: var(--if-green); margin-bottom: var(--if-space-4);">Bring TECK to Your Organization</h2>
+      <p style="color: var(--if-text-secondary); max-width: 480px; margin: 0 auto var(--if-space-7); line-height: 1.7;">
+        Ready to equip your community with essential digital skills?
+        Let's design a TECK cohort together.
+      </p>
+      <a href="/designs/impact-first/get-involved/" class="if-btn if-btn--primary">
+        Partner With Us <span class="if-btn-arrow">&rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</ImpactFirstLayout>
+
+<style>
+  .teck-hero {
+    position: relative;
+    min-height: 440px;
+    display: flex;
+    align-items: flex-end;
+    padding: calc(var(--if-header-height) + var(--if-space-9)) 0 var(--if-space-9);
+  }
+
+  .teck-hero__image {
+    position: absolute;
+    inset: 0;
+  }
+
+  .teck-hero__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .teck-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(5, 40, 18, 0.95) 0%, rgba(5, 40, 18, 0.5) 60%, rgba(5, 40, 18, 0.3) 100%);
+  }
+
+  .teck-hero__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .teck-hero h1 {
+    font-size: clamp(3rem, 8vw, 5rem);
+    color: var(--if-white);
+    margin-bottom: var(--if-space-4);
+  }
+
+  .teck-hero__tagline {
+    font-size: 1.125rem;
+    color: var(--if-sage);
+    max-width: 500px;
+    margin-bottom: var(--if-space-6);
+    line-height: 1.7;
+  }
+
+  .teck-hero__meta {
+    display: flex;
+    gap: var(--if-space-6);
+  }
+
+  .teck-hero__meta-label {
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--if-gold);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.125rem;
+  }
+
+  .teck-hero__meta-value {
+    font-size: 0.875rem;
+    color: var(--if-white);
+  }
+
+  .teck-overview {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: var(--if-space-8);
+    align-items: start;
+  }
+
+  .teck-overview h2 {
+    color: var(--if-green);
+    margin-bottom: var(--if-space-4);
+  }
+
+  .teck-overview__desc {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--if-text-secondary);
+    margin-bottom: var(--if-space-5);
+  }
+
+  .teck-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+  }
+
+  .teck-feature-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.375rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(32, 73, 60, 0.06);
+    color: var(--if-green-muted);
+  }
+
+  .teck-modules {
+    padding: var(--if-space-6);
+    background: var(--if-white);
+    border: 1px solid var(--if-border-light);
+    border-radius: var(--if-radius-md);
+  }
+
+  .teck-modules h3 {
+    font-size: 1rem;
+    color: var(--if-green);
+    margin-bottom: var(--if-space-4);
+  }
+
+  .teck-module-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--if-space-3);
+  }
+
+  .teck-module-list li {
+    font-size: 0.875rem;
+    color: var(--if-text-secondary);
+    padding-left: 1.25rem;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .teck-module-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--if-gold);
+  }
+
+  .teck-pathway-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--if-space-8);
+    align-items: start;
+  }
+
+  .teck-pathway-section h2 {
+    color: var(--if-green);
+    margin-bottom: var(--if-space-4);
+  }
+
+  .teck-pathway-desc {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--if-text-secondary);
+  }
+
+  .teck-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: var(--if-space-4);
+    margin-top: var(--if-space-6);
+  }
+
+  .teck-tool-card {
+    text-align: center;
+  }
+
+  .teck-tool-card h4 {
+    font-family: var(--if-font-heading);
+    font-size: 0.9375rem;
+    color: var(--if-green);
+  }
+
+  .teck-partners {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--if-space-4);
+  }
+
+  .teck-partner-logo {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(177, 211, 187, 0.1);
+    border-radius: var(--if-radius-sm);
+    padding: var(--if-space-5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+  }
+
+  .teck-partner-logo img {
+    max-height: 36px;
+    max-width: 100%;
+    object-fit: contain;
+    filter: brightness(0) invert(1) opacity(0.6);
+  }
+
+  @media (max-width: 768px) {
+    .teck-overview,
+    .teck-pathway-section {
+      grid-template-columns: 1fr;
+    }
+
+    .teck-partners {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

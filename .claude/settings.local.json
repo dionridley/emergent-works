@@ -15,7 +15,16 @@
       "mcp__plugin_playwright_playwright__browser_console_messages",
       "mcp__plugin_playwright_playwright__browser_click",
       "mcp__plugin_playwright_playwright__browser_type",
-      "mcp__plugin_playwright_playwright__browser_snapshot"
+      "mcp__plugin_playwright_playwright__browser_snapshot",
+      "WebFetch(domain:staging.blackergcollective.com)",
+      "WebFetch(domain:emergentworks.org)",
+      "Skill(project-management:dr-plan)",
+      "Bash(tail:*)",
+      "Bash(cd:*)",
+      "Bash(curl:*)",
+      "Bash(head:*)",
+      "WebSearch",
+      "Bash(grep:*)"
     ]
   }
 }

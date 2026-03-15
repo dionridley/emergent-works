@@ -1,0 +1,62 @@
+---
+/**
+ * Impact First — Footer
+ * Structured footer with nav columns, contact, social links.
+ */
+
+import { organization } from "../../../data/organization";
+---
+
+<footer class="if-footer">
+  <div class="if-footer__grid">
+    <div class="if-footer__brand">
+      <div class="if-footer__logo">
+        <img src="/images/header-logo.png" alt="Emergent Works" />
+      </div>
+      <p>
+        {organization.mission}
+      </p>
+      <p style="font-size: 0.8125rem; margin-top: 1rem; opacity: 0.7;">
+        {organization.nonprofitStatus} &middot; EIN: {organization.ein}
+      </p>
+    </div>
+
+    <div>
+      <h4 class="if-footer__heading">Programs</h4>
+      <ul class="if-footer__links">
+        <li><a href="/designs/impact-first/programs/">All Programs</a></li>
+        <li><a href="/designs/impact-first/programs/trap/">T.RAP</a></li>
+        <li><a href="/designs/impact-first/programs/teck/">TECK</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="if-footer__heading">Organization</h4>
+      <ul class="if-footer__links">
+        <li><a href="/designs/impact-first/about/">About Us</a></li>
+        <li><a href="/designs/impact-first/team/">Our Team</a></li>
+        <li><a href="/designs/impact-first/get-involved/">Get Involved</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="if-footer__heading">Contact</h4>
+      <ul class="if-footer__links">
+        <li><a href={`mailto:${organization.contact.email}`}>{organization.contact.email}</a></li>
+        <li>{organization.contact.address}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="if-footer__bottom">
+    <span class="if-footer__copy">
+      &copy; {new Date().getFullYear()} Emergent Works. All rights reserved.
+    </span>
+    <div class="if-footer__social">
+      <a href={organization.social.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href={organization.social.facebook} target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a href={organization.social.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href={organization.social.youtube} target="_blank" rel="noopener noreferrer">YouTube</a>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,113 @@
+---
+import CommunityMosaicLayout from "../../../layouts/designs/CommunityMosaicLayout.astro";
+import Header from "../../../components/designs/community-mosaic/Header.astro";
+import Footer from "../../../components/designs/community-mosaic/Footer.astro";
+import { staff, boardOfDirectors, advisoryBoard } from "../../../data/team";
+---
+
+<CommunityMosaicLayout title="Our Team">
+  <Header currentPath="/designs/community-mosaic/team/" />
+
+  <section class="cm-hero-simple">
+    <div class="cm-container">
+      <div data-reveal>
+        <span class="cm-kicker">Team</span>
+        <h1>The People<br />Behind the<br />Mission</h1>
+        <p class="hero-sub">100% of our staff are program alumni. They don't just understand the journey — they've lived it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Staff -->
+  <section class="cm-section">
+    <div class="cm-container">
+      <div class="cm-section-header" data-reveal>
+        <span class="cm-kicker">Staff</span>
+        <h2>Our Team</h2>
+        <div class="cm-divider"></div>
+      </div>
+      <div class="cm-bento cm-bento--3col">
+        {staff.map((member, i) => (
+          <div class="cm-card cm-card--profile" data-card-reveal data-card-delay={String(i)}>
+            <img src={member.image} alt={member.name} class="cm-card__profile-photo" />
+            <div class="cm-card__profile-name">{member.name}</div>
+            <div class="cm-card__profile-title">{member.title}</div>
+            {member.bio && <p class="cm-card__profile-bio">{member.bio}</p>}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Board -->
+  <section class="cm-section cm-section--white">
+    <div class="cm-container">
+      <div class="cm-section-header" data-reveal>
+        <span class="cm-kicker">Governance</span>
+        <h2>Board of Directors</h2>
+        <div class="cm-divider"></div>
+      </div>
+      <div class="cm-bento cm-bento--3col">
+        {boardOfDirectors.map((m, i) => (
+          <div class="cm-card cm-card--profile cm-card--cream" data-card-reveal data-card-delay={String(i)}>
+            <img src={m.image} alt={m.name} class="cm-card__profile-photo" />
+            <div class="cm-card__profile-name">{m.name}</div>
+            <div class="cm-card__profile-title">{m.title}</div>
+            {m.bio && <p class="cm-card__profile-bio">{m.bio}</p>}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Advisory -->
+  <section class="cm-section">
+    <div class="cm-container">
+      <div class="cm-section-header" data-reveal>
+        <span class="cm-kicker">Advisory</span>
+        <h2>Advisory Board</h2>
+        <div class="cm-divider"></div>
+      </div>
+      <div class="cm-bento cm-bento--3col">
+        {advisoryBoard.map((m, i) => (
+          <div class="cm-card cm-card--profile" data-card-reveal data-card-delay={String(i)}>
+            <img src={m.image} alt={m.name} class="cm-card__profile-photo" />
+            <div class="cm-card__profile-name">{m.name}</div>
+            <div class="cm-card__profile-title">{m.title}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cm-section cm-section--green" style="text-align:center;">
+    <div class="cm-container" data-reveal>
+      <h2 style="color:var(--cm-white);">Add Your Card</h2>
+      <p style="color:var(--cm-sage);max-width:420px;margin:var(--cm-space-4) auto var(--cm-space-6);">We're always looking for people who believe in the power of second chances.</p>
+      <a href="/designs/community-mosaic/get-involved/" class="cm-btn cm-btn--gold">Get Involved <span class="cm-btn-arrow">&rarr;</span></a>
+    </div>
+  </section>
+
+  <Footer />
+</CommunityMosaicLayout>
+
+<style>
+  .cm-hero-simple {
+    padding: calc(var(--cm-header-height) + var(--cm-space-16)) 0 var(--cm-space-10);
+  }
+
+  .cm-hero-simple h1 {
+    color: var(--cm-green);
+    font-size: var(--cm-text-5xl);
+    font-weight: 900;
+  }
+
+  .hero-sub {
+    font-size: var(--cm-text-md);
+    color: var(--cm-text-secondary);
+    max-width: 480px;
+    margin-top: var(--cm-space-4);
+    line-height: 1.75;
+  }
+</style>

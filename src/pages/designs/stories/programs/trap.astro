@@ -1,0 +1,199 @@
+---
+import StoriesLayout from "../../../../layouts/designs/StoriesLayout.astro";
+import Header from "../../../../components/designs/stories/Header.astro";
+import Footer from "../../../../components/designs/stories/Footer.astro";
+import { programs } from "../../../../data/programs";
+import { testimonials } from "../../../../data/testimonials";
+import { expandedProgramDetails, alumniStories } from "../../../../data/fabricated";
+
+const trap = programs.find((p) => p.id === "trap")!;
+const trapDetails = expandedProgramDetails.find((d) => d.programId === "trap")!;
+const sheisty = testimonials.find((t) => t.name === "Sheisty")!;
+const julius = testimonials.find((t) => t.name === "Julius")!;
+const aisha = alumniStories.find((s) => s.program === "T.RAP")!;
+---
+
+<StoriesLayout title="T.RAP Program">
+  <Header currentPath="/designs/stories/programs/" />
+
+  <!-- Hero -->
+  <section class="trap-hero">
+    <div class="trap-hero__bg">
+      <img src={trap.image} alt="T.RAP studio" />
+      <div class="trap-hero__overlay" />
+    </div>
+    <div class="st-container trap-hero__content" data-reveal>
+      <span class="st-chapter" style="color:var(--st-gold);">A Creative Journey</span>
+      <h1>T.RAP</h1>
+      <p class="trap-hero__sub">Music production. Songwriting. Studio sessions. And a path to something bigger.</p>
+    </div>
+  </section>
+
+  <!-- Narrative intro -->
+  <section class="st-section">
+    <div class="st-container st-container--narrow">
+      <div data-reveal>
+        <p class="st-dropcap">{trap.description}</p>
+        <div class="trap-meta">
+          <div><strong>Duration</strong><br />{trap.duration}</div>
+          <div><strong>Eligibility</strong><br />{trap.eligibility}</div>
+          <div><strong>Enrollment</strong><br />{trap.applyBy}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Aisha's story -->
+  <section class="st-section st-section--white">
+    <div class="st-container">
+      <div class="st-grid-40-60" data-reveal>
+        <figure class="st-editorial-image">
+          <img src="/images/designs/stock/music-studio-2.jpg" alt="Studio session" style="aspect-ratio:3/4;object-fit:cover;" />
+          <figcaption>A T.RAP studio session in action</figcaption>
+        </figure>
+        <div>
+          <span class="st-kicker">Alumni Story</span>
+          <h2>{aisha.name}'s Journey</h2>
+          <p style="color:var(--st-text-secondary);margin-top:var(--st-space-4);line-height:1.8;">
+            {aisha.beforeSummary} {aisha.journey}
+          </p>
+          <blockquote class="st-pullquote">
+            "{aisha.quote}"
+            <cite>— {aisha.name}, {aisha.currentRole}</cite>
+          </blockquote>
+          <p style="color:var(--st-text-secondary);line-height:1.8;">{aisha.outcome}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curriculum -->
+  <section class="st-section">
+    <div class="st-container st-container--narrow">
+      <div data-reveal>
+        <span class="st-kicker">The Curriculum</span>
+        <h2>The Journey From<br />Day One to Stage</h2>
+        <div class="st-divider"></div>
+      </div>
+      <div class="curriculum-list" data-reveal="delay-1">
+        {trapDetails.curriculumOutline?.map((phase, i) => (
+          <div class="curriculum-item">
+            <span class="curriculum-number">{String(i + 1).padStart(2, '0')}</span>
+            <p>{phase}</p>
+          </div>
+        ))}
+      </div>
+      <div class="tools-section" data-reveal="delay-2">
+        <h3>Tools & Technologies</h3>
+        <div class="tools-tags">
+          {trapDetails.toolsCovered?.map((t) => <span class="tool-tag">{t}</span>)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Voices -->
+  <section class="st-section st-section--green">
+    <div class="st-container">
+      <div data-reveal>
+        <span class="st-kicker">Voices</span>
+        <h2 style="color:var(--st-white);">From the Studio</h2>
+      </div>
+      <div class="voices-grid" data-reveal="delay-1">
+        {[sheisty, julius].map((t) => (
+          <div class="voice-block">
+            {t.sectionTitle && <h4 class="st-serif" style="color:var(--st-gold);font-size:1.125rem;font-style:italic;margin-bottom:var(--st-space-3);">{t.sectionTitle}</h4>}
+            <blockquote style="font-size:0.9375rem;line-height:1.75;color:var(--st-sage);margin-bottom:var(--st-space-3);">"{t.quote}"</blockquote>
+            <cite style="font-size:0.8125rem;font-weight:600;color:var(--st-white);font-style:normal;">— {t.name}</cite>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="st-section" style="text-align:center;">
+    <div class="st-container" data-reveal>
+      <h2 style="color:var(--st-green);">Find Your Voice</h2>
+      <p style="color:var(--st-text-secondary);max-width:440px;margin:var(--st-space-4) auto var(--st-space-7);">T.RAP is free for all eligible participants with milestone-based stipends.</p>
+      <a href="/designs/stories/get-involved/" class="st-btn st-btn--primary">Apply Now <span class="st-btn-arrow">&rarr;</span></a>
+    </div>
+  </section>
+
+  <Footer />
+</StoriesLayout>
+
+<style>
+  .trap-hero {
+    position: relative;
+    min-height: 500px;
+    display: flex;
+    align-items: flex-end;
+    padding: calc(var(--st-header-height) + var(--st-space-9)) 0 var(--st-space-9);
+  }
+
+  .trap-hero__bg { position: absolute; inset: 0; }
+  .trap-hero__bg img { width: 100%; height: 100%; object-fit: cover; }
+  .trap-hero__overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,40,18,0.92) 0%, rgba(5,40,18,0.3) 100%); }
+  .trap-hero__content { position: relative; z-index: 1; }
+  .trap-hero h1 { color: var(--st-white); font-size: clamp(3.5rem, 10vw, 7rem); margin-bottom: var(--st-space-4); }
+  .trap-hero__sub { font-size: 1.125rem; color: var(--st-sage); max-width: 460px; line-height: 1.7; }
+
+  .trap-meta {
+    display: flex;
+    gap: var(--st-space-7);
+    margin-top: var(--st-space-7);
+    padding-top: var(--st-space-5);
+    border-top: 1px solid var(--st-border);
+    font-size: 0.875rem;
+    color: var(--st-text-secondary);
+  }
+
+  .trap-meta strong { color: var(--st-green); display: block; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem; }
+
+  .curriculum-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--st-space-5);
+    margin-bottom: var(--st-space-8);
+  }
+
+  .curriculum-item {
+    display: flex;
+    gap: var(--st-space-5);
+    align-items: baseline;
+  }
+
+  .curriculum-number {
+    font-family: var(--st-font-serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--st-gold);
+    flex-shrink: 0;
+    width: 40px;
+  }
+
+  .curriculum-item p {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--st-text-secondary);
+  }
+
+  .tools-section h3 { color: var(--st-green); margin-bottom: var(--st-space-4); }
+  .tools-tags { display: flex; flex-wrap: wrap; gap: var(--st-space-3); }
+  .tool-tag {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    padding: 0.4rem 0.875rem;
+    border-radius: 4px;
+    background: var(--st-green);
+    color: var(--st-gold);
+  }
+
+  .voices-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--st-space-6); margin-top: var(--st-space-6); }
+  .voice-block { padding: var(--st-space-6); background: rgba(255,255,255,0.04); border: 1px solid rgba(177,211,187,0.1); border-radius: 4px; }
+
+  @media (max-width: 768px) {
+    .trap-meta { flex-direction: column; gap: var(--st-space-3); }
+    .voices-grid { grid-template-columns: 1fr; }
+  }
+</style>

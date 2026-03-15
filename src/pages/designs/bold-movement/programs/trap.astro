@@ -1,0 +1,109 @@
+---
+import BoldMovementLayout from "../../../../layouts/designs/BoldMovementLayout.astro";
+import Header from "../../../../components/designs/bold-movement/Header.astro";
+import Footer from "../../../../components/designs/bold-movement/Footer.astro";
+import { programs } from "../../../../data/programs";
+import { testimonials } from "../../../../data/testimonials";
+import { expandedProgramDetails } from "../../../../data/fabricated";
+
+const trap = programs.find((p) => p.id === "trap")!;
+const trapDetails = expandedProgramDetails.find((d) => d.programId === "trap")!;
+const sheisty = testimonials.find((t) => t.name === "Sheisty")!;
+const julius = testimonials.find((t) => t.name === "Julius")!;
+---
+
+<BoldMovementLayout title="T.RAP">
+  <Header currentPath="/designs/bold-movement/programs/" />
+
+  <section class="bm-block bm-block--dark bm-block--hero bm-block--textured">
+    <div class="bm-container" style="padding-top:var(--bm-header-height);" data-reveal>
+      <span class="bm-kicker">Program</span>
+      <h1 class="bm-ultra"><span class="bm-gold">T.RAP</span></h1>
+      <p style="font-size:var(--bm-text-lg);color:var(--bm-sage);max-width:500px;margin-top:var(--bm-space-5);">
+        Music production. Songwriting. Studio sessions. And a path to something bigger.
+      </p>
+    </div>
+  </section>
+
+  <!-- Program details -->
+  <section class="bm-block bm-block--cream bm-block--textured">
+    <div class="bm-container">
+      <div class="bm-grid-3" data-stagger>
+        <div style="border-bottom:3px solid var(--bm-green);padding-bottom:var(--bm-space-4);" data-stagger-child>
+          <strong style="font-family:var(--bm-font-heading);font-size:var(--bm-text-xs);text-transform:uppercase;letter-spacing:0.1em;color:var(--bm-text-light);display:block;margin-bottom:var(--bm-space-2);">Duration</strong>
+          <span style="font-size:var(--bm-text-xl);font-weight:700;color:var(--bm-green);">{trap.duration}</span>
+        </div>
+        <div style="border-bottom:3px solid var(--bm-gold);padding-bottom:var(--bm-space-4);" data-stagger-child>
+          <strong style="font-family:var(--bm-font-heading);font-size:var(--bm-text-xs);text-transform:uppercase;letter-spacing:0.1em;color:var(--bm-text-light);display:block;margin-bottom:var(--bm-space-2);">Eligibility</strong>
+          <span style="font-size:var(--bm-text-base);color:var(--bm-text);">{trap.eligibility}</span>
+        </div>
+        <div style="border-bottom:3px solid var(--bm-peach);padding-bottom:var(--bm-space-4);" data-stagger-child>
+          <strong style="font-family:var(--bm-font-heading);font-size:var(--bm-text-xs);text-transform:uppercase;letter-spacing:0.1em;color:var(--bm-text-light);display:block;margin-bottom:var(--bm-space-2);">Enrollment</strong>
+          <span style="font-size:var(--bm-text-base);color:var(--bm-text);">{trap.applyBy}</span>
+        </div>
+      </div>
+      <div style="margin-top:var(--bm-space-8);" data-reveal>
+        <p style="font-size:var(--bm-text-md);line-height:1.8;color:var(--bm-text-secondary);max-width:720px;">{trap.description}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curriculum -->
+  <section class="bm-block bm-block--green bm-block--textured">
+    <div class="bm-container">
+      <div data-reveal>
+        <span class="bm-kicker">Curriculum</span>
+        <h2 class="bm-display" style="margin-bottom:var(--bm-space-8);">The Journey</h2>
+      </div>
+      <div data-stagger>
+        {trapDetails.curriculumOutline?.map((phase, i) => (
+          <div style="display:flex;gap:var(--bm-space-6);align-items:baseline;padding:var(--bm-space-5) 0;border-bottom:1px solid rgba(177,211,187,0.12);" data-stagger-child>
+            <span style="font-family:var(--bm-font-heading);font-size:var(--bm-text-4xl);font-weight:900;color:var(--bm-gold);flex-shrink:0;width:80px;text-align:right;">{String(i + 1).padStart(2, '0')}</span>
+            <p style="color:var(--bm-sage);font-size:var(--bm-text-base);line-height:1.7;">{phase}</p>
+          </div>
+        ))}
+      </div>
+      <div style="margin-top:var(--bm-space-7);" data-reveal>
+        <h3 style="font-size:var(--bm-text-xl);color:var(--bm-gold);margin-bottom:var(--bm-space-4);">Tools</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:var(--bm-space-3);">
+          {trapDetails.toolsCovered?.map((t) => (
+            <span style="font-family:var(--bm-font-heading);font-size:var(--bm-text-sm);font-weight:700;text-transform:uppercase;letter-spacing:0.06em;padding:0.4rem 1rem;border:2px solid var(--bm-gold);color:var(--bm-gold);">{t}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Voices -->
+  <section class="bm-block bm-block--gold bm-block--textured">
+    <div class="bm-container">
+      <div data-reveal>
+        <span class="bm-kicker">Voices</span>
+        <h2 class="bm-headline" style="margin-bottom:var(--bm-space-7);">From the Studio</h2>
+      </div>
+      <div class="bm-grid-2" data-stagger>
+        {[sheisty, julius].map((t) => (
+          <div data-stagger-child>
+            <blockquote class="bm-quote" style="color:var(--bm-green-dark);">
+              "{t.quote}"
+              <cite style="color:var(--bm-green);">— {t.name}</cite>
+            </blockquote>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bm-block bm-block--dark bm-block--textured" style="text-align:center;">
+    <div class="bm-container" data-reveal>
+      <h2 class="bm-mega" style="margin-bottom:var(--bm-space-6);">
+        Find Your<br /><span class="bm-gold">Voice</span>
+      </h2>
+      <p style="color:var(--bm-sage);max-width:440px;margin:0 auto var(--bm-space-6);">Free for eligible participants with milestone-based stipends.</p>
+      <a href="/designs/bold-movement/get-involved/" class="bm-btn bm-btn--gold">Apply Now <span class="bm-btn-arrow">&rarr;</span></a>
+    </div>
+  </section>
+
+  <Footer />
+</BoldMovementLayout>

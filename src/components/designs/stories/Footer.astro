@@ -1,0 +1,47 @@
+---
+import { organization } from "../../../data/organization";
+---
+
+<footer class="st-footer">
+  <div class="st-footer__grid">
+    <div class="st-footer__brand">
+      <div class="st-footer__logo">
+        <img src="/images/header-logo.png" alt="" />
+        <span>Emergent Works</span>
+      </div>
+      <p>{organization.mission}</p>
+      <p style="font-size:0.75rem;margin-top:0.75rem;opacity:0.6;">{organization.nonprofitStatus} &middot; EIN: {organization.ein}</p>
+    </div>
+    <div>
+      <h4 class="st-footer__heading">Programs</h4>
+      <ul class="st-footer__links">
+        <li><a href="/designs/stories/programs/">All Programs</a></li>
+        <li><a href="/designs/stories/programs/trap/">T.RAP</a></li>
+        <li><a href="/designs/stories/programs/teck/">TECK</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="st-footer__heading">Organization</h4>
+      <ul class="st-footer__links">
+        <li><a href="/designs/stories/about/">About</a></li>
+        <li><a href="/designs/stories/team/">Team</a></li>
+        <li><a href="/designs/stories/get-involved/">Get Involved</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="st-footer__heading">Connect</h4>
+      <ul class="st-footer__links">
+        <li><a href={`mailto:${organization.contact.email}`}>{organization.contact.email}</a></li>
+        <li>{organization.contact.address}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="st-footer__bottom">
+    <span>&copy; {new Date().getFullYear()} Emergent Works</span>
+    <div class="st-footer__social">
+      <a href={organization.social.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href={organization.social.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href={organization.social.youtube} target="_blank" rel="noopener noreferrer">YouTube</a>
+    </div>
+  </div>
+</footer>

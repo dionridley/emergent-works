@@ -1,0 +1,141 @@
+---
+import CommunityMosaicLayout from "../../../layouts/designs/CommunityMosaicLayout.astro";
+import Header from "../../../components/designs/community-mosaic/Header.astro";
+import Footer from "../../../components/designs/community-mosaic/Footer.astro";
+import { organization } from "../../../data/organization";
+import { donationTiers, donationTrust } from "../../../data/donation";
+import { partnershipTypes } from "../../../data/partners";
+import { fabricatedTestimonials } from "../../../data/testimonials";
+
+const mentorQuote = fabricatedTestimonials.find((t) => t.name === "Priya")!;
+---
+
+<CommunityMosaicLayout title="Get Involved">
+  <Header currentPath="/designs/community-mosaic/get-involved/" />
+
+  <section class="cm-hero-simple">
+    <div class="cm-container">
+      <div data-reveal>
+        <span class="cm-kicker">Get Involved</span>
+        <h1>Add Your Piece<br />to the Mosaic</h1>
+        <p class="hero-sub">Every contribution adds to the complete picture. Mentors, donors, partners, and volunteers — each one becomes part of the community.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Four Ways -->
+  <section class="cm-section">
+    <div class="cm-container">
+      <div class="cm-bento cm-bento--2col">
+        {[
+          { title: "Mentor", desc: "Share your expertise through our 12-week mentorship program. One hour a week transforms lives.", color: "cm-card--green", cta: true },
+          { title: "Donate", desc: "Fund the programs that break cycles of incarceration. Every dollar creates measurable impact.", color: "cm-card--gold", cta: true },
+          { title: "Partner", desc: "Bring TECK or T.RAP to your organization. We customize programs for your community.", color: "cm-card--peach", cta: false },
+          { title: "Volunteer", desc: "Support events, outreach, and community building. There's a place for every skill.", color: "cm-card--sage", cta: false },
+        ].map((way, i) => (
+          <div class:list={["cm-card cm-card--cta", way.color]} data-card-reveal data-card-delay={String(i)}>
+            <div>
+              <h3 style={`margin-bottom:var(--cm-space-3);${way.color === "cm-card--green" ? "color:var(--cm-white);" : "color:var(--cm-green-dark);"}`}>{way.title}</h3>
+              <p style={`font-size:var(--cm-text-sm);line-height:1.7;${way.color === "cm-card--green" ? "color:var(--cm-sage);" : ""}`}>{way.desc}</p>
+            </div>
+            <span class="cm-card__cta-arrow">&rarr;</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Mentor Story -->
+  <section class="cm-section cm-section--white">
+    <div class="cm-container">
+      <div class="cm-bento cm-bento--2col">
+        <div class="cm-card cm-card--photo" style="min-height:320px;" data-card-reveal data-card-delay="0">
+          <img src="/images/designs/stock/portrait-5.jpg" alt="Mentor" />
+        </div>
+        <div class="cm-card cm-card--quote cm-card--cream cm-card--static" data-card-reveal data-card-delay="1">
+          <div>
+            <span class="cm-kicker">A Mentor's Story</span>
+            <p class="cm-quote__text" style="margin-top:var(--cm-space-4);">"{mentorQuote.quote}"</p>
+          </div>
+          <div class="cm-quote__cite">
+            <div>
+              <div class="cm-quote__name">{mentorQuote.name}</div>
+              <div class="cm-quote__role">Volunteer Mentor</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Donation -->
+  <section class="cm-section">
+    <div class="cm-container">
+      <div class="cm-section-header" style="text-align:center;" data-reveal>
+        <span class="cm-kicker" style="justify-content:center;">Support</span>
+        <h2>Your Impact</h2>
+        <div class="cm-divider cm-divider--center"></div>
+        <p style="margin:0 auto;">Every dollar directly funds programming. Here's how your contribution translates to real impact.</p>
+      </div>
+      <div class="cm-bento">
+        {donationTiers.map((tier, i) => (
+          <div class:list={["cm-card cm-card--stat", i === 0 ? "cm-card--green" : i === 1 ? "cm-card--gold" : i === 2 ? "cm-card--peach" : "cm-card--sage"]} data-card-reveal data-card-delay={String(i)}>
+            <div class="cm-stat__value" style={i === 0 ? "color:var(--cm-gold);" : "color:var(--cm-green-dark);"}>{tier.label}</div>
+            <div class="cm-stat__label" style={i === 0 ? "color:var(--cm-white);" : ""}>Donation</div>
+            <p class="cm-stat__desc">{tier.impact}</p>
+          </div>
+        ))}
+      </div>
+      <div style="text-align:center;margin-top:var(--cm-space-7);" data-reveal>
+        <a href={`mailto:${organization.contact.email}?subject=Donation%20Inquiry`} class="cm-btn cm-btn--gold">Make a Donation <span class="cm-btn-arrow">&rarr;</span></a>
+        <p style="font-size:var(--cm-text-xs);color:var(--cm-text-light);margin-top:var(--cm-space-4);max-width:400px;margin-left:auto;margin-right:auto;">{donationTrust}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="cm-section cm-section--green">
+    <div class="cm-container">
+      <div class="cm-bento cm-bento--3col">
+        <div class="cm-card cm-card--dark cm-card--static" data-card-reveal data-card-delay="0">
+          <span class="cm-kicker">Email</span>
+          <a href={`mailto:${organization.contact.email}`} style="color:var(--cm-white);font-size:var(--cm-text-md);font-weight:500;margin-top:var(--cm-space-3);display:block;">{organization.contact.email}</a>
+        </div>
+        <div class="cm-card cm-card--dark cm-card--static" data-card-reveal data-card-delay="1">
+          <span class="cm-kicker">Address</span>
+          <p style="color:var(--cm-white);font-size:var(--cm-text-sm);margin-top:var(--cm-space-3);">{organization.contact.address}</p>
+        </div>
+        <div class="cm-card cm-card--dark cm-card--static" data-card-reveal data-card-delay="2">
+          <span class="cm-kicker">Social</span>
+          <div style="display:flex;gap:var(--cm-space-4);margin-top:var(--cm-space-3);">
+            <a href={organization.social.instagram} target="_blank" rel="noopener noreferrer" style="color:var(--cm-sage);font-size:var(--cm-text-sm);">Instagram</a>
+            <a href={organization.social.linkedin} target="_blank" rel="noopener noreferrer" style="color:var(--cm-sage);font-size:var(--cm-text-sm);">LinkedIn</a>
+            <a href={organization.social.youtube} target="_blank" rel="noopener noreferrer" style="color:var(--cm-sage);font-size:var(--cm-text-sm);">YouTube</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</CommunityMosaicLayout>
+
+<style>
+  .cm-hero-simple {
+    padding: calc(var(--cm-header-height) + var(--cm-space-16)) 0 var(--cm-space-10);
+  }
+
+  .cm-hero-simple h1 {
+    color: var(--cm-green);
+    font-size: var(--cm-text-5xl);
+    font-weight: 900;
+  }
+
+  .hero-sub {
+    font-size: var(--cm-text-md);
+    color: var(--cm-text-secondary);
+    max-width: 520px;
+    margin-top: var(--cm-space-4);
+    line-height: 1.75;
+  }
+</style>

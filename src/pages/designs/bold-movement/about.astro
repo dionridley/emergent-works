@@ -1,0 +1,97 @@
+---
+import BoldMovementLayout from "../../../layouts/designs/BoldMovementLayout.astro";
+import Header from "../../../components/designs/bold-movement/Header.astro";
+import Footer from "../../../components/designs/bold-movement/Footer.astro";
+import { organization } from "../../../data/organization";
+import { programApproach } from "../../../data/programs";
+---
+
+<BoldMovementLayout title="About">
+  <Header currentPath="/designs/bold-movement/about/" />
+
+  <!-- Hero -->
+  <section class="bm-block bm-block--cream" style="padding-top:calc(var(--bm-header-height) + var(--bm-space-16));padding-bottom:var(--bm-space-10);">
+    <div class="bm-container" data-reveal>
+      <span class="bm-kicker" style="color:var(--bm-green);">About</span>
+      <h1 class="bm-ultra" style="color:var(--bm-green);">
+        We Don't<br />Just Talk<br /><span class="bm-gold">About</span><br />Change.
+      </h1>
+    </div>
+  </section>
+
+  <!-- Manifesto -->
+  <section class="bm-block bm-block--green bm-block--textured">
+    <div class="bm-container" data-reveal>
+      <p class="bm-manifesto" style="color:var(--bm-white);">
+        In 2020, Army Armstead founded Emergent Works with a conviction: the people most affected by mass incarceration deserved more than a second chance — they deserved the tools to <em>build entirely new futures.</em>
+      </p>
+    </div>
+  </section>
+
+  <!-- Mission as declaration -->
+  <section class="bm-block bm-block--gold bm-block--textured">
+    <div class="bm-container" data-reveal>
+      <span class="bm-kicker">Mission</span>
+      <h2 class="bm-display" style="margin-bottom:var(--bm-space-6);">Our Mission</h2>
+      <p class="bm-manifesto">{organization.extendedMission}</p>
+    </div>
+  </section>
+
+  <!-- Staff Stats as bold declarations -->
+  <section class="bm-block bm-block--cream bm-block--textured">
+    <div class="bm-container">
+      <div data-reveal>
+        <span class="bm-kicker" style="color:var(--bm-green);">Our People</span>
+        <h2 class="bm-headline" style="color:var(--bm-green);margin-bottom:var(--bm-space-8);">We Are the Proof</h2>
+      </div>
+      <div class="bm-grid-2" data-stagger>
+        {[
+          { value: organization.staffStats.alumni, label: "Staff are alumni" },
+          { value: organization.staffStats.systemImpacted, label: "System-impacted" },
+          { value: organization.staffStats.bipoc, label: "BIPOC" },
+          { value: organization.staffStats.femaleIdentifying, label: "Female-identifying" },
+        ].map((stat) => (
+          <div class="stat-declaration" data-stagger-child>
+            <span class="bm-mega" style="color:var(--bm-green);">{stat.value}</span>
+            <span style="font-family:var(--bm-font-heading);font-size:var(--bm-text-lg);font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--bm-text-secondary);display:block;margin-top:var(--bm-space-2);">{stat.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Values as single words -->
+  <section class="bm-block bm-block--dark bm-block--textured">
+    <div class="bm-container">
+      <div data-reveal>
+        <span class="bm-kicker">Approach</span>
+        <h2 class="bm-headline" style="color:var(--bm-white);margin-bottom:var(--bm-space-8);">Four Pillars</h2>
+      </div>
+      <div class="bm-grid-2" data-stagger>
+        {programApproach.map((pillar) => (
+          <div style="padding:var(--bm-space-6);border:2px solid rgba(177,211,187,0.15);" data-stagger-child>
+            <h3 style="font-size:var(--bm-text-3xl);color:var(--bm-gold);margin-bottom:var(--bm-space-3);">{pillar.title}</h3>
+            <p style="color:var(--bm-sage);font-size:var(--bm-text-base);line-height:1.7;">{pillar.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bm-block bm-block--green bm-block--textured" style="text-align:center;">
+    <div class="bm-container" data-reveal>
+      <h2 class="bm-display" style="margin-bottom:var(--bm-space-6);">This Is<br /><span class="bm-gold">Your</span> Moment</h2>
+      <a href="/designs/bold-movement/get-involved/" class="bm-btn bm-btn--gold">Get Involved <span class="bm-btn-arrow">&rarr;</span></a>
+    </div>
+  </section>
+
+  <Footer />
+</BoldMovementLayout>
+
+<style>
+  .stat-declaration {
+    padding: var(--bm-space-6) 0;
+    border-bottom: 3px solid var(--bm-green);
+  }
+</style>
