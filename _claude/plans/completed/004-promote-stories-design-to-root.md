@@ -1,7 +1,7 @@
 # Promote "Stories" Design to Root Site
 
 **Created:** 2026-03-15
-**Status:** Draft
+**Status:** In Progress
 **Related PRD:** N/A
 **Refinements:** 2
 
@@ -67,17 +67,17 @@ These assumptions were made during plan creation. Challenge any that seem incorr
 
 ## Success Criteria
 
-- [ ] Root site (`/`, `/about`, `/programs`, `/programs/teck`, `/programs/trap`, `/team`, `/get-involved`) serves the Stories design
-- [ ] All internal navigation links on the root Stories pages use root-level paths (no `/designs/stories/` references)
-- [ ] The `/designs/stories/` pages remain fully functional with their original `/designs/stories/` paths
-- [ ] All other `/designs/{name}/` pages remain fully functional
-- [ ] The `/designs` gallery index page remains accessible
-- [ ] The original 7 root pages are removed
-- [ ] `npm run build` succeeds with no errors
-- [ ] No CSS or component leakage between root Stories pages and the remaining design reference pages
-- [ ] `astro-seo` integrated into promoted layout with per-page customization via props
-- [ ] `/designs/*` paths excluded from sitemap
-- [ ] Visual verification via Playwright confirms all root pages render correctly with expected content, navigation, and styling
+- [x] Root site (`/`, `/about`, `/programs`, `/programs/teck`, `/programs/trap`, `/team`, `/get-involved`) serves the Stories design
+- [x] All internal navigation links on the root Stories pages use root-level paths (no `/designs/stories/` references)
+- [x] The `/designs/stories/` pages remain fully functional with their original `/designs/stories/` paths
+- [x] All other `/designs/{name}/` pages remain fully functional
+- [x] The `/designs` gallery index page remains accessible
+- [x] The original 7 root pages are removed
+- [x] `npm run build` succeeds with no errors
+- [x] No CSS or component leakage between root Stories pages and the remaining design reference pages
+- [x] `astro-seo` integrated into promoted layout with per-page customization via props
+- [x] `/designs/*` paths excluded from sitemap
+- [x] Visual verification via Playwright confirms all root pages render correctly with expected content, navigation, and styling
 
 ## Implementation Plan
 
@@ -86,20 +86,20 @@ These assumptions were made during plan creation. Challenge any that seem incorr
 **Estimated Time:** 1 hour
 
 #### Tasks
-- [ ] Copy `src/layouts/designs/StoriesLayout.astro` → `src/layouts/StoriesLayout.astro`
-  - [ ] Update the copy to integrate `astro-seo`: replace basic `<title>` and `<meta>` with the `<SEO>` component from `astro-seo`
-  - [ ] Add layout props for SEO customization: `title`, `description`, `ogImage`, `noindex` (with sensible defaults for Emergent Works — site name, default description, etc.)
-  - [ ] Keep the `--st-` CSS namespace, fonts, and all existing styles intact
-- [ ] Copy `src/components/designs/stories/Header.astro` → `src/components/StoriesHeader.astro`
-  - [ ] Update the `navLinks` array: replace `/designs/stories/` prefix with `/` for all links
-  - [ ] Update the donate button link to `/get-involved/#donate`
-- [ ] Copy `src/components/designs/stories/Footer.astro` → `src/components/StoriesFooter.astro`
-  - [ ] Update all footer nav links: replace `/designs/stories/` prefix with `/`
+- [x] Copy `src/layouts/designs/StoriesLayout.astro` → `src/layouts/StoriesLayout.astro`
+  - [x] Update the copy to integrate `astro-seo`: replace basic `<title>` and `<meta>` with the `<SEO>` component from `astro-seo`
+  - [x] Add layout props for SEO customization: `title`, `description`, `ogImage`, `noindex` (with sensible defaults for Emergent Works — site name, default description, etc.)
+  - [x] Keep the `--st-` CSS namespace, fonts, and all existing styles intact
+- [x] Copy `src/components/designs/stories/Header.astro` → `src/components/StoriesHeader.astro`
+  - [x] Update the `navLinks` array: replace `/designs/stories/` prefix with `/` for all links
+  - [x] Update the donate button link to `/get-involved/#donate`
+- [x] Copy `src/components/designs/stories/Footer.astro` → `src/components/StoriesFooter.astro`
+  - [x] Update all footer nav links: replace `/designs/stories/` prefix with `/`
 
 #### Test Verification
-- [ ] New layout and components exist at top-level locations
-- [ ] No `/designs/stories/` path references in the new header or footer
-- [ ] `astro-seo` import resolves (package already installed in project)
+- [x] New layout and components exist at top-level locations
+- [x] No `/designs/stories/` path references in the new header or footer
+- [x] `astro-seo` import resolves (package already installed in project)
 
 ---
 
@@ -108,27 +108,27 @@ These assumptions were made during plan creation. Challenge any that seem incorr
 **Estimated Time:** 2 hours
 
 #### Tasks
-- [ ] Create new root pages by adapting the Stories design pages:
-  - [ ] `src/pages/index.astro` — adapted from `src/pages/designs/stories/index.astro`
-  - [ ] `src/pages/about.astro` — adapted from `src/pages/designs/stories/about.astro`
-  - [ ] `src/pages/programs/index.astro` — adapted from `src/pages/designs/stories/programs/index.astro`
-  - [ ] `src/pages/programs/teck.astro` — adapted from `src/pages/designs/stories/programs/teck.astro`
-  - [ ] `src/pages/programs/trap.astro` — adapted from `src/pages/designs/stories/programs/trap.astro`
-  - [ ] `src/pages/team.astro` — adapted from `src/pages/designs/stories/team.astro`
-  - [ ] `src/pages/get-involved.astro` — adapted from `src/pages/designs/stories/get-involved.astro`
-- [ ] Update all import paths in the new root pages:
-  - [ ] Layout: `import StoriesLayout from "../layouts/StoriesLayout.astro"`
-  - [ ] Header: `import Header from "../components/StoriesHeader.astro"`
-  - [ ] Footer: `import Footer from "../components/StoriesFooter.astro"`
-  - [ ] Data imports: adjust relative paths from `src/data/` as needed
-- [ ] Update all internal links in the new root pages: replace `/designs/stories/` prefix with `/` (e.g., `/designs/stories/about/` → `/about/`)
-- [ ] Pass appropriate `title` and `description` props to the layout for each page's SEO
+- [x] Create new root pages by adapting the Stories design pages:
+  - [x] `src/pages/index.astro` — adapted from `src/pages/designs/stories/index.astro`
+  - [x] `src/pages/about.astro` — adapted from `src/pages/designs/stories/about.astro`
+  - [x] `src/pages/programs/index.astro` — adapted from `src/pages/designs/stories/programs/index.astro`
+  - [x] `src/pages/programs/teck.astro` — adapted from `src/pages/designs/stories/programs/teck.astro`
+  - [x] `src/pages/programs/trap.astro` — adapted from `src/pages/designs/stories/programs/trap.astro`
+  - [x] `src/pages/team.astro` — adapted from `src/pages/designs/stories/team.astro`
+  - [x] `src/pages/get-involved.astro` — adapted from `src/pages/designs/stories/get-involved.astro`
+- [x] Update all import paths in the new root pages:
+  - [x] Layout: `import StoriesLayout from "../layouts/StoriesLayout.astro"`
+  - [x] Header: `import Header from "../components/StoriesHeader.astro"`
+  - [x] Footer: `import Footer from "../components/StoriesFooter.astro"`
+  - [x] Data imports: adjust relative paths from `src/data/` as needed
+- [x] Update all internal links in the new root pages: replace `/designs/stories/` prefix with `/` (e.g., `/designs/stories/about/` → `/about/`)
+- [x] Pass appropriate `title` and `description` props to the layout for each page's SEO
 
 #### Test Verification
-- [ ] Each new root page renders without import errors
-- [ ] All internal links on root pages use root-level paths
-- [ ] No references to `/designs/stories/` exist in the new root page files
-- [ ] SEO meta tags render correctly in page source
+- [x] Each new root page renders without import errors
+- [x] All internal links on root pages use root-level paths
+- [x] No references to `/designs/stories/` exist in the new root page files
+- [x] SEO meta tags render correctly in page source
 
 ---
 
@@ -137,23 +137,23 @@ These assumptions were made during plan creation. Challenge any that seem incorr
 **Estimated Time:** 0.5 hours
 
 #### Tasks
-- [ ] Delete original root pages that are being replaced:
-  - [ ] `src/pages/index.astro` (replaced in Phase 2)
-  - [ ] `src/pages/about-us.astro`
-  - [ ] `src/pages/programs.astro`
-  - [ ] `src/pages/our-team.astro`
-  - [ ] `src/pages/impact.astro`
-  - [ ] `src/pages/partner-with-us.astro`
-  - [ ] `src/pages/donate.astro`
-- [ ] Update sitemap configuration in `astro.config.mjs` to exclude `/designs/*` paths from the generated sitemap
+- [x] Delete original root pages that are being replaced:
+  - [x] `src/pages/index.astro` (replaced in Phase 2)
+  - [x] `src/pages/about-us.astro`
+  - [x] `src/pages/programs.astro`
+  - [x] `src/pages/our-team.astro`
+  - [x] `src/pages/impact.astro`
+  - [x] `src/pages/partner-with-us.astro`
+  - [x] `src/pages/donate.astro`
+- [x] Update sitemap configuration in `astro.config.mjs` to exclude `/designs/*` paths from the generated sitemap
 
 **Note:** Phase 2 creates the new `src/pages/index.astro` first. The old one must be removed before or as part of the Phase 2 write. The other 6 original pages have different filenames than the new Stories pages, so they won't conflict — they just need to be cleaned up.
 
 #### Test Verification
-- [ ] No orphaned routes exist from the old site (e.g., `/about-us` should 404)
-- [ ] `npm run build` succeeds
-- [ ] Only the intended routes are generated
-- [ ] Sitemap output does not include `/designs/*` paths
+- [x] No orphaned routes exist from the old site (e.g., `/about-us` should 404)
+- [x] `npm run build` succeeds
+- [x] Only the intended routes are generated
+- [x] Sitemap output does not include `/designs/*` paths
 
 ---
 
@@ -162,19 +162,19 @@ These assumptions were made during plan creation. Challenge any that seem incorr
 **Estimated Time:** 0.5 hours
 
 #### Tasks
-- [ ] Run `npm run build` and verify clean build
-- [ ] Verify total page count is correct:
+- [x] Run `npm run build` and verify clean build
+- [x] Verify total page count is correct:
   - 7 new root pages
   - 49 design reference pages (6 designs × 8 pages + 1 gallery index)
   - = 57 total pages expected
-- [ ] Verify the `/designs/stories/` pages still work with their original `/designs/stories/` internal links
-- [ ] Verify no `/designs/stories/` path references leaked into the root pages (grep check)
-- [ ] Verify the `/designs` gallery index still loads correctly
+- [x] Verify the `/designs/stories/` pages still work with their original `/designs/stories/` internal links
+- [x] Verify no `/designs/stories/` path references leaked into the root pages (grep check)
+- [x] Verify the `/designs` gallery index still loads correctly
 
 #### Test Verification
-- [ ] `npm run build` succeeds with expected page count
-- [ ] Grep for `/designs/stories/` in `src/pages/*.astro` and `src/pages/programs/*.astro` returns 0 results
-- [ ] Grep for `/designs/stories/` in `src/components/StoriesHeader.astro` and `src/components/StoriesFooter.astro` returns 0 results
+- [x] `npm run build` succeeds with expected page count
+- [x] Grep for `/designs/stories/` in `src/pages/*.astro` and `src/pages/programs/*.astro` returns 0 results
+- [x] Grep for `/designs/stories/` in `src/components/StoriesHeader.astro` and `src/components/StoriesFooter.astro` returns 0 results
 
 ---
 
@@ -185,36 +185,36 @@ These assumptions were made during plan creation. Challenge any that seem incorr
 **IMPORTANT:** The developer will start the dev server before this phase begins. Claude must NOT start or stop the dev server. At the start of this phase, ask the developer to start the server and confirm it is running (e.g., `npm run dev` at `localhost:4321`) before proceeding with any Playwright navigation.
 
 #### Pre-Flight
-- [ ] Ask the developer to start the dev server and wait for confirmation that it is running
-- [ ] Verify the server is accessible by navigating to `http://localhost:4321/` with Playwright
+- [x] Ask the developer to start the dev server and wait for confirmation that it is running
+- [x] Verify the server is accessible by navigating to `http://localhost:4321/` with Playwright
 
 #### Root Pages — Visual Checks
 For each of the 7 root pages, navigate via Playwright, take a screenshot, and verify:
 
-- [ ] **Home** (`/`) — Hero section renders with community photo, featured story section visible, programs section shows "Two Pathways", community voices section present, CTA section at bottom
-- [ ] **About** (`/about`) — Origin story narrative renders, mission section visible, staff composition stats present, approach pillars section loads
-- [ ] **Programs Overview** (`/programs/`) — Program cards for T.RAP and TECK render, editorial layout with asymmetric grids, partner programs section visible
-- [ ] **Programs/TECK** (`/programs/teck/`) — TECK detail page renders with curriculum, testimonials, enrollment CTA
-- [ ] **Programs/T.RAP** (`/programs/trap/`) — T.RAP detail page renders with curriculum phases, studio imagery, milestone progression
-- [ ] **Team** (`/team/`) — Staff grid with circular photos renders, board and advisory sections present
-- [ ] **Get Involved** (`/get-involved/`) — Mentor section visible, donation tiers render, contact information present
+- [x] **Home** (`/`) — Hero section renders with community photo, featured story section visible, programs section shows "Two Pathways", community voices section present, CTA section at bottom
+- [x] **About** (`/about`) — Origin story narrative renders, mission section visible, staff composition stats present, approach pillars section loads
+- [x] **Programs Overview** (`/programs/`) — Program cards for T.RAP and TECK render, editorial layout with asymmetric grids, partner programs section visible
+- [x] **Programs/TECK** (`/programs/teck/`) — TECK detail page renders with curriculum, testimonials, enrollment CTA
+- [x] **Programs/T.RAP** (`/programs/trap/`) — T.RAP detail page renders with curriculum phases, studio imagery, milestone progression
+- [x] **Team** (`/team/`) — Staff grid with circular photos renders, board and advisory sections present
+- [x] **Get Involved** (`/get-involved/`) — Mentor section visible, donation tiers render, contact information present
 
 #### Navigation Verification
-- [ ] Click through header nav links on the home page — each link navigates to the correct root page (not `/designs/stories/`)
-- [ ] Click through footer nav links — each resolves to root-level pages
-- [ ] Verify the "Donate" button in the header navigates to `/get-involved/#donate`
-- [ ] Test mobile navigation: resize browser to mobile width, open hamburger menu, verify links work
+- [x] Click through header nav links on the home page — each link navigates to the correct root page (not `/designs/stories/`)
+- [x] Click through footer nav links — each resolves to root-level pages
+- [x] Verify the "Donate" button in the header navigates to `/get-involved/#donate`
+- [x] Test mobile navigation: resize browser to mobile width, open hamburger menu, verify links work
 
 #### Reference Pages — Spot Check
-- [ ] Navigate to `/designs/stories/` — verify it still renders correctly with its own `/designs/stories/` internal links
-- [ ] Navigate to `/designs/` — verify the gallery index page still loads with all 6 design links
-- [ ] Spot-check one other design (e.g., `/designs/impact-first/`) — verify it still renders independently
+- [x] Navigate to `/designs/stories/` — verify it still renders correctly with its own `/designs/stories/` internal links
+- [x] Navigate to `/designs/` — verify the gallery index page still loads with all 6 design links
+- [x] Spot-check one other design (e.g., `/designs/impact-first/`) — verify it still renders independently
 
 #### Visual Comparison
-- [ ] Compare root home page (`/`) side-by-side with reference (`/designs/stories/`) — content and layout should be visually identical (only URLs differ)
-- [ ] Verify Cormorant Garamond serif font loads correctly on root pages (check pull quotes, chapter markers)
-- [ ] Verify no broken images on any root page
-- [ ] Verify responsive layout by testing at mobile (375px), tablet (768px), and desktop (1440px) widths
+- [x] Compare root home page (`/`) side-by-side with reference (`/designs/stories/`) — content and layout should be visually identical (only URLs differ)
+- [x] Verify Cormorant Garamond serif font loads correctly on root pages (check pull quotes, chapter markers)
+- [x] Verify no broken images on any root page
+- [x] Verify responsive layout by testing at mobile (375px), tablet (768px), and desktop (1440px) widths
 
 ---
 
@@ -236,20 +236,20 @@ For each of the 7 root pages, navigate via Playwright, take a screenshot, and ve
 - [x] `astro-seo` package installed (already used by original BaseLayout)
 - [x] Playwright MCP server available for browser automation
 - [x] All blocking questions resolved
-- [ ] Developer available to start dev server for Phase 5
+- [x] Developer available to start dev server for Phase 5
 
 ## Success Metrics
 
 (To be filled in after implementation)
 
-- [ ] Root site serves Stories design at all 7 routes
-- [ ] Build succeeds with no errors
-- [ ] All design reference pages remain functional
-- [ ] Zero `/designs/stories/` path references in root pages
-- [ ] `astro-seo` meta tags render on all root pages
-- [ ] Sitemap excludes `/designs/*` paths
-- [ ] Playwright visual verification passes for all 7 root pages
-- [ ] Navigation links verified working via browser automation
+- [x] Root site serves Stories design at all 7 routes
+- [x] Build succeeds with no errors
+- [x] All design reference pages remain functional
+- [x] Zero `/designs/stories/` path references in root pages
+- [x] `astro-seo` meta tags render on all root pages
+- [x] Sitemap excludes `/designs/*` paths
+- [x] Playwright visual verification passes for all 7 root pages
+- [x] Navigation links verified working via browser automation
 
 ---
 
@@ -264,11 +264,11 @@ For each of the 7 root pages, navigate via Playwright, take a screenshot, and ve
 ## Implementation Notes
 
 **Actual Time Tracking:**
-- Phase 1: [Estimated: 1 hour] (Actual: TBD)
-- Phase 2: [Estimated: 2 hours] (Actual: TBD)
-- Phase 3: [Estimated: 0.5 hours] (Actual: TBD)
-- Phase 4: [Estimated: 0.5 hours] (Actual: TBD)
-- Phase 5: [Estimated: 1 hour] (Actual: TBD)
+- Phase 1: [Estimated: 1 hour] (Actual: Complete)
+- Phase 2: [Estimated: 2 hours] (Actual: Complete)
+- Phase 3: [Estimated: 0.5 hours] (Actual: Complete)
+- Phase 4: [Estimated: 0.5 hours] (Actual: Complete)
+- Phase 5: [Estimated: 1 hour] (Actual: Complete)
 - **Total Estimated: 5 hours**
 
 **Key Decisions:**
@@ -279,7 +279,7 @@ For each of the 7 root pages, navigate via Playwright, take a screenshot, and ve
 - Cleanup: Defer original component removal to a later plan
 
 **Assumptions Validated:**
-- [ ] TBD during implementation
+- [x] All assumptions validated during implementation
 
 **Lessons Learned:**
 - TBD during implementation

@@ -10,7 +10,14 @@ import compress from 'astro-compress';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://emergentworks.org', // required for sitemap
-  integrations: [react(), sitemap(), mdx(), compress()],
+  integrations: [
+    react(),
+    sitemap({
+      filter: (page) => !page.includes('/designs/'),
+    }),
+    mdx(),
+    compress(),
+  ],
 
   vite: {
     plugins: [tailwindcss()]
