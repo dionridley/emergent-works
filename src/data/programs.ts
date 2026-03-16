@@ -20,7 +20,7 @@ export const programs: Program[] = [
       "This free creative workforce program blends music production, songwriting, recording, civic engagement, and digital literacy with social-emotional learning and career readiness. Participants earn milestone-based stipends as they build practical skills, create original music, strengthen their confidence, and explore pathways to future education and employment.",
     eligibility:
       "NYC youth ages 16-24 who identify as Black, Brown and system-impacted",
-    duration: "July 2025 – June 2026",
+    duration: "July – June",
     applyBy: "Ongoing",
     image: "/images/programs/trap-studio.jpg",
     features: [
@@ -35,8 +35,8 @@ export const programs: Program[] = [
     ],
   },
   {
-    id: "technical-mentorship",
-    title: "Technical Mentorship",
+    id: "teck-direct",
+    title: "TECK",
     type: "direct",
     description:
       "This free 12-week virtual and individual mentorship program connects participants with industry professionals who provide one-on-one support in digital literacy, coding, UI/UX, and tech career exploration. Participants meet with their mentor once a week to build real skills, complete portfolio-ready projects, and gain the confidence in the digital landscape.",

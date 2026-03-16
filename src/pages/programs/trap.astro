@@ -83,6 +83,10 @@ const aisha = alumniStories.find((s) => s.program === "T.RAP")!;
           </div>
         ))}
       </div>
+      <div class="schedule-section" data-reveal="delay-2">
+        <h3>Weekly Schedule</h3>
+        <p class="schedule-text">{trapDetails.weeklySchedule?.[0]}</p>
+      </div>
       <div class="tools-section" data-reveal="delay-2">
         <h3>Tools & Technologies</h3>
         <div class="tools-tags">
@@ -177,6 +181,10 @@ const aisha = alumniStories.find((s) => s.program === "T.RAP")!;
     line-height: 1.7;
     color: var(--st-text-secondary);
   }
+
+  .schedule-section { margin-bottom: var(--st-space-7); }
+  .schedule-section h3 { color: var(--st-green); margin-bottom: var(--st-space-4); }
+  .schedule-text { font-size: 0.9375rem; line-height: 1.7; color: var(--st-text-secondary); }
 
   .tools-section h3 { color: var(--st-green); margin-bottom: var(--st-space-4); }
   .tools-tags { display: flex; flex-wrap: wrap; gap: var(--st-space-3); }

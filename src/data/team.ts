@@ -39,8 +39,7 @@ export const staff: TeamMember[] = [
     name: "Angie Agosta",
     title: "Program Intern",
     image: "/images/team/placeholder-1.jpg",
-    bio: "Angie assists with program administration and participant support while gaining hands-on experience in nonprofit operations. Her enthusiasm for social impact and technology makes her a valuable addition to the EW team.",
-    fabricated: true,
+    bio: "Angie manages all communication, social media, and design for Emergent Works, ensuring weekly marketing that highlights the organization's programs, participant achievements, and overall impact. Her creativity and dedication help showcase the important work EW does in the community.",
   },
 ];
 

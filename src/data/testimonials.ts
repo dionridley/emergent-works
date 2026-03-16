@@ -67,7 +67,7 @@ export const fabricatedTestimonials: Testimonial[] = [
     name: "Marcus",
     quote:
       "I came home after eight years and didn't know how to use a smartphone properly. My mentor at EW didn't just teach me to code — she taught me that my past doesn't define my potential. Now I'm a junior developer at a tech startup, and I wake up every day knowing I'm building something real.",
-    program: "Technical Mentorship",
+    program: "TECK",
     fabricated: true,
   },
   {
@@ -95,7 +95,7 @@ export const fabricatedTestimonials: Testimonial[] = [
     name: "Terrence",
     quote:
       "I spent 12 years inside, and when I got out the whole world had changed. EW didn't just catch me up — they put me ahead. I built my first website in the program, and now I freelance full-time doing web development. My kids are proud of me, and honestly, I'm proud of me too.",
-    program: "Technical Mentorship",
+    program: "TECK",
     fabricated: true,
   },
   {
