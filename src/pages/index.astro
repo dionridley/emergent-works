@@ -107,41 +107,79 @@ const marcus = alumniStories[0];
     </div>
   </section>
 
-  <!-- COMMUNITY VOICES -->
-  <section class="st-section st-section--white">
+  <!-- COMMUNITY VOICES — Carousel -->
+  <section class="st-section--compact st-section--white voices-section">
     <div class="st-container">
       <div style="text-align:center;" data-reveal>
         <span class="st-kicker">Community Voices</span>
         <h2>In Their Own Words</h2>
-        <div class="st-divider st-divider--center"></div>
       </div>
 
-      <!-- Featured voice: Nashid -->
-      <div class="voice-feature" data-reveal="delay-1">
-        <figure class="voice-feature__image st-editorial-image">
-          <img src={nashid.image} alt={nashid.name} style="aspect-ratio:3/4;object-fit:cover;" />
-        </figure>
-        <div class="voice-feature__content">
-          <blockquote class="st-pullquote" style="margin:0 0 var(--st-space-5) 0;border-left-color:var(--st-peach);">
-            "{nashid.quote}"
-            <cite>— {nashid.name}</cite>
-          </blockquote>
-          {nashid.extendedQuote && <p class="st-serif" style="font-size:1.125rem;font-style:italic;color:var(--st-green-muted);">{nashid.extendedQuote}</p>}
+      <div class="voices-carousel" data-reveal="delay-1">
+        <button class="voices-carousel__arrow voices-carousel__arrow--prev" aria-label="Previous testimonial" data-carousel-prev>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <div class="voices-carousel__stage">
+          {[nashid, dontay, sheisty].map((t, i) => (
+            <div class:list={["voices-carousel__slide", { "voices-carousel__slide--active": i === 0 }]} data-slide={i}>
+              <div class="voices-carousel__inner">
+                {t.image && (
+                  <div class="voices-carousel__portrait">
+                    <img src={t.image} alt={t.name} />
+                  </div>
+                )}
+                <div class="voices-carousel__text">
+                  <blockquote class="voices-carousel__quote st-serif">
+                    "{t.quote}"
+                  </blockquote>
+                  <cite class="voices-carousel__cite">— {t.name}</cite>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
 
-      <!-- Secondary voices in asymmetric grid -->
-      <div class="voice-grid" data-reveal="delay-2">
-        {[dontay, sheisty].map((t) => (
-          <div class="voice-card">
-            {t.image && <img src={t.image} alt={t.name} class="voice-card__avatar" />}
-            <blockquote class="voice-card__quote st-serif">"{t.quote.slice(0, 180)}..."</blockquote>
-            <cite class="voice-card__cite">— {t.name}</cite>
-          </div>
-        ))}
+        <button class="voices-carousel__arrow voices-carousel__arrow--next" aria-label="Next testimonial" data-carousel-next>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <div class="voices-carousel__dots">
+          {[nashid, dontay, sheisty].map((_, i) => (
+            <button class:list={["voices-carousel__dot", { "voices-carousel__dot--active": i === 0 }]} aria-label={`Go to testimonial ${i + 1}`} data-dot={i} />
+          ))}
+        </div>
       </div>
     </div>
   </section>
+
+  <script>
+    // Community Voices carousel
+    const stage = document.querySelector('.voices-carousel__stage');
+    const slides = document.querySelectorAll('.voices-carousel__slide');
+    const dots = document.querySelectorAll('.voices-carousel__dot');
+    const prevBtn = document.querySelector('[data-carousel-prev]');
+    const nextBtn = document.querySelector('[data-carousel-next]');
+    let current = 0;
+
+    function goTo(index: number) {
+      if (index < 0) index = slides.length - 1;
+      if (index >= slides.length) index = 0;
+      slides.forEach((s, i) => {
+        s.classList.toggle('voices-carousel__slide--active', i === index);
+      });
+      dots.forEach((d, i) => {
+        d.classList.toggle('voices-carousel__dot--active', i === index);
+      });
+      current = index;
+    }
+
+    prevBtn?.addEventListener('click', () => goTo(current - 1));
+    nextBtn?.addEventListener('click', () => goTo(current + 1));
+    dots.forEach((d) => {
+      d.addEventListener('click', () => goTo(Number(d.getAttribute('data-dot'))));
+    });
+  </script>
 
   <!-- CTA: Write the Next Chapter -->
   <section class="cta-section">
@@ -313,50 +351,141 @@ const marcus = alumniStories[0];
     color: var(--st-text-secondary);
   }
 
-  /* Voices */
-  .voice-feature {
-    display: grid;
-    grid-template-columns: 320px 1fr;
-    gap: var(--st-space-8);
-    margin: var(--st-space-8) 0;
+  /* Voices Carousel */
+  .voices-section {
+    padding: var(--st-space-9) 0;
+  }
+
+  .voices-carousel {
+    position: relative;
+    margin-top: var(--st-space-6);
+    padding: 0 var(--st-space-10);
+  }
+
+  .voices-carousel__stage {
+    position: relative;
+    overflow: hidden;
+    min-height: 280px;
+  }
+
+  .voices-carousel__slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: translateX(12px);
+    transition: opacity 0.5s var(--st-ease-out), transform 0.5s var(--st-ease-out);
+    pointer-events: none;
+    display: flex;
     align-items: center;
   }
 
-  .voice-grid {
+  .voices-carousel__slide--active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+    position: relative;
+  }
+
+  .voices-carousel__inner {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--st-space-6);
+    grid-template-columns: 100px 1fr;
+    gap: var(--st-space-7);
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
   }
 
-  .voice-card {
-    padding: var(--st-space-6);
-    border: 1px solid var(--st-border);
-    border-radius: 4px;
-  }
-
-  .voice-card__avatar {
-    width: 56px;
-    height: 56px;
+  .voices-carousel__portrait {
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--st-green);
+    flex-shrink: 0;
+  }
+
+  .voices-carousel__portrait img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    margin-bottom: var(--st-space-4);
-    border: 2px solid var(--st-peach);
   }
 
-  .voice-card__quote {
-    font-size: 1.0625rem;
-    line-height: 1.6;
-    color: var(--st-text);
+  .voices-carousel__text {
+    position: relative;
+    padding-left: var(--st-space-6);
+    border-left: 3px solid var(--st-green);
+  }
+
+  .voices-carousel__quote {
+    font-size: clamp(1rem, 2vw, 1.25rem);
     font-style: italic;
-    margin-bottom: var(--st-space-3);
+    line-height: 1.65;
+    color: var(--st-text);
+    margin-bottom: var(--st-space-4);
   }
 
-  .voice-card__cite {
+  .voices-carousel__cite {
     font-family: var(--st-font-body);
     font-size: 0.8125rem;
     font-weight: 600;
     color: var(--st-green);
     font-style: normal;
+    display: block;
+  }
+
+  .voices-carousel__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1.5px solid var(--st-border);
+    background: var(--st-white);
+    color: var(--st-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--st-duration) var(--st-ease);
+  }
+
+  .voices-carousel__arrow:hover {
+    border-color: var(--st-green);
+    background: var(--st-green);
+    color: var(--st-white);
+  }
+
+  .voices-carousel__arrow--prev { left: 0; }
+  .voices-carousel__arrow--next { right: 0; }
+
+  .voices-carousel__dots {
+    display: flex;
+    justify-content: center;
+    gap: var(--st-space-3);
+    margin-top: var(--st-space-6);
+  }
+
+  .voices-carousel__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1.5px solid var(--st-border);
+    background: transparent;
+    cursor: pointer;
+    transition: all var(--st-duration) var(--st-ease);
+    padding: 0;
+  }
+
+  .voices-carousel__dot--active {
+    background: var(--st-green);
+    border-color: var(--st-green);
+  }
+
+  .voices-carousel__dot:hover {
+    border-color: var(--st-green);
   }
 
   /* CTA Section */
@@ -396,12 +525,30 @@ const marcus = alumniStories[0];
       direction: ltr;
     }
 
-    .voice-feature {
-      grid-template-columns: 1fr;
+    .voices-carousel {
+      padding: 0;
     }
 
-    .voice-grid {
+    .voices-carousel__inner {
       grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .voices-carousel__portrait {
+      margin: 0 auto;
+      width: 80px;
+      height: 80px;
+    }
+
+    .voices-carousel__text {
+      border-left: none;
+      padding-left: 0;
+      border-top: 3px solid var(--st-green);
+      padding-top: var(--st-space-5);
+    }
+
+    .voices-carousel__arrow {
+      display: none;
     }
 
     .impact-grid {
