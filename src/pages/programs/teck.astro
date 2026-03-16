@@ -3,12 +3,13 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import { programs } from "../../data/programs";
-import { expandedProgramDetails, alumniStories } from "../../data/fabricated";
+import { expandedProgramDetails } from "../../data/fabricated";
+import { testimonials } from "../../data/testimonials";
 import { partners } from "../../data/partners";
 
 const teck = programs.find((p) => p.id === "teck")!;
 const teckDetails = expandedProgramDetails.find((d) => d.programId === "teck")!;
-const deshawn = alumniStories.find((s) => s.program === "TECK")!;
+const kat = testimonials.find((t) => t.name === "Kat")!;
 ---
 
 <Layout title="TECK Program">
@@ -65,22 +66,20 @@ const deshawn = alumniStories.find((s) => s.program === "TECK")!;
     </div>
   </section>
 
-  <!-- DeShawn's story -->
+  <!-- Kat's story -->
   <section class="st-section st-section--white">
     <div class="st-container">
       <div class="st-grid-60-40" data-reveal>
         <div>
-          <span class="st-kicker">Alumni Story</span>
-          <h2>{deshawn.name}'s<br />Transformation</h2>
-          <p style="color:var(--st-text-secondary);margin-top:var(--st-space-4);line-height:1.8;">{deshawn.beforeSummary} {deshawn.journey}</p>
-          <blockquote class="st-pullquote">
-            "{deshawn.quote}"
-            <cite>— {deshawn.name}, {deshawn.currentRole}</cite>
+          <span class="st-kicker">Graduate Story</span>
+          <h2>Kat's Experience</h2>
+          <blockquote class="st-pullquote" style="margin-top:var(--st-space-4);">
+            "{kat.quote}"
+            <cite>— Kat, TECK 2024 Graduate</cite>
           </blockquote>
-          <p style="color:var(--st-text-secondary);line-height:1.8;">{deshawn.outcome}</p>
         </div>
         <figure class="st-editorial-image">
-          <img src="/images/designs/stock/tech-coding-4.jpg" alt="TECK participant" style="aspect-ratio:3/4;object-fit:cover;" />
+          <img src="/images/designs/stock/tech-coding-4.jpg" alt="Kat, TECK graduate" style="aspect-ratio:3/4;object-fit:cover;" />
           <figcaption>Building digital confidence, one session at a time</figcaption>
         </figure>
       </div>

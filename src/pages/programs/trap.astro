@@ -4,13 +4,13 @@ import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import { programs } from "../../data/programs";
 import { testimonials } from "../../data/testimonials";
-import { expandedProgramDetails, alumniStories } from "../../data/fabricated";
+import { expandedProgramDetails } from "../../data/fabricated";
 
 const trap = programs.find((p) => p.id === "trap")!;
 const trapDetails = expandedProgramDetails.find((d) => d.programId === "trap")!;
 const sheisty = testimonials.find((t) => t.name === "Sheisty")!;
 const julius = testimonials.find((t) => t.name === "Julius")!;
-const aisha = alumniStories.find((s) => s.program === "T.RAP")!;
+const nas = testimonials.find((t) => t.name === "Nas")!;
 ---
 
 <Layout title="T.RAP Program">
@@ -69,25 +69,21 @@ const aisha = alumniStories.find((s) => s.program === "T.RAP")!;
     </div>
   </section>
 
-  <!-- Aisha's story -->
+  <!-- Nas's story -->
   <section class="st-section st-section--white">
     <div class="st-container">
       <div class="st-grid-40-60" data-reveal>
         <figure class="st-editorial-image">
-          <img src="/images/designs/stock/music-studio-2.jpg" alt="Studio session" style="aspect-ratio:3/4;object-fit:cover;" />
+          <img src="/images/designs/stock/music-studio-2.jpg" alt="Nas, T.RAP graduate" style="aspect-ratio:3/4;object-fit:cover;" />
           <figcaption>A T.RAP studio session in action</figcaption>
         </figure>
         <div>
-          <span class="st-kicker">Alumni Story</span>
-          <h2>{aisha.name}'s Journey</h2>
-          <p style="color:var(--st-text-secondary);margin-top:var(--st-space-4);line-height:1.8;">
-            {aisha.beforeSummary} {aisha.journey}
-          </p>
-          <blockquote class="st-pullquote">
-            "{aisha.quote}"
-            <cite>— {aisha.name}, {aisha.currentRole}</cite>
+          <span class="st-kicker">Graduate Story</span>
+          <h2>Nas's Journey</h2>
+          <blockquote class="st-pullquote" style="margin-top:var(--st-space-4);">
+            "{nas.quote}"
+            <cite>— Nas, T.RAP 2023 Graduate</cite>
           </blockquote>
-          <p style="color:var(--st-text-secondary);line-height:1.8;">{aisha.outcome}</p>
         </div>
       </div>
     </div>
