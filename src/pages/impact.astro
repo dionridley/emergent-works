@@ -1,0 +1,383 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const statsRow1 = [
+  { value: "261", label: "Graduates", desc: "System-impacted individuals have graduated from EW" },
+  { value: "73%", label: "Employed", desc: "Of graduates are employed after our programs" },
+  { value: "$2+", label: "Above Minimum Wage", desc: "Above the NYC min wage is graduates min hourly rate" },
+];
+
+const statsRow2 = [
+  { value: "98%+", label: "No Re-Offense", desc: "Of graduates have never re-offended after the program" },
+  { value: "8", label: "Contracted", desc: "Graduates have been contracted with EW" },
+];
+
+const pillars = [
+  {
+    number: "1",
+    title: "Digital Literacy Training",
+    description: "Emergent Works programs equip system-impacted individuals with hands-on experience using industry-accepted digital tools to complete professional tasks efficiently and confidently. Participants report increased digital confidence, stronger problem-solving skills, and greater readiness for education and employment opportunities.",
+    image: "/images/impact/digital-literacy.jpg",
+    testimonial: {
+      quote: "This program motivated me to step out of my comfort zone in so many ways, and I gained useful knowledge and skill in Digital literacy that I did not have before.",
+      name: "Lakresha",
+    },
+  },
+  {
+    number: "2",
+    title: "Social-Emotional Learning",
+    description: "Emergent Works programs amplify participant voices through music production, audio engineering, studio recording, and guided mental health sessions. Participants build self-awareness, emotional regulation, confidence, and a stronger sense of identity while expressing their experiences and shaping their futures.",
+    image: "/images/impact/sel.jpg",
+    testimonial: {
+      quote: "Before joining Emergent Works I was pretty stagnant with my music career. But when I joined the program I saw how I can use my creative side to open the doors to places I have never been to. The highlight of being in the program was learning how I can apply my artistry in a studio session and it really set foot in me. It created a confidence in me to break down any barriers and just go for it.",
+      name: "Julius",
+    },
+  },
+  {
+    number: "3",
+    title: "Career Development",
+    description: "Emergent Works programs prepare participants to navigate today's workplace by building foundational technical and social skills alongside real-world experience. Through hands-on training, mentorship, and applied learning opportunities, participants strengthen professionalism, communication, confidence, and career readiness, supporting long-term economic stability and growth.",
+    image: "/images/impact/career-development.jpg",
+    testimonial: {
+      quote: "This program has truly impacted my life by giving me the confidence to grow, the skills to move forward, and the support of a community that encouraged me every step of the way.",
+      name: "Zeek",
+    },
+  },
+  {
+    number: "4",
+    title: "Community Engagement",
+    description: "Emergent Works programs equip participants to collaborate, examine community issues, and lead change through civic engagement and research. Participants build critical thinking, communication, and leadership skills while using their voices and experiences to contribute to solutions that strengthen their communities.",
+    image: "/images/impact/community-engagement.jpg",
+    testimonial: null,
+  },
+];
+---
+
+<Layout title="Impact">
+  <Header currentPath="/impact/" />
+
+  <!-- Hero -->
+  <section class="impact-hero">
+    <div class="st-container">
+      <div class="impact-hero__content" data-reveal>
+        <span class="st-chapter" style="justify-content:center;color:var(--st-gold);">Our Impact</span>
+        <h1>Measuring What Matters</h1>
+        <p class="impact-hero__sub">Emergent Works supports at least 50 system-impacted individuals annually through creative workforce development, digital skills training, and creative career pathways. Our programs are designed to create lasting impact across economic mobility, personal growth, leadership development, and community connection.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Row 1 -->
+  <section class="st-section stats-row-1">
+    <div class="st-container">
+      <div class="stats-grid stats-grid--3">
+        {statsRow1.map((item, i) => (
+          <div class="stat-card" data-reveal={`delay-${i + 1}`}>
+            <div class="stat-card__value">{item.value}</div>
+            <div class="stat-card__label">{item.label}</div>
+            <p class="stat-card__desc">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How Our Programs Impact intro -->
+  <section class="st-section" style="text-align:center;">
+    <div class="st-container" data-reveal>
+      <span class="st-kicker" style="justify-content:center;">Our Approach</span>
+      <h2 style="color:var(--st-green);">How Our Programs Impact</h2>
+      <div class="st-divider st-divider--center"></div>
+      <p class="impact-intro-text">Emergent Works supports system-impacted individuals by building digital literacy, social-emotional, workplace and life skills that lead to economic stability, confidence, and stronger community connection. Our programs are designed to create lasting, measurable impact.</p>
+    </div>
+  </section>
+
+  <!-- Four Impact Pillars -->
+  {pillars.map((pillar, i) => (
+    <section class="st-section" style={i % 2 === 0 ? "background:var(--st-white);" : ""}>
+      <div class="st-container">
+        <div class:list={["pillar-feature", { "pillar-feature--reverse": i % 2 === 1 }]} data-reveal>
+          <figure class="st-editorial-image">
+            <img src={pillar.image} alt={pillar.title} style="aspect-ratio:4/3;object-fit:cover;" loading="lazy" />
+          </figure>
+          <div class="pillar-feature__text">
+            <span class="st-kicker">{`Pillar ${pillar.number}`}</span>
+            <h2>{pillar.title}</h2>
+            <p>{pillar.description}</p>
+            {pillar.testimonial && (
+              <blockquote class="st-pullquote" style="margin-top:var(--st-space-6);font-size:1.125rem;">
+                "{pillar.testimonial.quote}"
+                <cite>— {pillar.testimonial.name}</cite>
+              </blockquote>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- Stats Row 2 -->
+  <section class="st-section stats-row-2">
+    <div class="st-container">
+      <div class="stats-grid stats-grid--2">
+        {statsRow2.map((item, i) => (
+          <div class="stat-card stat-card--dark" data-reveal={`delay-${i + 1}`}>
+            <div class="stat-card__value">{item.value}</div>
+            <div class="stat-card__label">{item.label}</div>
+            <p class="stat-card__desc">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Annual Reports -->
+  <section class="st-section reports-section">
+    <div class="st-container" style="text-align:center;">
+      <div data-reveal>
+        <span class="st-kicker" style="justify-content:center;">Resources</span>
+        <h2 style="color:var(--st-green);">Annual Reports</h2>
+        <div class="st-divider st-divider--center"></div>
+      </div>
+      <div class="reports-grid" data-reveal="delay-1">
+        <a href="https://drive.google.com/file/d/1SnDwrmexxDrlwCFyfi7mv-LgS2pjCcpT/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="report-card">
+          <div class="report-card__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+          </div>
+          <h3>2024 Annual Report</h3>
+          <span class="report-card__action">Download <span class="st-btn-arrow">&rarr;</span></span>
+        </a>
+        <a href="https://drive.google.com/file/d/1UzPZL-7sUhisYFCxnZmwuzMsgg6rdING/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="report-card">
+          <div class="report-card__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+          </div>
+          <h3>2025 Annual Report</h3>
+          <span class="report-card__action">Download <span class="st-btn-arrow">&rarr;</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="st-section st-section--green" style="text-align:center;">
+    <div class="st-container" data-reveal>
+      <span class="st-chapter" style="justify-content:center;color:var(--st-gold);">Learn More</span>
+      <h2 style="color:var(--st-white);">See the Story Behind<br />the Numbers</h2>
+      <p style="color:var(--st-sage);max-width:460px;margin:var(--st-space-4) auto var(--st-space-7);font-size:1.0625rem;">
+        Our people are the proof. Learn about the team and community driving these outcomes.
+      </p>
+      <a href="/about/" class="st-btn st-btn--gold">About Us <span class="st-btn-arrow">&rarr;</span></a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* ============================================
+     HERO
+     ============================================ */
+  .impact-hero {
+    padding: calc(var(--st-header-height) + var(--st-space-16)) 0 var(--st-space-12);
+    background: var(--st-green-dark);
+    text-align: center;
+  }
+
+  .impact-hero h1 {
+    color: var(--st-white);
+    font-size: clamp(2.5rem, 7vw, 5rem);
+  }
+
+  .impact-hero__sub {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: var(--st-sage);
+    max-width: 640px;
+    margin: var(--st-space-5) auto 0;
+  }
+
+  /* ============================================
+     STATS ROWS
+     ============================================ */
+  .stats-row-1 {
+    background: var(--st-cream);
+  }
+
+  .stats-row-2 {
+    background: var(--st-green-dark);
+  }
+
+  .stats-grid {
+    display: grid;
+    gap: var(--st-space-5);
+  }
+
+  .stats-grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .stats-grid--2 {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .stat-card {
+    text-align: center;
+    padding: var(--st-space-7) var(--st-space-4);
+    background: var(--st-white);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+  }
+
+  .stat-card--dark {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(177, 211, 187, 0.1);
+  }
+
+  .stat-card__value {
+    font-family: var(--st-font-heading);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: var(--st-gold);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: var(--st-space-2);
+  }
+
+  .stat-card__label {
+    font-family: var(--st-font-heading);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--st-green);
+    margin-bottom: var(--st-space-2);
+  }
+
+  .stat-card--dark .stat-card__label {
+    color: var(--st-white);
+  }
+
+  .stat-card__desc {
+    font-size: 0.8125rem;
+    color: var(--st-text-secondary);
+    line-height: 1.5;
+  }
+
+  .stat-card--dark .stat-card__desc {
+    color: var(--st-sage);
+  }
+
+  /* ============================================
+     INTRO TEXT
+     ============================================ */
+  .impact-intro-text {
+    font-size: 1.0625rem;
+    line-height: 1.85;
+    color: var(--st-text-secondary);
+    max-width: var(--st-max-width-text);
+    margin: 0 auto;
+  }
+
+  /* ============================================
+     PILLAR FEATURES
+     ============================================ */
+  .pillar-feature {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--st-space-8);
+    align-items: start;
+  }
+
+  .pillar-feature--reverse {
+    direction: rtl;
+  }
+
+  .pillar-feature--reverse > * {
+    direction: ltr;
+  }
+
+  .pillar-feature__text h2 {
+    color: var(--st-green);
+    margin-bottom: var(--st-space-3);
+  }
+
+  .pillar-feature__text p {
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    color: var(--st-text-secondary);
+  }
+
+  /* ============================================
+     ANNUAL REPORTS
+     ============================================ */
+  .reports-section {
+    background: var(--st-cream);
+  }
+
+  .reports-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--st-space-5);
+    max-width: 560px;
+    margin: var(--st-space-8) auto 0;
+  }
+
+  .report-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--st-space-7) var(--st-space-5);
+    background: var(--st-white);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .report-card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .report-card__icon {
+    color: var(--st-green);
+    margin-bottom: var(--st-space-4);
+  }
+
+  .report-card h3 {
+    color: var(--st-green);
+    font-size: 1.125rem;
+    margin-bottom: var(--st-space-3);
+  }
+
+  .report-card__action {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--st-gold);
+  }
+
+  /* ============================================
+     RESPONSIVE
+     ============================================ */
+  @media (max-width: 768px) {
+    .stats-grid--3 {
+      grid-template-columns: 1fr;
+    }
+
+    .stats-grid--2 {
+      grid-template-columns: 1fr;
+    }
+
+    .pillar-feature,
+    .pillar-feature--reverse {
+      grid-template-columns: 1fr;
+      direction: ltr;
+    }
+
+    .reports-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

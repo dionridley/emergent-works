@@ -14,6 +14,7 @@ const deshawn = alumniStories.find((s) => s.program === "TECK")!;
 <Layout title="TECK Program">
   <Header currentPath="/programs/" />
 
+  <!-- Hero -->
   <section class="teck-hero">
     <div class="teck-hero__bg">
       <img src={teck.image} alt="TECK workshop" />
@@ -23,22 +24,42 @@ const deshawn = alumniStories.find((s) => s.program === "TECK")!;
       <span class="st-chapter" style="color:var(--st-gold);">More Than Technology</span>
       <h1>TECK</h1>
       <p class="teck-hero__sub">Digital literacy training that transforms confusion into confidence, one skill at a time.</p>
+      <div class="teck-hero__meta">
+        <div class="teck-hero__meta-item">
+          <span class="teck-hero__meta-label">Duration</span>
+          <span class="teck-hero__meta-value">12 weeks, all year round</span>
+        </div>
+        <div class="teck-hero__meta-item">
+          <span class="teck-hero__meta-label">Eligibility</span>
+          <span class="teck-hero__meta-value">{teck.eligibility}</span>
+        </div>
+        <div class="teck-hero__meta-item">
+          <span class="teck-hero__meta-label">Enrollment</span>
+          <span class="teck-hero__meta-value">Ongoing</span>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- Program Overview: 2-column -->
   <section class="st-section">
-    <div class="st-container st-container--narrow">
-      <div data-reveal>
-        <p class="st-dropcap">This free 12-week virtual mentorship program supports system-impacted individuals (18+) across the United States by equipping them with the digital tools and skills needed to thrive in today's workforce and beyond. Participants are paired one-on-one with industry professionals who provide personalized guidance in digital and AI literacy, coding basics, UI/UX, and practical applications of technology. Through weekly mentorship sessions and hands-on, portfolio-ready projects, participants build confidence, problem-solving skills, and real-world digital competencies. More than just learning technology, participants leave the program prepared to navigate professional environments, manage digital projects, create professional materials, and leverage digital tools for employment, education, and personal growth.</p>
-        <div class="teck-meta">
-          <div><strong>Duration</strong><br />12 weeks, all year round</div>
-          <div><strong>Format</strong><br />Virtual 1-on-1 mentorship</div>
-        </div>
-        <div class="teck-skills" style="margin-top:var(--st-space-6);">
-          <h3 style="color:var(--st-green);margin-bottom:var(--st-space-4);font-size:0.875rem;text-transform:uppercase;letter-spacing:0.1em;">Core Competencies</h3>
-          <div class="tools-row">
-            {["Digital Literacy Basics", "UI/UX Design", "Coding Fundamentals", "Project Development", "Website Basics", "Mentorship"].map((skill) => <span class="tool-badge">{skill}</span>)}
+    <div class="st-container">
+      <div class="program-overview" data-reveal>
+        <div class="program-overview__text">
+          <span class="st-kicker">Program Overview</span>
+          <h2>Building Digital Confidence</h2>
+          <p>This free 12-week virtual mentorship program supports system-impacted individuals (18+) across the United States by equipping them with the digital tools and skills needed to thrive in today's workforce and beyond. Participants are paired one-on-one with industry professionals who provide personalized guidance in digital and AI literacy, coding basics, UI/UX, and practical applications of technology. Through weekly mentorship sessions and hands-on, portfolio-ready projects, participants build confidence, problem-solving skills, and real-world digital competencies. More than just learning technology, participants leave the program prepared to navigate professional environments, manage digital projects, create professional materials, and leverage digital tools for employment, education, and personal growth.</p>
+          <div class="feature-tags">
+            {["Digital Literacy Basics", "UI/UX Design", "Coding Fundamentals", "Project Development", "Website Basics", "Mentorship"].map((skill) => (
+              <span class="feature-tag">{skill}</span>
+            ))}
           </div>
+        </div>
+        <div class="program-overview__schedule">
+          <h3>Schedule</h3>
+          <ul class="schedule-list">
+            <li>Coordinate weekly virtual sessions with your mentor, ensuring a minimum of two hours of engagement each week.</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -66,7 +87,7 @@ const deshawn = alumniStories.find((s) => s.program === "TECK")!;
     </div>
   </section>
 
-  <!-- Curriculum as narrative -->
+  <!-- Curriculum -->
   <section class="st-section">
     <div class="st-container st-container--narrow">
       <div data-reveal>
@@ -74,25 +95,30 @@ const deshawn = alumniStories.find((s) => s.program === "TECK")!;
         <h2>From Basics<br />to Mastery</h2>
         <div class="st-divider"></div>
       </div>
-      <div class="modules-list" data-reveal="delay-1">
-        {teckDetails.curriculumOutline?.map((mod, i) => (
-          <div class="module-item">
-            <span class="module-num">{String(i + 1).padStart(2, '0')}</span>
-            <p>{mod}</p>
-          </div>
-        ))}
+      <div class="curriculum-cards" data-reveal="delay-1">
+        {teckDetails.curriculumOutline?.map((mod, i) => {
+          const [title, ...descParts] = mod.split(' — ');
+          return (
+            <div class="curriculum-card">
+              <div class="curriculum-card__number">{String(i + 1).padStart(2, '0')}</div>
+              <div>
+                <h4 class="curriculum-card__title">{title}</h4>
+                {descParts.length > 0 && <p class="curriculum-card__desc">{descParts.join(' — ')}</p>}
+              </div>
+            </div>
+          );
+        })}
       </div>
-      <div data-reveal="delay-2" style="margin-top:var(--st-space-7);">
-        <h3 style="color:var(--st-green);margin-bottom:var(--st-space-4);">Schedule</h3>
-        <p style="font-size:0.9375rem;line-height:1.7;color:var(--st-text-secondary);margin-bottom:var(--st-space-7);">Coordinate weekly virtual sessions with your mentor, ensuring a minimum of two hours of engagement each week.</p>
-        <h3 style="color:var(--st-green);margin-bottom:var(--st-space-4);">Tools Covered</h3>
-        <div class="tools-row">
-          {teckDetails.toolsCovered?.map((t) => <span class="tool-badge">{t}</span>)}
+      <div class="tools-section" data-reveal="delay-2">
+        <h3>Tools Covered</h3>
+        <div class="tools-tags">
+          {teckDetails.toolsCovered?.map((t) => <span class="tool-tag">{t}</span>)}
         </div>
       </div>
     </div>
   </section>
 
+  <!-- CTA -->
   <section class="st-section st-section--green" style="text-align:center;">
     <div class="st-container" data-reveal>
       <h2 style="color:var(--st-white);">Bring TECK to<br />Your Organization</h2>
@@ -105,22 +131,165 @@ const deshawn = alumniStories.find((s) => s.program === "TECK")!;
 </Layout>
 
 <style>
-  .teck-hero { position:relative; min-height:480px; display:flex; align-items:flex-end; padding:calc(var(--st-header-height) + var(--st-space-9)) 0 var(--st-space-9); }
-  .teck-hero__bg { position:absolute; inset:0; }
-  .teck-hero__bg img { width:100%; height:100%; object-fit:cover; }
-  .teck-hero__overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(5,40,18,0.92) 0%, rgba(5,40,18,0.3) 100%); }
-  .teck-hero__content { position:relative; z-index:1; }
-  .teck-hero h1 { color:var(--st-white); font-size:clamp(3.5rem,10vw,7rem); margin-bottom:var(--st-space-4); }
-  .teck-hero__sub { font-size:1.125rem; color:var(--st-sage); max-width:460px; line-height:1.7; }
+  /* Hero */
+  .teck-hero { position: relative; min-height: 480px; display: flex; align-items: flex-end; padding: calc(var(--st-header-height) + var(--st-space-9)) 0 var(--st-space-9); }
+  .teck-hero__bg { position: absolute; inset: 0; }
+  .teck-hero__bg img { width: 100%; height: 100%; object-fit: cover; }
+  .teck-hero__overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,40,18,0.92) 0%, rgba(5,40,18,0.3) 100%); }
+  .teck-hero__content { position: relative; z-index: 1; }
+  .teck-hero h1 { color: var(--st-white); font-size: clamp(3.5rem, 10vw, 7rem); margin-bottom: var(--st-space-4); }
+  .teck-hero__sub { font-size: 1.125rem; color: var(--st-sage); max-width: 460px; line-height: 1.7; }
 
-  .teck-meta { display:flex; gap:var(--st-space-7); margin-top:var(--st-space-7); padding-top:var(--st-space-5); border-top:1px solid var(--st-border); font-size:0.875rem; color:var(--st-text-secondary); }
-  .teck-meta strong { color:var(--st-green); display:block; font-size:0.6875rem; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.25rem; }
+  .teck-hero__meta {
+    display: flex;
+    gap: var(--st-space-7);
+    margin-top: var(--st-space-6);
+    padding-top: var(--st-space-5);
+    border-top: 1px solid rgba(177,211,187,0.2);
+  }
 
-  .modules-list { display:flex; flex-direction:column; gap:var(--st-space-5); }
-  .module-item { display:flex; gap:var(--st-space-5); align-items:baseline; }
-  .module-num { font-family:var(--st-font-serif); font-size:1.5rem; font-weight:600; color:var(--st-gold); flex-shrink:0; width:40px; }
-  .module-item p { font-size:0.9375rem; line-height:1.7; color:var(--st-text-secondary); }
+  .teck-hero__meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
 
-  .tools-row { display:flex; flex-wrap:wrap; gap:var(--st-space-3); }
-  .tool-badge { font-size:0.8125rem; font-weight:600; padding:0.4rem 0.875rem; border-radius:4px; background:var(--st-green); color:var(--st-gold); }
+  .teck-hero__meta-label {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--st-sage);
+  }
+
+  .teck-hero__meta-value {
+    font-size: 0.875rem;
+    color: var(--st-white);
+    font-weight: 500;
+  }
+
+  /* Program Overview 2-column */
+  .program-overview {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: var(--st-space-8);
+    align-items: start;
+  }
+
+  .program-overview__text .st-kicker { margin-bottom: var(--st-space-3); }
+  .program-overview__text h2 { color: var(--st-green); margin-bottom: var(--st-space-5); }
+  .program-overview__text p { font-size: 0.9375rem; line-height: 1.8; color: var(--st-text-secondary); margin-bottom: var(--st-space-6); }
+
+  .feature-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--st-space-2);
+  }
+
+  .feature-tag {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    padding: 0.375rem 0.875rem;
+    border-radius: 999px;
+    background: rgba(32,73,60,0.08);
+    color: var(--st-green);
+  }
+
+  .program-overview__schedule {
+    background: var(--st-white);
+    border: 1px solid var(--st-border);
+    border-radius: 8px;
+    padding: var(--st-space-6);
+  }
+
+  .program-overview__schedule h3 {
+    color: var(--st-green);
+    font-size: 1rem;
+    margin-bottom: var(--st-space-5);
+  }
+
+  .schedule-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--st-space-4);
+  }
+
+  .schedule-list li {
+    position: relative;
+    padding-left: 1.25rem;
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--st-text-secondary);
+  }
+
+  .schedule-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--st-gold);
+  }
+
+  /* Curriculum Cards */
+  .curriculum-cards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--st-space-4);
+    margin-bottom: var(--st-space-8);
+  }
+
+  .curriculum-card {
+    background: var(--st-white);
+    border: 1px solid var(--st-border);
+    border-radius: 8px;
+    padding: var(--st-space-5) var(--st-space-6);
+    display: flex;
+    gap: var(--st-space-5);
+    align-items: baseline;
+  }
+
+  .curriculum-card__number {
+    font-family: var(--st-font-serif);
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--st-gold);
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .curriculum-card__title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--st-green);
+    margin-bottom: 0.375rem;
+  }
+
+  .curriculum-card__desc {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--st-text-secondary);
+  }
+
+  /* Tools */
+  .tools-section h3 { color: var(--st-green); margin-bottom: var(--st-space-4); }
+  .tools-tags { display: flex; flex-wrap: wrap; gap: var(--st-space-3); }
+  .tool-tag {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    padding: 0.4rem 0.875rem;
+    border-radius: 999px;
+    background: var(--st-green);
+    color: var(--st-gold);
+  }
+
+  @media (max-width: 768px) {
+    .teck-hero__meta { flex-direction: column; gap: var(--st-space-3); }
+    .program-overview { grid-template-columns: 1fr; }
+  }
 </style>
