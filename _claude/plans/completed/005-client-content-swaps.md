@@ -73,21 +73,21 @@ These assumptions were made during plan creation. Challenge any that seem incorr
 
 ## Success Criteria
 
-- [ ] "Technical Mentorship" does not appear anywhere in root page rendered content (replaced with "TECK")
-- [ ] "Three Pathways" / "Thousands of Stories" replaced with "Two Pathways" / "Hundreds of Stories" on all root pages
-- [ ] About page origin story uses client-provided text
-- [ ] Programs page includes "How Our Programs Work" intro section
-- [ ] T.RAP page has updated curriculum (6 elements), schedule (4-day), and tools
-- [ ] TECK page has updated title ("More Than Technology"), description, competencies, schedule, curriculum (6 elements), and tools
-- [ ] Partner program descriptions expanded with client-provided text
-- [ ] Angie's bio updated on team page
-- [ ] Donation tiers updated with client-provided text ($50, $100, $250, $1000)
-- [ ] Get Involved page mentor/volunteer descriptions updated
-- [ ] T.RAP dates show "July – June" (no specific years)
-- [ ] `fabricated` flags removed from updated content
-- [ ] `npm run build` succeeds with no errors
-- [ ] `/designs/stories/` reference pages remain untouched (page files)
-- [ ] Visual verification via Playwright confirms all text changes are visible and correct across all root pages
+- [x] "Technical Mentorship" does not appear anywhere in root page rendered content (replaced with "TECK")
+- [x] "Three Pathways" / "Thousands of Stories" replaced with "Two Pathways" / "Hundreds of Stories" on all root pages
+- [x] About page origin story uses client-provided text
+- [x] Programs page includes "How Our Programs Work" intro section
+- [x] T.RAP page has updated curriculum (6 elements), schedule (4-day), and tools
+- [x] TECK page has updated title ("More Than Technology"), description, competencies, schedule, curriculum (6 elements), and tools
+- [x] Partner program descriptions expanded with client-provided text
+- [x] Angie's bio updated on team page
+- [x] Donation tiers updated with client-provided text ($50, $100, $250, $1000)
+- [x] Get Involved page mentor/volunteer descriptions updated
+- [x] T.RAP dates show "July – June" (no specific years)
+- [x] `fabricated` flags removed from updated content
+- [x] `npm run build` succeeds with no errors
+- [x] `/designs/stories/` reference pages remain untouched (page files)
+- [x] Visual verification via Playwright confirms all text changes are visible and correct across all root pages
 
 ## Implementation Plan
 
@@ -96,28 +96,28 @@ These assumptions were made during plan creation. Challenge any that seem incorr
 **Estimated Time:** 1 hour
 
 #### Tasks
-- [ ] Replace "Technical Mentorship" → "TECK" across all root pages and data files:
-  - [ ] `src/pages/index.astro` — programs section heading and description
-  - [ ] `src/pages/programs/index.astro` — program card heading and content
-  - [ ] `src/pages/about.astro` — any mentions in narrative
-  - [ ] `src/data/programs.ts` — program title field
-  - [ ] `src/data/fabricated.ts` — expandedProgramDetails program name references
-  - [ ] `src/data/testimonials.ts` — any program association labels
-- [ ] Replace "Three Pathways. Thousands of Stories." → "Two Pathways. Hundreds of Stories." in `src/pages/index.astro`
-- [ ] Replace "Three distinct pathways" → "Two distinct pathways" (and similar variants) across:
-  - [ ] `src/pages/index.astro`
-  - [ ] `src/pages/programs/index.astro`
-  - [ ] `src/pages/about.astro`
-- [ ] Update T.RAP dates: remove specific year references, use "July – June" in:
-  - [ ] `src/data/programs.ts` — T.RAP duration field
-  - [ ] `src/pages/programs/index.astro` — if dates are hardcoded
-  - [ ] `src/pages/programs/trap.astro` — if dates are hardcoded
+- [x] Replace "Technical Mentorship" → "TECK" across all root pages and data files:
+  - [x] `src/pages/index.astro` — programs section heading and description
+  - [x] `src/pages/programs/index.astro` — program card heading and content
+  - [x] `src/pages/about.astro` — any mentions in narrative
+  - [x] `src/data/programs.ts` — program title field
+  - [x] `src/data/fabricated.ts` — expandedProgramDetails program name references
+  - [x] `src/data/testimonials.ts` — any program association labels
+- [x] Replace "Three Pathways. Thousands of Stories." → "Two Pathways. Hundreds of Stories." in `src/pages/index.astro`
+- [x] Replace "Three distinct pathways" → "Two distinct pathways" (and similar variants) across:
+  - [x] `src/pages/index.astro`
+  - [x] `src/pages/programs/index.astro`
+  - [x] `src/pages/about.astro`
+- [x] Update T.RAP dates: remove specific year references, use "July – June" in:
+  - [x] `src/data/programs.ts` — T.RAP duration field
+  - [x] `src/pages/programs/index.astro` — if dates are hardcoded
+  - [x] `src/pages/programs/trap.astro` — if dates are hardcoded
 
 #### Test Verification
-- [ ] Grep for "Technical Mentorship" in root pages returns 0 results
-- [ ] Grep for "Three Pathways" or "Three distinct" in root pages returns 0 results
-- [ ] Grep for "2025" or "2026" in program date contexts returns 0 results (root pages only)
-- [ ] `npm run build` succeeds
+- [x] Grep for "Technical Mentorship" in root pages returns 0 results
+- [x] Grep for "Three Pathways" or "Three distinct" in root pages returns 0 results
+- [x] Grep for "2025" or "2026" in program date contexts returns 0 results (root pages only)
+- [x] `npm run build` succeeds
 
 ---
 
@@ -128,43 +128,43 @@ These assumptions were made during plan creation. Challenge any that seem incorr
 #### Tasks
 
 **T.RAP (`src/pages/programs/trap.astro` and `src/data/fabricated.ts`):**
-- [ ] Replace curriculum outline with 6 new non-timebound elements:
+- [x] Replace curriculum outline with 6 new non-timebound elements:
   1. Community Research & Participatory Action
   2. Album Creation & Artistic Development
   3. Digital & Career Development Projects
   4. Social-Emotional Learning & Mental Wellness
   5. Workforce & Education Pathways
   6. Culminating Showcase & Public Presentation
-- [ ] Add/update weekly schedule section:
+- [x] Add/update weekly schedule section:
   - Mondays: Digital Literacy and Workreadiness (5 hours)
   - Tuesdays: Therapeutic Song Writing and Workreadiness (5 hours)
   - Wednesdays: Studio Recording and Workreadiness (5 hours)
   - Thursdays: Certificate Training and Guest Speakers (5 hours)
-- [ ] Update tools list: Pro Tools, Bandcamp, Google Suite, Chat GPT/Gemini, Canva
-- [ ] Remove `fabricated: true` flag from updated T.RAP curriculum/tools/schedule data
+- [x] Update tools list: Pro Tools, Bandcamp, Google Suite, Chat GPT/Gemini, Canva
+- [x] Remove `fabricated: true` flag from updated T.RAP curriculum/tools/schedule data
 
 **TECK (`src/pages/programs/teck.astro` and `src/data/fabricated.ts`):**
-- [ ] Change program overview title/heading to "More Than Technology"
-- [ ] Replace program description with client-provided 12-week mentorship text
-- [ ] Replace competency categories with: Digital Literacy Basics, UI/UX Design, Coding Fundamentals, Project Development, Website Basics, Mentorship
-- [ ] Update schedule text: "Coordinate weekly virtual sessions with your mentor, ensuring a minimum of two hours of engagement each week."
-- [ ] Replace curriculum with 6 new journey elements:
+- [x] Change program overview title/heading to "More Than Technology"
+- [x] Replace program description with client-provided 12-week mentorship text
+- [x] Replace competency categories with: Digital Literacy Basics, UI/UX Design, Coding Fundamentals, Project Development, Website Basics, Mentorship
+- [x] Update schedule text: "Coordinate weekly virtual sessions with your mentor, ensuring a minimum of two hours of engagement each week."
+- [x] Replace curriculum with 6 new journey elements:
   1. Mentor Matching & Goal Setting
   2. Weekly Mentorship Sessions
   3. Project-Based Learning
   4. Digital & AI Skills Development
   5. Mentor Relationship & Professional Growth
   6. Portfolio Completion
-- [ ] Update tools list: Google Suite, Chat GPT/Gemini, Canva, Figma, The Odin Project, Website Building Softwares
-- [ ] Remove `fabricated: true` flag from updated TECK curriculum/tools/schedule data
+- [x] Update tools list: Google Suite, Chat GPT/Gemini, Canva, Figma, The Odin Project, Website Building Softwares
+- [x] Remove `fabricated: true` flag from updated TECK curriculum/tools/schedule data
 
 #### Test Verification
-- [ ] T.RAP page shows 6 curriculum elements (not 4 time-bound phases)
-- [ ] T.RAP page shows 4-day weekly schedule
-- [ ] TECK page heading shows "More Than Technology"
-- [ ] TECK page shows 6 journey elements (not module-based curriculum)
-- [ ] Both pages show updated tools lists
-- [ ] `npm run build` succeeds
+- [x] T.RAP page shows 6 curriculum elements (not 4 time-bound phases)
+- [x] T.RAP page shows 4-day weekly schedule
+- [x] TECK page heading shows "More Than Technology"
+- [x] TECK page shows 6 journey elements (not module-based curriculum)
+- [x] Both pages show updated tools lists
+- [x] `npm run build` succeeds
 
 ---
 
@@ -173,18 +173,18 @@ These assumptions were made during plan creation. Challenge any that seem incorr
 **Estimated Time:** 1 hour
 
 #### Tasks
-- [ ] Add "How Our Programs Work" section to `src/pages/programs/index.astro`:
-  - [ ] Insert new section before program breakdowns with client-provided intro paragraph
-  - [ ] Style consistently with existing editorial sections (use `st-section`, `st-container` classes)
-- [ ] Update partner programs section in `src/pages/programs/index.astro`:
-  - [ ] Add introductory paragraph about booking T.RAP and TECK programs
-  - [ ] Replace TECK partner description with expanded client-provided text
-  - [ ] Replace T.RAP partner description with expanded client-provided text
+- [x] Add "How Our Programs Work" section to `src/pages/programs/index.astro`:
+  - [x] Insert new section before program breakdowns with client-provided intro paragraph
+  - [x] Style consistently with existing editorial sections (use `st-section`, `st-container` classes)
+- [x] Update partner programs section in `src/pages/programs/index.astro`:
+  - [x] Add introductory paragraph about booking T.RAP and TECK programs
+  - [x] Replace TECK partner description with expanded client-provided text
+  - [x] Replace T.RAP partner description with expanded client-provided text
 
 #### Test Verification
-- [ ] Programs page shows "How Our Programs Work" section before program cards
-- [ ] Partner programs section shows expanded descriptions
-- [ ] `npm run build` succeeds
+- [x] Programs page shows "How Our Programs Work" section before program cards
+- [x] Partner programs section shows expanded descriptions
+- [x] `npm run build` succeeds
 
 ---
 
@@ -195,28 +195,28 @@ These assumptions were made during plan creation. Challenge any that seem incorr
 #### Tasks
 
 **About Page (`src/pages/about.astro`):**
-- [ ] Replace origin story text (hardcoded narrative) with client-provided text
+- [x] Replace origin story text (hardcoded narrative) with client-provided text
   - Note: Adjust "three distinct programs" to "two" per global change rule
 
 **Team Page (`src/pages/team.astro` or `src/data/team.ts`):**
-- [ ] Replace Angie Agosta's bio with client-provided text
-- [ ] Remove `fabricated: true` flag from Angie's bio
+- [x] Replace Angie Agosta's bio with client-provided text
+- [x] Remove `fabricated: true` flag from Angie's bio
 
 **Get Involved Page (`src/pages/get-involved.astro` and `src/data/donation.ts`):**
-- [ ] Update donation tier text in `src/data/donation.ts`:
-  - [ ] $100 tier: "$100 covers weekly stipend for one T.RAP student to learn digital literacy, SEL, music production and partake in certificate trainings."
-  - [ ] Replace $200 tier with $250: "$250 covers one week of paid hours for an alumni instructor to gain more work experience."
-  - [ ] $1,000 tier: "$1000 covers graduation stipends for 10 T.RAP graduates obtaining essential digital, music production and workforce readiness skills and completing milestone projects."
-- [ ] Update "Ways to contribute" section (hardcoded in page):
-  - [ ] Mentor: change second line to "Min 2 hours a week transforms lives."
-  - [ ] Volunteer: change description to "Support events, outreach, and community building or join our Advisory Board. There's a place for every skill."
+- [x] Update donation tier text in `src/data/donation.ts`:
+  - [x] $100 tier: "$100 covers weekly stipend for one T.RAP student to learn digital literacy, SEL, music production and partake in certificate trainings."
+  - [x] Replace $200 tier with $250: "$250 covers one week of paid hours for an alumni instructor to gain more work experience."
+  - [x] $1,000 tier: "$1000 covers graduation stipends for 10 T.RAP graduates obtaining essential digital, music production and workforce readiness skills and completing milestone projects."
+- [x] Update "Ways to contribute" section (hardcoded in page):
+  - [x] Mentor: change second line to "Min 2 hours a week transforms lives."
+  - [x] Volunteer: change description to "Support events, outreach, and community building or join our Advisory Board. There's a place for every skill."
 
 #### Test Verification
-- [ ] About page shows client-provided origin story text
-- [ ] Team page shows Angie's updated bio
-- [ ] Get Involved page shows updated donation amounts ($50, $100, $250, $1000)
-- [ ] Mentor and Volunteer descriptions reflect client updates
-- [ ] `npm run build` succeeds
+- [x] About page shows client-provided origin story text
+- [x] Team page shows Angie's updated bio
+- [x] Get Involved page shows updated donation amounts ($50, $100, $250, $1000)
+- [x] Mentor and Volunteer descriptions reflect client updates
+- [x] `npm run build` succeeds
 
 ---
 
@@ -225,18 +225,18 @@ These assumptions were made during plan creation. Challenge any that seem incorr
 **Estimated Time:** 0.5 hours
 
 #### Tasks
-- [ ] Run `npm run build` and verify clean build with 56 pages
-- [ ] Grep verification:
-  - [ ] "Technical Mentorship" → 0 results in root pages
-  - [ ] "Three Pathways" → 0 results in root pages
-  - [ ] "Thousands of Stories" → 0 results in root pages
-- [ ] Verify `/designs/stories/` page files are untouched (spot-check one page)
-- [ ] Review all changed data files for consistency
+- [x] Run `npm run build` and verify clean build with 56 pages
+- [x] Grep verification:
+  - [x] "Technical Mentorship" → 0 results in root pages
+  - [x] "Three Pathways" → 0 results in root pages
+  - [x] "Thousands of Stories" → 0 results in root pages
+- [x] Verify `/designs/stories/` page files are untouched (spot-check one page)
+- [x] Review all changed data files for consistency
 
 #### Test Verification
-- [ ] `npm run build` succeeds with 56 pages
-- [ ] All grep checks pass
-- [ ] No regressions in design reference page files
+- [x] `npm run build` succeeds with 56 pages
+- [x] All grep checks pass
+- [x] No regressions in design reference page files
 
 ---
 
@@ -247,23 +247,23 @@ These assumptions were made during plan creation. Challenge any that seem incorr
 **IMPORTANT:** The developer will start the dev server before this phase begins. Claude must NOT start or stop the dev server. At the start of this phase, ask the developer to start the server and confirm it is running (e.g., `npm run dev` at `localhost:4321`) before proceeding with any Playwright navigation.
 
 #### Pre-Flight
-- [ ] Ask the developer to start the dev server and wait for confirmation that it is running
-- [ ] Verify the server is accessible by navigating to `http://localhost:4321/` with Playwright
+- [x] Ask the developer to start the dev server and wait for confirmation that it is running
+- [x] Verify the server is accessible by navigating to `http://localhost:4321/` with Playwright
 
 #### Root Pages — Text Change Verification
 For each root page, navigate via Playwright and verify the specific text changes are visible:
 
-- [ ] **Home** (`/`) — Verify "Two Pathways. Hundreds of Stories." appears (not "Three Pathways. Thousands of Stories."). Verify "TECK" appears instead of "Technical Mentorship" in programs section.
-- [ ] **About** (`/about`) — Verify updated origin story text appears ("In 2020, Army Armstead Co-founded Emergent Works..."). Verify "two" pathways language (not "three").
-- [ ] **Programs Overview** (`/programs/`) — Verify "How Our Programs Work" intro section is present before program cards. Verify "Two Pathways" language. Verify "TECK" instead of "Technical Mentorship". Verify expanded partner program descriptions. Verify T.RAP dates show "July – June" without specific years.
-- [ ] **Programs/TECK** (`/programs/teck/`) — Verify "More Than Technology" heading. Verify updated program description. Verify 6 competency categories (Digital Literacy Basics, UI/UX Design, etc.). Verify 6 journey elements (Mentor Matching & Goal Setting, etc.). Verify updated tools list (Google Suite, Figma, The Odin Project, etc.). Verify updated schedule text.
-- [ ] **Programs/T.RAP** (`/programs/trap/`) — Verify 6 curriculum elements (Community Research & Participatory Action, etc.). Verify 4-day weekly schedule (Mon–Thu with 5 hours each). Verify updated tools list (Pro Tools, Bandcamp, Google Suite, etc.). Verify "July – June" dates.
-- [ ] **Team** (`/team/`) — Verify Angie Agosta's bio shows updated text ("Angie manages all communication, social media, and design...").
-- [ ] **Get Involved** (`/get-involved/`) — Verify updated donation tier amounts and descriptions ($100, $250, $1000). Verify Mentor description includes "Min 2 hours a week transforms lives." Verify Volunteer description includes "Advisory Board" mention.
+- [x] **Home** (`/`) — Verify "Two Pathways. Hundreds of Stories." appears (not "Three Pathways. Thousands of Stories."). Verify "TECK" appears instead of "Technical Mentorship" in programs section.
+- [x] **About** (`/about`) — Verify updated origin story text appears ("In 2020, Army Armstead Co-founded Emergent Works..."). Verify "two" pathways language (not "three").
+- [x] **Programs Overview** (`/programs/`) — Verify "How Our Programs Work" intro section is present before program cards. Verify "Two Pathways" language. Verify "TECK" instead of "Technical Mentorship". Verify expanded partner program descriptions. Verify T.RAP dates show "July – June" without specific years.
+- [x] **Programs/TECK** (`/programs/teck/`) — Verify "More Than Technology" heading. Verify updated program description. Verify 6 competency categories (Digital Literacy Basics, UI/UX Design, etc.). Verify 6 journey elements (Mentor Matching & Goal Setting, etc.). Verify updated tools list (Google Suite, Figma, The Odin Project, etc.). Verify updated schedule text.
+- [x] **Programs/T.RAP** (`/programs/trap/`) — Verify 6 curriculum elements (Community Research & Participatory Action, etc.). Verify 4-day weekly schedule (Mon–Thu with 5 hours each). Verify updated tools list (Pro Tools, Bandcamp, Google Suite, etc.). Verify "July – June" dates.
+- [x] **Team** (`/team/`) — Verify Angie Agosta's bio shows updated text ("Angie manages all communication, social media, and design...").
+- [x] **Get Involved** (`/get-involved/`) — Verify updated donation tier amounts and descriptions ($100, $250, $1000). Verify Mentor description includes "Min 2 hours a week transforms lives." Verify Volunteer description includes "Advisory Board" mention.
 
 #### Reference Pages — Spot Check
-- [ ] Navigate to `/designs/stories/` — verify page still renders (note: data layer changes like "TECK" will be reflected here since data is shared, but page files are untouched)
-- [ ] Navigate to `/designs/stories/programs/teck/` — verify page renders (will show updated data layer content)
+- [x] Navigate to `/designs/stories/` — verify page still renders (note: data layer changes like "TECK" will be reflected here since data is shared, but page files are untouched)
+- [x] Navigate to `/designs/stories/programs/teck/` — verify page renders (will show updated data layer content)
 
 ---
 
@@ -282,17 +282,17 @@ For each root page, navigate via Playwright and verify the specific text changes
 - [x] Data layer exists in `src/data/` (programs, team, donation, fabricated)
 - [x] Playwright MCP server available for browser automation
 - [x] All blocking questions resolved
-- [ ] Developer available to start dev server for Phase 6
+- [x] Developer available to start dev server for Phase 6
 
 ## Success Metrics
 
 (To be filled in after implementation)
 
-- [ ] All client-requested text changes applied
-- [ ] Build succeeds with no errors
-- [ ] Zero fabricated content remaining in updated sections
-- [ ] Reference design page files unaffected
-- [ ] Playwright visual verification passes for all 7 root pages
+- [x] All client-requested text changes applied
+- [x] Build succeeds with no errors
+- [x] Zero fabricated content remaining in updated sections
+- [x] Reference design page files unaffected
+- [x] Playwright visual verification passes for all 7 root pages
 
 ---
 
@@ -307,12 +307,12 @@ For each root page, navigate via Playwright and verify the specific text changes
 ## Implementation Notes
 
 **Actual Time Tracking:**
-- Phase 1: [Estimated: 1 hour] (Actual: TBD)
-- Phase 2: [Estimated: 2 hours] (Actual: TBD)
-- Phase 3: [Estimated: 1 hour] (Actual: TBD)
-- Phase 4: [Estimated: 1.5 hours] (Actual: TBD)
-- Phase 5: [Estimated: 0.5 hours] (Actual: TBD)
-- Phase 6: [Estimated: 1 hour] (Actual: TBD)
+- Phase 1: [Estimated: 1 hour] (Actual: Complete)
+- Phase 2: [Estimated: 2 hours] (Actual: Complete)
+- Phase 3: [Estimated: 1 hour] (Actual: Complete)
+- Phase 4: [Estimated: 1.5 hours] (Actual: Complete)
+- Phase 5: [Estimated: 0.5 hours] (Actual: Complete)
+- Phase 6: [Estimated: 1 hour] (Actual: Complete)
 - **Total Estimated: 7 hours**
 
 **Key Decisions:**
@@ -322,7 +322,7 @@ For each root page, navigate via Playwright and verify the specific text changes
 - Fabricated flags removed from content updated with real client text
 
 **Assumptions Validated:**
-- [ ] TBD during implementation
+- [x] All assumptions validated during implementation
 
 **Lessons Learned:**
 - TBD during implementation

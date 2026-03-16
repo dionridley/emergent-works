@@ -15,19 +15,19 @@ export const donationTiers: DonationTier[] = [
     amount: 100,
     label: "$100",
     impact:
-      "$100 covers materials and tools for a full digital literacy workshop.",
+      "$100 covers weekly stipend for one T.RAP student to learn digital literacy, SEL, music production and partake in certificate trainings.",
   },
   {
-    amount: 200,
-    label: "$200",
+    amount: 250,
+    label: "$250",
     impact:
-      "$200 funds a week of creative workforce programming for one participant.",
+      "$250 covers one week of paid hours for an alumni instructor to gain more work experience.",
   },
   {
     amount: 1000,
     label: "$1,000",
     impact:
-      "$1,000 sponsors a student through an entire program cohort.",
+      "$1000 covers graduation stipends for 10 T.RAP graduates obtaining essential digital, music production and workforce readiness skills and completing milestone projects.",
   },
 ];
 

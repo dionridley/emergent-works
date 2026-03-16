@@ -20,7 +20,7 @@ const deshawn = alumniStories.find((s) => s.program === "TECK")!;
       <div class="teck-hero__overlay" />
     </div>
     <div class="st-container teck-hero__content" data-reveal>
-      <span class="st-chapter" style="color:var(--st-gold);">A Day in TECK</span>
+      <span class="st-chapter" style="color:var(--st-gold);">More Than Technology</span>
       <h1>TECK</h1>
       <p class="teck-hero__sub">Digital literacy training that transforms confusion into confidence, one skill at a time.</p>
     </div>
@@ -29,10 +29,16 @@ const deshawn = alumniStories.find((s) => s.program === "TECK")!;
   <section class="st-section">
     <div class="st-container st-container--narrow">
       <div data-reveal>
-        <p class="st-dropcap">{teck.description}</p>
+        <p class="st-dropcap">This free 12-week virtual mentorship program supports system-impacted individuals (18+) across the United States by equipping them with the digital tools and skills needed to thrive in today's workforce and beyond. Participants are paired one-on-one with industry professionals who provide personalized guidance in digital and AI literacy, coding basics, UI/UX, and practical applications of technology. Through weekly mentorship sessions and hands-on, portfolio-ready projects, participants build confidence, problem-solving skills, and real-world digital competencies. More than just learning technology, participants leave the program prepared to navigate professional environments, manage digital projects, create professional materials, and leverage digital tools for employment, education, and personal growth.</p>
         <div class="teck-meta">
-          <div><strong>Duration</strong><br />{teck.duration}</div>
-          <div><strong>Format</strong><br />Partner-customized cohorts</div>
+          <div><strong>Duration</strong><br />12 weeks, all year round</div>
+          <div><strong>Format</strong><br />Virtual 1-on-1 mentorship</div>
+        </div>
+        <div class="teck-skills" style="margin-top:var(--st-space-6);">
+          <h3 style="color:var(--st-green);margin-bottom:var(--st-space-4);font-size:0.875rem;text-transform:uppercase;letter-spacing:0.1em;">Core Competencies</h3>
+          <div class="tools-row">
+            {["Digital Literacy Basics", "UI/UX Design", "Coding Fundamentals", "Project Development", "Website Basics", "Mentorship"].map((skill) => <span class="tool-badge">{skill}</span>)}
+          </div>
         </div>
       </div>
     </div>
@@ -77,6 +83,8 @@ const deshawn = alumniStories.find((s) => s.program === "TECK")!;
         ))}
       </div>
       <div data-reveal="delay-2" style="margin-top:var(--st-space-7);">
+        <h3 style="color:var(--st-green);margin-bottom:var(--st-space-4);">Schedule</h3>
+        <p style="font-size:0.9375rem;line-height:1.7;color:var(--st-text-secondary);margin-bottom:var(--st-space-7);">Coordinate weekly virtual sessions with your mentor, ensuring a minimum of two hours of engagement each week.</p>
         <h3 style="color:var(--st-green);margin-bottom:var(--st-space-4);">Tools Covered</h3>
         <div class="tools-row">
           {teckDetails.toolsCovered?.map((t) => <span class="tool-badge">{t}</span>)}

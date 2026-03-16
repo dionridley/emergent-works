@@ -17,7 +17,17 @@ const blueberry = testimonials.find((t) => t.name === "Blueberry")!;
       <div data-reveal>
         <span class="st-chapter">Our Programs</span>
         <h1>Every Program<br />Begins a Story</h1>
-        <p class="prog-hero__sub">Three distinct pathways, each designed to meet participants where they are and equip them with the tools to write their own next chapter.</p>
+        <p class="prog-hero__sub">Two distinct pathways, each designed to meet participants where they are and equip them with the tools to write their own next chapter.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How Our Programs Work -->
+  <section class="st-section--compact" style="background:var(--st-white);">
+    <div class="st-container">
+      <div data-reveal>
+        <span class="st-kicker">How Our Programs Work</span>
+        <p style="font-size:1.0625rem;line-height:1.85;color:var(--st-text-secondary);max-width:var(--st-max-width-text);">Our programs support system-impacted youth and adults in building the digital skills, confidence, and community needed to thrive in today's world. Led by instructors and mentors who reflect our participants' lived experiences, our programs blend creative expression, technical training, and social-emotional learning. We offer programming in person at our location as well as across New York City and virtual upon request, creating safe, inclusive, and culturally responsive spaces where participants can explore their interests, develop new skills, and prepare for meaningful careers. Every program is designed to restore dignity, build agency, and open doors to long-term opportunity.</p>
       </div>
     </div>
   </section>
@@ -47,6 +57,9 @@ const blueberry = testimonials.find((t) => t.name === "Blueberry")!;
               <a href={`/programs/${program.id === "trap" ? "trap" : "teck"}/`} class="st-btn st-btn--primary" style="margin-top:var(--st-space-5);">
                 Read Full Story <span class="st-btn-arrow">&rarr;</span>
               </a>
+              <a href="/get-involved/" class="st-btn st-btn--outline" style="margin-top:var(--st-space-3);margin-left:var(--st-space-3);">
+                Apply
+              </a>
             </div>
           </div>
         </div>
@@ -62,14 +75,18 @@ const blueberry = testimonials.find((t) => t.name === "Blueberry")!;
         <h2 style="color:var(--st-white);">Bringing Stories<br />to Communities</h2>
         <div class="st-divider" style="background:var(--st-gold);"></div>
       </div>
-      <div class="partner-grid" data-reveal="delay-1">
-        {partnerPrograms.map((program) => (
-          <div class="partner-card">
-            <h3 style="color:var(--st-white);">{program.title}</h3>
-            <p style="font-size:0.8125rem;color:var(--st-gold);margin-bottom:var(--st-space-3);">{program.duration}</p>
-            <p style="color:var(--st-sage);font-size:0.9375rem;line-height:1.7;">{program.description.slice(0, 200)}...</p>
-          </div>
-        ))}
+      <p style="color:var(--st-sage);font-size:1rem;line-height:1.8;max-width:var(--st-max-width-text);margin-bottom:var(--st-space-8);" data-reveal="delay-1">Non-profit organizations can book our T.RAP and TECK programs as well as customized programs to serve their communities. T.RAP centers social-emotional learning, therapeutic writing, and music production, while TECK builds digital literacy skills including Google Suite, AI, Canva, website development, and entrepreneurial foundations. We tailor each cohort to the specific needs of our partners — blending creative expression, workforce readiness, digital skills, and entrepreneurship as well as other themes requested to equip participants with hands-on learning, mentorship, and real-world opportunities. Empower your participants with hands-on learning, mentorship, and real-world opportunities.</p>
+      <div class="partner-grid" data-reveal="delay-2">
+        <div class="partner-card">
+          <h3 style="color:var(--st-white);">TECK</h3>
+          <p style="font-size:0.8125rem;color:var(--st-gold);margin-bottom:var(--st-space-3);">4, 8, or 12 weeks</p>
+          <p style="color:var(--st-sage);font-size:0.9375rem;line-height:1.7;">Our TECK program offers flexible digital literacy training exclusively for partner organizations through a fee-for-service model that also integrates alumni workforce development. Cohorts run 4, 8, or 12 weeks and provide participants with hands-on experience in Google Suite, AI tools, Canva, and basic website building. In addition to being led by Emergent Works' proven curriculum and instructors, alumni are trained and engaged as teaching assistants and cohort facilitators—creating paid leadership opportunities that expand our impact beyond a single cohort. TECK not only equips communities with essential technical skills, confidence, and workforce readiness, but also reinvests in alumni by developing them as educators and industry-ready professionals.</p>
+        </div>
+        <div class="partner-card">
+          <h3 style="color:var(--st-white);">T.RAP</h3>
+          <p style="font-size:0.8125rem;color:var(--st-gold);margin-bottom:var(--st-space-3);">8–12+ weeks</p>
+          <p style="color:var(--st-sage);font-size:0.9375rem;line-height:1.7;">Our T.RAP program offers immersive social-emotional learning and creative skills training exclusively for partner organizations through a fee-for-service model that also supports alumni workforce development. Cohorts run 8–12+ weeks, guiding participants through therapeutic writing, music production, and leadership development. In addition to being led by Emergent Works' experienced instructors, alumni are intentionally trained and engaged as mentors and teaching facilitators when partner organizations book a cohort—creating paid leadership opportunities that expand our impact. T.RAP not only empowers communities with emotional resilience and creative expression, but also empowers alumni by developing them as educators, leaders, and creative professionals.</p>
+        </div>
       </div>
     </div>
   </section>
