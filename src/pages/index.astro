@@ -6,13 +6,21 @@ import { organization } from "../data/organization";
 import { testimonials } from "../data/testimonials";
 import { programs, programApproach } from "../data/programs";
 import { primaryStats } from "../data/stats";
-import { alumniStories } from "../data/fabricated";
 import { partners } from "../data/partners";
 
 const nashid = testimonials.find((t) => t.name === "Nashid")!;
 const sheisty = testimonials.find((t) => t.name === "Sheisty")!;
 const dontay = testimonials.find((t) => t.name === "Dontay")!;
-const marcus = alumniStories[0];
+const terrence = testimonials.find((t) => t.name === "Terrence")!;
+const makeda = testimonials.find((t) => t.name === "Makeda")!;
+const maria = testimonials.find((t) => t.name === "Maria")!;
+const wayne = testimonials.find((t) => t.name === "Wayne")!;
+const crystal = testimonials.find((t) => t.name === "Crystal")!;
+const rahiem = testimonials.find((t) => t.name === "Rahiem")!;
+const kindel = testimonials.find((t) => t.name === "Kindel")!;
+const zeek = testimonials.find((t) => t.name === "Zeek")!;
+
+const carouselTestimonials = [nashid, dontay, sheisty, makeda, maria, wayne, crystal, rahiem, kindel, zeek];
 ---
 
 <Layout title="Home" description={organization.mission}>
@@ -42,17 +50,14 @@ const marcus = alumniStories[0];
     <div class="st-container">
       <div class="st-grid-60-40 featured" data-reveal>
         <figure class="st-editorial-image">
-          <img src="/images/designs/stock/portrait-7.jpg" alt={marcus.name} style="aspect-ratio:4/5;object-fit:cover;border-radius:2px;" />
-          <figcaption>{marcus.name}, {marcus.currentRole}</figcaption>
+          <img src="/images/designs/stock/portrait-7.jpg" alt="Terrence" style="aspect-ratio:4/5;object-fit:cover;border-radius:2px;" />
+          <figcaption>Terrence, TECK 2023 Graduate</figcaption>
         </figure>
         <div class="featured__text">
-          <span class="st-kicker">Featured Story</span>
-          <h2>{marcus.name}</h2>
-          <p class="featured__role st-serif">{marcus.currentRole}</p>
-          <p class="st-dropcap">{marcus.beforeSummary} {marcus.journey}</p>
-          <blockquote class="st-pullquote" style="margin-top:var(--st-space-7);">
-            "{marcus.quote}"
-            <cite>— {marcus.name}, {marcus.program} Graduate</cite>
+          <span class="st-kicker">Graduate Story</span>
+          <blockquote class="st-pullquote" style="margin-top:var(--st-space-4);">
+            "{terrence.quote}"
+            <cite>— Terrence, TECK 2023 Graduate</cite>
           </blockquote>
           <a href="/programs/" class="st-btn st-btn--primary">
             Explore Programs <span class="st-btn-arrow">&rarr;</span>
@@ -121,9 +126,9 @@ const marcus = alumniStories[0];
         </button>
 
         <div class="voices-carousel__stage">
-          {[nashid, dontay, sheisty].map((t, i) => (
+          {carouselTestimonials.map((t, i) => (
             <div class:list={["voices-carousel__slide", { "voices-carousel__slide--active": i === 0 }]} data-slide={i}>
-              <div class="voices-carousel__inner">
+              <div class:list={["voices-carousel__inner", { "voices-carousel__inner--text-only": !t.image }]}>
                 {t.image && (
                   <div class="voices-carousel__portrait">
                     <img src={t.image} alt={t.name} />
@@ -133,7 +138,7 @@ const marcus = alumniStories[0];
                   <blockquote class="voices-carousel__quote st-serif">
                     "{t.quote}"
                   </blockquote>
-                  <cite class="voices-carousel__cite">— {t.name}</cite>
+                  <cite class="voices-carousel__cite">— {t.name}{t.program ? `, ${t.program}` : ""}</cite>
                 </div>
               </div>
             </div>
@@ -145,7 +150,7 @@ const marcus = alumniStories[0];
         </button>
 
         <div class="voices-carousel__dots">
-          {[nashid, dontay, sheisty].map((_, i) => (
+          {carouselTestimonials.map((_, i) => (
             <button class:list={["voices-carousel__dot", { "voices-carousel__dot--active": i === 0 }]} aria-label={`Go to testimonial ${i + 1}`} data-dot={i} />
           ))}
         </div>
@@ -179,6 +184,27 @@ const marcus = alumniStories[0];
     dots.forEach((d) => {
       d.addEventListener('click', () => goTo(Number(d.getAttribute('data-dot'))));
     });
+
+    // Size the stage to the tallest slide
+    const stageEl = stage as HTMLElement;
+    function sizeVoicesStage() {
+      if (!stageEl) return;
+      stageEl.style.height = 'auto';
+      let max = 0;
+      slides.forEach((s) => {
+        (s as HTMLElement).style.position = 'relative';
+        (s as HTMLElement).style.opacity = '1';
+        (s as HTMLElement).style.pointerEvents = 'none';
+        const h = (s as HTMLElement).offsetHeight;
+        if (h > max) max = h;
+        (s as HTMLElement).style.position = '';
+        (s as HTMLElement).style.opacity = '';
+        (s as HTMLElement).style.pointerEvents = '';
+      });
+      stageEl.style.height = max + 'px';
+    }
+    sizeVoicesStage();
+    window.addEventListener('resize', sizeVoicesStage);
   </script>
 
   <!-- CTA: Write the Next Chapter -->
@@ -365,15 +391,14 @@ const marcus = alumniStories[0];
   .voices-carousel__stage {
     position: relative;
     overflow: hidden;
-    min-height: 280px;
   }
 
   .voices-carousel__slide {
     position: absolute;
     inset: 0;
     opacity: 0;
-    transform: translateX(12px);
-    transition: opacity 0.5s var(--st-ease-out), transform 0.5s var(--st-ease-out);
+    transform: translateY(8px);
+    transition: opacity 0.45s var(--st-ease-out), transform 0.45s var(--st-ease-out);
     pointer-events: none;
     display: flex;
     align-items: center;
@@ -381,9 +406,8 @@ const marcus = alumniStories[0];
 
   .voices-carousel__slide--active {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
     pointer-events: auto;
-    position: relative;
   }
 
   .voices-carousel__inner {
@@ -394,6 +418,10 @@ const marcus = alumniStories[0];
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
+  }
+
+  .voices-carousel__inner--text-only {
+    grid-template-columns: 1fr;
   }
 
   .voices-carousel__portrait {

@@ -16,6 +16,9 @@ export interface AlumniStory {
   fabricated: true;
 }
 
+// DEPRECATED: These fabricated alumni stories have been replaced with real testimonials.
+// Kept for /designs/ reference pages that still import from this file.
+// Real replacements: Terrence (Marcus), Kat (DeShawn), Nas (Aisha)
 export const alumniStories: AlumniStory[] = [
   {
     name: "Marcus Thompson",

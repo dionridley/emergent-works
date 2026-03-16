@@ -3,10 +3,12 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import { programs, directPrograms, partnerPrograms } from "../../data/programs";
-import { alumniStories } from "../../data/fabricated";
 import { testimonials } from "../../data/testimonials";
+import { partnerTestimonials } from "../../data/partners";
 
 const blueberry = testimonials.find((t) => t.name === "Blueberry")!;
+const julius = testimonials.find((t) => t.name === "Julius")!;
+const terrence = testimonials.find((t) => t.name === "Terrence")!;
 ---
 
 <Layout title="Programs">
@@ -34,7 +36,7 @@ const blueberry = testimonials.find((t) => t.name === "Blueberry")!;
 
   <!-- Direct Programs as editorial features -->
   {directPrograms.map((program, i) => {
-    const story = alumniStories.find((s) => s.program === program.title) || alumniStories[i];
+    const quote = program.id === "trap" ? julius : terrence;
     return (
       <section class="st-section" style={i % 2 === 1 ? "background:var(--st-white);" : ""}>
         <div class="st-container">
@@ -48,12 +50,10 @@ const blueberry = testimonials.find((t) => t.name === "Blueberry")!;
               <h2>{program.title}</h2>
               <p class="prog-feature__meta"><strong>Duration:</strong> {program.duration} &middot; <strong>Eligibility:</strong> {program.eligibility}</p>
               <p>{program.description}</p>
-              {story && (
-                <blockquote class="st-pullquote" style="margin-top:var(--st-space-6);font-size:1.25rem;">
-                  "{story.quote}"
-                  <cite>— {story.name}, {story.program}</cite>
-                </blockquote>
-              )}
+              <blockquote class="st-pullquote" style="margin-top:var(--st-space-6);font-size:1.25rem;">
+                "{quote.quote}"
+                <cite>— {quote.name}, {program.title} Graduate</cite>
+              </blockquote>
               <a href={`/programs/${program.id === "trap" ? "trap" : "teck"}/`} class="st-btn st-btn--primary" style="margin-top:var(--st-space-5);">
                 Read Full Story <span class="st-btn-arrow">&rarr;</span>
               </a>
@@ -86,6 +86,19 @@ const blueberry = testimonials.find((t) => t.name === "Blueberry")!;
           <h3 style="color:var(--st-white);">T.RAP</h3>
           <p style="font-size:0.8125rem;color:var(--st-gold);margin-bottom:var(--st-space-3);">8–12+ weeks</p>
           <p style="color:var(--st-sage);font-size:0.9375rem;line-height:1.7;">Our T.RAP program offers immersive social-emotional learning and creative skills training exclusively for partner organizations through a fee-for-service model that also supports alumni workforce development. Cohorts run 8–12+ weeks, guiding participants through therapeutic writing, music production, and leadership development. In addition to being led by Emergent Works' experienced instructors, alumni are intentionally trained and engaged as mentors and teaching facilitators when partner organizations book a cohort—creating paid leadership opportunities that expand our impact. T.RAP not only empowers communities with emotional resilience and creative expression, but also empowers alumni by developing them as educators, leaders, and creative professionals.</p>
+        </div>
+      </div>
+      <div class="partner-testimonials" data-reveal="delay-3">
+        <h3 style="color:var(--st-gold);font-size:1rem;text-transform:uppercase;letter-spacing:0.1em;margin-top:var(--st-space-8);margin-bottom:var(--st-space-5);">What Our Partners Say</h3>
+        <div class="partner-quote-grid">
+          {partnerTestimonials.map((pt) => (
+            <div class="partner-quote-card">
+              <blockquote style="font-size:0.9375rem;font-style:italic;line-height:1.7;color:var(--st-sage);margin:0;">
+                "{pt.quote}"
+              </blockquote>
+              <cite style="display:block;font-style:normal;font-size:0.8125rem;font-weight:600;color:var(--st-gold);margin-top:var(--st-space-4);">— {pt.organization}</cite>
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -172,11 +185,25 @@ const blueberry = testimonials.find((t) => t.name === "Blueberry")!;
     border-radius: 4px;
   }
 
+  .partner-quote-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--st-space-5);
+  }
+
+  .partner-quote-card {
+    padding: var(--st-space-5);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(177,211,187,0.1);
+    border-radius: 4px;
+  }
+
   @media (max-width: 768px) {
     .prog-feature, .prog-feature--reverse {
       grid-template-columns: 1fr;
       direction: ltr;
     }
     .partner-grid { grid-template-columns: 1fr; }
+    .partner-quote-grid { grid-template-columns: 1fr; }
   }
 </style>

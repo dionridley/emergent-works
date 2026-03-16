@@ -5,9 +5,61 @@ import Footer from "../components/Footer.astro";
 import { organization } from "../data/organization";
 import { donationTiers, donationTrust } from "../data/donation";
 import { partnershipTypes } from "../data/partners";
-import { fabricatedTestimonials } from "../data/testimonials";
+import { mentorTestimonials } from "../data/testimonials";
+import { partnerTestimonials } from "../data/partners";
 
-const mentorQuote = fabricatedTestimonials.find((t) => t.name === "Priya")!;
+const mentorQuote = mentorTestimonials.find((t) => t.name === "Meagan")!;
+
+const mentorshipPairings = [
+  {
+    mentee: { name: "Baraka", role: "TECK Mentee" },
+    mentor: { name: "Voice", role: "TECK Mentor" },
+    menteeQuote: "Voice and I have a great relationship and chemistry that makes teaching and learning fun. More than anything he is honest. Our continuous conversations about personal growth and integrity are what come(s) most easy. His patience and understanding have helped me to really grasp the material.",
+    mentorQuote: "Baraka is a really fun time hanging out with Voice and working on stuff. The past weeks we've been working on finishing our Google Sites website, setting up our LinkedIn profiles and making connections. We also setup our Google Drive Page... we definitely dug into google sheets and created a personal budget spreadsheet.",
+  },
+  {
+    mentee: { name: "Lori", role: "TECK Mentee" },
+    mentor: { name: "Meagan", role: "TECK Mentor" },
+    menteeQuote: "They are definitely GREAT! Meagan is AMAZING. She has taught me so much, very patient, very kind and very informative. Be it as she what service she provides... nothing is off limits for help and knowledge to share. I really enjoy that about my mentor. She is definitely a GREAT asset to EW.",
+    mentorQuote: "I'm SO impressed by her commitment to learning and how quickly she's picking up all these new skills. She is thoughtful about how she'll apply what she's learning to her career and I can't wait to see what she does next. She works hard and she is a star!",
+  },
+  {
+    mentee: { name: "Alberto", role: "TECK Mentee" },
+    mentor: { name: "Dylan", role: "TECK Mentor" },
+    menteeQuote: "I echo Dylan's sentiments entirely; our sessions have been fantastic, productive, and enlightening. My mentor, who is specialized in the project we're exploring, has been instrumental in my growth. The AI chat app, web scraping, and AI projects he's encouraged me to delve into have accelerated my understanding of development, and I've found immensely rewarding thus far.",
+    mentorQuote: "Our sessions have been incredibly enjoyable and educational. We've been working on building a custom AI chat app that allows users to engage with multiple AI models in a single conversation, and we've been integrating Twilio for text messaging capabilities.",
+  },
+  {
+    mentee: { name: "Kat", role: "TECK Mentee" },
+    mentor: { name: "Sneha", role: "TECK Mentor" },
+    menteeQuote: "I think that our sessions have been awesome so far! Sneha has been so helpful and informative! I learn something new each time! We're working on Project Management, my website, Figma, my résumé, LinkedIn, networking, getting me familiar with AI tools. Together we even put a portfolio together. Can't wait for graduation, to present my portfolio.",
+    mentorQuote: "I think that our sessions have been awesome so far! I believe that our pairing was a great match.",
+  },
+  {
+    mentee: { name: "Blueberry", role: "TECK Mentee" },
+    mentor: { name: "Octavia", role: "TECK Mentor" },
+    menteeQuote: "The pairing with Octavia must have been strategic indeed. Her eagerness to learn mirrors the joy of my mentor, Theresa. Octavia is patient and kind, always willing to modify our schedule to accommodate my learning needs and responsibilities. Our projects focused on humanizing our experiences, with Octavia guiding me through each step.",
+    mentorQuote: "Octavia's intellectual brilliance and creativity are astonishing, and mentors like Octavia, make it feel like a youthful community that's constantly growing and evolving.",
+  },
+  {
+    mentee: { name: "Nashid", role: "TECK Mentee" },
+    mentor: { name: "Army", role: "TECK Mentor" },
+    menteeQuote: "From day one, the experience has been transformative. Fun is an understatement when describing the sessions with my mentor. My one on one with Army, has an amazing passion and dedication which makes every session engaging and productive. Each day at the Cohort is an opportunity to absorb knowledge and grow.",
+    mentorQuote: "Emergent Works isn't just a program, it's a community. The support I have received from the team has been phenomenal.",
+  },
+  {
+    mentee: { name: "Crystal", role: "TECK Mentee" },
+    mentor: { name: "Melissa", role: "TECK Mentor" },
+    menteeQuote: "Melissa was an amazing mentor, she encouraged me and allowed me to thoroughly process and then implement the learnings. We plan to keep in touch. The ability to meet a stranger who took an active role in empowering me has been a godsend.",
+    mentorQuote: "I gained enough strength to meet every challenge head-on. I course through class with a lot of energy and momentum. I gained a vast knowledge of Google Docs, CMS, Canva, EW and a Google Project Management certification.",
+  },
+  {
+    mentee: { name: "Blueberry", role: "TECK Graduate" },
+    mentor: { name: "Octavia", role: "TECK Mentor" },
+    menteeQuote: "Overall, the 1:1 Mentorship Program at Emergent Works has been a life-changing experience, equipping me with the skills, knowledge, and support needed to advance my career and personal growth. I am deeply grateful for Octavia's guidance and the transformative impact it has had on my life.",
+    mentorQuote: "She's not only open-minded, smart, and culturally intelligent but also deeply grounded in her values. Despite being younger than me, she's incredibly brilliant and has been a true blessing in my mentoring journey.",
+  },
+];
 ---
 
 <Layout title="Get Involved">
@@ -35,12 +87,188 @@ const mentorQuote = fabricatedTestimonials.find((t) => t.name === "Priya")!;
           <span class="st-kicker">A Mentor's Story</span>
           <blockquote class="st-pullquote" style="margin-top:0;">
             "{mentorQuote.quote}"
-            <cite>— {mentorQuote.name}, Volunteer Mentor</cite>
+            <cite>— {mentorQuote.name}, TECK Mentor</cite>
           </blockquote>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Mentorship Pairings Carousel -->
+  <section class="st-section">
+    <div class="st-container">
+      <div style="text-align:center;" data-reveal>
+        <span class="st-kicker">Mentorship in Action</span>
+        <h2>Stories From<br />Our Pairings</h2>
+        <div class="st-divider" style="margin:0 auto;"></div>
+      </div>
+      <div class="pairing-carousel" data-reveal="delay-1">
+        <button class="pairing-carousel__arrow pairing-carousel__arrow--prev" aria-label="Previous pairings" data-pairing-prev>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <div class="pairing-carousel__stage">
+          {mentorshipPairings.map((pair, i) => (
+            <div class="pairing-carousel__card" data-pairing-card={i}>
+              <div class="pairing-card">
+                <div class="pairing-card__header">
+                  <span class="pairing-card__names">{pair.mentee.name} &amp; {pair.mentor.name}</span>
+                  <span class="pairing-card__label">Mentee &amp; Mentor</span>
+                </div>
+                <div class="pairing-card__quotes">
+                  <blockquote class="pairing-card__quote">
+                    "{pair.menteeQuote}"
+                    <cite>— {pair.mentee.name}, {pair.mentee.role}</cite>
+                  </blockquote>
+                  <blockquote class="pairing-card__quote">
+                    "{pair.mentorQuote}"
+                    <cite>— {pair.mentor.name}, {pair.mentor.role}</cite>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <button class="pairing-carousel__arrow pairing-carousel__arrow--next" aria-label="Next pairings" data-pairing-next>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <div class="pairing-carousel__dots" data-pairing-dots></div>
+
+        <div class="pairing-carousel__mobile-nav">
+          <button class="pairing-carousel__arrow" aria-label="Previous pairings" data-pairing-prev-mobile>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="pairing-carousel__arrow" aria-label="Next pairings" data-pairing-next-mobile>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Mentorship Pairings carousel — responsive grouping
+    const pairingCards = document.querySelectorAll('[data-pairing-card]');
+    const pairingStage = document.querySelector('.pairing-carousel__stage') as HTMLElement;
+    const pairingDotsContainer = document.querySelector('[data-pairing-dots]') as HTMLElement;
+    const pairingPrev = document.querySelector('[data-pairing-prev]');
+    const pairingNext = document.querySelector('[data-pairing-next]');
+    let pairingCurrent = 0;
+    let pairingPerPage = 2;
+
+    function getPerPage() {
+      return window.innerWidth <= 768 ? 1 : 2;
+    }
+
+    function getPageCount() {
+      return Math.ceil(pairingCards.length / pairingPerPage);
+    }
+
+    function showPairingPage(index: number) {
+      const pageCount = getPageCount();
+      if (index < 0) index = pageCount - 1;
+      if (index >= pageCount) index = 0;
+      pairingCurrent = index;
+
+      const start = index * pairingPerPage;
+      const end = start + pairingPerPage;
+
+      pairingCards.forEach((card, i) => {
+        const el = card as HTMLElement;
+        const visible = i >= start && i < end;
+        el.style.opacity = visible ? '1' : '0';
+        el.style.pointerEvents = visible ? 'auto' : 'none';
+        el.style.position = visible ? 'relative' : 'absolute';
+        el.style.transform = visible ? 'translateY(0)' : 'translateY(8px)';
+      });
+
+      // Update dots
+      pairingDotsContainer.querySelectorAll('.pairing-carousel__dot').forEach((d, i) => {
+        d.classList.toggle('pairing-carousel__dot--active', i === index);
+      });
+    }
+
+    function buildPairingDots() {
+      pairingDotsContainer.innerHTML = '';
+      const pageCount = getPageCount();
+      for (let i = 0; i < pageCount; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'pairing-carousel__dot' + (i === 0 ? ' pairing-carousel__dot--active' : '');
+        dot.setAttribute('aria-label', `Go to page ${i + 1}`);
+        dot.addEventListener('click', () => showPairingPage(i));
+        pairingDotsContainer.appendChild(dot);
+      }
+    }
+
+    function sizePairingStage() {
+      if (!pairingStage) return;
+      // Temporarily show all cards to measure
+      const origStyles: string[] = [];
+      pairingCards.forEach((card) => {
+        const el = card as HTMLElement;
+        origStyles.push(el.getAttribute('style') || '');
+        el.style.position = 'relative';
+        el.style.opacity = '1';
+      });
+
+      // Measure height per page
+      let maxHeight = 0;
+      const pageCount = getPageCount();
+      for (let p = 0; p < pageCount; p++) {
+        let pageHeight = 0;
+        const start = p * pairingPerPage;
+        const end = Math.min(start + pairingPerPage, pairingCards.length);
+
+        // Hide all, show only this page's cards
+        pairingCards.forEach((c) => { (c as HTMLElement).style.display = 'none'; });
+        for (let i = start; i < end; i++) {
+          (pairingCards[i] as HTMLElement).style.display = '';
+        }
+
+        pageHeight = pairingStage.scrollHeight;
+        if (pageHeight > maxHeight) maxHeight = pageHeight;
+      }
+
+      // Restore all
+      pairingCards.forEach((card, i) => {
+        const el = card as HTMLElement;
+        el.style.display = '';
+        el.setAttribute('style', origStyles[i]);
+      });
+
+      pairingStage.style.height = maxHeight + 'px';
+    }
+
+    function initPairingCarousel() {
+      pairingPerPage = getPerPage();
+      pairingCurrent = 0;
+      buildPairingDots();
+      showPairingPage(0);
+      sizePairingStage();
+    }
+
+    pairingPrev?.addEventListener('click', () => showPairingPage(pairingCurrent - 1));
+    pairingNext?.addEventListener('click', () => showPairingPage(pairingCurrent + 1));
+    document.querySelector('[data-pairing-prev-mobile]')?.addEventListener('click', () => showPairingPage(pairingCurrent - 1));
+    document.querySelector('[data-pairing-next-mobile]')?.addEventListener('click', () => showPairingPage(pairingCurrent + 1));
+
+    initPairingCarousel();
+
+    let resizeTimer: ReturnType<typeof setTimeout>;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        const newPerPage = getPerPage();
+        if (newPerPage !== pairingPerPage) {
+          initPairingCarousel();
+        } else {
+          sizePairingStage();
+        }
+      }, 150);
+    });
+  </script>
 
   <!-- Donation -->
   <section class="st-section" id="donate">
@@ -84,6 +312,27 @@ const mentorQuote = fabricatedTestimonials.find((t) => t.name === "Priya")!;
           <div class="way-card">
             <h3 style="color:var(--st-gold);margin-bottom:var(--st-space-3);">{way.title}</h3>
             <p style="color:var(--st-sage);font-size:0.9375rem;line-height:1.7;">{way.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Partner Testimonials -->
+  <section class="st-section st-section--white">
+    <div class="st-container">
+      <div style="text-align:center;" data-reveal>
+        <span class="st-kicker">Partner Voices</span>
+        <h2>What Our Partners Say</h2>
+        <div class="st-divider" style="margin:0 auto;"></div>
+      </div>
+      <div class="partner-testimonial-grid" data-reveal="delay-1">
+        {partnerTestimonials.map((pt) => (
+          <div class="partner-testimonial-card">
+            <blockquote class="partner-testimonial-card__quote">
+              "{pt.quote}"
+            </blockquote>
+            <cite class="partner-testimonial-card__cite">— {pt.organization}</cite>
           </div>
         ))}
       </div>
@@ -148,9 +397,40 @@ const mentorQuote = fabricatedTestimonials.find((t) => t.name === "Priya")!;
   .contact-item a { color:var(--st-green); transition:color var(--st-duration); }
   .contact-item a:hover { color:var(--st-gold); }
 
+  .pairing-carousel { position:relative; margin-top:var(--st-space-6); padding:0 var(--st-space-10); }
+  .pairing-carousel__stage { position:relative; overflow:hidden; display:grid; grid-template-columns:repeat(2, 1fr); gap:var(--st-space-6); }
+  .pairing-carousel__card { transition:opacity 0.45s var(--st-ease-out), transform 0.45s var(--st-ease-out); }
+  .pairing-carousel__arrow { position:absolute; top:50%; transform:translateY(-50%); z-index:2; width:40px; height:40px; border-radius:50%; border:1.5px solid var(--st-border); background:var(--st-white); color:var(--st-green); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:all var(--st-duration) var(--st-ease); }
+  .pairing-carousel__arrow:hover { border-color:var(--st-green); background:var(--st-green); color:var(--st-white); }
+  .pairing-carousel__arrow--prev { left:0; }
+  .pairing-carousel__arrow--next { right:0; }
+  .pairing-carousel__dots { display:flex; justify-content:center; gap:var(--st-space-3); margin-top:var(--st-space-6); }
+  .pairing-carousel__dot { width:8px; height:8px; border-radius:50%; border:1.5px solid var(--st-border); background:transparent; cursor:pointer; transition:all var(--st-duration) var(--st-ease); padding:0; }
+  .pairing-carousel__dot--active { background:var(--st-green); border-color:var(--st-green); }
+  .pairing-carousel__dot:hover { border-color:var(--st-green); }
+  .pairing-carousel__mobile-nav { display:none; }
+  .pairing-card { padding:var(--st-space-6); border:1px solid var(--st-border); border-radius:4px; background:var(--st-white); }
+  .pairing-card__header { margin-bottom:var(--st-space-5); padding-bottom:var(--st-space-4); border-bottom:2px solid var(--st-gold); }
+  .pairing-card__names { font-family:var(--st-font-heading); font-size:1.125rem; font-weight:700; color:var(--st-green); display:block; }
+  .pairing-card__label { font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--st-text-light); margin-top:0.25rem; display:block; }
+  .pairing-card__quotes { display:flex; flex-direction:column; gap:var(--st-space-5); }
+  .pairing-card__quote { font-size:0.9375rem; font-style:italic; line-height:1.7; color:var(--st-text-secondary); border-left:3px solid var(--st-green); padding-left:var(--st-space-4); margin:0; }
+  .pairing-card__quote cite { display:block; font-style:normal; font-size:0.8125rem; font-weight:600; color:var(--st-green); margin-top:var(--st-space-3); }
+
+  .partner-testimonial-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:var(--st-space-5); margin-top:var(--st-space-6); }
+  .partner-testimonial-card { padding:var(--st-space-6); border:1px solid var(--st-border); border-radius:4px; display:flex; flex-direction:column; }
+  .partner-testimonial-card__quote { font-size:0.9375rem; font-style:italic; line-height:1.7; color:var(--st-text-secondary); margin:0; flex:1; }
+  .partner-testimonial-card__cite { display:block; font-style:normal; font-size:0.8125rem; font-weight:600; color:var(--st-gold); margin-top:var(--st-space-4); }
+
   @media (max-width: 768px) {
     .donation-grid { grid-template-columns:repeat(2, 1fr); }
     .ways-grid { grid-template-columns:1fr; }
+    .pairing-carousel { padding:0; }
+    .pairing-carousel__stage { grid-template-columns:1fr; }
+    .pairing-carousel > .pairing-carousel__arrow { display:none; }
+    .pairing-carousel__mobile-nav { display:flex; align-items:center; justify-content:center; gap:var(--st-space-4); margin-top:var(--st-space-3); }
+    .pairing-carousel__mobile-nav .pairing-carousel__arrow { position:static; transform:none; flex-shrink:0; }
+    .partner-testimonial-grid { grid-template-columns:1fr; }
   }
   @media (max-width: 480px) { .donation-grid { grid-template-columns:1fr; } }
 </style>
