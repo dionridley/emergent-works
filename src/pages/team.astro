@@ -35,7 +35,9 @@ import { staff, boardOfDirectors, advisoryBoard } from "../data/team";
             <div class="staff-profile__text">
               <h3>{member.name}</h3>
               <span class="staff-profile__title">{member.title}</span>
-              {member.bio && <p>{member.bio}</p>}
+              {member.bio && member.bio.split(/\n\s*\n/).map((para) => (
+                <p>{para}</p>
+              ))}
             </div>
           </div>
         ))}
@@ -123,7 +125,8 @@ import { staff, boardOfDirectors, advisoryBoard } from "../data/team";
 
   .staff-profile__text h3 { color:var(--st-green); margin-bottom:0.125rem; }
   .staff-profile__title { font-family:var(--st-font-serif); font-size:0.9375rem; font-style:italic; color:var(--st-green-muted); display:block; margin-bottom:var(--st-space-3); }
-  .staff-profile__text p { font-size:0.9375rem; line-height:1.75; color:var(--st-text-secondary); }
+  .staff-profile__text p { font-size:0.9375rem; line-height:1.75; color:var(--st-text-secondary); margin-bottom:var(--st-space-3); }
+  .staff-profile__text p:last-child { margin-bottom:0; }
 
   .board-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:var(--st-space-6); margin-top:var(--st-space-6); }
   .board-member { text-align:center; }
