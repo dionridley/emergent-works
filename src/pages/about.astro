@@ -12,13 +12,49 @@ const staffStatItems = [
   { value: "40%", label: "Female-Identifying", desc: "Staff who identify as female" },
 ];
 
-// PLACEHOLDER: Awaiting Army's real milestones
 const milestones = [
-  { year: "2020", title: "Founded", desc: "Army Armstead Co-founds Emergent Works in New York City" },
-  { year: "2021", title: "First Cohort", desc: "Inaugural program cohort graduates, launching the mentorship model" },
-  { year: "2022", title: "Growing Impact", desc: "Programs expand to serve more system-impacted communities" },
-  { year: "2023", title: "Community Recognition", desc: "Emergent Works recognized for measurable reentry outcomes" },
-  { year: "2024", title: "Scaling Programs", desc: "T.RAP and TECK programs formalized, partner programs launched" },
+  {
+    year: "2021",
+    title: "Creative Workforce Model Takes Shape",
+    items: [
+      "Expansion of technology and creative programming, including early development of the T.R.A.P model combining digital literacy, music production, and social-emotional learning.",
+      "Strengthened partnerships with community organizations serving justice-impacted youth.",
+    ],
+  },
+  {
+    year: "2022",
+    title: "Major Funding Validation",
+    items: [
+      `Emergent Works secures significant philanthropic support, including funding connected to <a href="https://startsmall.llc/" target="_blank" rel="noopener">Jack Dorsey's <strong>StartSmall Fund</strong></a>.`,
+      "Growth in program reach and formalization of digital skills curriculum pathways.",
+    ],
+  },
+  {
+    year: "2023",
+    title: "Workforce Outcomes & Alumni Leadership",
+    items: [
+      "Graduates begin securing employment, internships, and paid contract roles connected to program participation.",
+      "Alumni step into teaching, mentorship, and facilitation roles within Emergent Works programs.",
+    ],
+  },
+  {
+    year: "2024",
+    title: "Scaling Strategy & National Relevance",
+    items: [
+      "Emergent Works strengthens partnerships with ecosystem leaders including <strong>Chan Zuckerberg Initiative and Community Justice Exchange</strong>.",
+      "Launch of strategic planning focused on scaling digital workforce pathways and earned revenue models.",
+      "Expansion of programming and alumni engagement structures.",
+    ],
+  },
+  {
+    year: "2025",
+    title: "Training the Next Generation & Fee-for-Service Launch",
+    items: [
+      "Launched our Train the Trainer initiative, empowering alumni to become instructors within our curriculum.",
+      "Introduced official Fee-for-Service programs, providing our programs directly to partner organizations.",
+      "Continued expansion of alumni leadership and workforce impact through paid teaching, mentorship, and facilitation roles.",
+    ],
+  },
 ];
 ---
 
@@ -108,7 +144,6 @@ const milestones = [
   </section>
 
   <!-- Our Journey Timeline -->
-  <!-- PLACEHOLDER: Awaiting Army's real milestones -->
   <section class="st-section timeline-section">
     <div class="st-container">
       <div class="timeline-header" data-reveal>
@@ -123,7 +158,11 @@ const milestones = [
             <div class="timeline__dot" />
             <div class="timeline__content">
               <h3 class="timeline__title">{m.title}</h3>
-              <p class="timeline__desc">{m.desc}</p>
+              <ul class="timeline__list">
+                {m.items.map((item) => (
+                  <li set:html={item}></li>
+                ))}
+              </ul>
             </div>
           </div>
         ))}
@@ -362,10 +401,31 @@ const milestones = [
     margin-bottom: var(--st-space-2);
   }
 
-  .timeline__desc {
+  .timeline__list {
+    list-style: disc;
+    padding-left: 1.25rem;
+    margin: 0;
+  }
+
+  .timeline__list li {
     font-size: 0.875rem;
     line-height: 1.65;
     color: var(--st-text-secondary);
+    margin-bottom: var(--st-space-2);
+  }
+
+  .timeline__list li:last-child {
+    margin-bottom: 0;
+  }
+
+  .timeline__list a {
+    color: var(--st-green);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .timeline__list a:hover {
+    color: var(--st-gold);
   }
 
   /* ============================================
