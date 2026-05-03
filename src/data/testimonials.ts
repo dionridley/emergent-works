@@ -11,26 +11,24 @@ export interface Testimonial {
 export const testimonials: Testimonial[] = [
   {
     name: "Dontay",
-    image: "/images/testimonial/dontay.png",
     quote:
       "This program reminded me that no matter what obstacles come my way, giving up can't be an option. There were moments where I doubted myself or felt like things were too hard, but being a part of this program showed me that persistence pays off. I learned that progress doesn't always happen overnight.",
   },
   {
     name: "Zeek",
-    image: "/images/testimonial/zeek.png",
     quote:
       "This program has truly impacted my life by giving me the confidence to grow, the skills to move forward, and the support of a community that encouraged me every step of the way.",
     sectionTitle: "The Skills To Move Forward",
   },
   {
     name: "Sheisty",
-    image: "/images/testimonial/sheisty.png",
+    image: "/images/people/graduates/sheisty.png",
     quote:
       "When I came into EW, I was honestly lost. I had just turned 19, and I didn't know where I was really going. But I learned so much here, from Biggz, from Nas, from Tine, even from arguing with my peers. I learned how to control my emotions, how to communicate, how to present myself, how to really approach life differently.",
   },
   {
     name: "Nashid",
-    image: "/images/testimonial/nashid.png",
+    image: "/images/people/graduates/nashid.png",
     quote:
       "Emergent Works gave me the tools to successfully navigate the digital landscape of remote work, where success depends on communication, self-advocacy, and professional presence as much as the technical skills. The safe spaces that the team created to work through my own insecurities and anxieties, are things that can't be quantified.",
     extendedQuote:
@@ -85,6 +83,7 @@ export const testimonials: Testimonial[] = [
   {
     name: "Makeda",
     program: "TECK",
+    image: "/images/people/graduates/makeda.png",
     sectionTitle: "EW's Support Was Crucial",
     quote:
       "EW's support was crucial in helping me persevere after a 9.5-year prison sentence. Today, I am proud to say I am a successful software engineer.",
@@ -92,6 +91,7 @@ export const testimonials: Testimonial[] = [
   {
     name: "Maria",
     program: "TECK",
+    image: "/images/people/graduates/maria.png",
     sectionTitle: "Awesome Program",
     quote:
       "I gained confidence in coding at EW & as a result, I landed a full-time job w/ The Walt Disney Company. Awesome program!",
@@ -99,6 +99,7 @@ export const testimonials: Testimonial[] = [
   {
     name: "Wayne",
     program: "TECK",
+    image: "/images/people/graduates/wayne.png",
     sectionTitle: "EW Gave Me The Confidence",
     quote:
       "EW gave me the confidence and tools needed to reach my dream of working with data in the tech industry!",
@@ -106,6 +107,7 @@ export const testimonials: Testimonial[] = [
   {
     name: "Crystal",
     program: "TECK",
+    image: "/images/people/graduates/crystal.png",
     sectionTitle: "Changed My Life",
     quote:
       "Melissa was an amazing mentor, she encouraged me and allowed me to thoroughly process and then implement the learnings. We plan to keep in touch, the ability to meet a stranger who took an active role in empowering me has been a godsend.",
@@ -113,6 +115,7 @@ export const testimonials: Testimonial[] = [
   {
     name: "Rahiem",
     program: "T.RAP",
+    image: "/images/people/graduates/rahiem.png",
     sectionTitle: "It Showed Me The Light",
     quote:
       "The program showed me the light that there's opportunity out there for us just have to go out and make it work put in the time effort dedication to what you want in life and it will be accessible.",
@@ -120,6 +123,7 @@ export const testimonials: Testimonial[] = [
   {
     name: "Kindel",
     program: "T.RAP",
+    image: "/images/people/graduates/kindel.png",
     sectionTitle: "The Program Meant A Lot",
     quote:
       "The program meant a lot to me a place to begin greatness and with fellow mates couldn't ask for more it impacted me for the better just overall growing into man, father, artist etc.",
