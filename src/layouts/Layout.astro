@@ -72,14 +72,6 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
     </div>
 
     <script>
-      // Sticky header
-      const header = document.querySelector('[data-st-header]');
-      if (header) {
-        window.addEventListener('scroll', () => {
-          header.classList.toggle('st-header--solid', window.scrollY > 60);
-        }, { passive: true });
-      }
-
       // Reveal on scroll
       const revealEls = document.querySelectorAll('[data-reveal]');
       if (revealEls.length) {
@@ -473,11 +465,6 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
         height: var(--st-header-height);
         display: flex;
         align-items: center;
-        transition: background var(--st-duration) var(--st-ease),
-                    box-shadow var(--st-duration) var(--st-ease);
-      }
-
-      .st-header--solid {
         background: rgba(255, 248, 237, 0.95);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
