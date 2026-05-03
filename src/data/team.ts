@@ -108,5 +108,3 @@ export const advisoryBoard: TeamMember[] = [
     fabricated: true,
   },
 ];
-
-export const allTeam = [...staff, ...boardOfDirectors, ...advisoryBoard];

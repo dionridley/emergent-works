@@ -12,9 +12,7 @@ export default defineConfig({
   site: 'https://emergentworks.org', // required for sitemap
   integrations: [
     react(),
-    sitemap({
-      filter: (page) => !page.includes('/designs/'),
-    }),
+    sitemap(),
     mdx(),
     compress(),
   ],

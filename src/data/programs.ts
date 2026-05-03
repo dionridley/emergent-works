@@ -8,7 +8,6 @@ export interface Program {
   applyBy?: string;
   image: string;
   features: string[];
-  fabricated?: boolean;
 }
 
 export const programs: Program[] = [
@@ -126,3 +125,82 @@ export const programApproach: ProgramApproach[] = [
 
 export const directPrograms = programs.filter((p) => p.type === "direct");
 export const partnerPrograms = programs.filter((p) => p.type === "partner");
+
+export interface ExpandedProgramDetail {
+  programId: string;
+  weeklySchedule?: string[];
+  curriculumOutline?: string[];
+  toolsCovered?: string[];
+  fabricated: true;
+}
+
+export const expandedProgramDetails: ExpandedProgramDetail[] = [
+  {
+    programId: "trap",
+    weeklySchedule: [
+      "Mondays: Digital Literacy and Workreadiness (5 hours), Tuesdays: Therapeutic Song Writing and Workreadiness (5 hours), Wednesdays: Studio Recording and Workreadiness (5 hours), Thursdays: Certificate Training and Guest Speakers (5 hours)",
+    ],
+    curriculumOutline: [
+      "Community Research & Participatory Action — Development of a community research project using a Participatory Action Research (PAR) methodology. Participants identify key issues impacting their communities, conduct research, gather and analyze data, and transform findings into informed insights that drive creative and social outcomes.",
+      "Album Creation & Artistic Development — Development of a collaborative album featuring both solo and group songs rooted in the themes uncovered through research. Focus includes artistry development, songwriting, recording, performance skills, and message alignment.",
+      "Digital & Career Development Projects — Creation of multiple professional digital assets including a personal website, resume, cover letter, LinkedIn profile, job tracker, and career dashboard. Participants build essential digital competencies such as Google Suite proficiency, website building, Canva design, and foundational project management skills.",
+      "Social-Emotional Learning & Mental Wellness — Ongoing social-emotional development through music and arts-based workshops, complemented by dedicated mental health sessions with a licensed social worker to support reflection, resilience, and personal growth.",
+      "Workforce & Education Pathways — Connection to job opportunities, certification programs, and educational pathways. Participants receive application support, interview preparation, and workforce readiness training to strengthen long-term employment outcomes.",
+      "Culminating Showcase & Public Presentation — Preparation for a final showcase event featuring live performances of recorded album tracks and presentation of digital projects. Participants gain public exposure, confidence, and experience presenting their work to an audience of peers, partners, and community stakeholders.",
+    ],
+    toolsCovered: [
+      "Pro Tools",
+      "Bandcamp",
+      "Google Suite",
+      "Chat GPT/Gemini",
+      "Canva",
+    ],
+    fabricated: true,
+  },
+  {
+    programId: "teck-direct",
+    weeklySchedule: [
+      "Coordinate weekly virtual sessions with your mentor, ensuring a minimum of two hours of engagement each week.",
+    ],
+    curriculumOutline: [
+      "Mentor Matching & Goal Setting — Participants are paired with an industry professional who provides one-on-one guidance. Together, they establish interest areas and goals for the mentorship, such as coding fundamentals, digital literacy, application support, or UI/UX design, creating a personalized learning roadmap.",
+      "Weekly Mentorship Sessions — Participants meet virtually with their mentor once a week for a minimum of two hours, engaging in hands-on instruction, collaborative problem-solving, and career-focused guidance. These sessions build both technical skills and professional confidence.",
+      "Project-Based Learning — Through mentorship, participants complete portfolio-ready projects that reflect their skills in digital & AI literacy, coding, UI/UX, and applied tech tools. Projects are designed to reinforce learning, demonstrate mastery, and create tangible outcomes for future employment or educational opportunities.",
+      "Digital & AI Skills Development — Participants strengthen essential digital competencies, including Google Suite, Canva, website building, and foundational project management. These skills equip participants to navigate modern professional environments and manage digital workflows effectively.",
+      "Mentor Relationship & Professional Growth — Ongoing one-on-one mentorship fosters a strong professional relationship, providing guidance, feedback, and insight into digital industry practices. Participants gain soft skills such as problem-solving, communication, and workplace readiness, building confidence for future opportunities.",
+      "Portfolio Completion — At the conclusion of the program, participants compile their completed projects into a professional portfolio. This includes digital assets, work samples, and applied skills, providing a showcase of their growth and readiness for employment, education, or further technical training.",
+    ],
+    toolsCovered: [
+      "Google Suite",
+      "Chat GPT/Gemini",
+      "Canva",
+      "Figma",
+      "The Odin Project",
+      "Website Building Softwares",
+    ],
+    fabricated: true,
+  },
+  {
+    programId: "teck",
+    weeklySchedule: [
+      "Coordinate weekly virtual sessions with your mentor, ensuring a minimum of two hours of engagement each week.",
+    ],
+    curriculumOutline: [
+      "Mentor Matching & Goal Setting — Participants are paired with an industry professional who provides one-on-one guidance. Together, they establish interest areas and goals for the mentorship, such as coding fundamentals, digital literacy, application support, or UI/UX design, creating a personalized learning roadmap.",
+      "Weekly Mentorship Sessions — Participants meet virtually with their mentor once a week for a minimum of two hours, engaging in hands-on instruction, collaborative problem-solving, and career-focused guidance. These sessions build both technical skills and professional confidence.",
+      "Project-Based Learning — Through mentorship, participants complete portfolio-ready projects that reflect their skills in digital & AI literacy, coding, UI/UX, and applied tech tools. Projects are designed to reinforce learning, demonstrate mastery, and create tangible outcomes for future employment or educational opportunities.",
+      "Digital & AI Skills Development — Participants strengthen essential digital competencies, including Google Suite, Canva, website building, and foundational project management. These skills equip participants to navigate modern professional environments and manage digital workflows effectively.",
+      "Mentor Relationship & Professional Growth — Ongoing one-on-one mentorship fosters a strong professional relationship, providing guidance, feedback, and insight into digital industry practices. Participants gain soft skills such as problem-solving, communication, and workplace readiness, building confidence for future opportunities.",
+      "Portfolio Completion — At the conclusion of the program, participants compile their completed projects into a professional portfolio. This includes digital assets, work samples, and applied skills, providing a showcase of their growth and readiness for employment, education, or further technical training.",
+    ],
+    toolsCovered: [
+      "Google Suite",
+      "Chat GPT/Gemini",
+      "Canva",
+      "Figma",
+      "The Odin Project",
+      "Website Building Softwares",
+    ],
+    fabricated: true,
+  },
+];

@@ -5,7 +5,6 @@ export interface Testimonial {
   extendedQuote?: string;
   sectionTitle?: string;
   program?: string;
-  fabricated?: boolean;
 }
 
 export const testimonials: Testimonial[] = [
@@ -130,52 +129,6 @@ export const testimonials: Testimonial[] = [
   },
 ];
 
-// Fabricated testimonials for richer designs
-export const fabricatedTestimonials: Testimonial[] = [
-  {
-    name: "Marcus",
-    quote:
-      "I came home after eight years and didn't know how to use a smartphone properly. My mentor at EW didn't just teach me to code — she taught me that my past doesn't define my potential. Now I'm a junior developer at a tech startup, and I wake up every day knowing I'm building something real.",
-    program: "TECK",
-    fabricated: true,
-  },
-  {
-    name: "Aisha",
-    quote:
-      "T.RAP gave me a voice when I felt like nobody was listening. Writing lyrics became my therapy, and the studio became my safe space. I never thought I'd be producing tracks for other artists, but here I am.",
-    program: "T.RAP",
-    fabricated: true,
-  },
-  {
-    name: "DeShawn",
-    quote:
-      "The TECK program changed everything for me. I went from not knowing how to create a spreadsheet to managing digital operations for a nonprofit. The skills are important, but the confidence is what really changed my life.",
-    program: "TECK",
-    fabricated: true,
-  },
-  {
-    name: "Priya",
-    sectionTitle: "More Than Just Skills",
-    quote:
-      "As a mentor at Emergent Works, I thought I was just teaching someone to code. But my mentee taught me about resilience, about showing up when things are hard, about finding purpose in the struggle. This experience has made me a better engineer and a better human.",
-    fabricated: true,
-  },
-  {
-    name: "Terrence",
-    quote:
-      "I spent 12 years inside, and when I got out the whole world had changed. EW didn't just catch me up — they put me ahead. I built my first website in the program, and now I freelance full-time doing web development. My kids are proud of me, and honestly, I'm proud of me too.",
-    program: "TECK",
-    fabricated: true,
-  },
-  {
-    name: "Sofia",
-    sectionTitle: "Finding Community",
-    quote:
-      "What makes EW different is the community. Everyone here has a story, and everyone here is writing a new chapter. I found my people here — people who understand where I've been and believe in where I'm going.",
-    fabricated: true,
-  },
-];
-
 // Real mentor testimonials
 export const mentorTestimonials: Testimonial[] = [
   {
@@ -197,5 +150,3 @@ export const mentorTestimonials: Testimonial[] = [
       "Mentoring Kat has been such a joy. She puts so much time in learning UX design that when it comes to our sessions, it feels more like conversations than teaching. It's become my favorite part of the week. Kat and I have been reviewing her portfolio and freelance websites. I love seeing Kat's progression in her website designs. She already has a good eye for design. So using her new skillsets has made her website better! My favorite part is watching her explore new opportunities that she didn't have prior to learning technical skills.",
   },
 ];
-
-export const allTestimonials = [...testimonials, ...fabricatedTestimonials];
