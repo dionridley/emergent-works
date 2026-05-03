@@ -31,13 +31,5 @@ export const donationTiers: DonationTier[] = [
   },
 ];
 
-export type DonationFrequency = "one-time" | "monthly" | "yearly";
-
-export const donationFrequencies: { value: DonationFrequency; label: string }[] = [
-  { value: "one-time", label: "One time" },
-  { value: "monthly", label: "Monthly" },
-  { value: "yearly", label: "Yearly" },
-];
-
 export const donationTrust =
   "Emergent Works is a 501(c)(3) nonprofit organization. EIN: 85-1197743. All donations are tax-deductible to the extent allowed by law.";

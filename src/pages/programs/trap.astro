@@ -2,9 +2,8 @@
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import { programs } from "../../data/programs";
+import { programs, expandedProgramDetails } from "../../data/programs";
 import { testimonials } from "../../data/testimonials";
-import { expandedProgramDetails } from "../../data/fabricated";
 
 const trap = programs.find((p) => p.id === "trap")!;
 const trapDetails = expandedProgramDetails.find((d) => d.programId === "trap")!;
@@ -74,7 +73,7 @@ const nas = testimonials.find((t) => t.name === "Nas")!;
     <div class="st-container">
       <div class="st-grid-40-60" data-reveal>
         <figure class="st-editorial-image">
-          <img src="/images/designs/stock/music-studio-2.jpg" alt="Nas, T.RAP graduate" style="aspect-ratio:3/4;object-fit:cover;" />
+          <img src="/images/stock/music-studio-2.jpg" alt="Nas, T.RAP graduate" style="aspect-ratio:3/4;object-fit:cover;" />
           <figcaption>A T.RAP studio session in action</figcaption>
         </figure>
         <div>
