@@ -2,21 +2,21 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import PageHero from "../components/PageHero.astro";
 import { staff, boardOfDirectors, advisoryBoard } from "../data/team";
+import mentorshipLibrary from "../assets/programs/mentorship-library.jpg";
 ---
 
 <Layout title="Our Team">
   <Header currentPath="/team/" />
 
-  <section class="team-hero">
-    <div class="st-container">
-      <div data-reveal>
-        <span class="st-chapter">The People</span>
-        <h1>The Faces<br />Behind the<br />Mission</h1>
-        <p class="team-hero__sub">100% of our staff are program alumni. They don't just understand the journey — they've lived it.</p>
-      </div>
-    </div>
-  </section>
+  <PageHero
+    image={mentorshipLibrary}
+    imageAlt="Emergent Works team and community at the library"
+    kicker="The People"
+    title="The Faces<br />Behind the<br />Mission"
+    subtitle="100% of our staff are program alumni. They don't just understand the journey — they've lived it."
+  />
 
   <!-- Staff as mini-profiles -->
   <section class="st-section">
@@ -97,10 +97,6 @@ import { staff, boardOfDirectors, advisoryBoard } from "../data/team";
 </Layout>
 
 <style>
-  .team-hero { padding:calc(var(--st-header-height) + var(--st-space-16)) 0 var(--st-space-10); }
-  .team-hero h1 { color:var(--st-green); font-size:clamp(3rem,8vw,5.5rem); }
-  .team-hero__sub { font-size:1.125rem; color:var(--st-text-secondary); max-width:480px; margin-top:var(--st-space-5); line-height:1.75; }
-
   .staff-profiles { display:flex; flex-direction:column; gap:var(--st-space-8); margin-top:var(--st-space-6); }
 
   .staff-profile {

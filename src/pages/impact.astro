@@ -3,10 +3,12 @@ import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import PageHero from "../components/PageHero.astro";
 import impactDigitalLiteracy from "../assets/impact/digital-literacy.jpg";
 import impactSel from "../assets/impact/sel.jpg";
 import impactCareerDevelopment from "../assets/impact/career-development.jpg";
 import impactCommunityEngagement from "../assets/impact/community-engagement.jpg";
+import trapStudio from "../assets/programs/trap-studio.jpg";
 
 const statsRow1 = [
   { value: "261", label: "Graduates", desc: "System-impacted individuals have graduated from EW" },
@@ -63,16 +65,14 @@ const pillars = [
 <Layout title="Impact">
   <Header currentPath="/impact/" />
 
-  <!-- Hero -->
-  <section class="impact-hero">
-    <div class="st-container">
-      <div class="impact-hero__content" data-reveal>
-        <span class="st-chapter" style="justify-content:center;color:var(--st-gold);">Our Impact</span>
-        <h1>Measuring What Matters</h1>
-        <p class="impact-hero__sub">Emergent Works supports at least 50 system-impacted individuals annually through creative workforce development, digital skills training, and creative career pathways. Our programs are designed to create lasting impact across economic mobility, personal growth, leadership development, and community connection.</p>
-      </div>
-    </div>
-  </section>
+  <PageHero
+    image={trapStudio}
+    imageAlt="T.RAP graduates celebrating with their certificates"
+    kicker="Our Impact"
+    title="Measuring What Matters"
+    subtitle="Emergent Works supports at least 50 system-impacted individuals annually through creative workforce development, digital skills training, and creative career pathways. Our programs are designed to create lasting impact across economic mobility, personal growth, leadership development, and community connection."
+    align="center"
+  />
 
   <!-- Stats Row 1 -->
   <section class="st-section stats-row-1">
@@ -181,28 +181,6 @@ const pillars = [
 </Layout>
 
 <style>
-  /* ============================================
-     HERO
-     ============================================ */
-  .impact-hero {
-    padding: calc(var(--st-header-height) + var(--st-space-16)) 0 var(--st-space-12);
-    background: var(--st-green-dark);
-    text-align: center;
-  }
-
-  .impact-hero h1 {
-    color: var(--st-white);
-    font-size: clamp(2.5rem, 7vw, 5rem);
-  }
-
-  .impact-hero__sub {
-    font-size: 1.0625rem;
-    line-height: 1.8;
-    color: var(--st-sage);
-    max-width: 640px;
-    margin: var(--st-space-5) auto 0;
-  }
-
   /* ============================================
      STATS ROWS
      ============================================ */

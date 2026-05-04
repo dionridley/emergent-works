@@ -3,12 +3,14 @@ import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import PageHero from "../components/PageHero.astro";
 import { organization } from "../data/organization";
 import { donationTiers, donationTrust } from "../data/donation";
 import { partnershipTypes } from "../data/partners";
 import { mentorTestimonials } from "../data/testimonials";
 import { partnerTestimonials } from "../data/partners";
 import portrait5 from "../assets/stock/portrait-5.jpg";
+import careerDevelopment from "../assets/impact/career-development.jpg";
 
 const mentorQuote = mentorTestimonials.find((t) => t.name === "Meagan")!;
 
@@ -67,15 +69,13 @@ const mentorshipPairings = [
 <Layout title="Get Involved">
   <Header currentPath="/get-involved/" />
 
-  <section class="gi-hero">
-    <div class="st-container">
-      <div data-reveal>
-        <span class="st-chapter">Your chapter begins here</span>
-        <h1>The Next Story<br />Starts With You</h1>
-        <p class="gi-hero__sub">Every transformation at Emergent Works was made possible by someone who chose to act. Mentors, donors, partners, and volunteers — each one became part of someone's story.</p>
-      </div>
-    </div>
-  </section>
+  <PageHero
+    image={careerDevelopment}
+    imageAlt="A mentor working alongside an Emergent Works participant"
+    kicker="Your chapter begins here"
+    title="The Next Story<br />Starts With You"
+    subtitle="Every transformation at Emergent Works was made possible by someone who chose to act. Mentors, donors, partners, and volunteers — each one became part of someone's story."
+  />
 
   <!-- Mentor testimonial -->
   <section class="st-section st-section--white">
@@ -379,10 +379,6 @@ const mentorshipPairings = [
 </Layout>
 
 <style>
-  .gi-hero { padding:calc(var(--st-header-height) + var(--st-space-16)) 0 var(--st-space-10); }
-  .gi-hero h1 { color:var(--st-green); }
-  .gi-hero__sub { font-size:1.125rem; color:var(--st-text-secondary); max-width:520px; margin-top:var(--st-space-5); line-height:1.75; }
-
   .donation-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:var(--st-space-5); }
   .donation-card { text-align:center; padding:var(--st-space-6) var(--st-space-4); border:1px solid var(--st-border); border-radius:4px; transition:transform var(--st-duration) var(--st-ease), box-shadow var(--st-duration) var(--st-ease); }
   .donation-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(32,73,60,0.08); }
