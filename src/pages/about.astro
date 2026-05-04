@@ -1,9 +1,11 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { organization } from "../data/organization";
 import { programApproach } from "../data/programs";
+import missionGroup from "../assets/about/mission-group.jpg";
 
 const staffStatItems = [
   { value: "100%", label: "Alumni Staff", desc: "Every team member has completed an EW program" },
@@ -75,7 +77,7 @@ const milestones = [
     <div class="st-container">
       <div class="origin-grid" data-reveal>
         <div class="origin-image">
-          <img src="/images/about/mission-group.jpg" alt="Emergent Works community" loading="lazy" />
+          <Image src={missionGroup} alt="Emergent Works community" layout="constrained" loading="lazy" />
         </div>
         <div class="origin-content">
           <span class="st-kicker">Our Story</span>
@@ -182,7 +184,7 @@ const milestones = [
         {programApproach.map((pillar, i) => (
           <div class="pillar-card" data-reveal={`delay-${i + 1}`}>
             <figure class="st-editorial-image">
-              <img src={pillar.image} alt={pillar.title} style="aspect-ratio:4/3;object-fit:cover;border-radius:2px;" />
+              <Image src={pillar.image} alt={pillar.title} layout="constrained" style="aspect-ratio:4/3;object-fit:cover;border-radius:2px;" />
             </figure>
             <h3>{pillar.title}</h3>
             <p>{pillar.description}</p>

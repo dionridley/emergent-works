@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -7,6 +8,7 @@ import { donationTiers, donationTrust } from "../data/donation";
 import { partnershipTypes } from "../data/partners";
 import { mentorTestimonials } from "../data/testimonials";
 import { partnerTestimonials } from "../data/partners";
+import portrait5 from "../assets/stock/portrait-5.jpg";
 
 const mentorQuote = mentorTestimonials.find((t) => t.name === "Meagan")!;
 
@@ -80,7 +82,7 @@ const mentorshipPairings = [
     <div class="st-container">
       <div class="st-grid-40-60" data-reveal>
         <figure class="st-editorial-image">
-          <img src="/images/stock/portrait-5.jpg" alt="Mentor" style="aspect-ratio:3/4;object-fit:cover;" />
+          <Image src={portrait5} alt="Mentor" layout="constrained" style="aspect-ratio:3/4;object-fit:cover;" />
           <figcaption>A volunteer mentor sharing expertise</figcaption>
         </figure>
         <div>

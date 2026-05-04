@@ -116,3 +116,52 @@ If accepted, the migration itself is scoped as a separate plan: **`009-astro-ima
 - Astro 5 image guide: `https://docs.astro.build/en/guides/images/`
 - `astro:assets` API reference: `https://docs.astro.build/en/reference/modules/astro-assets/`
 - Image config options: `https://docs.astro.build/en/reference/configuration-reference/#image-options`
+
+---
+
+## Migration Outcome (2026-05-03)
+
+Plan `009-astro-image-optimization-migration` executed under **Option A (Full migrate)**, not the recommendation's preferred Option B. Detailed measurements live in [`image-optimization-results.md`](./image-optimization-results.md); baseline numbers in [`image-optimization-baseline-2026-05-03.md`](./image-optimization-baseline-2026-05-03.md).
+
+### Files migrated (14 of the recommendation's 13 candidates)
+
+- `hero/community.jpg` (1)
+- `stock/{community-group-4,music-studio-2,portrait-5,portrait-7,tech-coding-4}.jpg` (5)
+- `about/mission-group.jpg` (1)
+- `programs/{trap-studio,teck-library,mentorship-library}.jpg` (3)
+- `impact/{career-development,community-engagement,digital-literacy,sel}.jpg` (4)
+
+The recommendation listed 13; the executed scope was 14. The discrepancy is `mentorship-library.jpg`, which is referenced by two `Program.image` entries (`teck-direct` and `trap-partner`) — the recommendation likely double-counted consumers and under-counted unique files.
+
+### Measured deltas vs. recommendation forecast
+
+| Forecast | Actual | Verdict |
+| --- | --- | --- |
+| Build time +5–10s (Option A: 15–25s) | +7.23s (6.08s → 13.31s median) | **Within forecast** |
+| Payload reduction ~2–3 MB | Total `dist/` **grew by +3.07 MB** | Forecast was wrong about direction at the `dist/` level — see note below |
+| Per-served-byte reduction (implied "wins on the hero") | **76% average** at smallest viewport (range 62–80%) | **Confirmed and measurable** |
+| `astro-compress` config change required | None required — coexists at defaults | Better than forecast |
+
+### Note on the payload-reduction forecast
+
+The recommendation's "~2–3 MB additional payload reduction" estimate was an apples-to-oranges comparison. Total `dist/` bytes **grew** by ~3 MB because each migrated image now ships as 3–5 hashed responsive variants. The metric that actually matters — **per-client served bytes** — dropped by ~76% for migrated images. Future recommendations involving responsive images should distinguish "per-client served bytes" (the user-facing win) from "total deployed bytes" (which grows with variant count).
+
+### Was Option A the right call?
+
+**Yes, given the cost matched forecast.** The data-file refactor (`Program.image` and `ProgramApproach.image` from `string` to `ImageMetadata`) was straightforward — TypeScript guided the cascade through 5 consumer pages cleanly, no surprise regressions. The `astro-compress` interaction also turned out to be a non-issue, removing one of Option B's safety arguments. Build time settled at the lower end of the forecast (13.31s vs. the 15–25s upper bound).
+
+That said, the recommendation's preference for Option B remains defensible for projects without:
+- An immediate need for above-the-fold WebP + `srcset` on data-driven images.
+- Confidence in TypeScript discipline across consumer pages.
+
+For Emergent Works specifically, Option A delivered better ergonomics (one `image: ImageMetadata` field, IDE autocomplete, content-hashed cache busting) at acceptable cost.
+
+### Re-evaluating the "When to revisit Option A" thresholds
+
+Most of the original thresholds (image count, Lighthouse score, CDN, build time, team-photo growth) are now moot for this batch — Option A has been executed. The thresholds remain useful for **future** images added to the project: every new above-the-fold image should default to `src/assets/` + `<Image>` going forward, since the pipeline is now wired and validated.
+
+### Outstanding items
+
+- **Lighthouse before/after** completed by developer on 2026-05-03 — reported "ok" (no regression).
+- **Manual visual spot-check** completed by developer on 2026-05-03 — visual parity confirmed across migrated routes.
+- **Stray unmigrated files in `public/images/{programs,impact}/`** (`hero.jpg` × 2, `programs/laptop-illustration.png`) were never in plan 009 scope. They remain `<img>`-served. If any of those become above-the-fold or large, fold them into a future micro-plan using the now-validated pipeline.
