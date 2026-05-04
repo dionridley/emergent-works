@@ -1,3 +1,12 @@
+import type { ImageMetadata } from "astro";
+import trapStudio from "../assets/programs/trap-studio.jpg";
+import teckLibrary from "../assets/programs/teck-library.jpg";
+import mentorshipLibrary from "../assets/programs/mentorship-library.jpg";
+import impactDigitalLiteracy from "../assets/impact/digital-literacy.jpg";
+import impactSel from "../assets/impact/sel.jpg";
+import impactCareerDevelopment from "../assets/impact/career-development.jpg";
+import impactCommunityEngagement from "../assets/impact/community-engagement.jpg";
+
 export interface Program {
   id: string;
   title: string;
@@ -6,7 +15,7 @@ export interface Program {
   eligibility: string;
   duration: string;
   applyBy?: string;
-  image: string;
+  image: ImageMetadata;
   features: string[];
 }
 
@@ -21,7 +30,7 @@ export const programs: Program[] = [
       "NYC youth ages 16-24 who identify as Black, Brown and system-impacted",
     duration: "July – June",
     applyBy: "Ongoing",
-    image: "/images/programs/trap-studio.jpg",
+    image: trapStudio,
     features: [
       "Music production",
       "Songwriting",
@@ -43,7 +52,7 @@ export const programs: Program[] = [
       "System-impacted individuals 18+ residing in United States",
     duration: "12 weeks, all year round",
     applyBy: "Ongoing",
-    image: "/images/programs/mentorship-library.jpg",
+    image: mentorshipLibrary,
     features: [
       "1-on-1 mentorship",
       "Digital literacy",
@@ -62,7 +71,7 @@ export const programs: Program[] = [
     eligibility:
       "Cohorts designed for system-impacted communities from partner organizations",
     duration: "4, 8, or 12 weeks",
-    image: "/images/programs/teck-library.jpg",
+    image: teckLibrary,
     features: [
       "Google Suite",
       "AI tools",
@@ -79,7 +88,7 @@ export const programs: Program[] = [
       "Our T.RAP program offers immersive social-emotional learning and creative skills training exclusively for partner organizations. Cohorts run 8-12+ weeks, guiding participants through therapeutic writing, music production, and leadership development. T.RAP helps organizations empower their communities with emotional resilience and creative expression, all led by Emergent Works' experienced instructors and alumni mentors.",
     eligibility: "System-impacted youth ages 16-24",
     duration: "8–12 weeks+",
-    image: "/images/programs/mentorship-library.jpg",
+    image: mentorshipLibrary,
     features: [
       "Therapeutic writing",
       "Music production",
@@ -93,7 +102,7 @@ export const programs: Program[] = [
 export interface ProgramApproach {
   title: string;
   description: string;
-  image: string;
+  image: ImageMetadata;
 }
 
 export const programApproach: ProgramApproach[] = [
@@ -101,25 +110,25 @@ export const programApproach: ProgramApproach[] = [
     title: "Digital Literacy Training",
     description:
       "Equipping our community with practical experience with industry accepted digital tools to complete professional tasks efficiently and effectively.",
-    image: "/images/impact/digital-literacy.jpg",
+    image: impactDigitalLiteracy,
   },
   {
     title: "Social Emotional Learning",
     description:
       "Amplifying voices & rewriting futures through music production, audio engineering, studio recordings and mental health sessions.",
-    image: "/images/impact/sel.jpg",
+    image: impactSel,
   },
   {
     title: "Career Development",
     description:
       "Providing foundational technical and social skills to navigate today's workplace as well as opportunities to apply learnings and gain experience.",
-    image: "/images/impact/career-development.jpg",
+    image: impactCareerDevelopment,
   },
   {
     title: "Community Engagement",
     description:
       "Equipping participants to collaborate and explore community issues whilst leading change through civic engagement and research.",
-    image: "/images/impact/community-engagement.jpg",
+    image: impactCommunityEngagement,
   },
 ];
 

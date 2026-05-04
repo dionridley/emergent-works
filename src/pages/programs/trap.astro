@@ -1,9 +1,11 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import { programs, expandedProgramDetails } from "../../data/programs";
 import { testimonials } from "../../data/testimonials";
+import musicStudio2 from "../../assets/stock/music-studio-2.jpg";
 
 const trap = programs.find((p) => p.id === "trap")!;
 const trapDetails = expandedProgramDetails.find((d) => d.programId === "trap")!;
@@ -18,7 +20,7 @@ const nas = testimonials.find((t) => t.name === "Nas")!;
   <!-- Hero -->
   <section class="trap-hero">
     <div class="trap-hero__bg">
-      <img src={trap.image} alt="T.RAP studio" />
+      <Image src={trap.image} alt="T.RAP studio" layout="full-width" priority />
       <div class="trap-hero__overlay" />
     </div>
     <div class="st-container trap-hero__content" data-reveal>
@@ -73,7 +75,7 @@ const nas = testimonials.find((t) => t.name === "Nas")!;
     <div class="st-container">
       <div class="st-grid-40-60" data-reveal>
         <figure class="st-editorial-image">
-          <img src="/images/stock/music-studio-2.jpg" alt="Nas, T.RAP graduate" style="aspect-ratio:3/4;object-fit:cover;" />
+          <Image src={musicStudio2} alt="Nas, T.RAP graduate" layout="constrained" style="aspect-ratio:3/4;object-fit:cover;" />
           <figcaption>A T.RAP studio session in action</figcaption>
         </figure>
         <div>

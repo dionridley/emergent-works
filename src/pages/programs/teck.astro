@@ -1,10 +1,12 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import { programs, expandedProgramDetails } from "../../data/programs";
 import { testimonials } from "../../data/testimonials";
 import { partners } from "../../data/partners";
+import techCoding4 from "../../assets/stock/tech-coding-4.jpg";
 
 const teck = programs.find((p) => p.id === "teck")!;
 const teckDetails = expandedProgramDetails.find((d) => d.programId === "teck")!;
@@ -17,7 +19,7 @@ const kat = testimonials.find((t) => t.name === "Kat")!;
   <!-- Hero -->
   <section class="teck-hero">
     <div class="teck-hero__bg">
-      <img src={teck.image} alt="TECK workshop" />
+      <Image src={teck.image} alt="TECK workshop" layout="full-width" priority />
       <div class="teck-hero__overlay" />
     </div>
     <div class="st-container teck-hero__content" data-reveal>
@@ -78,7 +80,7 @@ const kat = testimonials.find((t) => t.name === "Kat")!;
           </blockquote>
         </div>
         <figure class="st-editorial-image">
-          <img src="/images/stock/tech-coding-4.jpg" alt="Kat, TECK graduate" style="aspect-ratio:3/4;object-fit:cover;" />
+          <Image src={techCoding4} alt="Kat, TECK graduate" layout="constrained" style="aspect-ratio:3/4;object-fit:cover;" />
           <figcaption>Building digital confidence, one session at a time</figcaption>
         </figure>
       </div>

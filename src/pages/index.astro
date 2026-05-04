@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -7,6 +8,9 @@ import { testimonials } from "../data/testimonials";
 import { programs, programApproach } from "../data/programs";
 import { primaryStats } from "../data/stats";
 import { partners } from "../data/partners";
+import heroCommunity from "../assets/hero/community.jpg";
+import portrait7 from "../assets/stock/portrait-7.jpg";
+import communityGroup4 from "../assets/stock/community-group-4.jpg";
 
 const nashid = testimonials.find((t) => t.name === "Nashid")!;
 const sheisty = testimonials.find((t) => t.name === "Sheisty")!;
@@ -29,7 +33,7 @@ const carouselTestimonials = [nashid, dontay, sheisty, makeda, maria, wayne, cry
   <!-- HERO: Full-bleed cinematic -->
   <section class="hero">
     <div class="hero__image">
-      <img src="/images/hero/community.jpg" alt="Emergent Works community" />
+      <Image src={heroCommunity} alt="Emergent Works community" layout="full-width" priority />
       <div class="hero__overlay" />
     </div>
     <div class="st-container hero__content">
@@ -50,7 +54,7 @@ const carouselTestimonials = [nashid, dontay, sheisty, makeda, maria, wayne, cry
     <div class="st-container">
       <div class="st-grid-60-40 featured" data-reveal>
         <figure class="st-editorial-image">
-          <img src="/images/stock/portrait-7.jpg" alt="Terrence" style="aspect-ratio:4/5;object-fit:cover;border-radius:2px;" />
+          <Image src={portrait7} alt="Terrence" layout="constrained" style="aspect-ratio:4/5;object-fit:cover;border-radius:2px;" />
           <figcaption>Terrence, TECK 2023 Graduate</figcaption>
         </figure>
         <div class="featured__text">
@@ -97,7 +101,7 @@ const carouselTestimonials = [nashid, dontay, sheisty, makeda, maria, wayne, cry
       {programs.filter(p => p.type === "direct").map((program, i) => (
         <div class:list={["program-feature", { "program-feature--reverse": i % 2 === 1 }]} data-reveal>
           <figure class="st-editorial-image program-feature__image">
-            <img src={program.image} alt={program.title} style="aspect-ratio:16/10;object-fit:cover;" />
+            <Image src={program.image} alt={program.title} layout="constrained" style="aspect-ratio:16/10;object-fit:cover;" />
           </figure>
           <div class="program-feature__text">
             <span class="st-chapter">{program.type === "direct" ? "Direct Program" : "Partner Program"}</span>
@@ -210,7 +214,7 @@ const carouselTestimonials = [nashid, dontay, sheisty, makeda, maria, wayne, cry
   <!-- CTA: Write the Next Chapter -->
   <section class="cta-section">
     <div class="cta-section__bg">
-      <img src="/images/stock/community-group-4.jpg" alt="" />
+      <Image src={communityGroup4} alt="" layout="full-width" />
       <div class="cta-section__overlay" />
     </div>
     <div class="st-container cta-section__content" data-reveal>

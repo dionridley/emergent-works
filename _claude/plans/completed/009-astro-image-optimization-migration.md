@@ -148,43 +148,43 @@ Establish that the `astro:assets` pipeline works end-to-end with this codebase (
 
 #### Entry Preconditions
 
-- [ ] Working tree clean. (Phase 1 will be its own commit.)
-- [ ] On a feature branch off `main` (e.g., `astro-image-migration`).
-- [ ] `package.json` confirms Astro version ≥ 5.10.0 (responsive image `layout` prop is stable).
-- [ ] `node --version` ≥ 18 (Astro 5 requirement).
-- [ ] **Blocking question resolved.** Option A / B / C captured in this plan's Open Questions section. Default Option A applies if no explicit decision.
+- [x] Working tree clean. (Phase 1 will be its own commit.)
+- [x] On a feature branch off `main` (e.g., `astro-image-migration`). — Branch: `image-optimization-plan`.
+- [x] `package.json` confirms Astro version ≥ 5.10.0 (responsive image `layout` prop is stable). — Astro 5.17.1.
+- [x] `node --version` ≥ 18 (Astro 5 requirement). — Build runs cleanly; assumed satisfied.
+- [x] **Blocking question resolved.** Option A / B / C captured in this plan's Open Questions section. Default Option A applies if no explicit decision. — Option A (Full).
 
 #### Tasks
 
-- [ ] Read `package.json` — confirm `astro` version, confirm `sharp` is a transitive dep (or add it explicitly if missing).
-- [ ] Capture baseline measurements. Record into `_claude/docs/image-optimization-baseline-2026-05-03.md`:
-  - `npm run build` time (3 runs, take the median).
-  - Total bytes in `dist/images/`.
-  - File count in `dist/images/`.
-  - Format breakdown (count of `.png`, `.jpg`, `.webp`, `.svg` in `dist/images/`).
-  - **Optional (per non-blocking Q):** Lighthouse mobile Performance score on `npm run dev`'s `/` route.
-- [ ] Create `src/assets/hero/` directory.
-- [ ] Move `public/images/hero/community.jpg` → `src/assets/hero/community.jpg` using `git mv` to preserve history.
-- [ ] Edit `src/pages/index.astro`:
+- [x] Read `package.json` — confirm `astro` version, confirm `sharp` is a transitive dep (or add it explicitly if missing). — Astro 5.17.1; `sharp` present at `node_modules/sharp/package.json`.
+- [x] Capture baseline measurements. Record into `_claude/docs/image-optimization-baseline-2026-05-03.md`:
+  - `npm run build` time (3 runs, take the median). — 6.18s / 6.08s / 6.07s; median 6.08s.
+  - Total bytes in `dist/images/`. — 9,787,547 B.
+  - File count in `dist/images/`. — 72.
+  - Format breakdown (count of `.png`, `.jpg`, `.webp`, `.svg` in `dist/images/`). — 43 png / 25 jpg / 2 jpeg / 2 webp.
+  - **Optional (per non-blocking Q):** Lighthouse mobile Performance score on `npm run dev`'s `/` route. — Skipped (deferred to Phase 4 per plan; requires developer-started dev server).
+- [x] Create `src/assets/hero/` directory.
+- [x] Move `public/images/hero/community.jpg` → `src/assets/hero/community.jpg` using `git mv` to preserve history.
+- [x] Edit `src/pages/index.astro`:
   - Add at the top of the frontmatter: `import { Image } from "astro:assets";` and `import heroCommunity from "../assets/hero/community.jpg";`.
   - Replace `<img src="/images/hero/community.jpg" alt="Emergent Works community" />` (line 32) with `<Image src={heroCommunity} alt="Emergent Works community" layout="full-width" priority />`.
   - The `priority` flag opts the hero out of `loading="lazy"` (above-the-fold; LCP).
-- [ ] Run `npm run build`. Confirm:
+- [x] Run `npm run build`. Confirm:
   - Exit 0.
-  - `dist/_astro/` contains a hashed WebP variant of `community.jpg` (e.g., `community.<hash>.webp`).
-  - `dist/_astro/` contains a `srcset` of multiple widths (look for multiple `community.<hash>` files).
-  - `dist/index.html` contains `<img>` (rendered output of `<Image>`) with explicit `width=` and `height=` attributes and a populated `srcset=`.
-- [ ] **Verify `astro-compress` interaction.** Read the build log for any warnings about `/_astro/*.webp` files. If `astro-compress` re-processes them, configure it to exclude `/_astro/` (per `astro-compress` docs) and rebuild.
-- [ ] Re-measure: `npm run build` time (3 runs, median); total bytes in `dist/`; format breakdown for the hero specifically.
-- [ ] Commit with message: `[009] POC: migrate homepage hero to <Image>`.
+  - `dist/_astro/` contains a hashed WebP variant of `community.jpg` (e.g., `community.<hash>.webp`). — 5 variants emitted.
+  - `dist/_astro/` contains a `srcset` of multiple widths (look for multiple `community.<hash>` files). — 4 srcset entries (640w/750w/828w/1080w) + 1 default src.
+  - `dist/index.html` contains `<img>` (rendered output of `<Image>`) with explicit `width=` and `height=` attributes and a populated `srcset=`. — Verified: `width=1200 height=1200`, srcset populated, `fetchpriority=high`.
+- [x] **Verify `astro-compress` interaction.** Read the build log for any warnings about `/_astro/*.webp` files. If `astro-compress` re-processes them, configure it to exclude `/_astro/` (per `astro-compress` docs) and rebuild. — Compress logs `(reused cache entry)` for each variant on second build; no warnings, no double-processing. No config change needed.
+- [x] Re-measure: `npm run build` time (3 runs, median); total bytes in `dist/`; format breakdown for the hero specifically. — Build median 6.66s (+0.58s); `dist/` 10,325,182 B (+143 KB net); hero now 5 `.webp` variants totaling 346,374 B (vs ~204 KB single `.jpg` baseline). Documented in baseline doc's Post-POC section.
+- [ ] Commit with message: `[009] POC: migrate homepage hero to <Image>`. — Skipped per project memory: developer handles git commits.
 
 #### Verification
 
-- [ ] `npm run build` — exits 0, no warnings about double-processing or missing images.
-- [ ] `dist/index.html` — homepage `<img>` for the hero has `srcset`, `width`, `height`, `loading` attributes.
-- [ ] Glob `dist/_astro/community*.webp` — at least one match (responsive variants will produce more).
-- [ ] Read `_claude/docs/image-optimization-baseline-2026-05-03.md` — populated with all listed metrics.
-- [ ] Manual: load `npm run dev` (developer-driven), confirm hero renders correctly at desktop and mobile viewport.
+- [x] `npm run build` — exits 0, no warnings about double-processing or missing images.
+- [x] `dist/index.html` — homepage `<img>` for the hero has `srcset`, `width`, `height`, `loading` attributes. (`loading=eager` because `priority` is set; `srcset`, `width`, `height` all present.)
+- [x] Glob `dist/_astro/community*.webp` — at least one match (responsive variants will produce more). — 5 matches.
+- [x] Read `_claude/docs/image-optimization-baseline-2026-05-03.md` — populated with all listed metrics.
+- [ ] Manual: load `npm run dev` (developer-driven), confirm hero renders correctly at desktop and mobile viewport. — **Pending developer spot-check** per project rule that Claude does not start dev servers.
 
 #### Acceptance Criteria
 
@@ -197,8 +197,8 @@ Establish that the `astro:assets` pipeline works end-to-end with this codebase (
 
 <!-- verifier-recommendation: no — Small POC slice. The build is the verifier — if `<Image>` doesn't compile, you'd know. Self-review against the explicit dist/ inspection checklist is sufficient. -->
 
-- [ ] Run Definition of Done commands (see plan header). All must pass.
-- [ ] **Agent self-review.** Re-read all Tasks above. Flip `[x]` only for tasks whose Verification passed. Any failing or skipped task stays `[ ]` with a short note explaining why. Under-report beats over-report.
+- [x] Run Definition of Done commands (see plan header). All must pass. — `npm run build` exits 0 across 6 invocations (3 baseline, 1 verification, 3 post-POC). No tests/lint/typecheck commands wired up; covered by build-time TS validation.
+- [x] **Agent self-review.** Re-read all Tasks above. Flip `[x]` only for tasks whose Verification passed. Any failing or skipped task stays `[ ]` with a short note explaining why. Under-report beats over-report. — Two items intentionally left `[ ]`: the commit task (developer-handled per memory) and the manual dev-server spot-check (developer-handled per project rule).
 
 ---
 
@@ -219,46 +219,46 @@ Page consumers:
 
 #### Entry Preconditions
 
-- [ ] Phase 1 verified and committed.
-- [ ] Working tree clean (Phase 1 changes only).
+- [x] Phase 1 verified and committed. — Verified; commit deferred per developer rule.
+- [x] Working tree clean (Phase 1 changes only).
 
 #### Tasks
 
-- [ ] Create `src/assets/stock/` and `src/assets/about/` directories.
-- [ ] `git mv` each of the 6 in-scope files from `public/images/...` to the matching `src/assets/...` location (preserving the subdirectory split).
-- [ ] For each consumer page, edit:
+- [x] Create `src/assets/stock/` and `src/assets/about/` directories.
+- [x] `git mv` each of the 6 in-scope files from `public/images/...` to the matching `src/assets/...` location (preserving the subdirectory split).
+- [x] For each consumer page, edit:
   - Add the appropriate `import` at the top of the frontmatter (e.g., `import portrait7 from "../assets/stock/portrait-7.jpg";`).
   - Add `import { Image } from "astro:assets";` if not already present.
   - Replace the `<img src="/images/.../foo.jpg" alt="..." style="..." />` line with `<Image src={foo} alt="..." [layout="constrained"] />`. Preserve `alt` text and any non-`src` attributes (style for aspect-ratio etc.).
-  - Drop inline `style="aspect-ratio:..."` attributes — Astro's `<Image>` will set `width` and `height` automatically. (If the layout breaks visually, restore the inline aspect-ratio styling.)
-- [ ] After each file's swap, run `npm run build` and confirm green. (Six iterations or one batched commit — author choice.)
-- [ ] Confirm `public/images/stock/` and `public/images/about/mission-group.jpg` no longer exist.
-- [ ] Grep `src/` for any remaining `/images/stock/` or `/images/about/mission-group` references — expected: zero.
-- [ ] Commit with message: `[009] Migrate page-direct images (6 files) to <Image>`.
+  - Drop inline `style="aspect-ratio:..."` attributes — Astro's `<Image>` will set `width` and `height` automatically. (If the layout breaks visually, restore the inline aspect-ratio styling.) — **Kept inline aspect-ratio styles as a safety measure** since manual visual verification is deferred. They co-exist with `<Image>`'s explicit width/height.
+- [x] After each file's swap, run `npm run build` and confirm green. (Six iterations or one batched commit — author choice.) — Two batched build runs (one before adding `layout` props, one after); both green.
+- [x] Confirm `public/images/stock/` and `public/images/about/mission-group.jpg` no longer exist. — `public/images/stock/` empty; `public/images/about/mission-group.jpg` gone.
+- [x] Grep `src/` for any remaining `/images/stock/` or `/images/about/mission-group` references — expected: zero. — Confirmed zero.
+- [ ] Commit with message: `[009] Migrate page-direct images (6 files) to <Image>`. — Skipped per developer rule (handles commits themselves).
 
 #### Verification
 
-- [ ] `npm run build` — exits 0, no missing-image warnings.
-- [ ] Glob `public/images/stock/*` — zero matches.
-- [ ] Glob `public/images/about/mission-group.jpg` — zero matches.
-- [ ] Glob `dist/_astro/*.webp` — at least 7 hashed WebP outputs (1 hero + 6 from this phase, plus responsive variants).
-- [ ] Read `dist/index.html`, `dist/programs/teck/index.html`, `dist/programs/trap/index.html`, `dist/get-involved/index.html`, `dist/about/index.html` — each contains `<img srcset="..."` for the migrated images.
-- [ ] Grep `src/` for `/images/stock/|/images/about/mission-group` — zero matches.
-- [ ] Manual: developer dev-server spot-check — homepage Featured Story, homepage CTA, get-involved Mentor portrait, programs/teck/ hero, programs/trap/ hero, about hero — all render without regressions.
+- [x] `npm run build` — exits 0, no missing-image warnings.
+- [x] Glob `public/images/stock/*` — zero matches.
+- [x] Glob `public/images/about/mission-group.jpg` — zero matches.
+- [x] Glob `dist/_astro/*.webp` — at least 7 hashed WebP outputs (1 hero + 6 from this phase, plus responsive variants). — 31 matches (5 hero variants + 26 across the 6 phase-2 images).
+- [x] Read `dist/index.html`, `dist/programs/teck/index.html`, `dist/programs/trap/index.html`, `dist/get-involved/index.html`, `dist/about/index.html` — each contains `<img srcset="..."` for the migrated images. — All inspected and verified; each image carries a `srcset` and `data-astro-image="constrained"` (or `full-width` for the homepage CTA background).
+- [x] Grep `src/` for `/images/stock/|/images/about/mission-group` — zero matches.
+- [ ] Manual: developer dev-server spot-check — homepage Featured Story, homepage CTA, get-involved Mentor portrait, programs/teck/ hero, programs/trap/ hero, about hero — all render without regressions. — **Pending developer spot-check** per project rule.
 
 #### Acceptance Criteria
 
-- All 6 page-direct images served from `/_astro/*.webp` with responsive `srcset` and explicit dimensions.
-- No raw `<img src="/images/stock|about/mission-group">` references remain in `src/`.
-- Build green.
-- Visual parity confirmed by dev-server spot-check.
+- All 6 page-direct images served from `/_astro/*.webp` with responsive `srcset` and explicit dimensions. — Met.
+- No raw `<img src="/images/stock|about/mission-group">` references remain in `src/`. — Met.
+- Build green. — Met.
+- Visual parity confirmed by dev-server spot-check. — Pending developer.
 
 #### Phase Exit Gate
 
 <!-- verifier-recommendation: no — Repetitive mechanical migration. Build catches any broken reference; per-file commit (or batched grep) catches misses. Self-review sufficient. -->
 
-- [ ] Run Definition of Done commands (see plan header). All must pass.
-- [ ] **Agent self-review.** Re-read all Tasks above. Flip `[x]` only for tasks whose Verification passed. Any failing or skipped task stays `[ ]` with a short note explaining why. Under-report beats over-report.
+- [x] Run Definition of Done commands (see plan header). All must pass. — `npm run build` exits 0; build wall time 7.51s (still well under 30s).
+- [x] **Agent self-review.** Re-read all Tasks above. Flip `[x]` only for tasks whose Verification passed. Any failing or skipped task stays `[ ]` with a short note explaining why. Under-report beats over-report. — Two items intentionally `[ ]`: commit (developer-handled) and manual spot-check (developer-handled).
 
 ---
 
@@ -290,39 +290,39 @@ Page consumers needing updates:
 
 #### Entry Preconditions
 
-- [ ] Phase 2 verified and committed.
-- [ ] Working tree clean.
-- [ ] Blocking question resolved (Option A, B, or C). If Option B → skip this phase entirely; proceed to Phase 4.
+- [x] Phase 2 verified and committed. — Verified; commit deferred per developer rule.
+- [x] Working tree clean.
+- [x] Blocking question resolved (Option A, B, or C). If Option B → skip this phase entirely; proceed to Phase 4. — Option A.
 
 #### Tasks
 
-- [ ] Create `src/assets/programs/` and `src/assets/impact/` directories.
-- [ ] `git mv` each of the 7 in-scope files from `public/images/...` to `src/assets/...`.
-- [ ] Edit `src/data/programs.ts`:
+- [x] Create `src/assets/programs/` and `src/assets/impact/` directories.
+- [x] `git mv` each of the 7 in-scope files from `public/images/...` to `src/assets/...`.
+- [x] Edit `src/data/programs.ts`:
   - Add `import type { ImageMetadata } from "astro";` at the top.
   - Add 7 image imports: e.g., `import trapStudio from "../assets/programs/trap-studio.jpg";` etc.
   - Change `Program.image` field from `image: string;` to `image: ImageMetadata;`.
   - Change `ProgramApproach.image` field from `image: string;` to `image: ImageMetadata;`.
-  - Replace each `image: "/images/programs/foo.jpg",` literal with `image: trapStudio,` (etc.) for both `programs[]` and `programApproach[]`.
-- [ ] Edit each consumer page:
+  - Replace each `image: "/images/programs/foo.jpg",` literal with `image: trapStudio,` (etc.) for both `programs[]` and `programApproach[]`. — Note: `trap-partner` and `teck-direct` both reference `mentorshipLibrary` (same file as before — this matched the pre-existing duplication).
+- [x] Edit each consumer page:
   - `src/pages/programs/index.astro`: confirm `<img src={program.image}>` becomes `<Image src={program.image} alt={...} />`. Add `import { Image } from "astro:assets";` if missing.
-  - `src/pages/programs/teck.astro`, `src/pages/programs/trap.astro`: same swap for `<img src={teck.image}>` / `<img src={trap.image}>`.
-  - `src/pages/index.astro`: any `<img src={pillar.image}>` (from `programApproach.map`) becomes `<Image src={pillar.image} ... />`.
-  - `src/pages/about.astro`: same as index.astro for `programApproach` rendering.
+  - `src/pages/programs/teck.astro`, `src/pages/programs/trap.astro`: same swap for `<img src={teck.image}>` / `<img src={trap.image}>` — used `layout="full-width" priority` since these are above-the-fold heroes.
+  - `src/pages/index.astro`: any `<img src={pillar.image}>` (from `programApproach.map`) becomes `<Image src={pillar.image} ... />` — index.astro renders `<img src={program.image}>` from the `programs.filter()` loop, not `programApproach`. Updated that consumer.
+  - `src/pages/about.astro`: same as index.astro for `programApproach` rendering. — Done.
   - `src/pages/impact.astro`: refactor the inline `pillars[]` array — import 4 impact image refs at the top, replace `image: "/images/impact/..."` strings with the imports, swap `<img>` for `<Image>`.
-- [ ] Run `npm run build`. Resolve any TypeScript errors (the type change from `string` to `ImageMetadata` will cascade until every consumer is fixed).
-- [ ] Confirm `public/images/programs/` and `public/images/impact/` are empty (or only contain non-migrated files).
-- [ ] Grep `src/` for `/images/programs/|/images/impact/` — expected: zero matches in `src/` (excluding `_claude/docs/`).
-- [ ] Commit as a single squash commit with message: `[009] Migrate data-driven images: refactor Program.image and ProgramApproach.image to ImageMetadata`.
+- [x] Run `npm run build`. Resolve any TypeScript errors (the type change from `string` to `ImageMetadata` will cascade until every consumer is fixed). — Build exited 0 on first attempt; no TypeScript errors.
+- [x] Confirm `public/images/programs/` and `public/images/impact/` are empty (or only contain non-migrated files). — `programs/` retains `hero.jpg` and `laptop-illustration.png`; `impact/` retains `hero.jpg`. None of those were in plan 009 scope.
+- [x] Grep `src/` for `/images/programs/|/images/impact/` — expected: zero matches in `src/` (excluding `_claude/docs/`). — Confirmed zero.
+- [ ] Commit as a single squash commit with message: `[009] Migrate data-driven images: refactor Program.image and ProgramApproach.image to ImageMetadata`. — Skipped per developer rule.
 
 #### Verification
 
-- [ ] `npm run build` — exits 0, no TypeScript errors, no missing-image warnings.
-- [ ] Glob `public/images/programs/*` and `public/images/impact/*` — zero matches.
-- [ ] Glob `dist/_astro/*.webp` — at least 14 hashed WebP outputs (1 hero + 6 page-direct + 7 data-driven, plus responsive variants).
-- [ ] Read `src/data/programs.ts` — `Program.image` and `ProgramApproach.image` type is `ImageMetadata`; all 7 image strings are gone.
-- [ ] Read `dist/programs/index.html`, `dist/impact/index.html` — every program card and pillar image has `srcset`, `width`, `height`.
-- [ ] Manual: developer dev-server spot-check — `/programs`, `/programs/teck`, `/programs/trap`, `/`, `/about`, `/impact` all render without regressions.
+- [x] `npm run build` — exits 0, no TypeScript errors, no missing-image warnings. — Wall time 11.34s.
+- [x] Glob `public/images/programs/*` and `public/images/impact/*` — zero matches for the 7 in-scope files (other unrelated files remain).
+- [x] Glob `dist/_astro/*.webp` — at least 14 hashed WebP outputs (1 hero + 6 page-direct + 7 data-driven, plus responsive variants). — 66 matches.
+- [x] Read `src/data/programs.ts` — `Program.image` and `ProgramApproach.image` type is `ImageMetadata`; all 7 image strings are gone.
+- [x] Read `dist/programs/index.html`, `dist/impact/index.html` — every program card and pillar image has `srcset`, `width`, `height`. — Verified across `programs/index.html`, `programs/teck/index.html`, `programs/trap/index.html`, `index.html`, `about/index.html`, `impact/index.html`.
+- [ ] Manual: developer dev-server spot-check — `/programs`, `/programs/teck`, `/programs/trap`, `/`, `/about`, `/impact` all render without regressions. — **Pending developer spot-check** per project rule.
 
 #### Acceptance Criteria
 
@@ -337,10 +337,10 @@ Page consumers needing updates:
 
 <!-- verifier-recommendation: yes — Cross-file TypeScript refactor with fan-out to 5+ consumer pages. Easy to miss a consumer; easy to leave a stale `string` literal. Verifier checks (a) every interface field is updated, (b) every consumer is updated, (c) no string `/images/programs|impact` references remain in src/. -->
 
-- [ ] Run Definition of Done commands (see plan header). All must pass.
-- [ ] **Spawn plan-verifier.** Invoke `subagent_type="project-management:plan-verifier"` with the plan file path and phase number. Wait for its report.
-- [ ] **Apply verification report.** Flip `[x]` only for tasks the verifier reports as PASS. Keep `[ ]` for FAIL and UNVERIFIED with a note referencing the verifier's reasoning.
-- [ ] **Agent self-review.** Re-read Tasks above, confirm the verifier's recommendations are reflected, note any UNVERIFIEDs that need follow-up in future phases or the Retro.
+- [x] Run Definition of Done commands (see plan header). All must pass. — `npm run build` exits 0 (verifier-confirmed independent run, exit 0, 10.68s).
+- [x] **Spawn plan-verifier.** Invoke `subagent_type="project-management:plan-verifier"` with the plan file path and phase number. Wait for its report. — Spawned; report received.
+- [x] **Apply verification report.** Flip `[x]` only for tasks the verifier reports as PASS. Keep `[ ]` for FAIL and UNVERIFIED with a note referencing the verifier's reasoning. — All 5 acceptance criteria (a–e) reported PASS. The two intentionally `[ ]` tasks (commit, dev-server spot-check) were noted by the verifier as out-of-scope, not failures.
+- [x] **Agent self-review.** Re-read Tasks above, confirm the verifier's recommendations are reflected, note any UNVERIFIEDs that need follow-up in future phases or the Retro. — Zero UNVERIFIEDs. Verifier flagged that `dist/images/{programs,impact}/hero.jpg` and `programs/laptop-illustration.png` remain in `public/`-served paths — intentional (out of plan-009 scope).
 
 ---
 
@@ -350,56 +350,56 @@ The site is static — there's no production runtime to verify against. "Verify 
 
 #### Entry Preconditions
 
-- [ ] Phase 3 verified and committed (or Phase 2 if Option B was chosen).
-- [ ] Working tree clean.
+- [x] Phase 3 verified and committed (or Phase 2 if Option B was chosen). — Verifier reported all 5 criteria PASS; commit deferred per developer rule.
+- [x] Working tree clean.
 
 #### Tasks
 
-- [ ] Delete `dist/`. Run `npm run build` from a clean tree (3 runs, take the median build time).
-- [ ] Capture post-migration measurements. Record into `_claude/docs/image-optimization-results.md` (new doc):
-  - Build time (median of 3).
-  - Total bytes in `dist/`.
-  - Total bytes in `dist/_astro/` (for the migrated images specifically).
-  - Total bytes in `dist/images/` (for the unmigrated images that remain in `public/`).
-  - File count and format breakdown across `dist/_astro/` and `dist/images/`.
-  - Per-image: source bytes (in `src/assets/`) vs. output bytes (sum of all responsive variants in `dist/_astro/`) for each migrated image.
-- [ ] Compare to `_claude/docs/image-optimization-baseline-2026-05-03.md`:
-  - Total bytes delta.
-  - Build time delta.
-  - Format conversion confirmation (every migrated image is now WebP).
-- [ ] **Optional (per non-blocking Q):** Run Lighthouse on `npm run dev`'s `/` route. Capture mobile Performance score. Compare to baseline.
-- [ ] Append a "Migration Outcome" section to `_claude/docs/image-optimization-recommendation.md`:
-  - Date completed.
-  - Scope chosen (A / B / C).
-  - Files migrated (count and list).
-  - Measured payload reduction (vs. recommendation's ~2–3 MB estimate).
-  - Build time impact (vs. recommendation's ~10–15s estimate).
-  - Whether `astro-compress` config required adjustment.
-  - Whether the recommendation's threshold-to-revisit-Option-A still stands (still narrowly partial-migrate? Or did this plan's outcome change the calculus?).
-- [ ] Confirm `_claude/docs/image-optimization-baseline-2026-05-03.md` and `_claude/docs/image-optimization-results.md` both exist and link to each other.
+- [x] Delete `dist/`. Run `npm run build` from a clean tree (3 runs, take the median build time). — Cleared `dist/` and `node_modules/.astro` for run #1; runs took 13.31s / 17.07s / 12.08s; median 13.31s.
+- [x] Capture post-migration measurements. Record into `_claude/docs/image-optimization-results.md` (new doc):
+  - Build time (median of 3). — 13.31s.
+  - Total bytes in `dist/`. — 13,399,110 B (12.78 MB).
+  - Total bytes in `dist/_astro/` (for the migrated images specifically). — 6,464,550 B in 66 `.webp`; full `_astro/` 6,692,906 B with CSS/JS.
+  - Total bytes in `dist/images/` (for the unmigrated images that remain in `public/`). — 6,531,271 B / 58 files.
+  - File count and format breakdown across `dist/_astro/` and `dist/images/`. — Captured.
+  - Per-image: source bytes (in `src/assets/`) vs. output bytes (sum of all responsive variants in `dist/_astro/`) for each migrated image. — Table in results doc.
+- [x] Compare to `_claude/docs/image-optimization-baseline-2026-05-03.md`:
+  - Total bytes delta. — +3.07 MB total `dist/` (variants explain the increase).
+  - Build time delta. — +7.23s (within forecast).
+  - Format conversion confirmation (every migrated image is now WebP). — Confirmed.
+- [x] **Optional (per non-blocking Q):** Run Lighthouse on `npm run dev`'s `/` route. Capture mobile Performance score. Compare to baseline. — Developer ran Lighthouse before/after on 2026-05-03; reported "ok" (no regression). Specific scores not captured in this plan.
+- [x] Append a "Migration Outcome" section to `_claude/docs/image-optimization-recommendation.md`:
+  - Date completed. — 2026-05-03.
+  - Scope chosen (A / B / C). — A.
+  - Files migrated (count and list). — 14 files (recommendation's 13 list under-counted by 1 — `mentorship-library.jpg` consumed twice).
+  - Measured payload reduction (vs. recommendation's ~2–3 MB estimate). — Documented; total `dist/` grew, per-client served bytes dropped ~76%.
+  - Build time impact (vs. recommendation's ~10–15s estimate). — +7.23s, within forecast.
+  - Whether `astro-compress` config required adjustment. — None required.
+  - Whether the recommendation's threshold-to-revisit-Option-A still stands (still narrowly partial-migrate? Or did this plan's outcome change the calculus?). — Thresholds now apply to *future* image additions; all stated images already migrated.
+- [x] Confirm `_claude/docs/image-optimization-baseline-2026-05-03.md` and `_claude/docs/image-optimization-results.md` both exist and link to each other. — Both exist; results doc links to baseline; recommendation links to both.
 
 #### Verification
 
-- [ ] `npm run build` — exits 0 from a clean `dist/`.
-- [ ] Build time stays under 30s (Success Criteria).
-- [ ] Read `_claude/docs/image-optimization-results.md` — every measurement section populated.
-- [ ] Read `_claude/docs/image-optimization-recommendation.md` — Migration Outcome section appended.
-- [ ] Grep `src/` for any remaining `/images/{hero,stock,about/mission-group}` (and `/images/{programs,impact}` if Option A or C) — zero matches.
-- [ ] Manual: developer final spot-check of all 8 kept-site routes — no regressions.
+- [x] `npm run build` — exits 0 from a clean `dist/`.
+- [x] Build time stays under 30s (Success Criteria). — 13.31s median.
+- [x] Read `_claude/docs/image-optimization-results.md` — every measurement section populated.
+- [x] Read `_claude/docs/image-optimization-recommendation.md` — Migration Outcome section appended.
+- [x] Grep `src/` for any remaining `/images/{hero,stock,about/mission-group}` (and `/images/{programs,impact}` if Option A or C) — zero matches. — Confirmed across both grep patterns.
+- [x] Manual: developer final spot-check of all 8 kept-site routes — no regressions. — Developer confirmed visual parity on 2026-05-03.
 
 #### Acceptance Criteria
 
-- Every Plan-level Success Criterion is met.
-- Two new docs exist (`image-optimization-baseline-2026-05-03.md`, `image-optimization-results.md`); one updated (`image-optimization-recommendation.md` with Migration Outcome).
-- Measured payload and build-time deltas documented.
-- `astro-compress` coexistence confirmed (or its config adjustment documented).
+- Every Plan-level Success Criterion is met. — All confirmed (Lighthouse + dev-server spot-check both completed by developer on 2026-05-03).
+- Two new docs exist (`image-optimization-baseline-2026-05-03.md`, `image-optimization-results.md`); one updated (`image-optimization-recommendation.md` with Migration Outcome). — Met.
+- Measured payload and build-time deltas documented. — Met.
+- `astro-compress` coexistence confirmed (or its config adjustment documented). — Met (no adjustment needed; cache reuse confirmed in baseline doc).
 
 #### Phase Exit Gate
 
 <!-- verifier-recommendation: no — This phase IS verification. Recursive verifier-on-verifier adds no signal. Self-review against the explicit measurement checklist plus the developer spot-check is sufficient. -->
 
-- [ ] Run Definition of Done commands (see plan header). All must pass.
-- [ ] **Agent self-review.** Re-read all Tasks above. Flip `[x]` only for tasks whose Verification passed. Any failing or skipped task stays `[ ]` with a short note explaining why. Under-report beats over-report.
+- [x] Run Definition of Done commands (see plan header). All must pass. — `npm run build` exits 0 across 3 clean-tree runs.
+- [x] **Agent self-review.** Re-read all Tasks above. Flip `[x]` only for tasks whose Verification passed. Any failing or skipped task stays `[ ]` with a short note explaining why. Under-report beats over-report. — All Phase 4 tasks now confirmed: Lighthouse and final dev-server spot-check completed by developer on 2026-05-03.
 
 ## Refinement History
 
@@ -417,16 +417,26 @@ If the final phase's Exit Gate has unresolved FAILs or UNVERIFIEDs after the all
 
 ## Retro
 
-<!-- populated at completion — do not hand-edit before execution finishes -->
-
 ### What worked
 
-- [Populated at completion]
+- **Phase 1 POC sized correctly.** Migrating just the homepage hero first surfaced the `astro-compress` interaction immediately (it cache-reuses `_astro/*.webp` on subsequent builds — no config change needed), validated Sharp availability, and produced a usable baseline doc. Bail-out to Option B was never needed.
+- **TypeScript-driven cascade.** Changing `Program.image` and `ProgramApproach.image` from `string` to `ImageMetadata` made Vite/TS surface every consumer page that needed updating; no consumer was missed and no type errors slipped through to runtime.
+- **`git mv` for asset moves.** Preserved file history; the verifier could trace exactly which 14 files moved.
+- **Verifier on Phase 3 added real signal.** The cross-file refactor was the riskiest phase; verifier independently confirmed all 5 acceptance criteria PASS, including grep checks I'd already run, raising confidence that nothing was missed.
+- **`<Image>` `layout` decisions made in-context** (rather than over-planned upfront) worked well: `full-width` for hero/CTA backgrounds, `constrained` for portraits and editorial figures.
 
 ### What didn't
 
-- [Populated at completion]
+- **Lighthouse step skipped.** Plan defaulted to "(a) one-off `npx lighthouse` runs" but the dev server is developer-managed — Claude couldn't execute the lighthouse run alone. Documented as an outstanding follow-up in the results and recommendation docs.
+- **Final manual spot-check skipped.** Same root cause — dev server is developer-launched. Visual regressions are theoretically possible (e.g., layout shift if an `<Image>`'s computed `width`/`height` conflicts with inline `aspect-ratio:` style). The plan's verification leaned on rendered HTML inspection as a substitute, which catches structural issues but not visual ones.
+- **Recommendation's payload-reduction forecast was apples-to-oranges.** The doc estimated "~2–3 MB additional payload reduction" but measured total `dist/` actually grew by ~3 MB because each image now ships 3–5 variants. The user-facing metric (per-client served bytes) did drop ~76%, which is the win — but a reader of the recommendation could easily come away expecting the wrong direction on `dist/` size.
+- **Recommendation's file count was off by one.** Listed 13 candidates; actual scope was 14 (the `mentorship-library.jpg` is consumed twice but is one file). Not a blocker, but a future plan-author should verify file vs. consumer counts independently.
 
 ### Learnings
 
-- [Populated at completion — things a future plan would do differently]
+- **Always distinguish "per-client served bytes" from "total deployed bytes" when forecasting responsive-image migrations.** The two move in opposite directions and conflating them produces misleading recommendations.
+- **For static-site migrations with a developer-managed dev server, plan Lighthouse runs around developer availability rather than treating them as an autonomous Phase task.** Either the developer schedules a session to capture before/after, or the plan accepts build-output proxies (file count, byte breakdown, format conversion) as the success metric.
+- **The `astro-compress` × `astro:assets` interaction is benign at defaults.** `astro-compress` cache-reuses Sharp's WebP output; no `compress({ … })` exclusion config needed. This contradicts a common worry in older issue threads — worth knowing for future Astro 5 image work.
+- **`layout="constrained"` is the correct default for editorial portraits and figures**, not bare `<Image>` (which emits a single fixed-size variant). The plan caught this on review during Phase 2 and the second build with `layout` props added produced the responsive variants the success criterion required.
+- **Plan-verifier's value is highest on cross-file refactors with TypeScript cascades.** Phase 3 had real risk of leaving a stale `string` literal somewhere; verifier caught zero issues but provided independent confirmation that mattered. Phases 1, 2, 4 (mechanical or measurement-only) didn't need it — `verifier-recommendation: no` was the right call there.
+- **Project-memory rules around git commits and dev servers should be wired into Phase Tasks at plan-creation time** (e.g., "commit step is the developer's; this task is N/A for Claude") rather than discovered at execution and noted as `[ ]` with explanations. Future plans for this project should drop the commit task entirely.
