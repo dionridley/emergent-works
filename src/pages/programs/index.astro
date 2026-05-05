@@ -105,13 +105,20 @@ const terrence = testimonials.find((t) => t.name === "Terrence")!;
     </div>
   </section>
 
-  <section class="st-section" style="text-align:center;">
+  <section class="st-section">
     <div class="st-container" data-reveal>
-      <blockquote class="st-pullquote" style="border-left:none;text-align:center;max-width:640px;margin:0 auto var(--st-space-6);">
-        "Overall, the Program at Emergent Works has been a life-changing experience, equipping me with the skills, knowledge, and support needed to advance my career and personal growth."
-        <cite>— Blueberry</cite>
-      </blockquote>
-      <div style="display:flex;gap:var(--st-space-4);justify-content:center;flex-wrap:wrap;">
+      <div class="programs-cta-quote">
+        <div class="programs-cta-quote__portrait">
+          <img src="/images/people/graduates/blueberry.png" alt="Blueberry" />
+        </div>
+        <div class="programs-cta-quote__text">
+          <blockquote class="programs-cta-quote__quote">
+            "Overall, the Program at Emergent Works has been a life-changing experience, equipping me with the skills, knowledge, and support needed to advance my career and personal growth."
+            <cite>— Blueberry</cite>
+          </blockquote>
+        </div>
+      </div>
+      <div class="programs-cta-actions">
         <a href="/get-involved/" class="st-btn st-btn--primary">Get Involved <span class="st-btn-arrow">&rarr;</span></a>
         <a href="/impact/" class="st-btn st-btn--outline">Explore Impact <span class="st-btn-arrow">&rarr;</span></a>
       </div>
@@ -184,6 +191,61 @@ const terrence = testimonials.find((t) => t.name === "Terrence")!;
     border-radius: 4px;
   }
 
+  .programs-cta-quote {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: var(--st-space-7);
+    align-items: center;
+    max-width: 880px;
+    margin: 0 auto var(--st-space-8);
+  }
+
+  .programs-cta-quote__portrait {
+    width: 200px;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .programs-cta-quote__portrait img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform: scale(1.6);
+    transform-origin: center;
+  }
+
+  .programs-cta-quote__text {
+    padding-left: var(--st-space-6);
+    border-left: 3px solid var(--st-green);
+  }
+
+  .programs-cta-quote__quote {
+    font-family: var(--st-font-serif);
+    font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.45;
+    color: var(--st-green);
+    margin: 0;
+  }
+
+  .programs-cta-quote__quote cite {
+    display: block;
+    margin-top: var(--st-space-4);
+    font-family: var(--st-font-body);
+    font-size: 0.8125rem;
+    font-style: normal;
+    font-weight: 600;
+    color: var(--st-text-secondary);
+  }
+
+  .programs-cta-actions {
+    display: flex;
+    gap: var(--st-space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
   @media (max-width: 768px) {
     .prog-feature, .prog-feature--reverse {
       grid-template-columns: 1fr;
@@ -191,5 +253,17 @@ const terrence = testimonials.find((t) => t.name === "Terrence")!;
     }
     .partner-grid { grid-template-columns: 1fr; }
     .partner-quote-grid { grid-template-columns: 1fr; }
+    .programs-cta-quote {
+      grid-template-columns: 1fr;
+      gap: var(--st-space-5);
+      text-align: center;
+    }
+    .programs-cta-quote__portrait { margin: 0 auto; width: 160px; }
+    .programs-cta-quote__text {
+      padding-left: 0;
+      padding-top: var(--st-space-5);
+      border-left: none;
+      border-top: 3px solid var(--st-green);
+    }
   }
 </style>
