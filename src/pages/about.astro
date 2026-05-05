@@ -7,6 +7,7 @@ import PageHero from "../components/PageHero.astro";
 import { organization } from "../data/organization";
 import { programApproach } from "../data/programs";
 import missionGroup from "../assets/about/mission-group.jpg";
+import heroImage from "../assets/heroes/about.jpg";
 
 const staffStatItems = [
   { value: "100%", label: "Alumni Staff", desc: "Every team member has completed an EW program" },
@@ -65,7 +66,7 @@ const milestones = [
   <Header currentPath="/about/" />
 
   <PageHero
-    image={missionGroup}
+    image={heroImage}
     imageAlt="Emergent Works community"
     kicker="Our Story"
     title="From One<br />Belief to a<br />Movement"

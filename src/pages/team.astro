@@ -4,14 +4,14 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import PageHero from "../components/PageHero.astro";
 import { staff, boardOfDirectors, advisoryBoard } from "../data/team";
-import mentorshipLibrary from "../assets/programs/mentorship-library.jpg";
+import heroImage from "../assets/heroes/team.jpg";
 ---
 
 <Layout title="Our Team">
   <Header currentPath="/team/" />
 
   <PageHero
-    image={mentorshipLibrary}
+    image={heroImage}
     imageAlt="Emergent Works team and community at the library"
     kicker="The People"
     title="The Faces<br />Behind the<br />Mission"

@@ -7,7 +7,7 @@ import PageHero from "../../components/PageHero.astro";
 import { programs, directPrograms, partnerPrograms } from "../../data/programs";
 import { testimonials } from "../../data/testimonials";
 import { partnerTestimonials } from "../../data/partners";
-import teckLibrary from "../../assets/programs/teck-library.jpg";
+import heroImage from "../../assets/heroes/programs.jpg";
 
 const blueberry = testimonials.find((t) => t.name === "Blueberry")!;
 const julius = testimonials.find((t) => t.name === "Julius")!;
@@ -18,7 +18,7 @@ const terrence = testimonials.find((t) => t.name === "Terrence")!;
   <Header currentPath="/programs/" />
 
   <PageHero
-    image={teckLibrary}
+    image={heroImage}
     imageAlt="A TECK program session in the Emergent Works library"
     kicker="Our Programs"
     title="Every Program<br />Begins a Story"
