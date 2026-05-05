@@ -34,7 +34,7 @@ Rooted in resilience from overcoming significant personal challenges, LaiQuan is
   {
     name: "Nasiar Denobrega",
     title: "Program Associate",
-    image: "/images/team/placeholder-4.jpg",
+    image: "/images/people/graduates/nasiar.png",
     bio: `Nasiar Denobrega serves as Program Associate at Emergent Works, bringing both lived experience and professional leadership to his role. Justice-impacted himself, Nasiar began his journey with EW as a participant four years ago and has since grown into a trusted, credible messenger for the young people we serve. His trajectory reflects the transformative impact of the program and models what long-term success can look like.
 
 Today, Nasiar provides direct support to participants, offering mentorship, accountability, and day-to-day guidance. He helps ensure participants are developing not only professionally — through workplace readiness, communication, and digital skills — but also personally, building confidence, discipline, and self-awareness. He plays a key role in connecting young people to opportunities, resources, and networks that expand their pathways forward. Nasiar's leadership is grounded in authenticity, relatability, and a deep commitment to helping others navigate systems he has successfully overcome himself.`,

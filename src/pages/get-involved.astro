@@ -14,51 +14,63 @@ import careerDevelopment from "../assets/impact/career-development.jpg";
 
 const mentorQuote = mentorTestimonials.find((t) => t.name === "Meagan")!;
 
-const mentorshipPairings = [
+interface Person {
+  name: string;
+  role: string;
+  image?: string;
+}
+interface Pairing {
+  mentee: Person;
+  mentor: Person;
+  menteeQuote: string;
+  mentorQuote: string;
+}
+
+const mentorshipPairings: Pairing[] = [
   {
-    mentee: { name: "Baraka", role: "TECK Mentee" },
-    mentor: { name: "Voice", role: "TECK Mentor" },
+    mentee: { name: "Baraka", role: "TECK Mentee", image: "/images/people/mentors/baraka.png" },
+    mentor: { name: "Voice", role: "TECK Mentor", image: "/images/people/graduates/voice.png" },
     menteeQuote: "Voice and I have a great relationship and chemistry that makes teaching and learning fun. More than anything he is honest. Our continuous conversations about personal growth and integrity are what come(s) most easy. His patience and understanding have helped me to really grasp the material.",
     mentorQuote: "Baraka is a really fun time hanging out with Voice and working on stuff. The past weeks we've been working on finishing our Google Sites website, setting up our LinkedIn profiles and making connections. We also setup our Google Drive Page... we definitely dug into google sheets and created a personal budget spreadsheet.",
   },
   {
-    mentee: { name: "Lori", role: "TECK Mentee" },
-    mentor: { name: "Meagan", role: "TECK Mentor" },
+    mentee: { name: "Lori", role: "TECK Mentee", image: "/images/people/graduates/lori.png" },
+    mentor: { name: "Meagan", role: "TECK Mentor", image: "/images/people/mentors/meagan.png" },
     menteeQuote: "They are definitely GREAT! Meagan is AMAZING. She has taught me so much, very patient, very kind and very informative. Be it as she what service she provides... nothing is off limits for help and knowledge to share. I really enjoy that about my mentor. She is definitely a GREAT asset to EW.",
     mentorQuote: "I'm SO impressed by her commitment to learning and how quickly she's picking up all these new skills. She is thoughtful about how she'll apply what she's learning to her career and I can't wait to see what she does next. She works hard and she is a star!",
   },
   {
-    mentee: { name: "Alberto", role: "TECK Mentee" },
-    mentor: { name: "Dylan", role: "TECK Mentor" },
+    mentee: { name: "Alberto", role: "TECK Mentee", image: "/images/people/graduates/alberto.png" },
+    mentor: { name: "Dylan", role: "TECK Mentor", image: "/images/people/mentors/dylan.png" },
     menteeQuote: "I echo Dylan's sentiments entirely; our sessions have been fantastic, productive, and enlightening. My mentor, who is specialized in the project we're exploring, has been instrumental in my growth. The AI chat app, web scraping, and AI projects he's encouraged me to delve into have accelerated my understanding of development, and I've found immensely rewarding thus far.",
     mentorQuote: "Our sessions have been incredibly enjoyable and educational. We've been working on building a custom AI chat app that allows users to engage with multiple AI models in a single conversation, and we've been integrating Twilio for text messaging capabilities.",
   },
   {
-    mentee: { name: "Kat", role: "TECK Mentee" },
-    mentor: { name: "Sneha", role: "TECK Mentor" },
+    mentee: { name: "Kat", role: "TECK Mentee", image: "/images/people/graduates/kat.png" },
+    mentor: { name: "Sneha", role: "TECK Mentor", image: "/images/people/mentors/sneha.png" },
     menteeQuote: "I think that our sessions have been awesome so far! Sneha has been so helpful and informative! I learn something new each time! We're working on Project Management, my website, Figma, my résumé, LinkedIn, networking, getting me familiar with AI tools. Together we even put a portfolio together. Can't wait for graduation, to present my portfolio.",
     mentorQuote: "I think that our sessions have been awesome so far! I believe that our pairing was a great match.",
   },
   {
-    mentee: { name: "Blueberry", role: "TECK Mentee" },
+    mentee: { name: "Blueberry", role: "TECK Mentee", image: "/images/people/graduates/blueberry.png" },
     mentor: { name: "Octavia", role: "TECK Mentor" },
     menteeQuote: "The pairing with Octavia must have been strategic indeed. Her eagerness to learn mirrors the joy of my mentor, Theresa. Octavia is patient and kind, always willing to modify our schedule to accommodate my learning needs and responsibilities. Our projects focused on humanizing our experiences, with Octavia guiding me through each step.",
     mentorQuote: "Octavia's intellectual brilliance and creativity are astonishing, and mentors like Octavia, make it feel like a youthful community that's constantly growing and evolving.",
   },
   {
-    mentee: { name: "Nashid", role: "TECK Mentee" },
+    mentee: { name: "Nashid", role: "TECK Mentee", image: "/images/people/graduates/nashid.png" },
     mentor: { name: "Army", role: "TECK Mentor" },
     menteeQuote: "From day one, the experience has been transformative. Fun is an understatement when describing the sessions with my mentor. My one on one with Army, has an amazing passion and dedication which makes every session engaging and productive. Each day at the Cohort is an opportunity to absorb knowledge and grow.",
     mentorQuote: "Emergent Works isn't just a program, it's a community. The support I have received from the team has been phenomenal.",
   },
   {
-    mentee: { name: "Crystal", role: "TECK Mentee" },
-    mentor: { name: "Melissa", role: "TECK Mentor" },
+    mentee: { name: "Crystal", role: "TECK Mentee", image: "/images/people/graduates/crystal.png" },
+    mentor: { name: "Melissa", role: "TECK Mentor", image: "/images/people/mentors/melissa.png" },
     menteeQuote: "Melissa was an amazing mentor, she encouraged me and allowed me to thoroughly process and then implement the learnings. We plan to keep in touch. The ability to meet a stranger who took an active role in empowering me has been a godsend.",
     mentorQuote: "I gained enough strength to meet every challenge head-on. I course through class with a lot of energy and momentum. I gained a vast knowledge of Google Docs, CMS, Canva, EW and a Google Project Management certification.",
   },
   {
-    mentee: { name: "Blueberry", role: "TECK Graduate" },
+    mentee: { name: "Blueberry", role: "TECK Graduate", image: "/images/people/graduates/blueberry.png" },
     mentor: { name: "Octavia", role: "TECK Mentor" },
     menteeQuote: "Overall, the 1:1 Mentorship Program at Emergent Works has been a life-changing experience, equipping me with the skills, knowledge, and support needed to advance my career and personal growth. I am deeply grateful for Octavia's guidance and the transformative impact it has had on my life.",
     mentorQuote: "She's not only open-minded, smart, and culturally intelligent but also deeply grounded in her values. Despite being younger than me, she's incredibly brilliant and has been a true blessing in my mentoring journey.",
@@ -82,7 +94,9 @@ const mentorshipPairings = [
     <div class="st-container">
       <div class="st-grid-40-60" data-reveal>
         <figure class="st-editorial-image">
-          <Image src={portrait5} alt="Mentor" layout="constrained" style="aspect-ratio:3/4;object-fit:cover;" />
+          {mentorQuote.image
+            ? <img src={mentorQuote.image} alt={mentorQuote.name} style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" />
+            : <Image src={portrait5} alt="Mentor" layout="constrained" style="aspect-ratio:3/4;object-fit:cover;" />}
           <figcaption>A volunteer mentor sharing expertise</figcaption>
         </figure>
         <div>
@@ -113,6 +127,18 @@ const mentorshipPairings = [
           {mentorshipPairings.map((pair, i) => (
             <div class="pairing-carousel__card" data-pairing-card={i}>
               <div class="pairing-card">
+                <div class="pairing-card__portraits">
+                  <div class:list={["pairing-card__avatar", { "pairing-card__avatar--fallback": !pair.mentee.image }]}>
+                    {pair.mentee.image
+                      ? <img src={pair.mentee.image} alt={pair.mentee.name} />
+                      : <span aria-hidden="true">{pair.mentee.name.charAt(0)}</span>}
+                  </div>
+                  <div class:list={["pairing-card__avatar", { "pairing-card__avatar--fallback": !pair.mentor.image }]}>
+                    {pair.mentor.image
+                      ? <img src={pair.mentor.image} alt={pair.mentor.name} />
+                      : <span aria-hidden="true">{pair.mentor.name.charAt(0)}</span>}
+                  </div>
+                </div>
                 <div class="pairing-card__header">
                   <span class="pairing-card__names">{pair.mentee.name} &amp; {pair.mentor.name}</span>
                   <span class="pairing-card__label">Mentee &amp; Mentor</span>
@@ -408,6 +434,10 @@ const mentorshipPairings = [
   .pairing-carousel__dot:hover { border-color:var(--st-green); }
   .pairing-carousel__mobile-nav { display:none; }
   .pairing-card { padding:var(--st-space-6); border:1px solid var(--st-border); border-radius:4px; background:var(--st-white); }
+  .pairing-card__portraits { display:flex; justify-content:center; align-items:center; gap:var(--st-space-6); margin-bottom:var(--st-space-5); }
+  .pairing-card__avatar { width:96px; flex-shrink:0; }
+  .pairing-card__avatar img { width:100%; height:auto; display:block; }
+  .pairing-card__avatar--fallback { height:96px; display:flex; align-items:center; justify-content:center; background:var(--st-sage); color:var(--st-green); font-family:var(--st-font-heading); font-size:2rem; font-weight:700; border-radius:50%; }
   .pairing-card__header { margin-bottom:var(--st-space-5); padding-bottom:var(--st-space-4); border-bottom:2px solid var(--st-gold); }
   .pairing-card__names { font-family:var(--st-font-heading); font-size:1.125rem; font-weight:700; color:var(--st-green); display:block; }
   .pairing-card__label { font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--st-text-light); margin-top:0.25rem; display:block; }
