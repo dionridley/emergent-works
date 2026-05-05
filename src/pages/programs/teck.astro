@@ -6,7 +6,6 @@ import Footer from "../../components/Footer.astro";
 import { programs, expandedProgramDetails } from "../../data/programs";
 import { testimonials } from "../../data/testimonials";
 import { partners } from "../../data/partners";
-import techCoding4 from "../../assets/stock/tech-coding-4.jpg";
 
 const teck = programs.find((p) => p.id === "teck")!;
 const teckDetails = expandedProgramDetails.find((d) => d.programId === "teck")!;
@@ -74,14 +73,16 @@ const kat = testimonials.find((t) => t.name === "Kat")!;
         <div>
           <span class="st-kicker">Graduate Story</span>
           <h2>Kat's Experience</h2>
-          <blockquote class="st-pullquote" style="margin-top:var(--st-space-4);">
+          <blockquote class="st-pullquote" style="margin-top:var(--st-space-4);font-size:clamp(1.0625rem, 1.7vw, 1.3125rem);line-height:1.6;">
             "{kat.quote}"
             <cite>— Kat, TECK 2024 Graduate</cite>
           </blockquote>
         </div>
         <figure class="st-editorial-image">
-          <Image src={techCoding4} alt="Kat, TECK graduate" layout="constrained" style="aspect-ratio:3/4;object-fit:cover;" />
-          <figcaption>Building digital confidence, one session at a time</figcaption>
+          <div class="story-portrait">
+            <img src="/images/people/graduates/kat.png" alt="Kat" />
+          </div>
+          <figcaption>Kat, TECK 2024 Graduate</figcaption>
         </figure>
       </div>
     </div>
@@ -131,6 +132,10 @@ const kat = testimonials.find((t) => t.name === "Kat")!;
 </Layout>
 
 <style>
+  /* Story portrait */
+  .story-portrait { aspect-ratio: 3 / 4; overflow: hidden; border-radius: 2px; }
+  .story-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transform: scale(1.3); transform-origin: center; border-radius: 0; }
+
   /* Hero */
   .teck-hero { position: relative; min-height: 480px; display: flex; align-items: flex-end; padding: calc(var(--st-header-height) + var(--st-space-9)) 0 var(--st-space-9); }
   .teck-hero__bg { position: absolute; inset: 0; }

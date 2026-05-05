@@ -78,14 +78,16 @@ const mentorshipPairings: Pairing[] = [
     <div class="st-container">
       <div class="st-grid-40-60" data-reveal>
         <figure class="st-editorial-image">
-          {mentorQuote.image
-            ? <img src={mentorQuote.image} alt={mentorQuote.name} style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" />
-            : <Image src={portrait5} alt="Mentor" layout="constrained" style="aspect-ratio:3/4;object-fit:cover;" />}
+          <div class="mentor-story__portrait">
+            {mentorQuote.image
+              ? <img src={mentorQuote.image} alt={mentorQuote.name} />
+              : <Image src={portrait5} alt="Mentor" />}
+          </div>
           <figcaption>A volunteer mentor sharing expertise</figcaption>
         </figure>
         <div>
           <span class="st-kicker">A Mentor's Story</span>
-          <blockquote class="st-pullquote" style="margin-top:0;">
+          <blockquote class="st-pullquote" style="margin-top:0;font-size:clamp(1.0625rem, 1.7vw, 1.3125rem);line-height:1.6;">
             "{mentorQuote.quote}"
             <cite>— {mentorQuote.name}, TECK Mentor</cite>
           </blockquote>
@@ -246,6 +248,9 @@ const mentorshipPairings: Pairing[] = [
 </Layout>
 
 <style>
+  .mentor-story__portrait { aspect-ratio:3 / 4; overflow:hidden; border-radius:2px; }
+  .mentor-story__portrait img { width:100%; height:100%; object-fit:cover; object-position:center; display:block; transform:scale(1.3); transform-origin:center 70%; border-radius:0; }
+
   .donation-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:var(--st-space-5); }
   .donation-card { text-align:center; padding:var(--st-space-6) var(--st-space-4); border:1px solid var(--st-border); border-radius:4px; transition:transform var(--st-duration) var(--st-ease), box-shadow var(--st-duration) var(--st-ease); }
   .donation-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(32,73,60,0.08); }
