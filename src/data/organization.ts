@@ -28,8 +28,4 @@ export const organization = {
     bipoc: "80%",
     femaleIdentifying: "40%",
   },
-  branding: {
-    headerLogo: "/images/header-logo.png",
-    footerLogo: "/images/footer-logo.png",
-  },
 } as const;
