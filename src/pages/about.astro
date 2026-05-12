@@ -10,10 +10,53 @@ import missionGroup from "../assets/about/mission-group.jpg";
 import heroImage from "../assets/heroes/about.jpg";
 
 const staffStatItems = [
-  { value: "100%", label: "Alumni Staff", desc: "Every team member has completed an EW program" },
-  { value: "80%", label: "System-Impacted", desc: "Staff who have navigated the justice system" },
-  { value: "80%", label: "BIPOC", desc: "Staff who identify as Black, Indigenous, or People of Color" },
-  { value: "40%", label: "Female-Identifying", desc: "Staff who identify as female" },
+  {
+    value: "100%",
+    label: "Alumni Staff",
+    desc: "Every team member has completed an EW program",
+    icon: `<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="18,7 32,14 18,21 4,14" fill="#FFCB70"/>
+      <path d="M10 17 L10 25 C10 25 14 29 18 29 C22 29 26 25 26 25 L26 17" stroke="#FFCB70" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <line x1="32" y1="14" x2="32" y2="22" stroke="#FFCB70" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="32" cy="23" r="2" fill="#FFF8ED"/>
+    </svg>`,
+  },
+  {
+    value: "80%",
+    label: "System-Impacted",
+    desc: "Staff who have navigated the justice system",
+    icon: `<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 22 L6 26 C4 28 4 31 6 33 C8 35 11 35 13 33 L17 29" stroke="#FFCB70" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+      <path d="M19 17 L23 13 C25 11 25 8 23 6 C21 4 18 4 16 6 L12 10" stroke="#FFCB70" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+      <line x1="14" y1="22" x2="22" y2="14" stroke="#FFF8ED" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="26" cy="26" r="6" fill="rgba(255,203,112,0.15)" stroke="#FFCB70" stroke-width="1.8"/>
+      <path d="M23.5 26 L25.2 27.8 L28.5 24" stroke="#FFCB70" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>`,
+  },
+  {
+    value: "80%",
+    label: "BIPOC",
+    desc: "Staff who identify as Black, Indigenous, or People of Color",
+    icon: `<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="11" r="4.5" fill="#FFCB70"/>
+      <circle cx="24" cy="11" r="4.5" fill="#FFCB70" opacity="0.7"/>
+      <path d="M4 28 C4 22 20 22 20 28" stroke="#FFCB70" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+      <path d="M18 26 C18 21 32 21 32 27" stroke="#FFCB70" stroke-width="2.2" stroke-linecap="round" fill="none" opacity="0.7"/>
+      <path d="M18 17 C18 15.5 19.5 14 21 15.5 C22.5 14 24 15.5 24 17 L21 20 Z" fill="#FFF8ED" opacity="0.6"/>
+    </svg>`,
+  },
+  {
+    value: "40%",
+    label: "Female-Identifying",
+    desc: "Staff who identify as female",
+    icon: `<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="18" cy="14" r="8" stroke="#FFCB70" stroke-width="2.5" fill="none"/>
+      <line x1="18" y1="22" x2="18" y2="31" stroke="#FFCB70" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="14" y1="27" x2="22" y2="27" stroke="#FFCB70" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="26" cy="8" r="1.5" fill="#FFF8ED"/>
+      <circle cx="29" cy="13" r="1" fill="#FFF8ED" opacity="0.6"/>
+    </svg>`,
+  },
 ];
 
 const milestones = [
@@ -126,7 +169,7 @@ const milestones = [
     <div class="st-container">
       <div class="staff-header" data-reveal>
         <span class="st-kicker staff-kicker">Who We Are</span>
-        <h2>Led by Those<br />Who've Lived It</h2>
+        <h2>Led by Those <span class="staff-heading-accent">Who've Lived It</span></h2>
         <p class="staff-sub">
           Our team is our greatest proof of concept. The people leading our programs
           have walked the same path as our participants.
@@ -136,8 +179,10 @@ const milestones = [
       <div class="staff-grid">
         {staffStatItems.map((item, i) => (
           <div class="staff-stat" data-reveal={`delay-${i + 1}`}>
+            <div class="staff-stat__icon" set:html={item.icon} />
             <div class="staff-stat__value">{item.value}</div>
             <div class="staff-stat__label">{item.label}</div>
+            <div class="staff-stat__divider" />
             <p class="staff-stat__desc">{item.desc}</p>
           </div>
         ))}
@@ -252,20 +297,26 @@ const milestones = [
      STAFF COMPOSITION
      ============================================ */
   .staff-section {
-    background: var(--st-green-dark);
+    background: var(--st-green);
   }
 
   .staff-header {
+    text-align: center;
     margin-bottom: var(--st-space-9);
   }
 
   .staff-header h2 {
-    color: var(--st-white);
+    color: var(--st-cream);
     margin-bottom: var(--st-space-4);
   }
 
-  .staff-kicker {
+  .staff-heading-accent {
     color: var(--st-gold);
+  }
+
+  .staff-kicker {
+    color: rgba(255, 248, 237, 0.5);
+    justify-content: center;
   }
 
   .staff-sub {
@@ -273,6 +324,7 @@ const milestones = [
     font-size: 1.0625rem;
     max-width: 480px;
     line-height: 1.7;
+    margin: 0 auto;
   }
 
   .staff-grid {
@@ -282,11 +334,36 @@ const milestones = [
   }
 
   .staff-stat {
+    position: relative;
+    overflow: hidden;
     text-align: center;
-    padding: var(--st-space-7) var(--st-space-4);
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(177, 211, 187, 0.1);
-    border-radius: 12px;
+    padding: var(--st-space-8) var(--st-space-5) var(--st-space-7);
+    background: var(--st-green-dark);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .staff-stat::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--st-gold), rgba(255, 203, 112, 0.3));
+  }
+
+  .staff-stat__icon {
+    width: 64px;
+    height: 64px;
+    background: rgba(255, 203, 112, 0.08);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--st-space-5);
   }
 
   .staff-stat__value {
@@ -301,16 +378,27 @@ const milestones = [
 
   .staff-stat__label {
     font-family: var(--st-font-heading);
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: var(--st-white);
-    margin-bottom: var(--st-space-2);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--st-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin-bottom: var(--st-space-3);
+  }
+
+  .staff-stat__divider {
+    width: 28px;
+    height: 2px;
+    background: rgba(255, 203, 112, 0.3);
+    border-radius: 2px;
+    margin-bottom: var(--st-space-3);
   }
 
   .staff-stat__desc {
     font-size: 0.8125rem;
-    color: var(--st-sage);
-    line-height: 1.5;
+    color: rgba(255, 248, 237, 0.65);
+    line-height: 1.6;
+    max-width: 22ch;
   }
 
   /* ============================================
