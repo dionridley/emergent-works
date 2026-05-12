@@ -10,7 +10,7 @@ export const staff: TeamMember[] = [
   {
     name: "Army Armstead",
     title: "Executive Director & Co-Founder",
-    image: "/images/team/placeholder-1.jpg",
+    image: "/images/team/army-armstead.png",
     bio: `Khalil "Army" Armstead is the Executive Director and Co-Founder of Emergent Works (EW), a nonprofit software company using technology & technical education to break cycles of incarceration and poverty. A visionary systems builder, servant leader, and mental health advocate, he leads with empathy and strategy to advance digital equity and opportunity for returning citizens. Under his leadership, EW has secured over $1 million in funding and forged partnerships with the Chan Zuckerberg Initiative, Community Justice Exchange, and Jack Dorsey's StartSmall Fund to build trauma-informed, community-driven solutions for liberation.
 
 Army is a graduate of the Unlocked Futures Cohort, a partnership between New Profit and John Legend's FREE AMERICA supporting justice-impacted leaders. He has also participated in the Rockwood Leadership Institute and the Dream Justice Cohort for leadership development, and Camelback Ventures. He is a graduate of Columbia University's developing leadership cohort, as well as an international emcee and recording artist. His academic training, professional artistic expertise, and experience with the justice system and justice reform strengthen EW's credibility in the field as well as its ability to deliver to program participants and committed supporters.`,
@@ -26,7 +26,7 @@ At EW, Tine oversees all programmatic operations, ensuring strategic alignment, 
   {
     name: "LaiQuan DuBose",
     title: "Program Manager",
-    image: "/images/team/placeholder-3.jpg",
+    image: "/images/team/placeholder-1.jpg",
     bio: `LaiQuan DuBose is a Program Manager and Certified Administrative Professional with a strong foundation in student success, mentorship, and program operations. Formerly a Student Success Coordinator, he brings a hands-on, participant-centered approach, combining structure, empathy, and accountability to drive meaningful outcomes.
 
 Rooted in resilience from overcoming significant personal challenges, LaiQuan is deeply committed to creating pathways for others to grow and succeed. Known for building trust and fostering inclusive environments, he has a proven track record of guiding participants toward tangible progress while creating spaces where individuals can build skills, confidence, and a clear path forward.`,
@@ -34,7 +34,7 @@ Rooted in resilience from overcoming significant personal challenges, LaiQuan is
   {
     name: "Nasiar Denobrega",
     title: "Program Associate",
-    image: "/images/people/graduates/nasiar.png",
+    image: "/images/team/placeholder-1.jpg",
     bio: `Nasiar Denobrega serves as Program Associate at Emergent Works, bringing both lived experience and professional leadership to his role. Justice-impacted himself, Nasiar began his journey with EW as a participant four years ago and has since grown into a trusted, credible messenger for the young people we serve. His trajectory reflects the transformative impact of the program and models what long-term success can look like.
 
 Today, Nasiar provides direct support to participants, offering mentorship, accountability, and day-to-day guidance. He helps ensure participants are developing not only professionally — through workplace readiness, communication, and digital skills — but also personally, building confidence, discipline, and self-awareness. He plays a key role in connecting young people to opportunities, resources, and networks that expand their pathways forward. Nasiar's leadership is grounded in authenticity, relatability, and a deep commitment to helping others navigate systems he has successfully overcome himself.`,
@@ -49,18 +49,16 @@ Today, Nasiar provides direct support to participants, offering mentorship, acco
 
 export const boardOfDirectors: TeamMember[] = [
   {
-    name: "Rosalind Zavros",
+    name: "Rosalind Zavras",
     title: "Board Chair",
-    image: "/images/team/placeholder-2.jpg",
+    image: "/images/team/rosalind-zavras.jpg",
     bio: "Rosalind brings decades of experience in organizational leadership and strategic planning. As Board Chair, she guides EW's governance and long-term vision.",
-    fabricated: true,
   },
   {
     name: "Dion Ridley",
     title: "Board Member",
-    image: "/images/team/placeholder-3.jpg",
+    image: "/images/team/dion-ridley.avif",
     bio: "Dion is a technologist and creative professional who contributes technical expertise and strategic perspective to EW's board.",
-    fabricated: true,
   },
   {
     name: "Ashley Chen",
@@ -89,9 +87,8 @@ export const advisoryBoard: TeamMember[] = [
   {
     name: "Nikki Nikkhoui",
     title: "Advisory Board Member",
-    image: "/images/team/placeholder-3.jpg",
+    image: "/images/team/nikki-nikkhoui.jpg",
     bio: "Nikki advises on program design and community engagement strategy, drawing on her experience in social impact organizations.",
-    fabricated: true,
   },
   {
     name: "Jonathan Hinds",

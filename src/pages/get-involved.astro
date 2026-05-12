@@ -10,7 +10,7 @@ import { partnershipTypes } from "../data/partners";
 import { mentorTestimonials } from "../data/testimonials";
 import { partnerTestimonials } from "../data/partners";
 import portrait5 from "../assets/stock/portrait-5.jpg";
-import careerDevelopment from "../assets/impact/career-development.jpg";
+import heroImage from "../assets/heroes/get-involved.jpg";
 
 const mentorQuote = mentorTestimonials.find((t) => t.name === "Meagan")!;
 
@@ -24,6 +24,7 @@ interface Pairing {
   mentor: Person;
   menteeQuote: string;
   mentorQuote: string;
+  fullWidth?: boolean;
 }
 
 const mentorshipPairings: Pairing[] = [
@@ -53,27 +54,10 @@ const mentorshipPairings: Pairing[] = [
   },
   {
     mentee: { name: "Blueberry", role: "TECK Mentee", image: "/images/people/graduates/blueberry.png" },
-    mentor: { name: "Octavia", role: "TECK Mentor" },
-    menteeQuote: "The pairing with Octavia must have been strategic indeed. Her eagerness to learn mirrors the joy of my mentor, Theresa. Octavia is patient and kind, always willing to modify our schedule to accommodate my learning needs and responsibilities. Our projects focused on humanizing our experiences, with Octavia guiding me through each step.",
-    mentorQuote: "Octavia's intellectual brilliance and creativity are astonishing, and mentors like Octavia, make it feel like a youthful community that's constantly growing and evolving.",
-  },
-  {
-    mentee: { name: "Nashid", role: "TECK Mentee", image: "/images/people/graduates/nashid.png" },
-    mentor: { name: "Army", role: "TECK Mentor" },
-    menteeQuote: "From day one, the experience has been transformative. Fun is an understatement when describing the sessions with my mentor. My one on one with Army, has an amazing passion and dedication which makes every session engaging and productive. Each day at the Cohort is an opportunity to absorb knowledge and grow.",
-    mentorQuote: "Emergent Works isn't just a program, it's a community. The support I have received from the team has been phenomenal.",
-  },
-  {
-    mentee: { name: "Crystal", role: "TECK Mentee", image: "/images/people/graduates/crystal.png" },
-    mentor: { name: "Melissa", role: "TECK Mentor", image: "/images/people/mentors/melissa.png" },
-    menteeQuote: "Melissa was an amazing mentor, she encouraged me and allowed me to thoroughly process and then implement the learnings. We plan to keep in touch. The ability to meet a stranger who took an active role in empowering me has been a godsend.",
-    mentorQuote: "I gained enough strength to meet every challenge head-on. I course through class with a lot of energy and momentum. I gained a vast knowledge of Google Docs, CMS, Canva, EW and a Google Project Management certification.",
-  },
-  {
-    mentee: { name: "Blueberry", role: "TECK Graduate", image: "/images/people/graduates/blueberry.png" },
-    mentor: { name: "Octavia", role: "TECK Mentor" },
-    menteeQuote: "Overall, the 1:1 Mentorship Program at Emergent Works has been a life-changing experience, equipping me with the skills, knowledge, and support needed to advance my career and personal growth. I am deeply grateful for Octavia's guidance and the transformative impact it has had on my life.",
-    mentorQuote: "She's not only open-minded, smart, and culturally intelligent but also deeply grounded in her values. Despite being younger than me, she's incredibly brilliant and has been a true blessing in my mentoring journey.",
+    mentor: { name: "Dawn", role: "TECK Mentor", image: "/images/people/mentors/dawn.png" },
+    menteeQuote: "Meeting with Dawn every week has been a seamless and uplifting experience. I truly appreciate her patience as I navigate this new venture; she offers unwavering support every step of the way. Her approach to mentoring makes me feel both seen and empowered, giving me a sense of my own strengths and helping me integrate these new skills into my antiracist movement with confidence. Dawn's insights in UX/UI, filmmaking, and beyond are invaluable, and her encouragement has made all the difference as I work to incorporate these tools into my organizing. In our sessions, we're working on a UX/UI project that not only strengthens my technical abilities but also aligns with my goal of creating impactful, accessible designs that support antiracist values. We're exploring how storytelling and design can amplify social justice issues, making this process both exciting and deeply meaningful.",
+    mentorQuote: "It was a perfect pairing between me and Blueberry. It's been a pleasure to get to know Blueberry — we have so much in common. Her mindset and outlook is so positive and has already accomplished so much. I see that she can manifest anything she puts her mind to. I am grateful to be a part of her journey and see her grow in design. Right now, we are working on applying design principles in her portfolio. In our sessions, we focus a lot on learning Figma and developing personas to better understand the user we are designing for. Blueberry is advancing her skills in Figma at an impressive pace.",
+    fullWidth: true,
   },
 ];
 ---
@@ -82,7 +66,7 @@ const mentorshipPairings: Pairing[] = [
   <Header currentPath="/get-involved/" />
 
   <PageHero
-    image={careerDevelopment}
+    image={heroImage}
     imageAlt="A mentor working alongside an Emergent Works participant"
     kicker="Your chapter begins here"
     title="The Next Story<br />Starts With You"
@@ -94,14 +78,16 @@ const mentorshipPairings: Pairing[] = [
     <div class="st-container">
       <div class="st-grid-40-60" data-reveal>
         <figure class="st-editorial-image">
-          {mentorQuote.image
-            ? <img src={mentorQuote.image} alt={mentorQuote.name} style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;" />
-            : <Image src={portrait5} alt="Mentor" layout="constrained" style="aspect-ratio:3/4;object-fit:cover;" />}
+          <div class="mentor-story__portrait">
+            {mentorQuote.image
+              ? <img src={mentorQuote.image} alt={mentorQuote.name} />
+              : <Image src={portrait5} alt="Mentor" />}
+          </div>
           <figcaption>A volunteer mentor sharing expertise</figcaption>
         </figure>
         <div>
           <span class="st-kicker">A Mentor's Story</span>
-          <blockquote class="st-pullquote" style="margin-top:0;">
+          <blockquote class="st-pullquote" style="margin-top:0;font-size:clamp(1.0625rem, 1.7vw, 1.3125rem);line-height:1.6;">
             "{mentorQuote.quote}"
             <cite>— {mentorQuote.name}, TECK Mentor</cite>
           </blockquote>
@@ -118,185 +104,42 @@ const mentorshipPairings: Pairing[] = [
         <h2>Stories From<br />Our Pairings</h2>
         <div class="st-divider" style="margin:0 auto;"></div>
       </div>
-      <div class="pairing-carousel" data-reveal="delay-1">
-        <button class="pairing-carousel__arrow pairing-carousel__arrow--prev" aria-label="Previous pairings" data-pairing-prev>
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-
-        <div class="pairing-carousel__stage">
-          {mentorshipPairings.map((pair, i) => (
-            <div class="pairing-carousel__card" data-pairing-card={i}>
-              <div class="pairing-card">
-                <div class="pairing-card__portraits">
-                  <div class:list={["pairing-card__avatar", { "pairing-card__avatar--fallback": !pair.mentee.image }]}>
-                    {pair.mentee.image
-                      ? <img src={pair.mentee.image} alt={pair.mentee.name} />
-                      : <span aria-hidden="true">{pair.mentee.name.charAt(0)}</span>}
-                  </div>
-                  <div class:list={["pairing-card__avatar", { "pairing-card__avatar--fallback": !pair.mentor.image }]}>
-                    {pair.mentor.image
-                      ? <img src={pair.mentor.image} alt={pair.mentor.name} />
-                      : <span aria-hidden="true">{pair.mentor.name.charAt(0)}</span>}
-                  </div>
+      <div class="pairing-grid" data-reveal="delay-1">
+        {mentorshipPairings.map((pair) => (
+          <div class:list={["pairing-grid__item", { "pairing-grid__item--wide": pair.fullWidth }]}>
+            <div class="pairing-card">
+              <div class="pairing-card__portraits">
+                <div class:list={["pairing-card__avatar", { "pairing-card__avatar--fallback": !pair.mentee.image }]}>
+                  {pair.mentee.image
+                    ? <img src={pair.mentee.image} alt={pair.mentee.name} />
+                    : <span aria-hidden="true">{pair.mentee.name.charAt(0)}</span>}
                 </div>
-                <div class="pairing-card__header">
-                  <span class="pairing-card__names">{pair.mentee.name} &amp; {pair.mentor.name}</span>
-                  <span class="pairing-card__label">Mentee &amp; Mentor</span>
-                </div>
-                <div class="pairing-card__quotes">
-                  <blockquote class="pairing-card__quote">
-                    "{pair.menteeQuote}"
-                    <cite>— {pair.mentee.name}, {pair.mentee.role}</cite>
-                  </blockquote>
-                  <blockquote class="pairing-card__quote">
-                    "{pair.mentorQuote}"
-                    <cite>— {pair.mentor.name}, {pair.mentor.role}</cite>
-                  </blockquote>
+                <div class:list={["pairing-card__avatar", { "pairing-card__avatar--fallback": !pair.mentor.image }]}>
+                  {pair.mentor.image
+                    ? <img src={pair.mentor.image} alt={pair.mentor.name} />
+                    : <span aria-hidden="true">{pair.mentor.name.charAt(0)}</span>}
                 </div>
               </div>
+              <div class="pairing-card__header">
+                <span class="pairing-card__names">{pair.mentee.name} &amp; {pair.mentor.name}</span>
+                <span class="pairing-card__label">Mentee &amp; Mentor</span>
+              </div>
+              <div class="pairing-card__quotes">
+                <blockquote class="pairing-card__quote">
+                  "{pair.menteeQuote}"
+                  <cite>— {pair.mentee.name}, {pair.mentee.role}</cite>
+                </blockquote>
+                <blockquote class="pairing-card__quote">
+                  "{pair.mentorQuote}"
+                  <cite>— {pair.mentor.name}, {pair.mentor.role}</cite>
+                </blockquote>
+              </div>
             </div>
-          ))}
-        </div>
-
-        <button class="pairing-carousel__arrow pairing-carousel__arrow--next" aria-label="Next pairings" data-pairing-next>
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-
-        <div class="pairing-carousel__dots" data-pairing-dots></div>
-
-        <div class="pairing-carousel__mobile-nav">
-          <button class="pairing-carousel__arrow" aria-label="Previous pairings" data-pairing-prev-mobile>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <button class="pairing-carousel__arrow" aria-label="Next pairings" data-pairing-next-mobile>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-        </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
-
-  <script>
-    // Mentorship Pairings carousel — responsive grouping
-    const pairingCards = document.querySelectorAll('[data-pairing-card]');
-    const pairingStage = document.querySelector('.pairing-carousel__stage') as HTMLElement;
-    const pairingDotsContainer = document.querySelector('[data-pairing-dots]') as HTMLElement;
-    const pairingPrev = document.querySelector('[data-pairing-prev]');
-    const pairingNext = document.querySelector('[data-pairing-next]');
-    let pairingCurrent = 0;
-    let pairingPerPage = 2;
-
-    function getPerPage() {
-      return window.innerWidth <= 768 ? 1 : 2;
-    }
-
-    function getPageCount() {
-      return Math.ceil(pairingCards.length / pairingPerPage);
-    }
-
-    function showPairingPage(index: number) {
-      const pageCount = getPageCount();
-      if (index < 0) index = pageCount - 1;
-      if (index >= pageCount) index = 0;
-      pairingCurrent = index;
-
-      const start = index * pairingPerPage;
-      const end = start + pairingPerPage;
-
-      pairingCards.forEach((card, i) => {
-        const el = card as HTMLElement;
-        const visible = i >= start && i < end;
-        el.style.opacity = visible ? '1' : '0';
-        el.style.pointerEvents = visible ? 'auto' : 'none';
-        el.style.position = visible ? 'relative' : 'absolute';
-        el.style.transform = visible ? 'translateY(0)' : 'translateY(8px)';
-      });
-
-      // Update dots
-      pairingDotsContainer.querySelectorAll('.pairing-carousel__dot').forEach((d, i) => {
-        d.classList.toggle('pairing-carousel__dot--active', i === index);
-      });
-    }
-
-    function buildPairingDots() {
-      pairingDotsContainer.innerHTML = '';
-      const pageCount = getPageCount();
-      for (let i = 0; i < pageCount; i++) {
-        const dot = document.createElement('button');
-        dot.className = 'pairing-carousel__dot' + (i === 0 ? ' pairing-carousel__dot--active' : '');
-        dot.setAttribute('aria-label', `Go to page ${i + 1}`);
-        dot.addEventListener('click', () => showPairingPage(i));
-        pairingDotsContainer.appendChild(dot);
-      }
-    }
-
-    function sizePairingStage() {
-      if (!pairingStage) return;
-      // Temporarily show all cards to measure
-      const origStyles: string[] = [];
-      pairingCards.forEach((card) => {
-        const el = card as HTMLElement;
-        origStyles.push(el.getAttribute('style') || '');
-        el.style.position = 'relative';
-        el.style.opacity = '1';
-      });
-
-      // Measure height per page
-      let maxHeight = 0;
-      const pageCount = getPageCount();
-      for (let p = 0; p < pageCount; p++) {
-        let pageHeight = 0;
-        const start = p * pairingPerPage;
-        const end = Math.min(start + pairingPerPage, pairingCards.length);
-
-        // Hide all, show only this page's cards
-        pairingCards.forEach((c) => { (c as HTMLElement).style.display = 'none'; });
-        for (let i = start; i < end; i++) {
-          (pairingCards[i] as HTMLElement).style.display = '';
-        }
-
-        pageHeight = pairingStage.scrollHeight;
-        if (pageHeight > maxHeight) maxHeight = pageHeight;
-      }
-
-      // Restore all
-      pairingCards.forEach((card, i) => {
-        const el = card as HTMLElement;
-        el.style.display = '';
-        el.setAttribute('style', origStyles[i]);
-      });
-
-      pairingStage.style.height = maxHeight + 'px';
-    }
-
-    function initPairingCarousel() {
-      pairingPerPage = getPerPage();
-      pairingCurrent = 0;
-      buildPairingDots();
-      showPairingPage(0);
-      sizePairingStage();
-    }
-
-    pairingPrev?.addEventListener('click', () => showPairingPage(pairingCurrent - 1));
-    pairingNext?.addEventListener('click', () => showPairingPage(pairingCurrent + 1));
-    document.querySelector('[data-pairing-prev-mobile]')?.addEventListener('click', () => showPairingPage(pairingCurrent - 1));
-    document.querySelector('[data-pairing-next-mobile]')?.addEventListener('click', () => showPairingPage(pairingCurrent + 1));
-
-    initPairingCarousel();
-
-    let resizeTimer: ReturnType<typeof setTimeout>;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        const newPerPage = getPerPage();
-        if (newPerPage !== pairingPerPage) {
-          initPairingCarousel();
-        } else {
-          sizePairingStage();
-        }
-      }, 150);
-    });
-  </script>
 
   <!-- Donation -->
   <section class="st-section" id="donate">
@@ -405,6 +248,9 @@ const mentorshipPairings: Pairing[] = [
 </Layout>
 
 <style>
+  .mentor-story__portrait { aspect-ratio:3 / 4; overflow:hidden; border-radius:2px; }
+  .mentor-story__portrait img { width:100%; height:100%; object-fit:cover; object-position:center; display:block; transform:scale(1.3); transform-origin:center 70%; border-radius:0; }
+
   .donation-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:var(--st-space-5); }
   .donation-card { text-align:center; padding:var(--st-space-6) var(--st-space-4); border:1px solid var(--st-border); border-radius:4px; transition:transform var(--st-duration) var(--st-ease), box-shadow var(--st-duration) var(--st-ease); }
   .donation-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(32,73,60,0.08); }
@@ -421,24 +267,15 @@ const mentorshipPairings: Pairing[] = [
   .contact-item a { color:var(--st-green); transition:color var(--st-duration); }
   .contact-item a:hover { color:var(--st-gold); }
 
-  .pairing-carousel { position:relative; margin-top:var(--st-space-6); padding:0 var(--st-space-10); }
-  .pairing-carousel__stage { position:relative; overflow:hidden; display:grid; grid-template-columns:repeat(2, 1fr); gap:var(--st-space-6); }
-  .pairing-carousel__card { transition:opacity 0.45s var(--st-ease-out), transform 0.45s var(--st-ease-out); }
-  .pairing-carousel__arrow { position:absolute; top:50%; transform:translateY(-50%); z-index:2; width:40px; height:40px; border-radius:50%; border:1.5px solid var(--st-border); background:var(--st-white); color:var(--st-green); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:all var(--st-duration) var(--st-ease); }
-  .pairing-carousel__arrow:hover { border-color:var(--st-green); background:var(--st-green); color:var(--st-white); }
-  .pairing-carousel__arrow--prev { left:0; }
-  .pairing-carousel__arrow--next { right:0; }
-  .pairing-carousel__dots { display:flex; justify-content:center; gap:var(--st-space-3); margin-top:var(--st-space-6); }
-  .pairing-carousel__dot { width:8px; height:8px; border-radius:50%; border:1.5px solid var(--st-border); background:transparent; cursor:pointer; transition:all var(--st-duration) var(--st-ease); padding:0; }
-  .pairing-carousel__dot--active { background:var(--st-green); border-color:var(--st-green); }
-  .pairing-carousel__dot:hover { border-color:var(--st-green); }
-  .pairing-carousel__mobile-nav { display:none; }
-  .pairing-card { padding:var(--st-space-6); border:1px solid var(--st-border); border-radius:4px; background:var(--st-white); }
-  .pairing-card__portraits { display:flex; justify-content:center; align-items:center; gap:var(--st-space-6); margin-bottom:var(--st-space-5); }
+  .pairing-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:var(--st-space-6); margin-top:var(--st-space-6); }
+  .pairing-grid__item { display:flex; }
+  .pairing-grid__item--wide { grid-column:1 / -1; }
+  .pairing-card { padding:var(--st-space-6); border:1px solid var(--st-border); border-radius:4px; background:var(--st-white); width:100%; }
+  .pairing-card__portraits { display:flex; justify-content:center; align-items:center; gap:var(--st-space-4); margin-bottom:var(--st-space-3); }
   .pairing-card__avatar { width:96px; flex-shrink:0; }
-  .pairing-card__avatar img { width:100%; height:auto; display:block; }
+  .pairing-card__avatar img { width:100%; height:auto; display:block; transform:scale(1.5); transform-origin:center; }
   .pairing-card__avatar--fallback { height:96px; display:flex; align-items:center; justify-content:center; background:var(--st-sage); color:var(--st-green); font-family:var(--st-font-heading); font-size:2rem; font-weight:700; border-radius:50%; }
-  .pairing-card__header { margin-bottom:var(--st-space-5); padding-bottom:var(--st-space-4); border-bottom:2px solid var(--st-gold); }
+  .pairing-card__header { text-align:center; margin-bottom:var(--st-space-5); padding-bottom:var(--st-space-4); border-bottom:2px solid var(--st-gold); }
   .pairing-card__names { font-family:var(--st-font-heading); font-size:1.125rem; font-weight:700; color:var(--st-green); display:block; }
   .pairing-card__label { font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--st-text-light); margin-top:0.25rem; display:block; }
   .pairing-card__quotes { display:flex; flex-direction:column; gap:var(--st-space-5); }
@@ -453,11 +290,7 @@ const mentorshipPairings: Pairing[] = [
   @media (max-width: 768px) {
     .donation-grid { grid-template-columns:repeat(2, 1fr); }
     .ways-grid { grid-template-columns:1fr; }
-    .pairing-carousel { padding:0; }
-    .pairing-carousel__stage { grid-template-columns:1fr; }
-    .pairing-carousel > .pairing-carousel__arrow { display:none; }
-    .pairing-carousel__mobile-nav { display:flex; align-items:center; justify-content:center; gap:var(--st-space-4); margin-top:var(--st-space-3); }
-    .pairing-carousel__mobile-nav .pairing-carousel__arrow { position:static; transform:none; flex-shrink:0; }
+    .pairing-grid { grid-template-columns:1fr; }
     .partner-testimonial-grid { grid-template-columns:1fr; }
   }
   @media (max-width: 480px) { .donation-grid { grid-template-columns:1fr; } }

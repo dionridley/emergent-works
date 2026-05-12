@@ -7,18 +7,21 @@ import PageHero from "../../components/PageHero.astro";
 import { programs, directPrograms, partnerPrograms } from "../../data/programs";
 import { testimonials } from "../../data/testimonials";
 import { partnerTestimonials } from "../../data/partners";
-import teckLibrary from "../../assets/programs/teck-library.jpg";
+import heroImage from "../../assets/heroes/programs.jpg";
 
 const blueberry = testimonials.find((t) => t.name === "Blueberry")!;
-const julius = testimonials.find((t) => t.name === "Julius")!;
-const terrence = testimonials.find((t) => t.name === "Terrence")!;
+
+const directProgramFeatures = directPrograms.map((program) => ({
+  program,
+  quote: testimonials.find((t) => t.name === program.featuredTestimonialName)!,
+}));
 ---
 
 <Layout title="Programs">
   <Header currentPath="/programs/" />
 
   <PageHero
-    image={teckLibrary}
+    image={heroImage}
     imageAlt="A TECK program session in the Emergent Works library"
     kicker="Our Programs"
     title="Every Program<br />Begins a Story"
@@ -36,37 +39,37 @@ const terrence = testimonials.find((t) => t.name === "Terrence")!;
   </section>
 
   <!-- Direct Programs as editorial features -->
-  {directPrograms.map((program, i) => {
-    const quote = program.id === "trap" ? julius : terrence;
-    return (
-      <section class="st-section" style={i % 2 === 1 ? "background:var(--st-white);" : ""}>
-        <div class="st-container">
-          <div class:list={["prog-feature", { "prog-feature--reverse": i % 2 === 1 }]} data-reveal>
-            <figure class="st-editorial-image">
-              <Image src={program.image} alt={program.title} layout="constrained" style="aspect-ratio:4/3;object-fit:cover;" />
-              <figcaption>{program.title} — {program.type === "direct" ? "Direct Program" : "Partner Program"}</figcaption>
-            </figure>
-            <div class="prog-feature__text">
-              <span class="st-kicker">{program.type === "direct" ? "Direct Program" : "Partner Program"}</span>
-              <h2>{program.title}</h2>
-              <p class="prog-feature__meta"><strong>Duration:</strong> {program.duration} &middot; <strong>Eligibility:</strong> {program.eligibility}</p>
-              <p>{program.description}</p>
-              <blockquote class="st-pullquote" style="margin-top:var(--st-space-6);font-size:1.25rem;">
-                "{quote.quote}"
-                <cite>— {quote.name}, {program.title} Graduate</cite>
-              </blockquote>
-              <a href={`/programs/${program.id === "trap" ? "trap" : "teck"}/`} class="st-btn st-btn--primary" style="margin-top:var(--st-space-5);">
+  {directProgramFeatures.map(({ program, quote }, i) => (
+    <section class="st-section" style={i % 2 === 1 ? "background:var(--st-white);" : ""}>
+      <div class="st-container">
+        <div class:list={["prog-feature", { "prog-feature--reverse": i % 2 === 1 }]} data-reveal>
+          <figure class="st-editorial-image">
+            <Image src={program.image} alt={program.title} layout="constrained" style="aspect-ratio:4/3;object-fit:cover;" />
+            <figcaption>{program.title} — {program.type === "direct" ? "Direct Program" : "Partner Program"}</figcaption>
+          </figure>
+          <div class="prog-feature__text">
+            <span class="st-kicker">{program.type === "direct" ? "Direct Program" : "Partner Program"}</span>
+            <h2>{program.title}</h2>
+            <p class="prog-feature__meta"><strong>Duration:</strong> {program.duration} &middot; <strong>Eligibility:</strong> {program.eligibility}</p>
+            <p>{program.description}</p>
+            <blockquote class="st-pullquote" style="margin-top:var(--st-space-6);font-size:1.25rem;">
+              "{quote.quote}"
+              <cite>— {quote.name}, {program.title} Graduate</cite>
+            </blockquote>
+            {program.detailPath && (
+              <a href={program.detailPath} class="st-btn st-btn--primary" style="margin-top:var(--st-space-5);">
                 Read Full Story <span class="st-btn-arrow">&rarr;</span>
               </a>
-              <a href="/get-involved/" class="st-btn st-btn--outline" style="margin-top:var(--st-space-3);margin-left:var(--st-space-3);">
+            )}
+            {program.applyUrl && (
+              <a href={program.applyUrl} target="_blank" rel="noopener noreferrer" class="st-btn st-btn--outline" style="margin-top:var(--st-space-3);margin-left:var(--st-space-3);">
                 Apply
               </a>
-            </div>
+            )}
           </div>
         </div>
       </section>
-    );
-  })}
+    ))}
 
   <!-- Partner Programs -->
   <section class="st-section st-section--green">
@@ -105,13 +108,20 @@ const terrence = testimonials.find((t) => t.name === "Terrence")!;
     </div>
   </section>
 
-  <section class="st-section" style="text-align:center;">
+  <section class="st-section">
     <div class="st-container" data-reveal>
-      <blockquote class="st-pullquote" style="border-left:none;text-align:center;max-width:640px;margin:0 auto var(--st-space-6);">
-        "Overall, the Program at Emergent Works has been a life-changing experience, equipping me with the skills, knowledge, and support needed to advance my career and personal growth."
-        <cite>— Blueberry</cite>
-      </blockquote>
-      <div style="display:flex;gap:var(--st-space-4);justify-content:center;flex-wrap:wrap;">
+      <div class="programs-cta-quote">
+        <div class="programs-cta-quote__portrait">
+          <img src="/images/people/graduates/blueberry.png" alt="Blueberry" />
+        </div>
+        <div class="programs-cta-quote__text">
+          <blockquote class="programs-cta-quote__quote">
+            "Overall, the Program at Emergent Works has been a life-changing experience, equipping me with the skills, knowledge, and support needed to advance my career and personal growth."
+            <cite>— Blueberry</cite>
+          </blockquote>
+        </div>
+      </div>
+      <div class="programs-cta-actions">
         <a href="/get-involved/" class="st-btn st-btn--primary">Get Involved <span class="st-btn-arrow">&rarr;</span></a>
         <a href="/impact/" class="st-btn st-btn--outline">Explore Impact <span class="st-btn-arrow">&rarr;</span></a>
       </div>
@@ -184,6 +194,61 @@ const terrence = testimonials.find((t) => t.name === "Terrence")!;
     border-radius: 4px;
   }
 
+  .programs-cta-quote {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: var(--st-space-7);
+    align-items: center;
+    max-width: 880px;
+    margin: 0 auto var(--st-space-8);
+  }
+
+  .programs-cta-quote__portrait {
+    width: 200px;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .programs-cta-quote__portrait img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform: scale(1.6);
+    transform-origin: center;
+  }
+
+  .programs-cta-quote__text {
+    padding-left: var(--st-space-6);
+    border-left: 3px solid var(--st-green);
+  }
+
+  .programs-cta-quote__quote {
+    font-family: var(--st-font-serif);
+    font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.45;
+    color: var(--st-green);
+    margin: 0;
+  }
+
+  .programs-cta-quote__quote cite {
+    display: block;
+    margin-top: var(--st-space-4);
+    font-family: var(--st-font-body);
+    font-size: 0.8125rem;
+    font-style: normal;
+    font-weight: 600;
+    color: var(--st-text-secondary);
+  }
+
+  .programs-cta-actions {
+    display: flex;
+    gap: var(--st-space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
   @media (max-width: 768px) {
     .prog-feature, .prog-feature--reverse {
       grid-template-columns: 1fr;
@@ -191,5 +256,17 @@ const terrence = testimonials.find((t) => t.name === "Terrence")!;
     }
     .partner-grid { grid-template-columns: 1fr; }
     .partner-quote-grid { grid-template-columns: 1fr; }
+    .programs-cta-quote {
+      grid-template-columns: 1fr;
+      gap: var(--st-space-5);
+      text-align: center;
+    }
+    .programs-cta-quote__portrait { margin: 0 auto; width: 160px; }
+    .programs-cta-quote__text {
+      padding-left: 0;
+      padding-top: var(--st-space-5);
+      border-left: none;
+      border-top: 3px solid var(--st-green);
+    }
   }
 </style>
