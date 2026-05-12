@@ -24,7 +24,8 @@
       "Bash(curl:*)",
       "Bash(head:*)",
       "WebSearch",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "PowerShell(Copy-Item *)"
     ]
   }
 }
