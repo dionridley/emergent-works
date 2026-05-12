@@ -10,11 +10,13 @@ export interface Testimonial {
 export const testimonials: Testimonial[] = [
   {
     name: "Dontay",
+    image: "/images/people/graduates/dontay.png",
     quote:
       "This program reminded me that no matter what obstacles come my way, giving up can't be an option. There were moments where I doubted myself or felt like things were too hard, but being a part of this program showed me that persistence pays off. I learned that progress doesn't always happen overnight.",
   },
   {
     name: "Zeek",
+    image: "/images/people/graduates/zeek.png",
     quote:
       "This program has truly impacted my life by giving me the confidence to grow, the skills to move forward, and the support of a community that encouraged me every step of the way.",
     sectionTitle: "The Skills To Move Forward",
