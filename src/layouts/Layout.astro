@@ -23,8 +23,8 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" href="/ew-logo.png" />
+    <link rel="apple-touch-icon" href="/ew-logo.png" />
     <SEO
       title={`${title} — Emergent Works`}
       description={description}
@@ -480,6 +480,13 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
         color: var(--st-green);
       }
 
+      .st-header__logo-mark {
+        width: 1.6em;
+        height: 1.6em;
+        flex-shrink: 0;
+        display: block;
+      }
+
       .st-header__nav {
         display: flex;
         align-items: center;
@@ -594,10 +601,20 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
       }
 
       .st-footer__logo {
+        display: flex;
+        align-items: center;
+        gap: 0.625rem;
         font-family: var(--st-font-heading);
         font-size: 1.125rem;
         font-weight: 700;
         color: var(--st-white);
+      }
+
+      .st-footer__logo-mark {
+        width: 1.6em;
+        height: 1.6em;
+        flex-shrink: 0;
+        display: block;
       }
 
       .st-footer__heading {

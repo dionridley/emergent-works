@@ -10,8 +10,11 @@ import { partnerTestimonials } from "../../data/partners";
 import heroImage from "../../assets/heroes/programs.jpg";
 
 const blueberry = testimonials.find((t) => t.name === "Blueberry")!;
-const julius = testimonials.find((t) => t.name === "Julius")!;
-const terrence = testimonials.find((t) => t.name === "Terrence")!;
+
+const directProgramFeatures = directPrograms.map((program) => ({
+  program,
+  quote: testimonials.find((t) => t.name === program.featuredTestimonialName)!,
+}));
 ---
 
 <Layout title="Programs">
@@ -36,37 +39,37 @@ const terrence = testimonials.find((t) => t.name === "Terrence")!;
   </section>
 
   <!-- Direct Programs as editorial features -->
-  {directPrograms.map((program, i) => {
-    const quote = program.id === "trap" ? julius : terrence;
-    return (
-      <section class="st-section" style={i % 2 === 1 ? "background:var(--st-white);" : ""}>
-        <div class="st-container">
-          <div class:list={["prog-feature", { "prog-feature--reverse": i % 2 === 1 }]} data-reveal>
-            <figure class="st-editorial-image">
-              <Image src={program.image} alt={program.title} layout="constrained" style="aspect-ratio:4/3;object-fit:cover;" />
-              <figcaption>{program.title} — {program.type === "direct" ? "Direct Program" : "Partner Program"}</figcaption>
-            </figure>
-            <div class="prog-feature__text">
-              <span class="st-kicker">{program.type === "direct" ? "Direct Program" : "Partner Program"}</span>
-              <h2>{program.title}</h2>
-              <p class="prog-feature__meta"><strong>Duration:</strong> {program.duration} &middot; <strong>Eligibility:</strong> {program.eligibility}</p>
-              <p>{program.description}</p>
-              <blockquote class="st-pullquote" style="margin-top:var(--st-space-6);font-size:1.25rem;">
-                "{quote.quote}"
-                <cite>— {quote.name}, {program.title} Graduate</cite>
-              </blockquote>
-              <a href={`/programs/${program.id === "trap" ? "trap" : "teck"}/`} class="st-btn st-btn--primary" style="margin-top:var(--st-space-5);">
+  {directProgramFeatures.map(({ program, quote }, i) => (
+    <section class="st-section" style={i % 2 === 1 ? "background:var(--st-white);" : ""}>
+      <div class="st-container">
+        <div class:list={["prog-feature", { "prog-feature--reverse": i % 2 === 1 }]} data-reveal>
+          <figure class="st-editorial-image">
+            <Image src={program.image} alt={program.title} layout="constrained" style="aspect-ratio:4/3;object-fit:cover;" />
+            <figcaption>{program.title} — {program.type === "direct" ? "Direct Program" : "Partner Program"}</figcaption>
+          </figure>
+          <div class="prog-feature__text">
+            <span class="st-kicker">{program.type === "direct" ? "Direct Program" : "Partner Program"}</span>
+            <h2>{program.title}</h2>
+            <p class="prog-feature__meta"><strong>Duration:</strong> {program.duration} &middot; <strong>Eligibility:</strong> {program.eligibility}</p>
+            <p>{program.description}</p>
+            <blockquote class="st-pullquote" style="margin-top:var(--st-space-6);font-size:1.25rem;">
+              "{quote.quote}"
+              <cite>— {quote.name}, {program.title} Graduate</cite>
+            </blockquote>
+            {program.detailPath && (
+              <a href={program.detailPath} class="st-btn st-btn--primary" style="margin-top:var(--st-space-5);">
                 Read Full Story <span class="st-btn-arrow">&rarr;</span>
               </a>
-              <a href="/get-involved/" class="st-btn st-btn--outline" style="margin-top:var(--st-space-3);margin-left:var(--st-space-3);">
+            )}
+            {program.applyUrl && (
+              <a href={program.applyUrl} target="_blank" rel="noopener noreferrer" class="st-btn st-btn--outline" style="margin-top:var(--st-space-3);margin-left:var(--st-space-3);">
                 Apply
               </a>
-            </div>
+            )}
           </div>
         </div>
       </section>
-    );
-  })}
+    ))}
 
   <!-- Partner Programs -->
   <section class="st-section st-section--green">

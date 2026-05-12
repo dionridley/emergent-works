@@ -17,6 +17,9 @@ export interface Program {
   applyBy?: string;
   image: ImageMetadata;
   features: string[];
+  applyUrl?: string;
+  detailPath?: string;
+  featuredTestimonialName?: string;
 }
 
 export const programs: Program[] = [
@@ -41,6 +44,9 @@ export const programs: Program[] = [
       "Career readiness",
       "Milestone-based stipends",
     ],
+    applyUrl: "https://airtable.com/appyTzBuYurBIDASc/shrwPzkIRRxbFJh1P",
+    detailPath: "/programs/trap/",
+    featuredTestimonialName: "Julius",
   },
   {
     id: "teck-direct",
@@ -61,6 +67,9 @@ export const programs: Program[] = [
       "Portfolio-ready projects",
       "Virtual and individual",
     ],
+    applyUrl: "https://airtable.com/apparGbIS7FxQJM4M/paga8cpmP4R1FaWsY/form",
+    detailPath: "/programs/teck/",
+    featuredTestimonialName: "Terrence",
   },
   {
     id: "teck",
@@ -79,6 +88,7 @@ export const programs: Program[] = [
       "Basic website building",
       "Digital literacy",
     ],
+    applyUrl: "https://airtable.com/apparGbIS7FxQJM4M/paga8cpmP4R1FaWsY/form",
   },
   {
     id: "trap-partner",
