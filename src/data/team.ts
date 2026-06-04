@@ -18,7 +18,7 @@ Army is a graduate of the Unlocked Futures Cohort, a partnership between New Pro
   {
     name: "Tine Reinert",
     title: "Program Director",
-    image: "/images/team/placeholder-2.jpg",
+    image: "/images/team/tine-reinert.jpg",
     bio: `Tine Reinert serves as Program Director at Emergent Works, bringing over 12 years of experience in youth development and eight years specifically in youth justice work. Originally from Denmark and a graduate of Malmö University, as well as a graduate of Emergent Works' own program, she pairs an international perspective with lived program experience and deep, on-the-ground expertise supporting system-impacted young people.
 
 At EW, Tine oversees all programmatic operations, ensuring strategic alignment, strong implementation, and measurable impact. She leads the educational vision of the organization, shaping curriculum, strengthening instructional design, and coaching staff to deliver high-quality, transformative learning experiences. Her leadership is grounded in equity, accountability, and an unwavering belief in young people's ability to build powerful futures when equipped with the right tools and support.`,
@@ -26,7 +26,7 @@ At EW, Tine oversees all programmatic operations, ensuring strategic alignment, 
   {
     name: "LaiQuan DuBose",
     title: "Program Manager",
-    image: "/images/team/placeholder-1.jpg",
+    image: "/images/team/laiquan-dubose.jpg",
     bio: `LaiQuan DuBose is a Program Manager and Certified Administrative Professional with a strong foundation in student success, mentorship, and program operations. Formerly a Student Success Coordinator, he brings a hands-on, participant-centered approach, combining structure, empathy, and accountability to drive meaningful outcomes.
 
 Rooted in resilience from overcoming significant personal challenges, LaiQuan is deeply committed to creating pathways for others to grow and succeed. Known for building trust and fostering inclusive environments, he has a proven track record of guiding participants toward tangible progress while creating spaces where individuals can build skills, confidence, and a clear path forward.`,
@@ -34,7 +34,7 @@ Rooted in resilience from overcoming significant personal challenges, LaiQuan is
   {
     name: "Nasiar Denobrega",
     title: "Program Associate",
-    image: "/images/team/placeholder-1.jpg",
+    image: "/images/team/nasiar-denobrega.png",
     bio: `Nasiar Denobrega serves as Program Associate at Emergent Works, bringing both lived experience and professional leadership to his role. Justice-impacted himself, Nasiar began his journey with EW as a participant four years ago and has since grown into a trusted, credible messenger for the young people we serve. His trajectory reflects the transformative impact of the program and models what long-term success can look like.
 
 Today, Nasiar provides direct support to participants, offering mentorship, accountability, and day-to-day guidance. He helps ensure participants are developing not only professionally — through workplace readiness, communication, and digital skills — but also personally, building confidence, discipline, and self-awareness. He plays a key role in connecting young people to opportunities, resources, and networks that expand their pathways forward. Nasiar's leadership is grounded in authenticity, relatability, and a deep commitment to helping others navigate systems he has successfully overcome himself.`,
@@ -42,7 +42,7 @@ Today, Nasiar provides direct support to participants, offering mentorship, acco
   {
     name: "Angie Agosta",
     title: "Program Intern",
-    image: "/images/team/placeholder-1.jpg",
+    image: "/images/team/angie-agosta.jpeg",
     bio: "Angie manages all communication, social media, and design for Emergent Works, ensuring weekly marketing that highlights the organization's programs, participant achievements, and overall impact. Her creativity and dedication help showcase the important work EW does in the community.",
   },
 ];
@@ -63,45 +63,49 @@ export const boardOfDirectors: TeamMember[] = [
   {
     name: "Ashley Chen",
     title: "Board Member",
-    image: "/images/team/placeholder-4.jpg",
-    bio: "Ashley brings a background in community development and policy advocacy, helping EW navigate the intersection of technology and social justice.",
-    fabricated: true,
+    image: "/images/team/placeholder-avatar.svg",
   },
   {
     name: "Jerone Hsu",
     title: "Board Member",
-    image: "/images/team/placeholder-1.jpg",
-    bio: "Jerone contributes financial and operational expertise to the board, supporting EW's sustainable growth and fiscal responsibility.",
-    fabricated: true,
+    image: "/images/team/placeholder-avatar.svg",
   },
   {
     name: "Monti Hill",
     title: "Board Member",
-    image: "/images/team/placeholder-2.jpg",
-    bio: "Monti brings experience in workforce development and education, helping shape EW's programs to maximize participant outcomes.",
-    fabricated: true,
+    image: "/images/team/monti-hill.jpg",
   },
 ];
 
 export const advisoryBoard: TeamMember[] = [
   {
-    name: "Nikki Nikkhoui",
+    name: "Meagan Cooke",
     title: "Advisory Board Member",
-    image: "/images/team/nikki-nikkhoui.jpg",
-    bio: "Nikki advises on program design and community engagement strategy, drawing on her experience in social impact organizations.",
+    image: "/images/team/meagan-cooke.jpeg",
   },
   {
     name: "Jonathan Hinds",
     title: "Advisory Board Member",
-    image: "/images/team/placeholder-4.jpg",
-    bio: "Jonathan provides guidance on technology partnerships and corporate engagement, helping EW expand its network of supporters.",
-    fabricated: true,
+    image: "/images/team/jonathan-hinds.jpeg",
   },
   {
-    name: "Meagan Cook",
+    name: "Nashid Mateen",
     title: "Advisory Board Member",
-    image: "/images/team/placeholder-1.jpg",
-    bio: "Meagan advises on fundraising strategy and donor relations, bringing expertise in nonprofit development to EW's growth.",
-    fabricated: true,
+    image: "/images/team/nashid-mateen.jpeg",
+  },
+  {
+    name: "Anika Geera",
+    title: "Advisory Board Member",
+    image: "/images/team/anika-geera.jpeg",
+  },
+  {
+    name: "Nicole 'Blueberry' Gibson",
+    title: "Advisory Board Member",
+    image: "/images/team/nicole-blueberry-gibson.png",
+  },
+  {
+    name: "Kat Saneewong",
+    title: "Advisory Board Member",
+    image: "/images/team/kat-saneewong.png",
   },
 ];

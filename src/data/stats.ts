@@ -10,8 +10,8 @@ export interface Stat {
 
 export const primaryStats: Stat[] = [
   {
-    value: "261",
-    numericValue: 261,
+    value: "284",
+    numericValue: 284,
     label: "Graduates",
     description:
       "System-impacted individuals have graduated from Emergent Works programs",

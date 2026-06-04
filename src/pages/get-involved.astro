@@ -175,14 +175,17 @@ const mentorshipPairings: Pairing[] = [
       </div>
       <div class="ways-grid" data-reveal="delay-1">
         {[
-          { title: "Mentor", desc: "Share your expertise through our 12-week mentorship program. Min 2 hours a week transforms lives." },
-          { title: "Donate", desc: "Fund the programs that break cycles of incarceration. Every dollar creates measurable impact." },
-          { title: "Partner", desc: "Bring TECK or T.RAP to your organization. We customize programs for your community." },
-          { title: "Volunteer", desc: "Support events, outreach, and community building or join our Advisory Board. There's a place for every skill." },
+          { title: "Mentor", desc: "Share your expertise through our 12-week volunteer mentorship program. Min 2 hours a week transforms lives.", cta: "Apply Here", href: "https://airtable.com/apparGbIS7FxQJM4M/shrToEfXoVDu63iES", external: true },
+          { title: "Donate", desc: "Fund the programs that break cycles of incarceration. Every dollar creates measurable impact.", cta: "Support Our Work", href: "#donate", external: false },
+          { title: "Partner", desc: "Bring TECK or T.RAP to your organization. We customize programs for your community.", cta: "Partner with Us", href: "https://docs.google.com/forms/d/e/1FAIpQLSffEYX78fPPytCTG-pPL_ehi3rdsj6h4VrFCnXndPlXbbLGnQ/viewform", external: true },
+          { title: "Volunteer", desc: "Support events, be a guest speaker, outreach, and community building or join our Advisory Board. There's a place for every skill.", cta: "Complete This Form", href: "https://docs.google.com/forms/d/e/1FAIpQLSdNTkLb19DIMB0vv3WF7K5Xr_w9smJTXf5CfRgqD4kk7dikyA/viewform?usp=header", external: true },
         ].map((way) => (
           <div class="way-card">
             <h3 style="color:var(--st-gold);margin-bottom:var(--st-space-3);">{way.title}</h3>
             <p style="color:var(--st-sage);font-size:0.9375rem;line-height:1.7;">{way.desc}</p>
+            <div class="way-card__cta">
+              <a href={way.href} class="st-btn st-btn--outline-white" {...(way.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>{way.cta} <span class="st-btn-arrow">&rarr;</span></a>
+            </div>
           </div>
         ))}
       </div>
@@ -259,7 +262,8 @@ const mentorshipPairings: Pairing[] = [
   .donation-card__impact { font-size:0.8125rem; color:var(--st-text-secondary); line-height:1.6; }
 
   .ways-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:var(--st-space-5); margin-top:var(--st-space-6); }
-  .way-card { padding:var(--st-space-6); background:rgba(255,255,255,0.04); border:1px solid rgba(177,211,187,0.1); border-radius:4px; }
+  .way-card { padding:var(--st-space-6); background:rgba(255,255,255,0.04); border:1px solid rgba(177,211,187,0.1); border-radius:4px; display:flex; flex-direction:column; }
+  .way-card__cta { margin-top:auto; padding-top:var(--st-space-5); }
 
   .contact-block { display:flex; flex-direction:column; gap:var(--st-space-5); }
   .contact-label { font-size:0.6875rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--st-gold); display:block; margin-bottom:0.25rem; }

@@ -24,6 +24,7 @@ export const testimonials: Testimonial[] = [
   {
     name: "Sheisty",
     image: "/images/people/graduates/sheisty.png",
+    sectionTitle: "How To Really Approach Life Differently",
     quote:
       "When I came into EW, I was honestly lost. I had just turned 19, and I didn't know where I was really going. But I learned so much here, from Biggz, from Nas, from Tine, even from arguing with my peers. I learned how to control my emotions, how to communicate, how to present myself, how to really approach life differently.",
   },
