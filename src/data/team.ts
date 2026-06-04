@@ -85,23 +85,33 @@ export const boardOfDirectors: TeamMember[] = [
 
 export const advisoryBoard: TeamMember[] = [
   {
-    name: "Nikki Nikkhoui",
+    name: "Meagan Cooke",
     title: "Advisory Board Member",
-    image: "/images/team/nikki-nikkhoui.jpg",
-    bio: "Nikki advises on program design and community engagement strategy, drawing on her experience in social impact organizations.",
+    image: "/images/team/meagan-cooke.jpeg",
   },
   {
     name: "Jonathan Hinds",
     title: "Advisory Board Member",
-    image: "/images/team/placeholder-4.jpg",
-    bio: "Jonathan provides guidance on technology partnerships and corporate engagement, helping EW expand its network of supporters.",
-    fabricated: true,
+    image: "/images/team/jonathan-hinds.jpeg",
   },
   {
-    name: "Meagan Cook",
+    name: "Nashid Mateen",
     title: "Advisory Board Member",
-    image: "/images/team/placeholder-1.jpg",
-    bio: "Meagan advises on fundraising strategy and donor relations, bringing expertise in nonprofit development to EW's growth.",
-    fabricated: true,
+    image: "/images/team/nashid-mateen.jpeg",
+  },
+  {
+    name: "Anika Geera",
+    title: "Advisory Board Member",
+    image: "/images/team/anika-geera.jpeg",
+  },
+  {
+    name: "Nicole 'Blueberry' Gibson",
+    title: "Advisory Board Member",
+    image: "/images/team/nicole-blueberry-gibson.png",
+  },
+  {
+    name: "Kat Saneewong",
+    title: "Advisory Board Member",
+    image: "/images/team/kat-saneewong.png",
   },
 ];
