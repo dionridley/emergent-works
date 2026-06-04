@@ -5,7 +5,7 @@ export const organization = {
   nonprofitStatus: "501(c)(3)",
   founded: 2020,
   contact: {
-    email: "info@emergentworks.org",
+    email: "hello@emergentworks.org",
     address: "424 W 54th St., New York, NY 10019",
   },
   social: {
