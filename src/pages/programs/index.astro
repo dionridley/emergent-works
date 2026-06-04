@@ -7,6 +7,7 @@ import PageHero from "../../components/PageHero.astro";
 import { programs, directPrograms, partnerPrograms } from "../../data/programs";
 import { testimonials } from "../../data/testimonials";
 import { partnerTestimonials } from "../../data/partners";
+import { organization } from "../../data/organization";
 import heroImage from "../../assets/heroes/programs.jpg";
 
 const blueberry = testimonials.find((t) => t.name === "Blueberry")!;
@@ -80,6 +81,9 @@ const directProgramFeatures = directPrograms.map((program) => ({
         <div class="st-divider" style="background:var(--st-gold);"></div>
       </div>
       <p style="color:var(--st-sage);font-size:1rem;line-height:1.8;max-width:var(--st-max-width-text);margin-bottom:var(--st-space-8);" data-reveal="delay-1">Non-profit organizations can book our T.RAP and TECK programs as well as customized programs to serve their communities. T.RAP centers social-emotional learning, therapeutic writing, and music production, while TECK builds digital literacy skills including Google Suite, AI, Canva, website development, and entrepreneurial foundations. We tailor each cohort to the specific needs of our partners — blending creative expression, workforce readiness, digital skills, and entrepreneurship as well as other themes requested to equip participants with hands-on learning, mentorship, and real-world opportunities. Empower your participants with hands-on learning, mentorship, and real-world opportunities.</p>
+      <div style="margin-bottom:var(--st-space-8);" data-reveal="delay-1">
+        <a href={`mailto:${organization.contact.email}`} class="st-btn st-btn--gold">Connect With Us <span class="st-btn-arrow">&rarr;</span></a>
+      </div>
       <div class="partner-grid" data-reveal="delay-2">
         <div class="partner-card">
           <h3 style="color:var(--st-white);">TECK</h3>
