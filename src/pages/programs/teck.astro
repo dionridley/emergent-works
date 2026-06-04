@@ -8,6 +8,7 @@ import { testimonials } from "../../data/testimonials";
 import { partners } from "../../data/partners";
 
 const teck = programs.find((p) => p.id === "teck")!;
+const teckDirect = programs.find((p) => p.id === "teck-direct")!;
 const teckDetails = expandedProgramDetails.find((d) => d.programId === "teck")!;
 const kat = testimonials.find((t) => t.name === "Kat")!;
 ---
@@ -122,9 +123,9 @@ const kat = testimonials.find((t) => t.name === "Kat")!;
   <!-- CTA -->
   <section class="st-section st-section--green" style="text-align:center;">
     <div class="st-container" data-reveal>
-      <h2 style="color:var(--st-white);">Bring TECK to<br />Your Organization</h2>
-      <p style="color:var(--st-sage);max-width:440px;margin:var(--st-space-4) auto var(--st-space-7);">We customize every cohort. Let's design one together.</p>
-      <a href={teck.applyUrl} target="_blank" rel="noopener noreferrer" class="st-btn st-btn--gold">Partner With Us <span class="st-btn-arrow">&rarr;</span></a>
+      <h2 style="color:var(--st-white);">Connect With<br />A Mentor</h2>
+      <p style="color:var(--st-sage);max-width:440px;margin:var(--st-space-4) auto var(--st-space-7);">TECK is a free mentorship experience for anyone 18+ who is system impacted in the US.</p>
+      <a href={teckDirect.applyUrl} target="_blank" rel="noopener noreferrer" class="st-btn st-btn--gold">Apply Now <span class="st-btn-arrow">&rarr;</span></a>
     </div>
   </section>
 
