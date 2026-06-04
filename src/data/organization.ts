@@ -23,9 +23,9 @@ export const organization = {
   extendedMission:
     "At Emergent Works, we break cycles of incarceration and poverty by equipping BIPOC individuals impacted by the criminal justice system with the tools to thrive in today's digital world. Through education, employment, economic mobility, and creativity, we empower our participants to build financial independence, grow personally, and lead within their communities.",
   staffStats: {
-    alumni: "100%",
-    systemImpacted: "80%",
-    bipoc: "80%",
-    femaleIdentifying: "40%",
+    alumni: "88%",
+    systemImpacted: "75%",
+    bipoc: "88%",
+    femaleIdentifying: "38%",
   },
 } as const;
