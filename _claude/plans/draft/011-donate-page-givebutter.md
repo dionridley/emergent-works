@@ -6,7 +6,7 @@
 - **Status:** draft
 - **Created:** 2026-06-04
 - **Last refreshed:** 2026-06-04
-- **Refinement count:** 0
+- **Refinement count:** 1
 - **Plan type:** standard-feature
 - **Verification Policy:** Adaptive (default)
 - **Related PRD:** N/A
@@ -43,8 +43,8 @@ Finally, the site's existing donate entry points (header "Donate" button, get-in
 - [x] `donationTiers` in `src/data/donation.ts` represents the *current* donor levels the user wants showcased ($50/$100/$250/$1,000) — these are the levels in the "donor component" the user referenced on `get-involved.astro`.
 - [x] The Givebutter campaign slug for the current campaign is `emergentworks` — the user supplied `https://givebutter.com/emergentworks` as the campaign to point at.
 - [ ] The existing donation card grid on `get-involved.astro` stays as-is; the donate page reuses the same data (and a similar card treatment) rather than moving it.
-- [ ] [?] Givebutter's generic iframe embed (`https://givebutter.com/embed/c/emergentworks`) targets the same campaign as the official dashboard widget would — to be confirmed when the Blocking question resolves; the dashboard embed snippet is the authoritative answer.
-- [ ] [?] The donate page should be statically rendered with zero client JS apart from the Givebutter embed itself (no React island needed) — Astro-only is the default per CLAUDE.md architecture notes.
+- [x] Embed will use the official Givebutter dashboard widget snippet (decided 2026-06-04) — the iframe-equivalence question is moot; the dashboard snippet is authoritative for campaign targeting.
+- [x] The donate page is statically rendered with zero client JS apart from the Givebutter embed itself (no React island needed) — confirmed by user 2026-06-04.
 
 ## Open Questions & Decisions
 
@@ -64,18 +64,42 @@ These settings control how phases verify completion. They can be changed at any 
 
 Must resolve before implementation starts.
 
-- [ ] [AWAITING] **Which Givebutter embed method, and with what exact code?** Donations route by account/campaign ID — this must NOT be guessed or reconstructed. The implementer may only use embed code that comes verbatim from one of these resolutions:
-  - Option A (preferred): User pastes the official **widget embed snippet** from the Givebutter dashboard (Dashboard → Campaign → Share → Embed). This is a `<script src="https://widgets.givebutter.com/...">` + `<givebutter-widget id="...">` pair containing the account/widget IDs. Most polished look, matches "Givebutter's widget" in the request.
-  - Option B: Use the campaign-slug **iframe embed** — `<iframe src="https://givebutter.com/embed/c/emergentworks" ...>` — which requires no dashboard access and targets the public campaign at `givebutter.com/emergentworks`. Acceptable fallback if the user prefers not to dig out the dashboard snippet; confirm the slug is the same campaign as the current live donate page.
+- [x] [DECIDED: 2026-06-04] **Which Givebutter embed method, and with what exact code?** Donations route by account/campaign ID — this must NOT be guessed or reconstructed.
+  > **Decision:** Option A — official widget embed snippet from the Givebutter dashboard.
+  > **Rationale:** Most polished look, matches "Givebutter's widget" in the request, and guarantees the embed targets the exact same campaign as the current live donate page (IDs come from the dashboard, never guessed).
+
+- [x] [DECIDED: 2026-06-04] **Paste the verbatim widget embed snippet.** Both parts provided by the user from the Givebutter dashboard. The implementer must use this code byte-for-byte (IDs are user-supplied, not reconstructed):
+  > **Loader script** (place once, ideally in `<head>` via the page or Layout head slot):
+  > ```html
+  > <script
+  >   async
+  >   src="https://widgets.givebutter.com/latest.umd.cjs?acct=Dmyv83PBiHwhPXgd&p=other"
+  > ></script>
+  > ```
+  > **Widget element** (place in the right-hand column where the donation form renders):
+  > ```html
+  > <givebutter-widget id="jNOdoL"></givebutter-widget>
+  > ```
 
 ### Non-Blocking
 
 Can resolve during implementation.
 
-- [ ] [OPEN] **Hero image choice.** Default: `src/assets/hero/community.jpg` (community group shot — "your support powers this community" framing; currently the homepage hero, so reuse is not side-by-side with /donate). Alternatives: `heroes/get-involved.jpg` (mentor + participant, most thematically "support" but is the sibling page's hero), `impact/community-engagement.jpg`.
-- [ ] [OPEN] **Header Donate button target.** Default: repoint `/get-involved/#donate` → `/donate/` in both desktop (`Header.astro:33`) and mobile (`Header.astro:43`) navs. Alternative: keep header pointing at get-involved and only link from the get-involved section.
-- [ ] [OPEN] **Get-involved "Make a Donation" CTA.** Default: replace the `mailto:` link at `get-involved.astro:162` with a link to `/donate/`. The "Donate" way-card (`href: "#donate"`) keeps pointing at the on-page section, which then funnels to /donate/.
-- [ ] [OPEN] **Add "Donate" to `navLinks`?** Default: no — keep it as the styled button only (current pattern), just repointed.
+- [x] [DECIDED: 2026-06-04] **Hero image choice.**
+  > **Decision:** `src/assets/hero/community.jpg`.
+  > **Rationale:** Community group shot — "your support powers this community" framing; currently the homepage hero, so reuse is not side-by-side with /donate.
+
+- [x] [DECIDED: 2026-06-04] **Header Donate button target.**
+  > **Decision:** Repoint `/get-involved/#donate` → `/donate/` in both desktop (`Header.astro:33`) and mobile (`Header.astro:43`) navs.
+  > **Rationale:** The header Donate button becomes the primary entry to the new donation page with the live widget.
+
+- [x] [DECIDED: 2026-06-04] **Get-involved "Make a Donation" CTA.**
+  > **Decision:** Replace the `mailto:` link at `get-involved.astro:162` with a link to `/donate/`.
+  > **Rationale:** Replaces the email-only path with the actual online giving page. The on-page `#donate` anchor for the way-card stays working.
+
+- [x] [DECIDED: 2026-06-04] **Add "Donate" to `navLinks`?**
+  > **Decision:** No — keep it as the styled button only (current pattern), just repointed.
+  > **Rationale:** Keeps text nav links + distinct gold Donate button; avoids duplicate "Donate" items in the header.
 
 ## Success Criteria
 
@@ -109,7 +133,7 @@ Every Phase Exit Gate must confirm these before flipping any `[x]` in the phase:
 - [ ] **Hero:** `PageHero` with the resolved hero image (default `hero/community.jpg`), donation-focused kicker/title/subtitle (e.g., kicker "Support", title in the site's two-line `<br/>` style, subtitle grounded in the mission from `organization.ts`).
 - [ ] **Two-column section** (story left ~60%, widget right ~40% — model on `st-grid-60-40` or a custom grid like get-involved's patterns):
   - Left: fresh story copy drafted ONLY from verified sources — mission/extendedMission (`organization.ts`), what programs do (T.RAP/TECK descriptions from `programs.ts` `programs`/`programApproach` arrays), current impact stats woven in (284 graduates, 73% employed, $2+ above NYC minimum wage from `stats.ts`), and optionally one real testimonial quote from `testimonials.ts`. Tone/structure modeled on the Givebutter campaign-page format (short headline, narrative paragraphs, stat highlights), NOT the outdated live page's facts. Explicitly exclude `expandedProgramDetails` (flagged `fabricated: true`).
-  - Right: the Givebutter embed (verbatim code from the resolved Blocking question) in a card-style container; `position: sticky` within the column on desktop so the form stays in view while reading.
+  - Right: the Givebutter embed (verbatim code from the resolved Blocking question — loader script `acct=Dmyv83PBiHwhPXgd` + `<givebutter-widget id="jNOdoL">`) in a card-style container; `position: sticky` within the column on desktop so the form stays in view while reading. Note: in Astro, mark the loader as `<script is:inline async src="...">` so Astro doesn't process/bundle the third-party script; keep the URL and IDs byte-identical.
 - [ ] **Donor levels section:** render `donationTiers` from `src/data/donation.ts` as impact cards (reuse/adapt the `donation-card` pattern from `get-involved.astro:152-160`) under a heading that frames "what your gift buys"; include `donationTrust` disclosure text beneath.
 - [ ] **Responsive behavior:** below ~900px the two columns stack with the widget above or immediately after the story intro (donate action must not be buried); donor-level grid collapses 4→2→1 like get-involved's.
 - [ ] SEO: set a descriptive `title` (and description if `Layout` supports it — check `Layout.astro` props) for the page.
@@ -194,6 +218,8 @@ Every Phase Exit Gate must confirm these before flipping any `[x]` in the phase:
 ## Refinement History
 
 - **2026-06-04:** Initial plan creation.
+- **2026-06-04:** Resolved 1 blocking + 4 non-blocking questions, verified 2 assumptions. Verification Policy reviewed and kept at Adaptive. Remaining blocker: verbatim Givebutter widget embed snippet must be pasted before implementation.
+- **2026-06-04:** User supplied the verbatim Givebutter embed (loader script `acct=Dmyv83PBiHwhPXgd` + widget id `jNOdoL`). All blocking questions now resolved — plan ready to move to in_progress.
 
 ## Completion
 
