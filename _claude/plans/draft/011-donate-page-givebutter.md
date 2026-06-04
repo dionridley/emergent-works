@@ -1,0 +1,221 @@
+# Plan: Donate Page with Givebutter Widget
+
+## Metadata
+
+- **Number:** 011
+- **Status:** draft
+- **Created:** 2026-06-04
+- **Last refreshed:** 2026-06-04
+- **Refinement count:** 0
+- **Plan type:** standard-feature
+- **Verification Policy:** Adaptive (default)
+- **Related PRD:** N/A
+
+## Executive Summary
+
+Create a dedicated donation page at `/donate/` that embeds Givebutter's donation widget pointing at the same campaign currently used on the live `https://emergentworks.org/donate/` page (the `emergentworks` Givebutter campaign). The page follows the site's established page pattern — `PageHero` at top, `st-section` content blocks below — and mirrors the Givebutter campaign-page layout the user referenced: **story content on the left, donation widget on the right** (two-column on desktop, stacked on mobile, widget first on mobile so the donate action is immediately reachable).
+
+The story copy is written fresh from the site's **current, verified** facts and data files — not copied from the outdated live donate page (which cites old tier amounts like $15/$50/$150/$500 and a "$500 supports a mentee" framing). Below the two-column section, the page showcases the donor levels from `src/data/donation.ts` ($50/$100/$250/$1,000) as impact cards, reusing the visual pattern already proven on `get-involved.astro`, so donors understand exactly what each level buys.
+
+Finally, the site's existing donate entry points (header "Donate" button, get-involved "Make a Donation" mailto link) are repointed to the new `/donate/` page so the page is actually reachable.
+
+## Current State
+
+- **No `/donate` route exists** in this codebase. The live `emergentworks.org/donate/` page is from the *old* site (single-column, outdated tiers, no visible widget embed in fetched markup).
+- **Donation data exists** at `src/data/donation.ts`: `donationTiers` (4 tiers with `amount`, `label`, `impact`) and `donationTrust` (501(c)(3) / EIN disclosure). Both are currently consumed only by `src/pages/get-involved.astro` (donation card grid at `get-involved.astro:144-166`).
+- **Donate CTAs today:**
+  - `Header.astro:33` and `:43` — "Donate" buttons link to `/get-involved/#donate`.
+  - `get-involved.astro:162` — "Make a Donation" is a `mailto:` link (no online giving path at all).
+- **Page pattern to follow:** every page (`about`, `impact`, `get-involved`, etc.) uses `Layout` → `Header` → `PageHero` (background image + kicker + title + subtitle) → `st-section` blocks → `Footer`, with scoped `<style>` blocks and `st-*` utility classes from `global.css` (e.g., `st-grid-60-40`, `st-kicker`, `st-divider`, `data-reveal`).
+- **Hero images available for reuse** in `src/assets/`: `hero/community.jpg` (homepage), `heroes/get-involved.jpg`, `heroes/impact.jpg`, `impact/community-engagement.jpg`, etc.
+- **Verified content sources** for the new story copy:
+  - `src/data/stats.ts` — 284 graduates, 73% employed, $2+ above NYC minimum wage.
+  - `src/data/organization.ts` — mission, extendedMission, founded 2020, EIN 85-1197743, staff stats (88% alumni, 75% system-impacted, 38% female-identifying).
+  - `src/data/programs.ts` — real T.RAP / TECK program descriptions (`programs` array and `programApproach` only).
+  - `src/data/donation.ts` — current tier impacts and trust statement.
+  - `src/data/testimonials.ts` — real participant/mentor quotes.
+- **⚠ Excluded source:** `expandedProgramDetails` in `programs.ts` is flagged `fabricated: true`. The donate page copy must NOT draw facts from it.
+- **Givebutter campaign:** `https://givebutter.com/emergentworks` ("Donate to Emergent Works", verified 501(c)(3), heading "Become a sustainable donor!"). The page is JS-rendered, so the exact widget/account IDs could not be extracted — see Blocking question.
+
+## Assumptions
+
+- [x] The site builds with `npm run build` and has no test/lint/typecheck scripts — verified in `package.json` (only `dev`, `build`, `preview`, `astro` scripts exist). DoD lines for test/lint/typecheck are struck accordingly.
+- [x] `donationTiers` in `src/data/donation.ts` represents the *current* donor levels the user wants showcased ($50/$100/$250/$1,000) — these are the levels in the "donor component" the user referenced on `get-involved.astro`.
+- [x] The Givebutter campaign slug for the current campaign is `emergentworks` — the user supplied `https://givebutter.com/emergentworks` as the campaign to point at.
+- [ ] The existing donation card grid on `get-involved.astro` stays as-is; the donate page reuses the same data (and a similar card treatment) rather than moving it.
+- [ ] [?] Givebutter's generic iframe embed (`https://givebutter.com/embed/c/emergentworks`) targets the same campaign as the official dashboard widget would — to be confirmed when the Blocking question resolves; the dashboard embed snippet is the authoritative answer.
+- [ ] [?] The donate page should be statically rendered with zero client JS apart from the Givebutter embed itself (no React island needed) — Astro-only is the default per CLAUDE.md architecture notes.
+
+## Open Questions & Decisions
+
+### Execution Policy
+
+These settings control how phases verify completion. They can be changed at any time via `/dr-plan @[this-plan] answer questions` — they are not terminal decisions.
+
+- [ ] **Verification Policy** [OPEN] Current: Adaptive (default)
+  Last changed: never
+
+  How should Phase Exit Gates verify completion?
+  - Option A (Always): Every phase spawns `project-management:plan-verifier`. Highest rigor, highest token cost.
+  - Option B (Adaptive): Each phase is annotated at create-time with `<!-- verifier-recommendation: yes|no -->`. The verifier runs only on phases the model judged worth the cost.
+  - Option C (Never): No verifier subagent. Agent self-review only. Lowest cost, lowest rigor.
+
+### Blocking
+
+Must resolve before implementation starts.
+
+- [ ] [AWAITING] **Which Givebutter embed method, and with what exact code?** Donations route by account/campaign ID — this must NOT be guessed or reconstructed. The implementer may only use embed code that comes verbatim from one of these resolutions:
+  - Option A (preferred): User pastes the official **widget embed snippet** from the Givebutter dashboard (Dashboard → Campaign → Share → Embed). This is a `<script src="https://widgets.givebutter.com/...">` + `<givebutter-widget id="...">` pair containing the account/widget IDs. Most polished look, matches "Givebutter's widget" in the request.
+  - Option B: Use the campaign-slug **iframe embed** — `<iframe src="https://givebutter.com/embed/c/emergentworks" ...>` — which requires no dashboard access and targets the public campaign at `givebutter.com/emergentworks`. Acceptable fallback if the user prefers not to dig out the dashboard snippet; confirm the slug is the same campaign as the current live donate page.
+
+### Non-Blocking
+
+Can resolve during implementation.
+
+- [ ] [OPEN] **Hero image choice.** Default: `src/assets/hero/community.jpg` (community group shot — "your support powers this community" framing; currently the homepage hero, so reuse is not side-by-side with /donate). Alternatives: `heroes/get-involved.jpg` (mentor + participant, most thematically "support" but is the sibling page's hero), `impact/community-engagement.jpg`.
+- [ ] [OPEN] **Header Donate button target.** Default: repoint `/get-involved/#donate` → `/donate/` in both desktop (`Header.astro:33`) and mobile (`Header.astro:43`) navs. Alternative: keep header pointing at get-involved and only link from the get-involved section.
+- [ ] [OPEN] **Get-involved "Make a Donation" CTA.** Default: replace the `mailto:` link at `get-involved.astro:162` with a link to `/donate/`. The "Donate" way-card (`href: "#donate"`) keeps pointing at the on-page section, which then funnels to /donate/.
+- [ ] [OPEN] **Add "Donate" to `navLinks`?** Default: no — keep it as the styled button only (current pattern), just repointed.
+
+## Success Criteria
+
+Plan-level outcomes. Flipping all of these is how we know the plan succeeded.
+
+- [ ] `/donate/` builds and renders with the site's standard chrome (Header, PageHero, Footer) and is included in the generated sitemap.
+- [ ] The Givebutter embed loads on the page and targets the same campaign as `givebutter.com/emergentworks`, using embed code sourced from the resolved Blocking question (never reconstructed).
+- [ ] Desktop layout: story content left, donation widget right (sticky), mirroring the Givebutter campaign-page format. Mobile: stacked, widget reachable near the top.
+- [ ] Story copy is built only from verified sources (`stats.ts`, `organization.ts`, `programs.ts` non-fabricated sections, `donation.ts`, `testimonials.ts`) — no outdated figures from the old donate page ($15/$150/$500 tiers, "$500 supports a mentee") and nothing from `expandedProgramDetails`.
+- [ ] Donor levels from `donationTiers` are showcased with their impact descriptions, plus the `donationTrust` disclosure.
+- [ ] Header "Donate" buttons and the get-involved donation CTA route to `/donate/` (per resolved OPEN defaults).
+
+## Definition of Done
+
+Every Phase Exit Gate must confirm these before flipping any `[x]` in the phase:
+
+- Build passes: `npm run build`
+- ~~Tests pass~~ — struck: no test runner configured in this repo (see Assumptions).
+- ~~Lint clean~~ — struck: no lint script/config in this repo.
+- ~~Typecheck clean~~ — struck: no `@astrojs/check` installed and no typecheck script; `astro build` surfaces template/TS errors.
+
+**Reminder (CLAUDE.md):** do NOT start `npm run dev` / `npm run preview` from Claude Code. Visual verification requires the developer to start the server.
+
+## Implementation Plan
+
+### Phase 1: Build the /donate page
+
+#### Tasks
+
+- [ ] Create `src/pages/donate.astro` following the established page pattern (`Layout` → `Header currentPath="/donate/"` → `PageHero` → sections → `Footer`).
+- [ ] **Hero:** `PageHero` with the resolved hero image (default `hero/community.jpg`), donation-focused kicker/title/subtitle (e.g., kicker "Support", title in the site's two-line `<br/>` style, subtitle grounded in the mission from `organization.ts`).
+- [ ] **Two-column section** (story left ~60%, widget right ~40% — model on `st-grid-60-40` or a custom grid like get-involved's patterns):
+  - Left: fresh story copy drafted ONLY from verified sources — mission/extendedMission (`organization.ts`), what programs do (T.RAP/TECK descriptions from `programs.ts` `programs`/`programApproach` arrays), current impact stats woven in (284 graduates, 73% employed, $2+ above NYC minimum wage from `stats.ts`), and optionally one real testimonial quote from `testimonials.ts`. Tone/structure modeled on the Givebutter campaign-page format (short headline, narrative paragraphs, stat highlights), NOT the outdated live page's facts. Explicitly exclude `expandedProgramDetails` (flagged `fabricated: true`).
+  - Right: the Givebutter embed (verbatim code from the resolved Blocking question) in a card-style container; `position: sticky` within the column on desktop so the form stays in view while reading.
+- [ ] **Donor levels section:** render `donationTiers` from `src/data/donation.ts` as impact cards (reuse/adapt the `donation-card` pattern from `get-involved.astro:152-160`) under a heading that frames "what your gift buys"; include `donationTrust` disclosure text beneath.
+- [ ] **Responsive behavior:** below ~900px the two columns stack with the widget above or immediately after the story intro (donate action must not be buried); donor-level grid collapses 4→2→1 like get-involved's.
+- [ ] SEO: set a descriptive `title` (and description if `Layout` supports it — check `Layout.astro` props) for the page.
+
+#### Verification
+
+- [ ] Run `npm run build` — expected: success, `dist/donate/index.html` emitted.
+- [ ] Read `dist/donate/index.html` (or the source) — expected: Givebutter embed markup present and byte-identical to the user-provided/resolved embed code; no occurrence of outdated figures (`$15`, `$150`, `$500` tier framing) or fabricated-source content.
+- [ ] Read `dist/sitemap-*.xml` after build — expected: `/donate/` URL present.
+- [ ] Grep `src/pages/donate.astro` for `expandedProgramDetails` — expected: no matches.
+
+#### Acceptance Criteria
+
+- `/donate/` page exists with hero, left-story/right-widget layout, and donor-level cards sourced from `donationTiers`.
+- All factual claims in the copy trace to a verified data file (`stats.ts`, `organization.ts`, `programs.ts` non-fabricated, `donation.ts`, `testimonials.ts`).
+- Embed code matches the Blocking-question resolution exactly.
+- Build is green.
+
+#### Phase Exit Gate
+
+<!-- verifier-recommendation: yes — this phase produces the user-visible contract (page copy + donation embed); embed correctness routes real money and copy accuracy requires semantic evaluation against the verified-sources rule, which build commands cannot check. -->
+
+- [ ] Run Definition of Done commands (see plan header). All must pass.
+- [ ] **Spawn plan-verifier.** Invoke `subagent_type="project-management:plan-verifier"` with the plan file path and phase number. Wait for its report.
+- [ ] **Apply verification report.** Flip `[x]` only for tasks the verifier reports as PASS. Keep `[ ]` for FAIL and UNVERIFIED with a note referencing the verifier's reasoning.
+- [ ] **Agent self-review.** Re-read Tasks above, confirm the verifier's recommendations are reflected, note any UNVERIFIEDs that need follow-up in future phases or the Retro.
+
+### Phase 2: Wire site entry points to /donate
+
+#### Tasks
+
+- [ ] Repoint header "Donate" buttons (`Header.astro:33` desktop, `Header.astro:43` mobile) from `/get-involved/#donate` to `/donate/` (per OPEN default; skip if resolved otherwise).
+- [ ] Update `get-involved.astro:162`: replace the `mailto:` "Make a Donation" CTA with a link to `/donate/` (per OPEN default).
+- [ ] Sweep for any other donate-intent links (`Grep` for `#donate`, `Donation%20Inquiry`, `mailto:.*donat` across `src/`) and repoint where it makes sense; leave the get-involved `#donate` way-card anchor working.
+
+#### Verification
+
+- [ ] Run `npm run build` — expected: success.
+- [ ] Grep `src/` for `/get-involved/#donate` — expected: no remaining header-button matches (the way-card's internal `#donate` anchor on get-involved itself is fine).
+- [ ] Read `dist/index.html` header markup — expected: Donate button href is `/donate/`.
+
+#### Acceptance Criteria
+
+- Every primary donate CTA on the site routes to `/donate/`.
+- No dead anchors introduced; `#donate` section on get-involved still exists for the way-card link.
+- Build is green.
+
+#### Phase Exit Gate
+
+<!-- verifier-recommendation: no — small, mechanical href edits fully covered by the grep/build Verification steps above. -->
+
+- [ ] Run Definition of Done commands (see plan header). All must pass.
+- [ ] **Agent self-review.** Re-read all Tasks above. Flip `[x]` only for tasks whose Verification passed. Any failing or skipped task stays `[ ]` with a short note explaining why. Under-report beats over-report.
+
+### Phase 3: Visual verification
+
+#### Tasks
+
+- [ ] Ask the developer to start the dev or preview server (per CLAUDE.md, Claude Code must not start it). Confirm it is running before proceeding.
+- [ ] With Playwright MCP against the running server, load `/donate/`: confirm the hero renders, the Givebutter widget/iframe actually loads its form (not a broken frame), the two-column layout holds on desktop viewport, and the stacked layout works at a mobile viewport (~390px).
+- [ ] Click the header "Donate" button from the homepage — confirm navigation to `/donate/`.
+- [ ] Capture a screenshot of the page for the user's review.
+
+#### Verification
+
+- [ ] Playwright snapshot of `/donate/` — expected: story copy left, widget right, donor-level cards present, no console errors from the embed beyond third-party noise.
+- [ ] Mobile-viewport snapshot — expected: stacked layout, donate form reachable without excessive scrolling.
+
+#### Acceptance Criteria
+
+- Widget visibly loads the Emergent Works campaign form in a real browser.
+- Layout verified at desktop and mobile widths.
+- Screenshot shared with the user.
+
+#### Phase Exit Gate
+
+<!-- verifier-recommendation: no — this phase IS the verification (live-browser checks); a fresh-context verifier could not improve on direct Playwright evidence and cannot start the server either. -->
+
+- [ ] Run Definition of Done commands (see plan header). All must pass.
+- [ ] **Agent self-review.** Re-read all Tasks above. Flip `[x]` only for tasks whose Verification passed. Any failing or skipped task stays `[ ]` with a short note explaining why (e.g., developer unavailable to start the server — note and escalate rather than skipping silently). Under-report beats over-report.
+
+## Refinement History
+
+- **2026-06-04:** Initial plan creation.
+
+## Completion
+
+After the final phase's Exit Gate passes, the executing agent performs these steps without prompting the user:
+
+1. Populate the Retro section below from observable execution signals (what worked, what didn't, learnings). Write in terse bullet form.
+2. Move this plan file from `_claude/plans/in_progress/` to `_claude/plans/completed/`.
+
+If the final phase's Exit Gate has unresolved FAILs or UNVERIFIEDs after the allowed retries, do NOT move the file or write the retro. Escalate to the user with full context and stop.
+
+## Retro
+
+<!-- populated at completion — do not hand-edit before execution finishes -->
+
+### What worked
+
+- [Populated at completion]
+
+### What didn't
+
+- [Populated at completion]
+
+### Learnings
+
+- [Populated at completion — things a future plan would do differently]
