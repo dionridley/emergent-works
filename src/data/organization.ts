@@ -19,7 +19,7 @@ export const organization = {
     title: "Founder & Executive Director",
   },
   mission:
-    "Emergent Works empowers system-impacted Black and Brown youth and adults to reclaim their futures through technology, creativity, and community.",
+    "Emergent Works helps justice-impacted youth and adults access economic mobility through digital education, creative expression, and workforce development. Our programs build skills, confidence, and real career pathways while empowering alumni to return to their communities as leaders and educators.",
   extendedMission:
     "At Emergent Works, we break cycles of incarceration and poverty by equipping BIPOC individuals impacted by the criminal justice system with the tools to thrive in today's digital world. Through education, employment, economic mobility, and creativity, we empower our participants to build financial independence, grow personally, and lead within their communities.",
   staffStats: {
