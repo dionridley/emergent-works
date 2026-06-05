@@ -1,0 +1,282 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import PageHero from "../components/PageHero.astro";
+import { organization } from "../data/organization";
+import { donationTiers, donationTrust } from "../data/donation";
+import { primaryStats } from "../data/stats";
+import { testimonials } from "../data/testimonials";
+import heroImage from "../assets/hero/community.jpg";
+
+const makeda = testimonials.find((t) => t.name === "Makeda")!;
+---
+
+<Layout
+  title="Donate"
+  description="Support Emergent Works — your gift funds stipends, mentorship, and digital skills training that help system-impacted individuals rewrite their futures."
+>
+  <Header currentPath="/donate/" />
+
+  <PageHero
+    image={heroImage}
+    imageAlt="The Emergent Works community gathered together"
+    kicker="Support"
+    title="Your Gift Writes<br />the Next Chapter"
+    subtitle={organization.mission}
+  />
+
+  <!-- Story + Donation widget -->
+  <section class="st-section">
+    <div class="st-container">
+      <div class="donate-grid">
+        <div class="donate-story" data-reveal>
+          <span class="st-kicker">Why Give</span>
+          <h2>Every Story Here<br />Started With Support</h2>
+          <div class="st-divider"></div>
+          <p class="st-dropcap">
+            Since {organization.founded}, Emergent Works has worked to break cycles of
+            incarceration and poverty by equipping system-impacted Black and Brown youth
+            and adults with the tools to thrive in today's digital world. Through
+            education, employment, economic mobility, and creativity, our participants
+            build financial independence, grow personally, and lead within their
+            communities.
+          </p>
+          <p>
+            Your donation powers two free programs. <strong>T.RAP</strong> blends music
+            production, songwriting, recording, civic engagement, and digital literacy
+            with social-emotional learning and career readiness — NYC youth ages 16&ndash;24
+            earn milestone-based stipends as they build practical skills and create
+            original music. <strong>TECK</strong> pairs system-impacted adults across the
+            country with industry professionals for 12 weeks of one-on-one mentorship in
+            digital literacy, coding, and UI/UX, ending with portfolio-ready projects.
+          </p>
+
+          <div class="donate-stats">
+            {primaryStats.map((stat) => (
+              <div class="donate-stat">
+                <div class="donate-stat__value">{stat.value}</div>
+                <div class="donate-stat__label">{stat.label}</div>
+                <p class="donate-stat__desc">{stat.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <p>
+            Giving here builds a ladder, not just a program: {organization.staffStats.alumni} of
+            our staff are program alumni and {organization.staffStats.systemImpacted} are
+            system-impacted themselves. When you fund a stipend, an instructor's paid
+            hours, or a mentorship session, you're investing in people who turn around
+            and lead the next cohort.
+          </p>
+
+          <blockquote class="st-pullquote" style="font-size:clamp(1.125rem, 2vw, 1.5rem);">
+            "{makeda.quote}"
+            <cite>— {makeda.name}, {makeda.program} Graduate</cite>
+          </blockquote>
+
+          <p>
+            Every dollar directly funds programming. Whether you give once or become a
+            sustaining donor, your support turns into stipends, studio time, mentorship,
+            and first paychecks in tech.
+          </p>
+        </div>
+
+        <div class="donate-widget" data-reveal="delay-1">
+          <div class="donate-widget__card">
+            <span class="st-kicker" style="margin-bottom:var(--st-space-3);display:block;">Make a Donation</span>
+            <givebutter-widget id="jNOdoL"></givebutter-widget>
+            <!-- Givebutter widget loader — verbatim from the Givebutter dashboard; do not modify -->
+            <script
+              is:inline
+              async
+              src="https://widgets.givebutter.com/latest.umd.cjs?acct=Dmyv83PBiHwhPXgd&p=other"
+            ></script>
+            <p class="donate-widget__trust">
+              Secure giving powered by Givebutter. Emergent Works is a
+              {organization.nonprofitStatus} nonprofit — donations are tax-deductible.
+              EIN: {organization.ein}.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Donor levels -->
+  <section class="st-section st-section--white">
+    <div class="st-container">
+      <div style="text-align:center;" data-reveal>
+        <span class="st-kicker">Donor Levels</span>
+        <h2>What Your Gift<br />Makes Possible</h2>
+        <p style="color:var(--st-text-secondary);max-width:480px;margin:var(--st-space-4) auto var(--st-space-8);">Here's how each level of support translates to real impact for our participants.</p>
+      </div>
+      <div class="donation-grid" data-reveal="delay-1">
+        {donationTiers.map((tier) => (
+          <div class="donation-card">
+            <div class="donation-card__amount">{tier.label}</div>
+            <div class="donation-card__divider" />
+            <p class="donation-card__impact">{tier.impact}</p>
+          </div>
+        ))}
+      </div>
+      <div style="text-align:center;margin-top:var(--st-space-7);" data-reveal="delay-2">
+        <p style="font-size:0.75rem;color:var(--st-text-light);max-width:400px;margin-left:auto;margin-right:auto;">{donationTrust}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Other ways to give -->
+  <section class="st-section--compact st-section--green">
+    <div class="st-container" style="text-align:center;">
+      <div data-reveal>
+        <span class="st-kicker">Beyond Giving</span>
+        <h2 style="color:var(--st-white);">More Ways to<br />Join the Story</h2>
+        <p style="color:var(--st-sage);max-width:480px;margin:var(--st-space-4) auto var(--st-space-6);">Mentor, partner, or volunteer — there's a place for every skill at Emergent Works.</p>
+        <a href="/get-involved/" class="st-btn st-btn--gold">Get Involved <span class="st-btn-arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .donate-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: var(--st-space-9);
+    align-items: start;
+  }
+
+  .donate-story p {
+    margin-bottom: var(--st-space-5);
+  }
+
+  .donate-story p:last-child {
+    margin-bottom: 0;
+  }
+
+  .donate-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--st-space-5);
+    margin: var(--st-space-7) 0;
+    padding: var(--st-space-6) 0;
+    border-top: 1px solid var(--st-border);
+    border-bottom: 1px solid var(--st-border);
+  }
+
+  .donate-stat__value {
+    font-family: var(--st-font-heading);
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    font-weight: 800;
+    color: var(--st-green);
+    line-height: 1.1;
+  }
+
+  .donate-stat__label {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--st-gold);
+    margin: var(--st-space-2) 0 var(--st-space-2);
+  }
+
+  .donate-stat__desc {
+    font-size: 0.8125rem;
+    color: var(--st-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 0 !important;
+  }
+
+  .donate-widget {
+    position: sticky;
+    top: calc(var(--st-header-height) + var(--st-space-5));
+  }
+
+  .donate-widget__card {
+    background: var(--st-white);
+    border: 1px solid var(--st-border);
+    border-radius: 4px;
+    padding: var(--st-space-5);
+    box-shadow: 0 8px 24px rgba(32, 73, 60, 0.08);
+  }
+
+  .donate-widget__trust {
+    font-size: 0.75rem;
+    color: var(--st-text-light);
+    line-height: 1.6;
+    margin-top: var(--st-space-4);
+  }
+
+  .donation-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--st-space-5);
+  }
+
+  .donation-card {
+    text-align: center;
+    padding: var(--st-space-6) var(--st-space-4);
+    border: 1px solid var(--st-border);
+    border-radius: 4px;
+    transition: transform var(--st-duration) var(--st-ease), box-shadow var(--st-duration) var(--st-ease);
+  }
+
+  .donation-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(32, 73, 60, 0.08);
+  }
+
+  .donation-card__amount {
+    font-family: var(--st-font-heading);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: var(--st-green);
+  }
+
+  .donation-card__divider {
+    width: 32px;
+    height: 1px;
+    background: var(--st-gold);
+    margin: var(--st-space-4) auto;
+  }
+
+  .donation-card__impact {
+    font-size: 0.8125rem;
+    color: var(--st-text-secondary);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .donate-grid {
+      grid-template-columns: 1fr;
+      gap: var(--st-space-7);
+    }
+
+    /* Donate action surfaces first on mobile */
+    .donate-widget {
+      order: -1;
+      position: static;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .donation-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .donate-stats {
+      grid-template-columns: 1fr;
+      gap: var(--st-space-6);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .donation-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
