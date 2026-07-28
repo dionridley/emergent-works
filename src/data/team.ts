@@ -16,10 +16,10 @@ export const staff: TeamMember[] = [
 Army is a graduate of the Unlocked Futures Cohort, a partnership between New Profit and John Legend's FREE AMERICA supporting justice-impacted leaders. He has also participated in the Rockwood Leadership Institute and the Dream Justice Cohort for leadership development, and Camelback Ventures. He is a graduate of Columbia University's developing leadership cohort, as well as an international emcee and recording artist. His academic training, professional artistic expertise, and experience with the justice system and justice reform strengthen EW's credibility in the field as well as its ability to deliver to program participants and committed supporters.`,
   },
   {
-    name: "Tine Reinert",
-    title: "Program Director",
+    name: "Tine Reinhart",
+    title: "Project Director",
     image: "/images/team/tine-reinert.jpg",
-    bio: `Tine Reinert serves as Program Director at Emergent Works, bringing over 12 years of experience in youth development and eight years specifically in youth justice work. Originally from Denmark and a graduate of Malmö University, as well as a graduate of Emergent Works' own program, she pairs an international perspective with lived program experience and deep, on-the-ground expertise supporting system-impacted young people.
+    bio: `Tine serves as Project Director at Emergent Works, bringing over 12 years of experience in youth development and eight years specifically in youth justice work.
 
 At EW, Tine oversees all programmatic operations, ensuring strategic alignment, strong implementation, and measurable impact. She leads the educational vision of the organization, shaping curriculum, strengthening instructional design, and coaching staff to deliver high-quality, transformative learning experiences. Her leadership is grounded in equity, accountability, and an unwavering belief in young people's ability to build powerful futures when equipped with the right tools and support.`,
   },
@@ -74,6 +74,7 @@ export const boardOfDirectors: TeamMember[] = [
     name: "Monti Hill",
     title: "Board Member",
     image: "/images/team/monti-hill.jpg",
+    bio: `Monti is a creative from many intersections who uplifts those who are directly impacted by systems and policy changes. She believes marketing and communications are only transformative when communities lead the storytelling and visual design. Her role with EW is to support staff and leadership in thinking broadly about marketing in systems change work.`,
   },
 ];
 
