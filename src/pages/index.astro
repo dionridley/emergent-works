@@ -8,7 +8,7 @@ import { testimonials } from "../data/testimonials";
 import { programs, programApproach } from "../data/programs";
 import { primaryStats } from "../data/stats";
 import { partners } from "../data/partners";
-import heroCommunity from "../assets/hero/community.jpg";
+import heroImage from "../assets/hero/team-laptops.jpg";
 import careerDevelopment from "../assets/impact/career-development.jpg";
 
 const nashid = testimonials.find((t) => t.name === "Nashid")!;
@@ -32,12 +32,11 @@ const carouselTestimonials = [nashid, dontay, sheisty, makeda, maria, wayne, cry
   <!-- HERO: Full-bleed cinematic -->
   <section class="hero">
     <div class="hero__image">
-      <Image src={heroCommunity} alt="Emergent Works community" layout="full-width" priority />
+      <Image src={heroImage} alt="Emergent Works participants holding their laptops" layout="full-width" priority />
       <div class="hero__overlay" />
     </div>
     <div class="st-container hero__content">
       <div data-reveal>
-        <span class="st-chapter">A story of transformation</span>
         <h1>Rewriting<br />Futures</h1>
         <p class="hero__sub">{organization.mission}</p>
         <div class="hero__actions">
@@ -253,13 +252,14 @@ const carouselTestimonials = [nashid, dontay, sheisty, makeda, maria, wayne, cry
 
   .hero__image {
     position: absolute;
-    inset: 0;
+    inset: var(--st-header-height) 0 0;
   }
 
   .hero__image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center top;
   }
 
   .hero__overlay {
